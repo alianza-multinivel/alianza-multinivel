@@ -478,6 +478,145 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
 .slide.active .problem-col:last-child .problem-pill:nth-child(8) { transition-delay: .28s; }
 .slide.active .problem-col:last-child .problem-pill:nth-child(9) { transition-delay: .31s; }
 
+/* ── Slide 2 Pain Cards ── */
+.pain-grid-slide {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  max-width: 1300px; width: 100%;
+}
+.pain-card-s {
+  background: linear-gradient(160deg, #0D0D16 0%, #111125 100%);
+  border: 1px solid rgba(123,47,255,0.2);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+}
+.pain-card-s:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(123,47,255,0.15);
+  border-color: rgba(123,47,255,0.4);
+}
+.pain-card-s:nth-child(-n+3) { grid-column: span 1; }
+.pain-card-wide { grid-column: span 1; }
+/* Row layout: 3 + 2 + 3 + 2 = 10 cards in 5-col grid */
+.pain-card-s:nth-child(1) { grid-column: 1 / 3; }
+.pain-card-s:nth-child(2) { grid-column: 3 / 4; }
+.pain-card-s:nth-child(3) { grid-column: 4 / 6; }
+.pain-card-s:nth-child(4) { grid-column: 1 / 3; }
+.pain-card-s:nth-child(5) { grid-column: 3 / 6; }
+.pain-card-s:nth-child(6) { grid-column: 1 / 3; }
+.pain-card-s:nth-child(7) { grid-column: 3 / 4; }
+.pain-card-s:nth-child(8) { grid-column: 4 / 6; }
+.pain-card-s:nth-child(9) { grid-column: 1 / 3; }
+.pain-card-s:nth-child(10) { grid-column: 3 / 6; }
+
+.pain-card-s-text { padding: 16px 18px 8px; }
+.pain-card-s-text h4 {
+  font-family: 'Manrope', sans-serif; font-weight: 800;
+  font-size: 14px; color: #fff; margin-bottom: 4px;
+}
+.pain-card-s-text p {
+  font-size: 11px; color: rgba(255,255,255,0.45); line-height: 1.5;
+}
+.pain-v-s {
+  flex: 1; min-height: 80px; margin: 0 8px 8px;
+  border-radius: 10px; position: relative; overflow: hidden;
+}
+/* Chart visual */
+.pain-v-chart-s {
+  background: linear-gradient(180deg, rgba(123,47,255,0.06), transparent);
+  padding: 10px 14px; display: flex; flex-direction: column;
+}
+.pv-stat {
+  font-family: 'Manrope', sans-serif; font-weight: 900;
+  font-size: 22px; color: #ff4d4d; align-self: flex-end;
+}
+.pv-stat-label {
+  font-size: 9px; color: rgba(255,255,255,0.25); align-self: flex-end;
+  margin-bottom: 6px;
+}
+.pv-bars {
+  display: flex; gap: 6px; align-items: flex-end;
+  height: 50px; margin-top: auto;
+}
+.pv-bar {
+  flex: 1; border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, var(--violet), var(--blue));
+}
+/* Logos visual */
+.pain-v-logos-s {
+  background: linear-gradient(135deg, rgba(123,47,255,0.04), rgba(34,51,255,0.04));
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 8px; padding: 14px;
+}
+.pv-ghost {
+  padding: 6px 14px; border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  font-family: 'Manrope', sans-serif; font-weight: 600;
+  font-size: 11px; color: rgba(255,255,255,0.25);
+}
+.pv-arrow { color: rgba(255,255,255,0.12); font-size: 14px; }
+/* Chat visual */
+.pain-v-chat-s {
+  background: linear-gradient(180deg, rgba(123,47,255,0.04), transparent);
+  padding: 10px; display: flex; flex-direction: column; gap: 6px;
+}
+.pv-bubble {
+  padding: 8px 12px; border-radius: 10px 10px 10px 3px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.06);
+  font-size: 11px; color: rgba(255,255,255,0.3);
+  max-width: 85%; font-style: italic;
+}
+.pv-reply {
+  border-radius: 10px 10px 3px 10px;
+  align-self: flex-end; color: rgba(255,255,255,0.15);
+  background: rgba(123,47,255,0.06);
+  border-color: rgba(123,47,255,0.12);
+}
+.pv-typing { width: 40px; text-align: center; }
+/* Users visual */
+.pain-v-users-s {
+  background: linear-gradient(180deg, rgba(123,47,255,0.04), transparent);
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px; flex-wrap: wrap;
+}
+.pv-user {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--gradient);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Manrope', sans-serif; font-weight: 800;
+  font-size: 14px; color: #fff;
+}
+.pv-abandon {
+  font-size: 10px; color: rgba(255,77,77,0.5);
+  font-family: 'Manrope', sans-serif; font-weight: 600;
+  margin-left: auto;
+}
+/* Money visual */
+.pain-v-money-s {
+  background: linear-gradient(180deg, rgba(123,47,255,0.04), transparent);
+  padding: 10px 14px; display: flex; flex-direction: column; gap: 4px;
+}
+.pv-money-row {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 11px; color: rgba(255,255,255,0.3);
+  font-family: 'Manrope', sans-serif;
+}
+.pv-loss {
+  font-weight: 800; color: rgba(255,77,77,0.7);
+}
+.pv-roi {
+  margin-top: 6px; padding: 5px 14px; border-radius: 6px;
+  background: rgba(255,77,77,0.1); border: 1px solid rgba(255,77,77,0.25);
+  font-family: 'Manrope', sans-serif; font-weight: 900;
+  font-size: 16px; color: rgba(255,77,77,0.8);
+  text-align: center;
+}
+
 /* ── Hourglass Animation ── */
 .hourglass-wrap {
   flex: 0 0 380px; display: flex; flex-direction: column;
@@ -888,33 +1027,132 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   </div>
 
   <!-- Slide 2: The Problem -->
-  <div class="slide" data-title="&iquest;Te suena familiar?">
+  <div class="slide" data-title="&iquest;Te suena familiar?" style="padding:30px 40px;">
     <div class="orb orb-violet" style="width:500px;height:500px;top:-100px;right:-150px;"></div>
     <div class="orb orb-blue" style="width:400px;height:400px;bottom:-100px;left:-120px;"></div>
-    <h2 class="fade-in" style="margin-bottom:28px;">&iquest;Te suena familiar?</h2>
-    <div class="problem-cols">
-      <div class="problem-col">
-        <div class="problem-pill fade-in"><span class="pill-num">01</span><span class="pill-txt">Arranca con todo… y a los días desaparece.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">02</span><span class="pill-txt">El "qué dirán" lo paraliza y lo hace esconderse.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">03</span><span class="pill-txt">Cada "visto" lo siente como rechazo personal.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">04</span><span class="pill-txt">No sabe qué decir por DM y termina improvisando.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">05</span><span class="pill-txt">Su mensaje suena a venta… y la gente se aleja.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">06</span><span class="pill-txt">Presenta, presenta… y no cierra nada.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">07</span><span class="pill-txt">No tiene seguimiento: se le enfrían los prospectos.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">08</span><span class="pill-txt">Pierde tiempo con curiosos porque no sabe calificar.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">09</span><span class="pill-txt">Cuando le ponen una objeción, se queda sin respuesta.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">10</span><span class="pill-txt">No sabe pedir la decisión: todo queda en "déjame pensarlo".</span></div>
+    <h2 class="fade-in" style="margin-bottom:20px;font-size:clamp(1.8rem,4vw,2.8rem);">&iquest;Te suena familiar?</h2>
+    <div class="pain-grid-slide fade-in d1">
+      <!-- Row 1: 3 cards -->
+      <div class="pain-card-s">
+        <div class="pain-card-s-text">
+          <h4>Llevas meses sin resultados</h4>
+          <p>Los n&uacute;meros no se mueven. Las listas se agotan y los prospectos no convierten.</p>
+        </div>
+        <div class="pain-v-s pain-v-chart-s">
+          <span class="pv-stat">-73%</span>
+          <span class="pv-stat-label">Conversi&oacute;n mensual</span>
+          <div class="pv-bars"><div class="pv-bar" style="height:80%;"></div><div class="pv-bar" style="height:65%;"></div><div class="pv-bar" style="height:50%;opacity:.7;"></div><div class="pv-bar" style="height:35%;opacity:.5;"></div><div class="pv-bar" style="height:20%;opacity:.3;"></div></div>
+        </div>
       </div>
-      <div class="problem-col">
-        <div class="problem-pill fade-in"><span class="pill-num">11</span><span class="pill-txt">No tiene un proceso: solo esperanza y motivación.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">12</span><span class="pill-txt">Su equipo no duplica y carga el negocio solo.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">13</span><span class="pill-txt">Vive apagando incendios porque no tiene sistema.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">14</span><span class="pill-txt">La IA no le ayuda porque no sabe usarla.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">15</span><span class="pill-txt">Se frustra, se desgasta y piensa en renunciar.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">16</span><span class="pill-txt">No tiene estrategia digital: depende de "a ver si sale algo".</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">17</span><span class="pill-txt">Un mes le va bien… y al siguiente cae a cero.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">18</span><span class="pill-txt">Se quema por querer hacerlo todo y no avanzar en nada.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">19</span><span class="pill-txt">La necesidad económica se le nota… y espanta prospectos.</span></div>
+      <div class="pain-card-s">
+        <div class="pain-card-s-text">
+          <h4>Ya probaste varias compa&ntilde;&iacute;as</h4>
+          <p>Cambiaste pensando que era el producto. Nunca fue la compa&ntilde;&iacute;a &mdash; fue la falta de sistema.</p>
+        </div>
+        <div class="pain-v-s pain-v-logos-s">
+          <div class="pv-ghost">Empresa 1</div><span class="pv-arrow">&rarr;</span>
+          <div class="pv-ghost">Empresa 2</div><span class="pv-arrow">&rarr;</span>
+          <div class="pv-ghost" style="color:#ff4d4d;border-color:rgba(255,77,77,0.3);">&iquest;Empresa 5?</div>
+        </div>
+      </div>
+      <div class="pain-card-s">
+        <div class="pain-card-s-text">
+          <h4>Tu upline solo da motivaci&oacute;n</h4>
+          <p>Mucho rah-rah, cero estrategia. No hay sistema, no hay resultados.</p>
+        </div>
+        <div class="pain-v-s pain-v-chat-s">
+          <div class="pv-bubble">&ldquo;&iexcl;T&uacute; puedes! Solo cree en ti 💪&rdquo;</div>
+          <div class="pv-bubble">&ldquo;Haz tu lista de 100 contactos&rdquo;</div>
+          <div class="pv-bubble">&ldquo;El &eacute;xito es tu decisi&oacute;n ✊&rdquo;</div>
+          <div class="pv-bubble pv-reply">Pero... &iquest;c&oacute;mo exactamente?</div>
+          <div class="pv-bubble pv-reply pv-typing">...</div>
+        </div>
+      </div>
+      <!-- Row 2: 2 wider cards -->
+      <div class="pain-card-s pain-card-wide">
+        <div class="pain-card-s-text">
+          <h4>Tus socios no se mueven</h4>
+          <p>Se inscriben emocionados y desaparecen. Sin estructura, el 90% abandona antes de los 90 d&iacute;as.</p>
+        </div>
+        <div class="pain-v-s pain-v-users-s">
+          <div class="pv-user" style="opacity:1;">A</div>
+          <div class="pv-user" style="opacity:.7;">B</div>
+          <div class="pv-user" style="opacity:.4;">C</div>
+          <div class="pv-user" style="opacity:.2;">D</div>
+          <div class="pv-user" style="opacity:.06;">E</div>
+          <span class="pv-abandon">90% abandona en 90 d&iacute;as</span>
+        </div>
+      </div>
+      <div class="pain-card-s pain-card-wide">
+        <div class="pain-card-s-text">
+          <h4>Has invertido sin ver retorno</h4>
+          <p>Paquetes, eventos, cursos. El dinero sali&oacute; y los resultados nunca llegaron.</p>
+        </div>
+        <div class="pain-v-s pain-v-money-s">
+          <div class="pv-money-row"><span>Paquete inicial</span><span class="pv-loss">-$500</span></div>
+          <div class="pv-money-row"><span>Eventos</span><span class="pv-loss">-$300</span></div>
+          <div class="pv-money-row"><span>Cursos online</span><span class="pv-loss">-$200</span></div>
+          <div class="pv-money-row"><span>Herramientas</span><span class="pv-loss">-$150</span></div>
+          <div class="pv-roi">ROI = $0</div>
+        </div>
+      </div>
+      <!-- Row 3: 3 cards -->
+      <div class="pain-card-s">
+        <div class="pain-card-s-text">
+          <h4>Presenta y no cierra</h4>
+          <p>Haces la presentaci&oacute;n perfecta pero al final nadie dice que s&iacute;.</p>
+        </div>
+        <div class="pain-v-s pain-v-chart-s">
+          <span class="pv-stat" style="color:#ff9900;">0%</span>
+          <span class="pv-stat-label">Tasa de cierre</span>
+          <div class="pv-bars"><div class="pv-bar" style="height:5%;opacity:.2;"></div><div class="pv-bar" style="height:3%;opacity:.15;"></div><div class="pv-bar" style="height:2%;opacity:.1;"></div><div class="pv-bar" style="height:1%;opacity:.08;"></div><div class="pv-bar" style="height:1%;opacity:.05;"></div></div>
+        </div>
+      </div>
+      <div class="pain-card-s">
+        <div class="pain-card-s-text">
+          <h4>Sin estrategia digital</h4>
+          <p>Dependes de &ldquo;a ver si sale algo&rdquo;. No tienes sistema de prospecci&oacute;n online.</p>
+        </div>
+        <div class="pain-v-s pain-v-logos-s" style="justify-content:center;">
+          <div class="pv-ghost" style="opacity:.15;">📱 IG</div>
+          <div class="pv-ghost" style="opacity:.15;">💬 WA</div>
+          <div class="pv-ghost" style="opacity:.15;">📧 Email</div>
+          <span class="pv-arrow" style="color:rgba(255,77,77,0.5);">✗</span>
+        </div>
+      </div>
+      <div class="pain-card-s">
+        <div class="pain-card-s-text">
+          <h4>Se frustra y piensa en renunciar</h4>
+          <p>La necesidad econ&oacute;mica se nota, espanta prospectos y el ciclo se repite.</p>
+        </div>
+        <div class="pain-v-s" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;">
+          <span style="font-size:36px;opacity:.6;">😔</span>
+          <span style="font-size:11px;color:rgba(255,77,77,0.5);font-weight:700;letter-spacing:.05em;">CICLO SIN FIN</span>
+          <div style="width:60px;height:60px;border:2px dashed rgba(255,77,77,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:18px;color:rgba(255,77,77,0.4);">🔄</span>
+          </div>
+        </div>
+      </div>
+      <!-- Row 4: 2 wider cards -->
+      <div class="pain-card-s pain-card-wide">
+        <div class="pain-card-s-text">
+          <h4>No sabe manejar objeciones</h4>
+          <p>Cuando le dicen &ldquo;d&eacute;jame pensarlo&rdquo;, se queda sin respuesta y pierde la venta.</p>
+        </div>
+        <div class="pain-v-s pain-v-chat-s">
+          <div class="pv-bubble pv-reply">&ldquo;D&eacute;jame pensarlo...&rdquo;</div>
+          <div class="pv-bubble pv-typing">...</div>
+          <div class="pv-bubble" style="opacity:.3;">Venta perdida ❌</div>
+        </div>
+      </div>
+      <div class="pain-card-s pain-card-wide">
+        <div class="pain-card-s-text">
+          <h4>Un mes bien, al siguiente cero</h4>
+          <p>Inconsistencia total. Sin proceso, los resultados son pura suerte.</p>
+        </div>
+        <div class="pain-v-s pain-v-chart-s">
+          <div class="pv-bars" style="align-items:flex-end;"><div class="pv-bar" style="height:70%;"></div><div class="pv-bar" style="height:15%;opacity:.3;"></div><div class="pv-bar" style="height:60%;"></div><div class="pv-bar" style="height:10%;opacity:.3;"></div><div class="pv-bar" style="height:55%;"></div><div class="pv-bar" style="height:8%;opacity:.2;"></div></div>
+        </div>
       </div>
     </div>
   </div>
