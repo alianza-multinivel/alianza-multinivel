@@ -1,0 +1,2143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alianza Multinivel — Escala tu negocio con método real</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:    #050508;
+      --card-dark:#0D0D16;
+      --white:    #ffffff;
+      --off-white:#F5F5F7;
+      --light-bg: #F0F0F3;
+      --violet:   #7B2FFF;
+      --blue:     #2233FF;
+      --grad:     linear-gradient(135deg, #2233FF, #7B2FFF);
+      --text-dark:#1A1A2E;
+      --text-body:#2f2f2f;
+      --text-gray:#7d7f83;
+      --text-light:#F0F0F5;
+      --glow:     0 0 40px rgba(123,47,255,0.35);
+      --border-dark: rgba(255,255,255,0.08);
+      --border-light: rgba(0,0,0,0.08);
+      --radius:   20px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--white);
+      color: var(--text-dark);
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5 { font-family: 'Manrope', sans-serif; }
+
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+    .container-wide { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+
+    .grad-text {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── TAGS ── */
+    .tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px; font-weight: 700; letter-spacing: .08em;
+      padding: 8px 18px; border-radius: 100px;
+      text-transform: uppercase;
+    }
+    .tag-dark {
+      background: rgba(123,47,255,0.12);
+      border: 1px solid rgba(123,47,255,0.35);
+      color: #C39FFF;
+    }
+    .tag-light {
+      background: rgba(123,47,255,0.08);
+      border: 1px solid rgba(123,47,255,0.2);
+      color: var(--violet);
+    }
+    .tag .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--violet); }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--grad); color: #fff;
+      font-family: 'Manrope', sans-serif;
+      font-size: 18px; font-weight: 700;
+      padding: 20px 40px; border-radius: 14px;
+      border: none; cursor: pointer; text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 30px rgba(123,47,255,0.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(123,47,255,0.55); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent; color: var(--text-dark);
+      font-family: 'Manrope', sans-serif;
+      font-size: 18px; font-weight: 600;
+      padding: 19px 38px; border-radius: 14px;
+      border: 1.5px solid rgba(0,0,0,0.15);
+      cursor: pointer; text-decoration: none; transition: all .2s;
+    }
+    .btn-outline:hover { border-color: var(--violet); background: rgba(123,47,255,0.08); }
+    .btn-dark {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--black); color: #fff;
+      font-family: 'Manrope', sans-serif;
+      font-size: 18px; font-weight: 700;
+      padding: 20px 40px; border-radius: 14px;
+      border: none; cursor: pointer; text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+
+    .section-dark { background: var(--white); color: var(--text-dark); padding: 120px 0; }
+    .section-light { background: var(--white); color: var(--text-dark); padding: 120px 0; }
+    .section-off { background: var(--off-white); color: var(--text-dark); padding: 120px 0; }
+
+    /* ── LOGO TRANSPARENT ── */
+    .logo-hero {
+      height: 140px; margin-bottom: 32px;
+      filter: drop-shadow(0 0 40px rgba(123,47,255,0.5)) drop-shadow(0 0 80px rgba(123,47,255,0.25));
+      animation: logoPulse 4s ease-in-out infinite;
+    }
+    .logo-mid {
+      height: 100px; margin-bottom: 28px;
+      filter: drop-shadow(0 0 30px rgba(123,47,255,0.4));
+    }
+    .logo-final {
+      height: 160px; margin-bottom: 36px;
+      filter: drop-shadow(0 0 50px rgba(123,47,255,0.6)) drop-shadow(0 0 100px rgba(123,47,255,0.3));
+      animation: logoPulse 4s ease-in-out infinite;
+    }
+    .logo-watermark {
+      position: absolute; height: 300px; opacity: 0.03;
+      pointer-events: none; z-index: 0;
+    }
+    @keyframes logoPulse {
+      0%, 100% { filter: drop-shadow(0 0 40px rgba(123,47,255,0.5)) drop-shadow(0 0 80px rgba(123,47,255,0.25)); }
+      50% { filter: drop-shadow(0 0 60px rgba(123,47,255,0.7)) drop-shadow(0 0 120px rgba(123,47,255,0.4)); }
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo img { height: 40px; }
+    .nav-logo span {
+      font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 20px;
+      color: var(--text-dark);
+    }
+    .nav-cta { font-size: 15px; padding: 14px 28px; border-radius: 12px; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 140px 0 80px;
+      position: relative; overflow: hidden;
+      background: var(--white);
+    }
+    /* Background speaker image - right side */
+    .hero-bg-image {
+      position: absolute; top: 0; right: 0;
+      width: 55%; height: 100%;
+      background: url('evento-principal.jpg') center center / cover no-repeat;
+      z-index: 1;
+    }
+    /* Gradient overlays to blend speaker into dark bg */
+    .hero-bg-image::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 35%, rgba(255,255,255,0.1) 100%);
+      z-index: 2;
+    }
+    .hero-bg-image::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(255,255,255,1) 0%, transparent 40%),
+                  linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, transparent 25%);
+      z-index: 3;
+    }
+    /* Subtle purple glow */
+    .hero-glow {
+      position: absolute; top: 10%; right: 15%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(123,47,255,0.06) 0%, transparent 65%);
+      pointer-events: none; z-index: 4;
+    }
+    .hero-content {
+      position: relative; z-index: 10;
+      max-width: 1280px; margin: 0 auto;
+      padding: 0 40px; width: 100%;
+    }
+    .hero-text {
+      max-width: 620px;
+    }
+    #hero h1 {
+      font-weight: 900;
+      font-size: clamp(48px, 6vw, 84px); line-height: 1.02;
+      letter-spacing: -0.04em; margin-bottom: 24px;
+      text-align: left; color: var(--text-dark);
+    }
+    #hero p.subtitle {
+      font-size: 19px; color: var(--text-body);
+      max-width: 540px; margin: 0 0 40px; line-height: 1.7;
+      text-align: left;
+    }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; justify-content: flex-start; margin-bottom: 0; }
+
+    .hero-stats-bar {
+      position: relative; z-index: 10;
+      max-width: 1280px; margin: 0 auto;
+      padding: 0 40px;
+    }
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
+      width: 100%;
+      padding-top: 60px; margin-top: 80px;
+      border-top: 1px solid var(--border-light);
+    }
+    .stat-item { text-align: center; }
+    .stat-number { font-family: 'Manrope', sans-serif; font-weight: 900; font-size: 48px; line-height: 1; display: block; color: var(--text-dark); }
+    .stat-label { font-size: 15px; color: var(--text-gray); margin-top: 8px; }
+
+    /* ── MARQUEE ── */
+    .marquee-section {
+      padding: 48px 0; overflow: hidden;
+      background: var(--off-white);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .marquee-label {
+      text-align: center; font-size: 13px; font-weight: 600; color: var(--text-gray);
+      text-transform: uppercase; letter-spacing: .1em; margin-bottom: 28px;
+      font-family: 'Manrope', sans-serif;
+    }
+    .marquee-track {
+      display: flex; gap: 56px; align-items: center;
+      animation: marquee 35s linear infinite;
+      width: max-content;
+    }
+    .marquee-track .logo-item {
+      display: flex; align-items: center; gap: 0;
+      white-space: nowrap; flex-shrink: 0;
+      font-family: 'Manrope', sans-serif; font-weight: 800;
+      font-size: 24px; letter-spacing: -0.01em;
+    }
+    .marquee-sep {
+      color: rgba(0,0,0,0.12); font-size: 28px; font-weight: 300;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── PAIN — LIGHT SECTION ── */
+    .pain-grid {
+      display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px;
+    }
+    .pain-card:nth-child(-n+3) { grid-column: span 2; }
+    .pain-card:nth-child(4) { grid-column: 1 / 4; }
+    .pain-card:nth-child(5) { grid-column: 4 / 7; }
+    .pain-card {
+      background: linear-gradient(160deg, #0D0D16 0%, #111125 100%);
+      border: 1px solid rgba(123,47,255,0.18);
+      border-radius: var(--radius);
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .pain-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(123,47,255,0.15), 0 0 0 1px rgba(123,47,255,0.3);
+      border-color: rgba(123,47,255,0.35);
+    }
+    .pain-card-text { padding: 36px 32px 24px; }
+    .pain-card h3 { font-weight: 800; font-size: 20px; margin-bottom: 10px; color: #fff; }
+    .pain-card p { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+    .pain-visual {
+      flex: 1; min-height: 180px; margin: 0 16px 16px;
+      border-radius: 14px; position: relative; overflow: hidden;
+    }
+
+    /* ── Visual 1: Gráfica bajando ── */
+    .pain-v-chart {
+      background: linear-gradient(180deg, rgba(123,47,255,0.08) 0%, rgba(5,5,8,0.9) 100%);
+      display: flex; align-items: flex-end; justify-content: center; gap: 10px;
+      padding: 24px 24px 28px;
+    }
+    .pain-v-chart .bar {
+      width: 28px; border-radius: 6px 6px 0 0;
+      background: linear-gradient(180deg, #7B2FFF, #2233FF);
+    }
+    .pain-v-chart .bar.dim { opacity: 0.25; }
+    .pain-v-chart .bar.mid { opacity: 0.5; }
+    .pain-v-chart .bar-label {
+      position: absolute; top: 20px; right: 24px;
+      font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 28px;
+      color: #ff4d4d;
+    }
+    .pain-v-chart .bar-sub {
+      position: absolute; top: 52px; right: 24px;
+      font-size: 12px; color: rgba(255,255,255,0.35);
+      font-family: 'Manrope', sans-serif;
+    }
+
+    /* ── Visual 2: Logos rotando ── */
+    .pain-v-logos {
+      background: linear-gradient(135deg, rgba(123,47,255,0.06), rgba(34,51,255,0.06));
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: 12px; padding: 28px;
+    }
+    .pain-v-logos .ghost-logo {
+      padding: 10px 20px; border-radius: 10px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-family: 'Manrope', sans-serif; font-weight: 700;
+      font-size: 13px; color: rgba(255,255,255,0.25);
+      text-decoration: line-through; text-decoration-color: rgba(255,77,77,0.5);
+    }
+    .pain-v-logos .arrow-cycle {
+      font-size: 32px; color: rgba(255,255,255,0.1);
+    }
+
+    /* ── Visual 3: Chat motivación vacía ── */
+    .pain-v-chat {
+      background: linear-gradient(180deg, rgba(123,47,255,0.06), transparent);
+      padding: 24px; display: flex; flex-direction: column; gap: 12px;
+    }
+    .pain-v-chat .chat-bubble {
+      padding: 14px 20px; border-radius: 16px 16px 16px 4px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 14px; color: rgba(255,255,255,0.35);
+      max-width: 85%; font-style: italic;
+    }
+    .pain-v-chat .chat-bubble.right {
+      border-radius: 16px 16px 4px 16px;
+      align-self: flex-end; color: rgba(255,255,255,0.15);
+      background: rgba(123,47,255,0.08);
+      border-color: rgba(123,47,255,0.15);
+    }
+
+    /* ── Visual 4: Usuarios desapareciendo ── */
+    .pain-v-users {
+      background: linear-gradient(180deg, rgba(123,47,255,0.06), transparent);
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px; padding: 32px;
+    }
+    .pain-v-users .user-circle {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--grad);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 20px; color: #fff;
+      transition: opacity .3s;
+    }
+    .pain-v-users .user-circle.fade1 { opacity: 0.6; }
+    .pain-v-users .user-circle.fade2 { opacity: 0.3; }
+    .pain-v-users .user-circle.fade3 { opacity: 0.12; }
+    .pain-v-users .user-circle.fade4 { opacity: 0.04; }
+    .pain-v-users .label-gone {
+      position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+      font-size: 12px; color: rgba(255,77,77,0.6); font-family: 'Manrope', sans-serif;
+      font-weight: 600; letter-spacing: .05em;
+    }
+
+    /* ── Visual 5: Dinero saliendo ── */
+    .pain-v-money {
+      background: linear-gradient(180deg, rgba(123,47,255,0.06), transparent);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 28px; gap: 8px;
+    }
+    .pain-v-money .money-row {
+      display: flex; gap: 12px; align-items: center;
+      font-family: 'Manrope', sans-serif; font-size: 14px; color: rgba(255,255,255,0.3);
+    }
+    .pain-v-money .money-row .amount {
+      font-weight: 800; font-size: 18px; color: rgba(255,77,77,0.7);
+      font-variant-numeric: tabular-nums;
+    }
+    .pain-v-money .money-row .label {
+      color: rgba(255,255,255,0.2); font-size: 13px;
+    }
+    .pain-v-money .roi-zero {
+      margin-top: 12px; padding: 8px 20px; border-radius: 8px;
+      background: rgba(255,77,77,0.1); border: 1px solid rgba(255,77,77,0.2);
+      font-family: 'Manrope', sans-serif; font-weight: 800;
+      font-size: 22px; color: rgba(255,77,77,0.7);
+    }
+
+    /* ── PROMISE — DARK ── */
+    .promise-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .promise-text h2 { font-weight: 900; font-size: clamp(36px, 4.5vw, 60px); line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 24px; }
+    .promise-text p { font-size: 18px; color: var(--text-body); line-height: 1.75; margin-bottom: 20px; }
+    .promise-highlight {
+      display: inline-block; margin-top: 8px;
+      background: rgba(123,47,255,0.1);
+      border: 1px solid rgba(123,47,255,0.25);
+      border-radius: 14px; padding: 20px 32px;
+      font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 20px;
+    }
+    .promise-image { border-radius: 24px; overflow: hidden; }
+    .promise-image img { width: 100%; display: block; }
+
+    /* ── PILLARS — LIGHT ── */
+    .section-header-center { text-align: center; margin-bottom: 64px; }
+    .section-header-center h2 {
+      font-weight: 900; font-size: clamp(36px, 4.5vw, 60px);
+      line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 16px;
+    }
+    .section-header-center p { font-size: 19px; color: var(--text-body); max-width: 600px; margin: 0 auto; }
+
+    .section-header-left { margin-bottom: 64px; }
+    .section-header-left h2 {
+      font-weight: 900; font-size: clamp(36px, 4.5vw, 60px);
+      line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 16px;
+    }
+    .section-header-left p { font-size: 19px; max-width: 600px; color: var(--text-body); }
+
+    .pillars-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+    }
+    .pillar-card {
+      background: linear-gradient(160deg, #0D0D16 0%, #111125 100%);
+      border: 1px solid rgba(123,47,255,0.18);
+      border-radius: var(--radius);
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(123,47,255,0.15), 0 0 0 1px rgba(123,47,255,0.3);
+      border-color: rgba(123,47,255,0.35);
+    }
+    .pillar-card-text { padding: 36px 32px 24px; }
+    .pillar-number {
+      font-weight: 900; font-size: 48px; line-height: 1; margin-bottom: 14px;
+    }
+    .pillar-card h3 { font-weight: 800; font-size: 22px; margin-bottom: 12px; color: #fff; }
+    .pillar-card p { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+    .pillar-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .pillar-tag {
+      font-size: 12px; font-weight: 700; padding: 5px 14px;
+      border-radius: 100px; background: rgba(123,47,255,0.1);
+      border: 1px solid rgba(123,47,255,0.2); color: #C39FFF;
+    }
+    .pillar-visual {
+      flex: 1; min-height: 160px; margin: 0 16px 16px;
+      border-radius: 14px; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* Pillar visuals */
+    .pv-mindset {
+      background: linear-gradient(135deg, rgba(123,47,255,0.08), rgba(34,51,255,0.06));
+      flex-direction: column; gap: 10px; padding: 24px;
+    }
+    .pv-mindset .brain-icon {
+      font-size: 48px; opacity: 0.9; margin-bottom: 8px;
+      filter: grayscale(0.3);
+    }
+    .pv-mindset .level-bar {
+      width: 100%; height: 8px; border-radius: 4px;
+      background: rgba(255,255,255,0.06);
+    }
+    .pv-mindset .level-bar-fill {
+      height: 100%; border-radius: 4px;
+      background: var(--grad);
+    }
+    .pv-mindset .level-label {
+      font-family: 'Manrope', sans-serif; font-size: 11px;
+      font-weight: 700; color: rgba(255,255,255,0.3);
+      text-transform: uppercase; letter-spacing: .08em;
+      align-self: flex-start;
+    }
+
+    .pv-sales {
+      background: linear-gradient(135deg, rgba(123,47,255,0.08), rgba(34,51,255,0.06));
+      flex-direction: column; gap: 10px; padding: 24px;
+    }
+    .pv-sales .funnel-step {
+      display: flex; align-items: center; gap: 12px;
+      font-family: 'Manrope', sans-serif; font-weight: 700;
+      font-size: 14px; color: rgba(255,255,255,0.4);
+    }
+    .pv-sales .funnel-step .step-bar {
+      height: 6px; border-radius: 3px; background: var(--grad);
+    }
+    .pv-sales .funnel-step.active { color: #fff; }
+    .pv-sales .funnel-step .step-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: rgba(123,47,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; flex-shrink: 0;
+    }
+
+    .pv-brand {
+      background: linear-gradient(135deg, rgba(123,47,255,0.08), rgba(34,51,255,0.06));
+      flex-direction: column; gap: 8px; padding: 20px;
+    }
+    .pv-brand .social-mockup {
+      width: 100%; border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 16px; display: flex; flex-direction: column; gap: 10px;
+    }
+    .pv-brand .social-header {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .pv-brand .social-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--grad);
+    }
+    .pv-brand .social-name {
+      font-family: 'Manrope', sans-serif; font-weight: 700;
+      font-size: 13px; color: rgba(255,255,255,0.6);
+    }
+    .pv-brand .social-handle {
+      font-size: 11px; color: rgba(255,255,255,0.25);
+    }
+    .pv-brand .social-stats {
+      display: flex; gap: 16px; margin-top: 4px;
+    }
+    .pv-brand .social-stat {
+      text-align: center;
+    }
+    .pv-brand .social-stat-num {
+      font-family: 'Manrope', sans-serif; font-weight: 800;
+      font-size: 18px; color: #fff; display: block;
+    }
+    .pv-brand .social-stat-label {
+      font-size: 10px; color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+    }
+
+    .pv-ai {
+      background: linear-gradient(135deg, rgba(123,47,255,0.1), rgba(34,51,255,0.08));
+      flex-direction: column; gap: 10px; padding: 20px;
+    }
+    .pv-ai .ai-prompt-box {
+      width: 100%; border-radius: 10px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 14px 16px;
+      font-size: 13px; color: rgba(255,255,255,0.35);
+      font-family: 'Inter', sans-serif;
+    }
+    .pv-ai .ai-prompt-box .prompt-label {
+      font-family: 'Manrope', sans-serif; font-weight: 700;
+      font-size: 11px; color: rgba(123,47,255,0.8);
+      text-transform: uppercase; letter-spacing: .08em;
+      margin-bottom: 6px; display: block;
+    }
+    .pv-ai .ai-response {
+      width: 100%; border-radius: 10px;
+      background: rgba(123,47,255,0.06);
+      border: 1px solid rgba(123,47,255,0.15);
+      padding: 14px 16px;
+      font-size: 13px; color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+    .pv-ai .ai-cursor {
+      display: inline-block; width: 2px; height: 14px;
+      background: var(--violet); margin-left: 2px;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink { 0%,50% { opacity: 1; } 51%,100% { opacity: 0; } }
+
+    /* ── INCLUDES — DARK ── */
+    .includes-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      margin-bottom: 80px;
+    }
+    .include-card {
+      background: linear-gradient(160deg, #0D0D16 0%, #111125 100%);
+      border: 1px solid rgba(123,47,255,0.18);
+      border-radius: var(--radius); padding: 40px 32px;
+      display: flex; flex-direction: column; gap: 20px;
+      color: var(--text-light);
+    }
+    .include-icon {
+      width: 56px; height: 56px; border-radius: 16px;
+      background: var(--grad); display: flex; align-items: center;
+      justify-content: center; font-size: 26px; box-shadow: var(--glow);
+    }
+    .include-card h3 { font-weight: 800; font-size: 22px; }
+    .include-badge {
+      font-size: 11px; font-weight: 700; padding: 4px 12px;
+      border-radius: 100px; background: rgba(123,47,255,0.15);
+      color: #C39FFF; display: inline-block; text-transform: uppercase; letter-spacing: .06em;
+    }
+    .include-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .include-list li {
+      font-size: 16px; color: var(--text-gray); display: flex; gap: 12px; align-items: flex-start; line-height: 1.6;
+    }
+    .include-list li::before {
+      content: '✓'; flex-shrink: 0;
+      font-family: 'Manrope', sans-serif; font-weight: 800;
+      font-size: 14px; color: var(--violet); margin-top: 2px;
+    }
+    .include-note { font-size: 14px; color: var(--text-gray); font-style: italic; margin-top: auto; }
+
+    /* Include visual cards */
+    .include-visual-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+    }
+    .include-visual-card {
+      background: linear-gradient(160deg, #0D0D16 0%, #111125 100%);
+      border: 1px solid rgba(123,47,255,0.18);
+      border-radius: var(--radius); overflow: hidden;
+      transition: transform .25s, border-color .25s;
+      color: var(--text-light);
+    }
+    .include-visual-card:hover { transform: translateY(-4px); border-color: rgba(123,47,255,0.3); }
+    .include-visual-img {
+      width: 100%; height: 240px; object-fit: cover;
+      background: linear-gradient(135deg, rgba(34,51,255,0.2), rgba(123,47,255,0.2));
+    }
+    .include-visual-body { padding: 32px; }
+    .include-visual-body h4 { font-weight: 800; font-size: 20px; margin-bottom: 10px; }
+    .include-visual-body p { font-size: 15px; color: var(--text-gray); line-height: 1.65; }
+
+    /* ── BONUSES — LIGHT ── */
+    .bonuses-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+    }
+    .bonus-card {
+      background: var(--off-white); border: 1px solid var(--border-light);
+      border-radius: var(--radius); padding: 32px 28px;
+      display: flex; gap: 20px; align-items: flex-start;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .bonus-card:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,0.06); }
+    .bonus-badge {
+      flex-shrink: 0; width: 52px; height: 52px; border-radius: 14px;
+      background: var(--grad); display: flex; align-items: center; justify-content: center;
+      font-family: 'Manrope', sans-serif; font-weight: 900; font-size: 14px; color: #fff;
+    }
+    .bonus-content h4 { font-weight: 800; font-size: 18px; margin-bottom: 6px; color: var(--text-dark); }
+    .bonus-content p { font-size: 15px; color: var(--text-body); line-height: 1.6; }
+    .bonuses-total {
+      margin-top: 40px; text-align: center;
+      padding: 32px; background: linear-gradient(160deg, #0D0D16 0%, #111125 100%);
+      border: 1px solid rgba(123,47,255,0.18);
+      border-radius: var(--radius);
+    }
+    .bonuses-total p { font-size: 16px; color: rgba(255,255,255,0.5); }
+    .bonuses-total .total-value {
+      font-family: 'Manrope', sans-serif; font-weight: 900; font-size: 40px;
+      display: block; margin-top: 8px; color: #fff;
+    }
+
+    /* ── WHATSAPP TESTIMONIALS — DARK ── */
+    .wa-marquee-wrapper {
+      overflow: hidden;
+      position: relative;
+      padding: 10px 0;
+    }
+    .wa-marquee-wrapper::before,
+    .wa-marquee-wrapper::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2;
+      pointer-events: none;
+    }
+    .wa-marquee-wrapper::before { left: 0; background: linear-gradient(to right, var(--white), transparent); }
+    .wa-marquee-wrapper::after { right: 0; background: linear-gradient(to left, var(--white), transparent); }
+    .wa-marquee-track {
+      display: flex; gap: 24px;
+      animation: waMarquee 60s linear infinite;
+      width: max-content;
+    }
+    .wa-marquee-track:hover { animation-play-state: paused; }
+    @keyframes waMarquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .wa-card { min-width: 340px; max-width: 340px; flex-shrink: 0; }
+    .wa-card {
+      background: linear-gradient(160deg, #0D0D16 0%, #111125 100%);
+      border: 1px solid rgba(123,47,255,0.18);
+      border-radius: var(--radius); overflow: hidden;
+      transition: transform .25s, box-shadow .3s;
+    }
+    .wa-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(123,47,255,0.12); }
+    .wa-chat {
+      background: #0B141A; padding: 20px 16px; font-size: 14px;
+      display: flex; flex-direction: column; gap: 10px; min-height: 280px;
+    }
+    .wa-bubble {
+      max-width: 85%; padding: 10px 14px; border-radius: 12px;
+      font-size: 14px; line-height: 1.55;
+    }
+    .wa-bubble-in {
+      background: #1F2C34; color: #E9EDEF;
+      align-self: flex-start; border-top-left-radius: 4px;
+    }
+    .wa-bubble-out {
+      background: #005C4B; color: #E9EDEF;
+      align-self: flex-end; border-top-right-radius: 4px;
+    }
+    .wa-time { font-size: 11px; color: rgba(255,255,255,0.35); text-align: right; margin-top: -4px; }
+    .wa-header {
+      background: #1F2C34; padding: 14px 16px;
+      display: flex; align-items: center; gap: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .wa-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--grad); display: flex; align-items: center; justify-content: center;
+      font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 16px; color: #fff;
+    }
+    .wa-name { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 15px; color: #E9EDEF; }
+    .wa-status { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .wa-result {
+      padding: 16px 20px; text-align: center;
+      font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 15px;
+      color: #9FFF9F; background: rgba(0,200,0,0.06);
+    }
+
+    /* ── TESTIMONIAL CARDS — LIGHT ── */
+    .testi-marquee-wrapper {
+      overflow: hidden;
+      position: relative;
+      padding: 10px 0;
+    }
+    .testi-marquee-wrapper::before,
+    .testi-marquee-wrapper::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2;
+      pointer-events: none;
+    }
+    .testi-marquee-wrapper::before { left: 0; background: linear-gradient(to right, var(--white), transparent); }
+    .testi-marquee-wrapper::after { right: 0; background: linear-gradient(to left, var(--white), transparent); }
+    .testi-marquee-track {
+      display: flex; gap: 24px;
+      animation: testiMarquee 80s linear infinite;
+      width: max-content;
+    }
+    .testi-marquee-track:hover { animation-play-state: paused; }
+    @keyframes testiMarquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .testi-card { min-width: 380px; max-width: 380px; flex-shrink: 0; }
+    .testi-card {
+      background: linear-gradient(160deg, #0D0D16 0%, #111125 100%);
+      border: 1px solid rgba(123,47,255,0.18);
+      border-radius: var(--radius); padding: 0;
+      display: flex; flex-direction: column;
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+      overflow: hidden;
+    }
+    .testi-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(123,47,255,0.15);
+      border-color: rgba(123,47,255,0.35);
+    }
+    .testi-card-body { padding: 32px 28px; display: flex; flex-direction: column; gap: 16px; flex: 1; }
+    .testi-stars { color: #F5C518; font-size: 18px; letter-spacing: 3px; }
+    .testi-quote { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.75; flex: 1; font-style: italic; }
+    .testi-result {
+      font-family: 'Manrope', sans-serif; font-weight: 800;
+      font-size: 15px; color: #9FFF9F; padding: 10px 16px;
+      background: rgba(0,200,0,0.06); border: 1px solid rgba(0,200,0,0.15);
+      border-radius: 10px; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .testi-author {
+      display: flex; align-items: center; gap: 14px;
+      padding: 20px 28px; border-top: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.02);
+    }
+    .testi-avatar {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--grad); display: flex; align-items: center; justify-content: center;
+      font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 18px; color: #fff;
+      flex-shrink: 0;
+    }
+    .testi-name { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 15px; color: #fff; }
+    .testi-meta { font-size: 13px; color: rgba(255,255,255,0.4); }
+
+    /* ── EVENT PHOTO BAND ── */
+    .event-band {
+      position: relative; overflow: hidden;
+      padding: 120px 40px; text-align: center;
+      background: var(--black); color: var(--text-light);
+    }
+    .event-band img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; opacity: 0.15;
+    }
+    .event-band-overlay {
+      position: relative; z-index: 2;
+      max-width: 800px; margin: 0 auto;
+    }
+    .event-band-overlay h2 {
+      font-weight: 900; font-size: clamp(36px, 5vw, 60px);
+      line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 16px;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+    }
+    .event-band-overlay p { font-size: 19px; color: rgba(255,255,255,0.6); max-width: 600px; margin: 0 auto; line-height: 1.7; }
+
+    /* ── GUARANTEE ── */
+    .guarantee-box {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .guarantee-text h2 {
+      font-weight: 900; font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.08; letter-spacing: -0.025em; margin-bottom: 20px;
+    }
+    .guarantee-text p { font-size: 18px; color: var(--text-body); line-height: 1.75; }
+    .guarantee-visual {
+      background: linear-gradient(160deg, #0D0D16 0%, #111125 100%);
+      border: 2px solid rgba(123,47,255,0.3);
+      border-radius: var(--radius); padding: 60px 48px;
+      text-align: center; position: relative; overflow: hidden;
+      box-shadow: 0 0 80px rgba(123,47,255,0.12);
+    }
+    .guarantee-visual::before {
+      content: ''; position: absolute; top: -60%; left: -20%; width: 140%; height: 140%;
+      background: radial-gradient(circle, rgba(123,47,255,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .guarantee-shield {
+      position: relative; width: 120px; height: 140px; margin: 0 auto 28px;
+    }
+    .guarantee-shield .shield-body {
+      width: 120px; height: 140px;
+      background: var(--grad);
+      clip-path: polygon(50% 0%, 100% 12%, 100% 65%, 50% 100%, 0% 65%, 0% 12%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .guarantee-shield .shield-inner {
+      width: 100px; height: 118px;
+      background: linear-gradient(160deg, #0D0D16, #1a1a3a);
+      clip-path: polygon(50% 0%, 100% 12%, 100% 65%, 50% 100%, 0% 65%, 0% 12%);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 2px;
+    }
+    .guarantee-shield .shield-check {
+      font-size: 36px; color: #fff; font-weight: 900;
+      font-family: 'Manrope', sans-serif;
+      text-shadow: 0 0 20px rgba(123,47,255,0.8);
+    }
+    .guarantee-shield .shield-glow {
+      position: absolute; inset: -20px;
+      background: radial-gradient(circle, rgba(123,47,255,0.35) 0%, transparent 60%);
+      pointer-events: none; z-index: -1;
+    }
+    .guarantee-visual h3 {
+      font-weight: 900; font-size: 28px; color: #fff;
+      margin-bottom: 12px; position: relative;
+    }
+    .guarantee-visual p {
+      font-size: 16px; color: rgba(255,255,255,0.55); margin-top: 0;
+      line-height: 1.7; position: relative;
+    }
+    .guarantee-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 24px; padding: 10px 24px; border-radius: 100px;
+      background: rgba(123,47,255,0.1); border: 1px solid rgba(123,47,255,0.25);
+      font-family: 'Manrope', sans-serif; font-weight: 700;
+      font-size: 14px; color: #C39FFF; position: relative;
+    }
+
+    /* ── PRICING ── */
+    .pricing-module {
+      max-width: 1100px; margin: 0 auto; text-align: center;
+    }
+    .pricing-module h2 {
+      font-weight: 900; font-size: clamp(36px, 4.5vw, 56px);
+      line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 12px;
+    }
+    .pricing-module > p { font-size: 18px; color: var(--text-body); margin-bottom: 40px; }
+    .pricing-ticket {
+      background: linear-gradient(160deg, #0D0D16 0%, #111125 100%);
+      border: 2px solid rgba(123,47,255,0.35);
+      border-radius: 28px; overflow: hidden; position: relative;
+      box-shadow: 0 0 100px rgba(123,47,255,0.15), 0 0 40px rgba(123,47,255,0.08);
+    }
+    .pricing-ticket::before {
+      content: ''; position: absolute; top: -50%; left: -30%; width: 160%; height: 100%;
+      background: radial-gradient(ellipse, rgba(123,47,255,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .pricing-ticket-top {
+      text-align: center; padding: 12px;
+      background: rgba(123,47,255,0.12);
+      font-family: 'Manrope', sans-serif; font-weight: 800;
+      font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
+      color: #C39FFF;
+    }
+    .pricing-ticket-inner {
+      display: grid; grid-template-columns: 1fr 1.2fr;
+    }
+    .pricing-ticket-header {
+      padding: 60px 48px; text-align: center;
+      background: var(--grad); position: relative;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      border-radius: 26px 0 0 26px;
+    }
+    .pricing-ticket-header::after { display: none; }
+    .pricing-ticket-label {
+      font-family: 'Manrope', sans-serif; font-weight: 700;
+      font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
+      opacity: .85; margin-bottom: 16px; display: block;
+    }
+    .pricing-old {
+      font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 22px;
+      color: rgba(255,255,255,0.4); text-decoration: line-through;
+      margin-bottom: 4px; display: block;
+    }
+    .pricing-amount {
+      font-family: 'Manrope', sans-serif; font-weight: 900; font-size: 96px;
+      line-height: 1; letter-spacing: -0.04em;
+    }
+    .pricing-amount sup { font-size: 42px; vertical-align: top; margin-top: 14px; }
+    .pricing-currency { opacity: .75; font-size: 16px; margin-top: 8px; }
+    .pricing-installment {
+      margin-top: 16px; font-size: 16px; opacity: .9;
+      background: rgba(255,255,255,0.12); border-radius: 10px;
+      padding: 10px 24px; display: inline-block;
+    }
+    .pricing-ticket-body {
+      padding: 48px; position: relative;
+    }
+    .pricing-features {
+      list-style: none; display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px 28px; margin-bottom: 36px; text-align: left;
+    }
+    .pricing-features li {
+      display: flex; gap: 10px; align-items: center;
+      font-size: 15px; color: rgba(255,255,255,0.7);
+    }
+    .pricing-features li .check {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: rgba(123,47,255,0.2); display: flex;
+      align-items: center; justify-content: center;
+      font-size: 11px; color: #C39FFF; flex-shrink: 0;
+    }
+    .pricing-cta {
+      width: 100%; justify-content: center; font-size: 20px; padding: 24px;
+      box-shadow: 0 8px 40px rgba(123,47,255,0.5);
+    }
+    .pricing-secure { text-align: center; font-size: 14px; color: var(--text-gray); margin-top: 16px; }
+    .pricing-cupos {
+      margin-top: 28px; text-align: center;
+    }
+    .pricing-cupos-bar {
+      width: 100%; height: 8px; border-radius: 8px;
+      background: rgba(255,255,255,0.08); overflow: hidden; margin-bottom: 10px;
+    }
+    .pricing-cupos-fill {
+      height: 100%; width: 85%; border-radius: 8px;
+      background: linear-gradient(90deg, var(--violet), #ff4444);
+    }
+    .pricing-cupos-text {
+      font-size: 13px; color: rgba(255,255,255,0.45);
+      font-family: 'Manrope', sans-serif; font-weight: 600;
+    }
+    .pricing-trust {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 28px;
+    }
+    .pricing-trust span {
+      font-size: 13px; color: rgba(255,255,255,0.4);
+      padding: 6px 14px; border-radius: 8px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* ── FAQ ── */
+    .faq-layout {
+      display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start;
+    }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      background: var(--off-white); border: 1px solid var(--border-light);
+      border-radius: 16px; overflow: hidden;
+    }
+    .faq-question {
+      width: 100%; background: none; border: none; color: var(--text-dark);
+      font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 17px;
+      padding: 24px 28px; text-align: left; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    }
+    .faq-question .icon { flex-shrink: 0; font-size: 22px; transition: transform .3s; color: var(--violet); }
+    .faq-item.open .faq-question .icon { transform: rotate(45deg); }
+    .faq-answer { display: none; padding: 0 28px 24px; font-size: 16px; color: var(--text-body); line-height: 1.75; }
+    .faq-item.open .faq-answer { display: block; }
+
+    /* ── FINAL CTA ── */
+    #final-cta {
+      text-align: center; padding: 140px 40px;
+      background: var(--black); color: var(--text-light);
+      position: relative; overflow: hidden;
+    }
+    .final-glow {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(123,47,255,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    #final-cta h2 {
+      font-weight: 900;
+      font-size: clamp(40px, 5.5vw, 72px); line-height: 1.05;
+      letter-spacing: -0.04em; margin-bottom: 20px; max-width: 900px; margin-left: auto; margin-right: auto;
+    }
+    #final-cta p { font-size: 20px; color: var(--text-gray); margin-bottom: 44px; max-width: 560px; margin-left: auto; margin-right: auto; }
+
+    /* ── DECORATIVE PURPLE ORBS ── */
+    .deco-orb {
+      position: absolute; border-radius: 50%;
+      background: radial-gradient(circle, rgba(123,47,255,0.08) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+    .deco-orb-1 { width: 600px; height: 600px; top: -200px; right: -200px; }
+    .deco-orb-2 { width: 500px; height: 500px; bottom: -150px; left: -200px; }
+    .deco-orb-3 { width: 400px; height: 400px; top: 50%; right: -100px; transform: translateY(-50%); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border-dark); padding: 48px 0;
+      text-align: center; color: var(--text-gray); font-size: 15px;
+      background: var(--black); color: rgba(255,255,255,0.5);
+    }
+    footer .footer-logo { display: flex; align-items: center; gap: 10px; justify-content: center; margin-bottom: 12px; }
+    footer .footer-logo img { height: 32px; }
+    footer .footer-logo span { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 18px; color: var(--text-light); }
+
+    /* ── STICKY BAR ── */
+    .sticky-bar {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+      z-index: 99; display: flex; align-items: center; gap: 20px;
+      background: rgba(13,13,22,0.95); backdrop-filter: blur(20px);
+      border: 1px solid rgba(123,47,255,0.3); border-radius: 100px;
+      padding: 10px 10px 10px 28px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+      opacity: 0; pointer-events: none; transition: opacity .4s;
+    }
+    .sticky-bar.show { opacity: 1; pointer-events: all; }
+    .sticky-bar p { font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 15px; color: var(--text-light); white-space: nowrap; }
+    .sticky-bar .btn-primary { font-size: 15px; padding: 14px 24px; border-radius: 100px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .pillars-grid { grid-template-columns: 1fr; }
+      .faq-layout, .promise-grid, .guarantee-box { grid-template-columns: 1fr; }
+      .pricing-features { grid-template-columns: 1fr; }
+      .pricing-ticket-body { padding: 28px 24px 36px; }
+      .pricing-ticket-header { padding: 36px 24px 32px; }
+      .pricing-amount { font-size: 72px; }
+      .hero-bg-image { width: 50%; opacity: 0.6; }
+      .hero-text { max-width: 55%; }
+    }
+    @media (max-width: 768px) {
+      .container, .container-wide { padding: 0 20px; }
+      .section-dark, .section-light, .section-off { padding: 80px 0; }
+      .pain-grid, .includes-grid { grid-template-columns: 1fr; }
+      .pricing-ticket-inner { grid-template-columns: 1fr; }
+      .pricing-ticket-header { border-radius: 26px 26px 0 0; }
+      .pain-card:nth-child(-n+3),
+      .pain-card:nth-child(4),
+      .pain-card:nth-child(5) { grid-column: 1 / -1; }
+      .bonuses-grid { grid-template-columns: 1fr; }
+      .include-visual-grid { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .hero-btns { flex-direction: column; align-items: stretch; }
+      .hero-btns .btn-primary, .hero-btns .btn-outline { justify-content: center; }
+      .sticky-bar p { display: none; }
+      .event-band { padding: 80px 20px; }
+      #hero { padding: 140px 0 60px; }
+      .hero-content { padding: 0 20px; }
+      .hero-bg-image { width: 100%; opacity: 0.25; }
+      .hero-text { max-width: 100%; }
+      #hero h1 { text-align: left; }
+      #hero p.subtitle { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <!-- LOGO: reemplaza src con la ruta de tu logo PNG sin fondo -->
+      <img src="logo-clean.png" alt="Alianza Multinivel" onerror="this.style.display='none'" />
+      <span>Alianza Multinivel</span>
+    </a>
+    <a href="#pricing" class="btn-primary nav-cta">Quiero empezar →</a>
+  </div>
+</nav>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar" id="stickyBar">
+  <p>Cupos limitados — programa completo por $1,500 USD</p>
+  <a href="#pricing" class="btn-primary">Empezar ahora →</a>
+</div>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section id="hero">
+  <!-- Background speaker image (right side, like Thiago's page) -->
+  <div class="hero-bg-image"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <img src="logo-clean.png" alt="Alianza Multinivel" class="logo-hero" onerror="this.style.display='none'" />
+      <div class="tag tag-dark" style="margin-bottom:32px;"><span class="dot"></span> Programa de mentoría intensiva · 6 meses</div>
+      <h1>Escala tu multinivel<br><span class="grad-text">con método real.</span></h1>
+      <p class="subtitle">
+        En 45 días implementas persuasión, inteligencia artificial, marca personal
+        y estrategias digitales para convertir tu esfuerzo en una máquina de
+        prospección calificada. Más cierres. Más socios. Más rangos.
+      </p>
+      <div class="hero-btns">
+        <a href="#pricing" class="btn-primary">Quiero escalar ahora →</a>
+        <a href="#includes" class="btn-outline">Ver qué incluye</a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-number grad-text">+100</span>
+        <div class="stat-label">Sesiones de mentoría</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number grad-text">45</span>
+        <div class="stat-label">Días para instalar el sistema</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number grad-text">6</span>
+        <div class="stat-label">Meses de acompañamiento</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number grad-text">7</span>
+        <div class="stat-label">Bonos de acción inmediata</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ MARQUEE LOGOS ═══════════════════════ -->
+<div class="marquee-section">
+  <div class="marquee-label">Nuestros aliados vienen de compañías como</div>
+  <div style="overflow:hidden;">
+    <div class="marquee-track">
+      <span class="logo-item" style="color:#78B829">Herbalife</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#E31837">Amway</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#0099D8">Nu Skin</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#D42027">4Life</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#0057A8">Usana</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#6B3FA0">Young Living</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#4DB89E">doTERRA</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#F5A623">Forever Living</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#6ABBD7">Isagenix</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#E84C3D">Market America</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#FF6B00">OMNI</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#2ECC71">Vital Health</span><span class="marquee-sep">|</span>
+      <!-- DUPLICADO PARA LOOP INFINITO -->
+      <span class="logo-item" style="color:#78B829">Herbalife</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#E31837">Amway</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#0099D8">Nu Skin</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#D42027">4Life</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#0057A8">Usana</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#6B3FA0">Young Living</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#4DB89E">doTERRA</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#F5A623">Forever Living</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#6ABBD7">Isagenix</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#E84C3D">Market America</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#FF6B00">OMNI</span><span class="marquee-sep">|</span>
+      <span class="logo-item" style="color:#2ECC71">Vital Health</span><span class="marquee-sep">|</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ PAIN — WHITE ═══════════════════════ -->
+<section class="section-light" id="pain" style="position:relative;overflow:hidden;">
+  <div class="deco-orb deco-orb-1"></div>
+  <div class="container">
+    <div class="section-header-center">
+      <div class="tag tag-light"><span class="dot"></span> ¿Te identificas?</div>
+      <h2 style="color:var(--text-dark);">Si estás aquí, es porque algo<br><span class="grad-text">no está funcionando.</span></h2>
+    </div>
+    <div class="pain-grid">
+
+      <!-- Card 1: Sin resultados — gráfica bajando -->
+      <div class="pain-card">
+        <div class="pain-card-text">
+          <h3>Llevas meses sin resultados reales</h3>
+          <p>Te estás esforzando pero los números no se mueven. Las listas se agotan y los prospectos no convierten.</p>
+        </div>
+        <div class="pain-visual pain-v-chart">
+          <span class="bar-label">-73%</span>
+          <span class="bar-sub">Conversión mensual</span>
+          <div class="bar" style="height:120px"></div>
+          <div class="bar" style="height:100px"></div>
+          <div class="bar mid" style="height:75px"></div>
+          <div class="bar mid" style="height:55px"></div>
+          <div class="bar dim" style="height:35px"></div>
+          <div class="bar dim" style="height:20px"></div>
+          <div class="bar dim" style="height:12px"></div>
+        </div>
+      </div>
+
+      <!-- Card 2: Varias compañías — logos tachados -->
+      <div class="pain-card">
+        <div class="pain-card-text">
+          <h3>Ya probaste varias compañías</h3>
+          <p>Cambiaste de empresa pensando que era el producto. El problema nunca fue la compañía — fue la falta de sistema.</p>
+        </div>
+        <div class="pain-visual pain-v-logos">
+          <span class="ghost-logo">Empresa 1</span>
+          <span class="arrow-cycle">→</span>
+          <span class="ghost-logo">Empresa 2</span>
+          <span class="arrow-cycle">→</span>
+          <span class="ghost-logo">Empresa 3</span>
+          <span class="arrow-cycle">→</span>
+          <span class="ghost-logo">Empresa 4</span>
+          <span class="arrow-cycle">→</span>
+          <span class="ghost-logo" style="border-color:rgba(255,77,77,0.3);color:rgba(255,77,77,0.4)">¿Empresa 5?</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Upline motivación — chat vacío -->
+      <div class="pain-card">
+        <div class="pain-card-text">
+          <h3>Tu upline solo da motivación</h3>
+          <p>Mucho rah-rah, cero estrategia. Te dijeron que llamaras a tu lista y ya. No hay sistema, no hay resultados.</p>
+        </div>
+        <div class="pain-visual pain-v-chat">
+          <div class="chat-bubble">"¡Tú puedes! Solo cree en ti 💪"</div>
+          <div class="chat-bubble">"Haz tu lista de 100 contactos"</div>
+          <div class="chat-bubble">"El éxito es tu decisión 🔥"</div>
+          <div class="chat-bubble right">Pero... ¿cómo exactamente?</div>
+          <div class="chat-bubble" style="opacity:0.4">...</div>
+        </div>
+      </div>
+
+      <!-- Card 4: Socios se van — usuarios desapareciendo -->
+      <div class="pain-card">
+        <div class="pain-card-text">
+          <h3>Tus socios no se mueven</h3>
+          <p>Se inscriben emocionados y desaparecen en semanas. Sin estructura, el 90% abandona antes de los 90 días.</p>
+        </div>
+        <div class="pain-visual pain-v-users">
+          <div class="user-circle">A</div>
+          <div class="user-circle fade1">B</div>
+          <div class="user-circle fade2">C</div>
+          <div class="user-circle fade3">D</div>
+          <div class="user-circle fade4">E</div>
+          <span class="label-gone">90% abandona en 90 días</span>
+        </div>
+      </div>
+
+      <!-- Card 5: Inversión sin retorno — dinero saliendo -->
+      <div class="pain-card">
+        <div class="pain-card-text">
+          <h3>Has invertido sin ver retorno</h3>
+          <p>Paquetes, eventos, cursos. El dinero salió y los resultados nunca llegaron. Esta vez tiene que ser diferente.</p>
+        </div>
+        <div class="pain-visual pain-v-money">
+          <div class="money-row"><span class="label">Paquete inicial</span><span class="amount">–$500</span></div>
+          <div class="money-row"><span class="label">Eventos</span><span class="amount">–$300</span></div>
+          <div class="money-row"><span class="label">Cursos online</span><span class="amount">–$200</span></div>
+          <div class="money-row"><span class="label">Herramientas</span><span class="amount">–$150</span></div>
+          <div class="roi-zero">ROI = $0</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PROMISE — DARK ═══════════════════════ -->
+<section class="section-dark">
+  <div class="container">
+    <div class="promise-grid">
+      <div class="promise-text">
+        <div class="tag tag-dark" style="margin-bottom:24px;"><span class="dot"></span> La diferencia</div>
+        <h2>No es otro curso.<br>Es el sistema que la competencia <span class="grad-text">no quiere</span> que conozcas.</h2>
+        <p>Alianza Multinivel nació de analizar todo lo que existe en el mercado y mejorarlo 10 veces. No teoría vacía — implementación real con expertos a tu lado hasta que tengas resultados.</p>
+        <div class="promise-highlight">
+          <span class="grad-text">Nosotros no paramos hasta que tú escales.</span>
+        </div>
+      </div>
+      <div class="promise-image">
+        <!-- IMAGEN: Speaker/fundador del evento -->
+        <img src="speaker.jpg" alt="Fundador Alianza Multinivel"
+             onerror="this.parentElement.style.background='linear-gradient(135deg,#1a1040,#0D0D16)';this.parentElement.style.height='500px';this.parentElement.style.borderRadius='24px';this.style.display='none'" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PILLARS — LIGHT ═══════════════════════ -->
+<section class="section-off" id="pillars" style="position:relative;overflow:hidden;">
+  <div class="deco-orb deco-orb-2"></div>
+  <div class="container">
+    <div class="section-header-center">
+      <div class="tag tag-light"><span class="dot"></span> Los 4 pilares del sistema</div>
+      <h2 style="color:var(--text-dark);">Todo lo que necesitas para dominar<br>la <span class="grad-text">nueva era</span> del multinivel.</h2>
+      <p>Cada pilar es una palanca de crecimiento. Juntos, forman el sistema completo.</p>
+    </div>
+    <div class="pillars-grid">
+
+      <!-- Pilar 1: Mindset -->
+      <div class="pillar-card">
+        <div class="pillar-card-text">
+          <div class="pillar-number grad-text">01</div>
+          <h3>Mindset & Disciplina</h3>
+          <p>El 70% del fracaso en el multinivel es mental. Trabajamos creencias limitantes, consistencia y mentalidad de empresario.</p>
+          <div class="pillar-tags">
+            <span class="pillar-tag">Creencias</span>
+            <span class="pillar-tag">Consistencia</span>
+            <span class="pillar-tag">Escalabilidad</span>
+          </div>
+        </div>
+        <div class="pillar-visual pv-mindset">
+          <div style="font-size:48px;margin-bottom:8px;">🧠</div>
+          <div class="level-label">Nivel de mentalidad</div>
+          <div class="level-bar"><div class="level-bar-fill" style="width:35%"></div></div>
+          <div class="level-label">Después de Alianza</div>
+          <div class="level-bar"><div class="level-bar-fill" style="width:92%"></div></div>
+        </div>
+      </div>
+
+      <!-- Pilar 2: Ventas -->
+      <div class="pillar-card">
+        <div class="pillar-card-text">
+          <div class="pillar-number grad-text">02</div>
+          <h3>Procesos de Venta</h3>
+          <p>Invitaciones de 2-3 minutos, presentaciones de alto impacto, manejo de objeciones y cierres profesionales sin presión.</p>
+          <div class="pillar-tags">
+            <span class="pillar-tag">Prospección</span>
+            <span class="pillar-tag">Persuasión</span>
+            <span class="pillar-tag">Cierre</span>
+          </div>
+        </div>
+        <div class="pillar-visual pv-sales">
+          <div class="funnel-step"><span class="step-icon">👋</span> Invitación <span class="step-bar" style="width:100%"></span></div>
+          <div class="funnel-step"><span class="step-icon">🎯</span> Presentación <span class="step-bar" style="width:80%"></span></div>
+          <div class="funnel-step"><span class="step-icon">🔄</span> Objeciones <span class="step-bar" style="width:60%"></span></div>
+          <div class="funnel-step active"><span class="step-icon">✅</span> Cierre <span class="step-bar" style="width:40%"></span></div>
+        </div>
+      </div>
+
+      <!-- Pilar 3: Marca Personal -->
+      <div class="pillar-card">
+        <div class="pillar-card-text">
+          <div class="pillar-number grad-text">03</div>
+          <h3>Marca Personal</h3>
+          <p>Convierte tus redes en un embudo de ventas infinito. Contenido, posicionamiento y autoridad que atrae prospectos sin perseguir a nadie.</p>
+          <div class="pillar-tags">
+            <span class="pillar-tag">Contenido</span>
+            <span class="pillar-tag">Autoridad</span>
+            <span class="pillar-tag">Embudos</span>
+          </div>
+        </div>
+        <div class="pillar-visual pv-brand">
+          <div class="social-mockup">
+            <div class="social-header">
+              <div class="social-avatar"></div>
+              <div>
+                <div class="social-name">Tu Marca Personal</div>
+                <div class="social-handle">@tunombre</div>
+              </div>
+            </div>
+            <div class="social-stats">
+              <div class="social-stat"><span class="social-stat-num">12.4K</span><span class="social-stat-label">Seguidores</span></div>
+              <div class="social-stat"><span class="social-stat-num">8.2%</span><span class="social-stat-label">Engagement</span></div>
+              <div class="social-stat"><span class="social-stat-num">340</span><span class="social-stat-label">Leads/mes</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pilar 4: IA -->
+      <div class="pillar-card">
+        <div class="pillar-card-text">
+          <div class="pillar-number grad-text">04</div>
+          <h3>Inteligencia Artificial</h3>
+          <p>IA entrenada con toda la metodología trabajando para ti 24/7. Automatiza procesos, crea contenido y acelera tus resultados.</p>
+          <div class="pillar-tags">
+            <span class="pillar-tag">Automatización</span>
+            <span class="pillar-tag">Contenido IA</span>
+            <span class="pillar-tag">Eficiencia</span>
+          </div>
+        </div>
+        <div class="pillar-visual pv-ai">
+          <div class="ai-prompt-box">
+            <span class="prompt-label">Prompt</span>
+            Crea un mensaje de prospección para una madre de 35 años interesada en ingresos extra...
+          </div>
+          <div class="ai-response">
+            "Hola Ana, vi que eres mamá emprendedora. Tengo algo que puede interesarte — un sistema que me genera ingresos sin descuidar a mi familia..."<span class="ai-cursor"></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ EVENT PHOTO BAND ═══════════════════════ -->
+<div class="event-band">
+  <!-- IMAGEN: foto del evento grande con público -->
+  <img src="evento-crowd.jpg" alt="Evento Alianza Multinivel"
+       onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a1040,#050508)'" />
+  <div class="event-band-overlay">
+    <h2>Un evento.<br><span class="grad-text">Miles de vidas transformadas.</span></h2>
+    <p>Nuestro evento anual es donde la comunidad se encuentra, implementa y celebra resultados reales.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════ INCLUDES — DARK ═══════════════════════ -->
+<section class="section-dark" id="includes">
+  <div class="container">
+    <div class="section-header-left">
+      <div class="tag tag-dark" style="margin-bottom:20px;"><span class="dot"></span> El programa incluye</div>
+      <h2>Estructura + Implementación<br>+ <span class="grad-text">Resultados.</span></h2>
+      <p style="color:var(--text-gray);">6 meses de acceso total. +100 sesiones de mentoría. Todo lo que necesitas para escalar a cualquier rango.</p>
+    </div>
+
+    <!-- 3 columns -->
+    <div class="includes-grid">
+      <div class="include-card">
+        <div class="include-icon">📚</div>
+        <div><h3>Módulos On-Demand</h3><span class="include-badge">Acceso inmediato</span></div>
+        <ul class="include-list">
+          <li>Prospección y ventas de alto nivel</li>
+          <li>Marca personal y redes sociales</li>
+          <li>IA y automatizaciones aplicadas</li>
+          <li>Estrategias y campañas publicitarias</li>
+          <li>Diseño y edición de contenido</li>
+          <li>Landing pages y embudos</li>
+          <li>Mentalidad y disciplina escalable</li>
+        </ul>
+        <p class="include-note">Tu mapa completo para construir y escalar.</p>
+      </div>
+      <div class="include-card">
+        <div class="include-icon">🛠️</div>
+        <div><h3>Herramientas Aplicables</h3><span class="include-badge">Listas para usar</span></div>
+        <ul class="include-list">
+          <li>PDFs y guías paso a paso</li>
+          <li>Prompts de IA listos para implementar</li>
+          <li>IAs entrenadas con el sistema</li>
+          <li>Scripts de prospección y cierre</li>
+          <li>Plantillas de contenido y redes</li>
+          <li>Guías de campañas y pauta digital</li>
+        </ul>
+        <p class="include-note">Menos improvisación, más velocidad.</p>
+      </div>
+      <div class="include-card">
+        <div class="include-icon">🎯</div>
+        <div><h3>Acompañamiento Intensivo</h3><span class="include-badge">Implementación real</span></div>
+        <ul class="include-list">
+          <li>3 sesiones semanales con expertos</li>
+          <li>1 mentoría semanal según tu nivel</li>
+          <li>1 sesión semanal por etapa</li>
+          <li>2 sesiones de Q&A al mes</li>
+          <li>Sesiones especiales y retos</li>
+          <li>Hot seat y roleplay en vivo</li>
+          <li>+100 sesiones en 6 meses</li>
+        </ul>
+        <p class="include-note">Ejecución guiada con feedback constante.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════ BONUSES — WHITE ═══════════════════════ -->
+<section class="section-light" id="bonuses">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="tag tag-light"><span class="dot"></span> Bonos exclusivos</div>
+      <h2 style="color:var(--text-dark);">7 bonos de acción rápida para<br>acelerar resultados <span class="grad-text">desde el día 1.</span></h2>
+    </div>
+    <div class="bonuses-grid">
+      <div class="bonus-card">
+        <div class="bonus-badge">IA</div>
+        <div class="bonus-content">
+          <h4>IA de Marca Personal</h4>
+          <p>Posicionamiento, creación de contenido y claridad de mensaje. Como tener un estratega de marca 24/7.</p>
+        </div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-badge">$$</div>
+        <div class="bonus-content">
+          <h4>IA Experto en Ventas</h4>
+          <p>Practica objeciones, cierres y guiones en tiempo real. Entrena tu proceso de venta sin necesitar un coach.</p>
+        </div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-badge">AL</div>
+        <div class="bonus-content">
+          <h4>IA Mentor de Aliados</h4>
+          <p>Alianzas, networking y acuerdos estratégicos. Tu cerebro artificial para expandir tu red en cualquier país.</p>
+        </div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-badge">30D</div>
+        <div class="bonus-content">
+          <h4>Plataforma IA Privada (30 días)</h4>
+          <p>Acceso guiado a nuestra plataforma de IA para instalar el sistema desde cero con velocidad.</p>
+        </div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-badge">VIP</div>
+        <div class="bonus-content">
+          <h4>Programa VIP Sprint</h4>
+          <p>Sprint intensivo con los 10 socios más comprometidos. Reuniones semanales con los fundadores por 4 semanas.</p>
+        </div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-badge">★</div>
+        <div class="bonus-content">
+          <h4>Acceso VIP Evento Anual</h4>
+          <p>Entrada preferencial con zona VIP a nuestro evento privado anual. Networking y experiencias exclusivas.</p>
+        </div>
+      </div>
+      <div class="bonus-card" style="grid-column: span 2;">
+        <div class="bonus-badge">12M</div>
+        <div class="bonus-content">
+          <h4>12 Meses de Acceso Total</h4>
+          <p>Extiende tu acceso a toda la información por un año completo. Consolida resultados sin presión de tiempo. Todas las actualizaciones incluidas.</p>
+        </div>
+      </div>
+    </div>
+    <div class="bonuses-total">
+      <p style="color:rgba(255,255,255,0.6);">Valor habitual de todos los bonos</p>
+      <span class="total-value grad-text">$1,122 USD en bonos — incluidos gratis</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ WHATSAPP TESTIMONIALS — DARK ═══════════════════════ -->
+<section class="section-light">
+  <div class="container-wide">
+    <div class="section-header-center" style="margin-bottom:48px;">
+      <div class="tag tag-light"><span class="dot"></span> Capturas reales</div>
+      <h2 style="color:var(--text-dark);">Lo que dicen nuestros aliados<br><span class="grad-text">en WhatsApp.</span></h2>
+    </div>
+  </div>
+  <div class="wa-marquee-wrapper">
+    <div class="wa-marquee-track">
+      <!-- WA 1 -->
+      <div class="wa-card">
+        <div class="wa-header"><div class="wa-avatar">J</div><div><div class="wa-name">Jennifer M.</div><div class="wa-status">en línea</div></div></div>
+        <div class="wa-chat">
+          <div class="wa-bubble wa-bubble-in">Hola! Quería contarles que esta semana cerré 3 personas nuevas con la metodología de las invitaciones cortas 🔥</div>
+          <div class="wa-time">10:32 AM</div>
+          <div class="wa-bubble wa-bubble-out">Increíble Jennifer!! ¿Cómo te sientes?</div>
+          <div class="wa-bubble wa-bubble-in">Honestamente no puedo creerlo. Antes ni sabía cómo empezar una conversación 😭🙌</div>
+        </div>
+        <div class="wa-result">↑ 3 cierres en 1 semana</div>
+      </div>
+      <!-- WA 2 -->
+      <div class="wa-card">
+        <div class="wa-header"><div class="wa-avatar">R</div><div><div class="wa-name">Roberto S.</div><div class="wa-status">en línea</div></div></div>
+        <div class="wa-chat">
+          <div class="wa-bubble wa-bubble-in">Hermano, el roleplay del jueves me cambió la vida. Hoy hice mi primera presentación sin notas y cerré en la llamada</div>
+          <div class="wa-time">3:15 PM</div>
+          <div class="wa-bubble wa-bubble-out">Eso es lo que pasa cuando practicas 💪</div>
+          <div class="wa-bubble wa-bubble-in">Mis socias ya me están pidiendo que les enseñe el método</div>
+        </div>
+        <div class="wa-result">↑ Primer cierre en llamada</div>
+      </div>
+      <!-- WA 3 -->
+      <div class="wa-card">
+        <div class="wa-header"><div class="wa-avatar">A</div><div><div class="wa-name">Ana L.</div><div class="wa-status">en línea</div></div></div>
+        <div class="wa-chat">
+          <div class="wa-bubble wa-bubble-in">Chicos les quiero compartir algo. Hoy me confirmaron mi primer rango 🏆 después de 8 meses intentando sola</div>
+          <div class="wa-time">7:22 PM</div>
+          <div class="wa-bubble wa-bubble-out">VAMOS ANA!! 🔥 Cuéntanos qué fue lo que más te ayudó</div>
+          <div class="wa-bubble wa-bubble-in">100% la IA de marca personal y las sesiones de implementación</div>
+        </div>
+        <div class="wa-result">↑ Primer rango alcanzado</div>
+      </div>
+      <!-- WA 4 -->
+      <div class="wa-card">
+        <div class="wa-header"><div class="wa-avatar">D</div><div><div class="wa-name">Diana P.</div><div class="wa-status">en línea</div></div></div>
+        <div class="wa-chat">
+          <div class="wa-bubble wa-bubble-in">No van a creer esto. Hoy me llegó el pago más grande que he recibido en 2 años de multinivel 💰</div>
+          <div class="wa-time">9:45 AM</div>
+          <div class="wa-bubble wa-bubble-out">¡¡Te lo mereces Diana!! El trabajo que has hecho es brutal</div>
+          <div class="wa-bubble wa-bubble-in">Todo cambió cuando dejé de vender y empecé a seguir el sistema de prospección</div>
+        </div>
+        <div class="wa-result">↑ Mejor pago en 2 años</div>
+      </div>
+      <!-- WA 5 -->
+      <div class="wa-card">
+        <div class="wa-header"><div class="wa-avatar">M</div><div><div class="wa-name">Miguel A.</div><div class="wa-status">en línea</div></div></div>
+        <div class="wa-chat">
+          <div class="wa-bubble wa-bubble-in">Gente les comparto que apliqué el guión de cierre con una prospecto que tenía meses fría y CERRÓ hoy 🙌</div>
+          <div class="wa-time">4:10 PM</div>
+          <div class="wa-bubble wa-bubble-out">¡Eso es aplicar! ¿Cuál guión usaste?</div>
+          <div class="wa-bubble wa-bubble-in">El de reactivación por WhatsApp que vimos en la sesión del martes</div>
+        </div>
+        <div class="wa-result">↑ Prospecto fría reactivada</div>
+      </div>
+      <!-- WA 6 -->
+      <div class="wa-card">
+        <div class="wa-header"><div class="wa-avatar">S</div><div><div class="wa-name">Sandra V.</div><div class="wa-status">en línea</div></div></div>
+        <div class="wa-chat">
+          <div class="wa-bubble wa-bubble-in">Ya tengo 5 personas en mi equipo que están usando la IA para crear contenido y se nota la diferencia</div>
+          <div class="wa-time">11:20 AM</div>
+          <div class="wa-bubble wa-bubble-out">El efecto multiplicador. Eso es escalar de verdad 🔥</div>
+          <div class="wa-bubble wa-bubble-in">Antes yo hacía todo sola. Ahora mi equipo se mueve solo con las herramientas</div>
+        </div>
+        <div class="wa-result">↑ 5 socios usando el sistema</div>
+      </div>
+      <!-- WA 7 -->
+      <div class="wa-card">
+        <div class="wa-header"><div class="wa-avatar">E</div><div><div class="wa-name">Eduardo K.</div><div class="wa-status">en línea</div></div></div>
+        <div class="wa-chat">
+          <div class="wa-bubble wa-bubble-in">Acabo de hacer mi primera venta usando solo Instagram y el embudo que armamos en la sesión 🚀</div>
+          <div class="wa-time">6:30 PM</div>
+          <div class="wa-bubble wa-bubble-out">¡Primera de muchas! ¿Cómo fue el proceso?</div>
+          <div class="wa-bubble wa-bubble-in">La persona me contactó por el reel y con el guión cerré en 20 min</div>
+        </div>
+        <div class="wa-result">↑ Primera venta por Instagram</div>
+      </div>
+      <!-- WA 8 -->
+      <div class="wa-card">
+        <div class="wa-header"><div class="wa-avatar">P</div><div><div class="wa-name">Patricia R.</div><div class="wa-status">en línea</div></div></div>
+        <div class="wa-chat">
+          <div class="wa-bubble wa-bubble-in">Familia quiero agradecerles. Este mes triplicamos las ventas del equipo completo 📊</div>
+          <div class="wa-time">8:15 PM</div>
+          <div class="wa-bubble wa-bubble-out">WOW Patricia, eso es liderazgo real 👏</div>
+          <div class="wa-bubble wa-bubble-in">Es que cuando todo el equipo tiene el mismo sistema, los resultados se multiplican</div>
+        </div>
+        <div class="wa-result">↑ 3x ventas del equipo</div>
+      </div>
+      <!-- WA 9 -->
+      <div class="wa-card">
+        <div class="wa-header"><div class="wa-avatar">F</div><div><div class="wa-name">Fernando T.</div><div class="wa-status">en línea</div></div></div>
+        <div class="wa-chat">
+          <div class="wa-bubble wa-bubble-in">Estoy llorando de la emoción. Acabo de calificar para el viaje de la compañía por primera vez en 4 años 😭</div>
+          <div class="wa-time">5:50 PM</div>
+          <div class="wa-bubble wa-bubble-out">Hermano eso se siente INCREÍBLE. Tú pusiste el trabajo 🙌</div>
+          <div class="wa-bubble wa-bubble-in">Sin este programa seguiría estancado. Gracias por no dejarme rendirme</div>
+        </div>
+        <div class="wa-result">↑ Calificó viaje por primera vez</div>
+      </div>
+      <!-- WA 10 -->
+      <div class="wa-card">
+        <div class="wa-header"><div class="wa-avatar">V</div><div><div class="wa-name">Valentina C.</div><div class="wa-status">en línea</div></div></div>
+        <div class="wa-chat">
+          <div class="wa-bubble wa-bubble-in">Oigan apliqué la estrategia de contenido con IA y mi cuenta pasó de 800 a 3,200 seguidores en 3 semanas 📱</div>
+          <div class="wa-time">1:40 PM</div>
+          <div class="wa-bubble wa-bubble-out">¡El contenido estratégico es otra cosa! Sigue así 🔥</div>
+          <div class="wa-bubble wa-bubble-in">Y lo mejor es que ya me están llegando prospectos que me buscan a MÍ</div>
+        </div>
+        <div class="wa-result">↑ De 800 a 3,200 seguidores</div>
+      </div>
+      <!-- DUPLICATE SET FOR SEAMLESS LOOP -->
+      <div class="wa-card">
+        <div class="wa-header"><div class="wa-avatar">J</div><div><div class="wa-name">Jennifer M.</div><div class="wa-status">en línea</div></div></div>
+        <div class="wa-chat">
+          <div class="wa-bubble wa-bubble-in">Hola! Quería contarles que esta semana cerré 3 personas nuevas con la metodología de las invitaciones cortas 🔥</div>
+          <div class="wa-time">10:32 AM</div>
+          <div class="wa-bubble wa-bubble-out">Increíble Jennifer!! ¿Cómo te sientes?</div>
+          <div class="wa-bubble wa-bubble-in">Honestamente no puedo creerlo. Antes ni sabía cómo empezar una conversación 😭🙌</div>
+        </div>
+        <div class="wa-result">↑ 3 cierres en 1 semana</div>
+      </div>
+      <div class="wa-card">
+        <div class="wa-header"><div class="wa-avatar">R</div><div><div class="wa-name">Roberto S.</div><div class="wa-status">en línea</div></div></div>
+        <div class="wa-chat">
+          <div class="wa-bubble wa-bubble-in">Hermano, el roleplay del jueves me cambió la vida. Hoy hice mi primera presentación sin notas y cerré en la llamada</div>
+          <div class="wa-time">3:15 PM</div>
+          <div class="wa-bubble wa-bubble-out">Eso es lo que pasa cuando practicas 💪</div>
+          <div class="wa-bubble wa-bubble-in">Mis socias ya me están pidiendo que les enseñe el método</div>
+        </div>
+        <div class="wa-result">↑ Primer cierre en llamada</div>
+      </div>
+      <div class="wa-card">
+        <div class="wa-header"><div class="wa-avatar">A</div><div><div class="wa-name">Ana L.</div><div class="wa-status">en línea</div></div></div>
+        <div class="wa-chat">
+          <div class="wa-bubble wa-bubble-in">Chicos les quiero compartir algo. Hoy me confirmaron mi primer rango 🏆 después de 8 meses intentando sola</div>
+          <div class="wa-time">7:22 PM</div>
+          <div class="wa-bubble wa-bubble-out">VAMOS ANA!! 🔥 Cuéntanos qué fue lo que más te ayudó</div>
+          <div class="wa-bubble wa-bubble-in">100% la IA de marca personal y las sesiones de implementación</div>
+        </div>
+        <div class="wa-result">↑ Primer rango alcanzado</div>
+      </div>
+      <div class="wa-card">
+        <div class="wa-header"><div class="wa-avatar">D</div><div><div class="wa-name">Diana P.</div><div class="wa-status">en línea</div></div></div>
+        <div class="wa-chat">
+          <div class="wa-bubble wa-bubble-in">No van a creer esto. Hoy me llegó el pago más grande que he recibido en 2 años de multinivel 💰</div>
+          <div class="wa-time">9:45 AM</div>
+          <div class="wa-bubble wa-bubble-out">¡¡Te lo mereces Diana!! El trabajo que has hecho es brutal</div>
+          <div class="wa-bubble wa-bubble-in">Todo cambió cuando dejé de vender y empecé a seguir el sistema de prospección</div>
+        </div>
+        <div class="wa-result">↑ Mejor pago en 2 años</div>
+      </div>
+      <div class="wa-card">
+        <div class="wa-header"><div class="wa-avatar">M</div><div><div class="wa-name">Miguel A.</div><div class="wa-status">en línea</div></div></div>
+        <div class="wa-chat">
+          <div class="wa-bubble wa-bubble-in">Gente les comparto que apliqué el guión de cierre con una prospecto que tenía meses fría y CERRÓ hoy 🙌</div>
+          <div class="wa-time">4:10 PM</div>
+          <div class="wa-bubble wa-bubble-out">¡Eso es aplicar! ¿Cuál guión usaste?</div>
+          <div class="wa-bubble wa-bubble-in">El de reactivación por WhatsApp que vimos en la sesión del martes</div>
+        </div>
+        <div class="wa-result">↑ Prospecto fría reactivada</div>
+      </div>
+      <div class="wa-card">
+        <div class="wa-header"><div class="wa-avatar">S</div><div><div class="wa-name">Sandra V.</div><div class="wa-status">en línea</div></div></div>
+        <div class="wa-chat">
+          <div class="wa-bubble wa-bubble-in">Ya tengo 5 personas en mi equipo que están usando la IA para crear contenido y se nota la diferencia</div>
+          <div class="wa-time">11:20 AM</div>
+          <div class="wa-bubble wa-bubble-out">El efecto multiplicador. Eso es escalar de verdad 🔥</div>
+          <div class="wa-bubble wa-bubble-in">Antes yo hacía todo sola. Ahora mi equipo se mueve solo con las herramientas</div>
+        </div>
+        <div class="wa-result">↑ 5 socios usando el sistema</div>
+      </div>
+      <div class="wa-card">
+        <div class="wa-header"><div class="wa-avatar">E</div><div><div class="wa-name">Eduardo K.</div><div class="wa-status">en línea</div></div></div>
+        <div class="wa-chat">
+          <div class="wa-bubble wa-bubble-in">Acabo de hacer mi primera venta usando solo Instagram y el embudo que armamos en la sesión 🚀</div>
+          <div class="wa-time">6:30 PM</div>
+          <div class="wa-bubble wa-bubble-out">¡Primera de muchas! ¿Cómo fue el proceso?</div>
+          <div class="wa-bubble wa-bubble-in">La persona me contactó por el reel y con el guión cerré en 20 min</div>
+        </div>
+        <div class="wa-result">↑ Primera venta por Instagram</div>
+      </div>
+      <div class="wa-card">
+        <div class="wa-header"><div class="wa-avatar">P</div><div><div class="wa-name">Patricia R.</div><div class="wa-status">en línea</div></div></div>
+        <div class="wa-chat">
+          <div class="wa-bubble wa-bubble-in">Familia quiero agradecerles. Este mes triplicamos las ventas del equipo completo 📊</div>
+          <div class="wa-time">8:15 PM</div>
+          <div class="wa-bubble wa-bubble-out">WOW Patricia, eso es liderazgo real 👏</div>
+          <div class="wa-bubble wa-bubble-in">Es que cuando todo el equipo tiene el mismo sistema, los resultados se multiplican</div>
+        </div>
+        <div class="wa-result">↑ 3x ventas del equipo</div>
+      </div>
+      <div class="wa-card">
+        <div class="wa-header"><div class="wa-avatar">F</div><div><div class="wa-name">Fernando T.</div><div class="wa-status">en línea</div></div></div>
+        <div class="wa-chat">
+          <div class="wa-bubble wa-bubble-in">Estoy llorando de la emoción. Acabo de calificar para el viaje de la compañía por primera vez en 4 años 😭</div>
+          <div class="wa-time">5:50 PM</div>
+          <div class="wa-bubble wa-bubble-out">Hermano eso se siente INCREÍBLE. Tú pusiste el trabajo 🙌</div>
+          <div class="wa-bubble wa-bubble-in">Sin este programa seguiría estancado. Gracias por no dejarme rendirme</div>
+        </div>
+        <div class="wa-result">↑ Calificó viaje por primera vez</div>
+      </div>
+      <div class="wa-card">
+        <div class="wa-header"><div class="wa-avatar">V</div><div><div class="wa-name">Valentina C.</div><div class="wa-status">en línea</div></div></div>
+        <div class="wa-chat">
+          <div class="wa-bubble wa-bubble-in">Oigan apliqué la estrategia de contenido con IA y mi cuenta pasó de 800 a 3,200 seguidores en 3 semanas 📱</div>
+          <div class="wa-time">1:40 PM</div>
+          <div class="wa-bubble wa-bubble-out">¡El contenido estratégico es otra cosa! Sigue así 🔥</div>
+          <div class="wa-bubble wa-bubble-in">Y lo mejor es que ya me están llegando prospectos que me buscan a MÍ</div>
+        </div>
+        <div class="wa-result">↑ De 800 a 3,200 seguidores</div>
+      </div>
+    </div>
+  </div>
+  <p style="text-align:center;color:var(--text-gray);font-size:13px;margin-top:24px;">* Capturas de conversaciones reales con autorización de nuestros aliados</p>
+</section>
+
+<!-- ═══════════════════════ SPEAKER BAND ═══════════════════════ -->
+<div class="event-band">
+  <img src="speaker.jpg" alt="Fundador Alianza Multinivel"
+       onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a1040,#050508)'" />
+  <div class="event-band-overlay">
+    <h2>Donde la estrategia<br><span class="grad-text">se convierte en resultados.</span></h2>
+    <p>Mentoría en vivo, comunidad real, implementación directa. Sin teoría vacía.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════ TESTIMONIALS — LIGHT ═══════════════════════ -->
+<section class="section-light">
+  <div class="container-wide">
+    <div class="section-header-center" style="margin-bottom:48px;">
+      <div class="tag tag-light"><span class="dot"></span> Resultados reales</div>
+      <h2 style="color:var(--text-dark);">Gente que tomó la decisión<br>y <span class="grad-text">no miró hacia atrás.</span></h2>
+    </div>
+  </div>
+  <div class="testi-marquee-wrapper">
+    <div class="testi-marquee-track">
+      <div class="testi-card">
+        <div class="testi-card-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"En 6 semanas pasé de no saber cómo prospectar por redes a tener un sistema completo trabajando para mí. Los roleplays me cambiaron el juego."</p>
+          <div class="testi-result">📈 De 0 a 15 prospectos/semana</div>
+        </div>
+        <div class="testi-author"><div class="testi-avatar">M</div><div><div class="testi-name">María G.</div><div class="testi-meta">Venezuela · Vital Health</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-card-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Llevaba 2 años sin pasar de $200/mes. En el primer mes entendí por qué. La estructura que me dieron transformó mi negocio por completo."</p>
+          <div class="testi-result">💰 De $200 a $1,800/mes</div>
+        </div>
+        <div class="testi-author"><div class="testi-avatar">C</div><div><div class="testi-name">Carlos R.</div><div class="testi-meta">Colombia · OMNI</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-card-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Lo que más me sorprendió fue el acompañamiento real. No te dejan solo. Hay alguien respondiendo en vivo todos los días."</p>
+          <div class="testi-result">🤝 3 socios activos en 30 días</div>
+        </div>
+        <div class="testi-author"><div class="testi-avatar">L</div><div><div class="testi-name">Luisa M.</div><div class="testi-meta">México · 4Life</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-card-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"La IA entrenada de ventas es como tener un coach 24/7. Practico objeciones a las 11pm y al día siguiente cierro más."</p>
+          <div class="testi-result">🤖 Coach IA 24/7</div>
+        </div>
+        <div class="testi-author"><div class="testi-avatar">A</div><div><div class="testi-name">Andrés F.</div><div class="testi-meta">Ecuador · Nu Skin</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-card-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Mi equipo pasó de 3 personas a 12 en dos meses. La clave fue dejar de improvisar y seguir el sistema paso a paso."</p>
+          <div class="testi-result">📊 De 3 a 12 socios en 60 días</div>
+        </div>
+        <div class="testi-author"><div class="testi-avatar">G</div><div><div class="testi-name">Gloria P.</div><div class="testi-meta">Perú · Herbalife</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-card-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Probé 3 cursos antes. Este es el único donde no solo te enseñan, te implementan. Los hot seats en vivo son oro puro."</p>
+          <div class="testi-result">🔥 Implementación real desde día 1</div>
+        </div>
+        <div class="testi-author"><div class="testi-avatar">R</div><div><div class="testi-name">Ricardo M.</div><div class="testi-meta">Argentina · Amway</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-card-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Antes me daba miedo hacer seguimiento. Ahora tengo un proceso que no parece ventas. La gente me busca a mí."</p>
+          <div class="testi-result">🎯 Prospectos buscan al usuario</div>
+        </div>
+        <div class="testi-author"><div class="testi-avatar">K</div><div><div class="testi-name">Karen D.</div><div class="testi-meta">Costa Rica · Young Living</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-card-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Las herramientas de IA para contenido son brutales. En 15 min tengo las publicaciones de toda la semana listas."</p>
+          <div class="testi-result">⚡ Contenido de 1 semana en 15 min</div>
+        </div>
+        <div class="testi-author"><div class="testi-avatar">N</div><div><div class="testi-name">Natalia V.</div><div class="testi-meta">Chile · doTERRA</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-card-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Yo era de los que pensaba que el multinivel no funcionaba online. Hoy el 80% de mis cierres son por redes."</p>
+          <div class="testi-result">💻 80% cierres online</div>
+        </div>
+        <div class="testi-author"><div class="testi-avatar">J</div><div><div class="testi-name">Jorge S.</div><div class="testi-meta">Colombia · Forever Living</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-card-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Mi upline me decía que hiciera listas. Aquí me enseñaron a crear un sistema donde no necesito lista. Otro nivel."</p>
+          <div class="testi-result">🚀 Sistema sin lista fría</div>
+        </div>
+        <div class="testi-author"><div class="testi-avatar">I</div><div><div class="testi-name">Isabel T.</div><div class="testi-meta">República Dominicana · Usana</div></div></div>
+      </div>
+      <!-- DUPLICATE FOR SEAMLESS LOOP -->
+      <div class="testi-card">
+        <div class="testi-card-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"En 6 semanas pasé de no saber cómo prospectar por redes a tener un sistema completo trabajando para mí. Los roleplays me cambiaron el juego."</p>
+          <div class="testi-result">📈 De 0 a 15 prospectos/semana</div>
+        </div>
+        <div class="testi-author"><div class="testi-avatar">M</div><div><div class="testi-name">María G.</div><div class="testi-meta">Venezuela · Vital Health</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-card-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Llevaba 2 años sin pasar de $200/mes. En el primer mes entendí por qué. La estructura que me dieron transformó mi negocio por completo."</p>
+          <div class="testi-result">💰 De $200 a $1,800/mes</div>
+        </div>
+        <div class="testi-author"><div class="testi-avatar">C</div><div><div class="testi-name">Carlos R.</div><div class="testi-meta">Colombia · OMNI</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-card-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Lo que más me sorprendió fue el acompañamiento real. No te dejan solo. Hay alguien respondiendo en vivo todos los días."</p>
+          <div class="testi-result">🤝 3 socios activos en 30 días</div>
+        </div>
+        <div class="testi-author"><div class="testi-avatar">L</div><div><div class="testi-name">Luisa M.</div><div class="testi-meta">México · 4Life</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-card-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"La IA entrenada de ventas es como tener un coach 24/7. Practico objeciones a las 11pm y al día siguiente cierro más."</p>
+          <div class="testi-result">🤖 Coach IA 24/7</div>
+        </div>
+        <div class="testi-author"><div class="testi-avatar">A</div><div><div class="testi-name">Andrés F.</div><div class="testi-meta">Ecuador · Nu Skin</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-card-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Mi equipo pasó de 3 personas a 12 en dos meses. La clave fue dejar de improvisar y seguir el sistema paso a paso."</p>
+          <div class="testi-result">📊 De 3 a 12 socios en 60 días</div>
+        </div>
+        <div class="testi-author"><div class="testi-avatar">G</div><div><div class="testi-name">Gloria P.</div><div class="testi-meta">Perú · Herbalife</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-card-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Probé 3 cursos antes. Este es el único donde no solo te enseñan, te implementan. Los hot seats en vivo son oro puro."</p>
+          <div class="testi-result">🔥 Implementación real desde día 1</div>
+        </div>
+        <div class="testi-author"><div class="testi-avatar">R</div><div><div class="testi-name">Ricardo M.</div><div class="testi-meta">Argentina · Amway</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-card-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Antes me daba miedo hacer seguimiento. Ahora tengo un proceso que no parece ventas. La gente me busca a mí."</p>
+          <div class="testi-result">🎯 Prospectos buscan al usuario</div>
+        </div>
+        <div class="testi-author"><div class="testi-avatar">K</div><div><div class="testi-name">Karen D.</div><div class="testi-meta">Costa Rica · Young Living</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-card-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Las herramientas de IA para contenido son brutales. En 15 min tengo las publicaciones de toda la semana listas."</p>
+          <div class="testi-result">⚡ Contenido de 1 semana en 15 min</div>
+        </div>
+        <div class="testi-author"><div class="testi-avatar">N</div><div><div class="testi-name">Natalia V.</div><div class="testi-meta">Chile · doTERRA</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-card-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Yo era de los que pensaba que el multinivel no funcionaba online. Hoy el 80% de mis cierres son por redes."</p>
+          <div class="testi-result">💻 80% cierres online</div>
+        </div>
+        <div class="testi-author"><div class="testi-avatar">J</div><div><div class="testi-name">Jorge S.</div><div class="testi-meta">Colombia · Forever Living</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-card-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Mi upline me decía que hiciera listas. Aquí me enseñaron a crear un sistema donde no necesito lista. Otro nivel."</p>
+          <div class="testi-result">🚀 Sistema sin lista fría</div>
+        </div>
+        <div class="testi-author"><div class="testi-avatar">I</div><div><div class="testi-name">Isabel T.</div><div class="testi-meta">República Dominicana · Usana</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ GUARANTEE — WHITE ═══════════════════════ -->
+<section class="section-off" id="guarantee" style="position:relative;overflow:hidden;">
+  <img src="logo-clean.png" alt="" class="logo-watermark" style="right:-80px;top:50%;transform:translateY(-50%);" />
+  <div class="container">
+    <div class="guarantee-box">
+      <div class="guarantee-text">
+        <div class="tag tag-light" style="margin-bottom:20px;"><span class="dot"></span> Nuestra garantía</div>
+        <h2 style="color:var(--text-dark);">Nosotros no paramos<br>hasta que <span class="grad-text">tú escales.</span></h2>
+        <p>Si en los primeros 90 días aplicas el sistema y no ves resultados concretos, te acompañamos sin costo adicional hasta que los tengas. No es un programa que se entrega y se olvida. Es un compromiso real con tu crecimiento.</p>
+        <p style="margin-top:16px;"><strong style="color:var(--text-dark);">Tu éxito es nuestra métrica. No tus pagos.</strong></p>
+      </div>
+      <div class="guarantee-visual">
+        <div class="guarantee-shield">
+          <div class="shield-glow"></div>
+          <div class="shield-body">
+            <div class="shield-inner">
+              <span class="shield-check">✓</span>
+            </div>
+          </div>
+        </div>
+        <h3>Garantía de Acompañamiento</h3>
+        <p>90 días para ver resultados.<br>Si aplicas y no llegan, seguimos contigo.</p>
+        <div class="guarantee-badge">🔒 Compromiso blindado · 90 días</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PRICING — DARK ═══════════════════════ -->
+<section class="section-dark" id="pricing" style="position:relative;overflow:hidden;">
+  <div class="deco-orb deco-orb-3"></div>
+  <div class="container">
+    <div class="pricing-module">
+      <img src="logo-clean.png" alt="Alianza Multinivel" class="logo-mid" onerror="this.style.display='none'" />
+      <div class="tag tag-dark" style="margin-bottom:20px;"><span class="dot"></span> Inversión</div>
+      <h2>Todo lo que necesitas.<br><span class="grad-text">Un solo precio.</span></h2>
+      <p>Sin costos ocultos. Sin renovaciones. Sin excusas.</p>
+
+      <div class="pricing-ticket">
+        <div class="pricing-ticket-top">⚡ Cupos limitados — Próximo grupo</div>
+        <div class="pricing-ticket-inner">
+          <div class="pricing-ticket-header">
+            <span class="pricing-ticket-label">Alianza Multinivel · Programa Completo</span>
+            <span class="pricing-old">$3,000 USD</span>
+            <div class="pricing-amount"><sup>$</sup>1,500</div>
+            <div class="pricing-currency">USD · Pago único</div>
+            <div class="pricing-installment">o 12 cuotas de ~$125/mes con tarjeta</div>
+          </div>
+          <div class="pricing-ticket-body">
+          <ul class="pricing-features">
+            <li><span class="check">✓</span> 7 módulos on-demand</li>
+            <li><span class="check">✓</span> +100 sesiones en vivo</li>
+            <li><span class="check">✓</span> 3 IAs entrenadas + prompts</li>
+            <li><span class="check">✓</span> 7 bonos ($1,122 valor)</li>
+            <li><span class="check">✓</span> Herramientas y PDFs</li>
+            <li><span class="check">✓</span> 12 meses de acceso</li>
+            <li><span class="check">✓</span> Comunidad VIP privada</li>
+            <li><span class="check">✓</span> Garantía 90 días</li>
+          </ul>
+          <a href="https://wa.me/TUNUMERO?text=Quiero%20inscribirme%20en%20Alianza%20Multinivel" target="_blank" class="btn-primary pricing-cta">
+            Quiero empezar hoy →
+          </a>
+          <p class="pricing-secure">🔒 Pago seguro · Acceso inmediato tras el pago</p>
+          <div class="pricing-cupos">
+            <div class="pricing-cupos-bar"><div class="pricing-cupos-fill"></div></div>
+            <span class="pricing-cupos-text">85% de cupos vendidos para este grupo</span>
+          </div>
+          <div class="pricing-trust">
+            <span>✅ Garantía 90 días</span>
+            <span>✅ Acceso inmediato</span>
+            <span>✅ Solo 10 cupos VIP</span>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FAQ — WHITE ═══════════════════════ -->
+<section class="section-light" id="faq">
+  <div class="container">
+    <div class="faq-layout">
+      <div>
+        <div class="tag tag-light" style="margin-bottom:20px;"><span class="dot"></span> FAQ</div>
+        <h2 style="font-weight:900;font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-0.025em;color:var(--text-dark);">
+          Preguntas<br>frecuentes.
+        </h2>
+        <p style="font-size:18px;color:var(--text-body);margin-top:16px;max-width:400px;">
+          Si tu pregunta no está aquí, escríbenos por WhatsApp y te respondemos en menos de 24 horas.
+        </p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">¿Necesito experiencia previa en multinivel? <span class="icon">+</span></button>
+          <div class="faq-answer">No. El programa está diseñado tanto para quienes están empezando como para quienes llevan tiempo estancados. Empezamos desde la estructura base y avanzamos según tu etapa.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">¿Esto funciona para cualquier compañía MLM? <span class="icon">+</span></button>
+          <div class="faq-answer">Sí. El sistema es independiente de la compañía. Las habilidades de ventas, marca personal, IA y estrategia digital funcionan en cualquier red de mercadeo.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">¿Cuánto tiempo tengo que dedicar por día? <span class="icon">+</span></button>
+          <div class="faq-answer">El programa funciona con 45 minutos diarios. No necesitas abandonar tu trabajo ni tu vida — necesitas ser consistente.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">¿Es un curso o una mentoría? <span class="icon">+</span></button>
+          <div class="faq-answer">Es una mentoría con estructura de programa. +100 sesiones en vivo con expertos, feedback constante, roleplays, hot seats y acompañamiento real durante 6 meses.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">¿Qué pasa si no tengo resultados? <span class="icon">+</span></button>
+          <div class="faq-answer">Te acompañamos sin costo adicional hasta que los tengas. Nuestra garantía es de acompañamiento real — preferimos que llegues a tus resultados que dejarte a medias.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">¿Puedo pagar en cuotas? <span class="icon">+</span></button>
+          <div class="faq-answer">Sí. Puedes dividir los $1,500 USD en 12 cuotas con tarjeta de crédito (~$125/mes). Habla con nuestro equipo para coordinar la mejor opción.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">¿Cuándo empiezo si me inscribo hoy? <span class="icon">+</span></button>
+          <div class="faq-answer">El acceso es inmediato. En menos de 24 horas ya tienes acceso a los módulos, herramientas y calendario de sesiones.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FINAL CTA ═══════════════════════ -->
+<section id="final-cta">
+  <div class="final-glow"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <img src="logo-clean.png" alt="Alianza Multinivel" class="logo-final" onerror="this.style.display='none'" />
+    <h2>Esta es tu última oportunidad<br>de hacer las cosas <span class="grad-text">diferente.</span></h2>
+    <p>Llevas tiempo intentándolo. Esta vez tienes el sistema, las herramientas y el equipo. El único paso que falta eres tú.</p>
+    <a href="https://wa.me/TUNUMERO?text=Quiero%20inscribirme%20en%20Alianza%20Multinivel" target="_blank" class="btn-primary" style="font-size:20px;padding:24px 48px;">
+      Quiero empezar hoy — $1,500 USD →
+    </a>
+    <p style="margin-top:24px;font-size:16px;color:var(--text-gray);">
+      o 12 cuotas de ~$125/mes · Cupos limitados · Acceso inmediato
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">
+      <img src="logo-clean.png" alt="" style="height:28px;" onerror="this.style.display='none'" />
+      <span>Alianza Multinivel</span>
+    </div>
+    <p style="margin-bottom:8px;">Escala con método, no con suerte.</p>
+    <p style="color:#555;">© 2026 Alianza Multinivel · Todos los derechos reservados</p>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Sticky bar
+  const stickyBar = document.getElementById('stickyBar');
+  window.addEventListener('scroll', () => {
+    stickyBar.classList.toggle('show', window.scrollY > 800);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll(
+    '.pillar-card, .include-card, .include-visual-card, .bonus-card, .testi-card, .pain-card, .wa-card'
+  ).forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(28px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>

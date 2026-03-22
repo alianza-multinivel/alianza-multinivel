@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alianza Multinivel — Presentaci&oacute;n</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #050508;
+  --violet: #7B2FFF;
+  --blue: #2233FF;
+  --white: #FFFFFF;
+  --gray: #a0a0b0;
+  --gradient: linear-gradient(135deg, #2233FF, #7B2FFF);
+}
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Progress Bar ── */
+#progress-bar {
+  position: fixed; top: 0; left: 0; height: 3px; z-index: 1000;
+  background: var(--gradient);
+  transition: width .5s cubic-bezier(.4,0,.2,1);
+}
+
+/* ── Slide Container ── */
+#deck {
+  position: relative; width: 100%; height: 100%;
+}
+
+.slide {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 40px 60px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .55s cubic-bezier(.4,0,.2,1), transform .55s cubic-bezier(.4,0,.2,1);
+  transform: translateX(40px);
+  overflow-y: auto;
+}
+.slide.active {
+  opacity: 1; visibility: visible; transform: translateX(0);
+}
+.slide.exit-left {
+  opacity: 0; visibility: hidden; transform: translateX(-40px);
+}
+
+/* ── Global Typography ── */
+h1, h2, h3 { font-family: 'Manrope', sans-serif; font-weight: 800; line-height: 1.1; }
+h1 { font-size: clamp(2.8rem, 6vw, 5rem); letter-spacing: -0.03em; }
+h2 { font-size: clamp(2.2rem, 5vw, 4rem); margin-bottom: 36px; letter-spacing: -0.03em; }
+h3 { font-size: clamp(1.3rem, 2.2vw, 1.8rem); font-weight: 700; }
+p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--gray); }
+
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  color: var(--gray);
+  max-width: 850px;
+  text-align: center;
+  margin-top: 20px;
+  line-height: 1.65;
+}
+
+.tagline {
+  font-size: clamp(.9rem, 1.3vw, 1.1rem);
+  color: #666;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 24px;
+}
+
+/* ── Decorative Orbs ── */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: .18;
+  pointer-events: none;
+}
+.orb-violet { background: var(--violet); }
+.orb-blue { background: var(--blue); }
+
+/* ── Bullet Lists ── */
+.bullet-list { list-style: none; text-align: left; max-width: 900px; width: 100%; }
+.bullet-list li {
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: var(--gray);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .45s ease, transform .45s ease;
+}
+.bullet-list li::before {
+  content: '';
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gradient);
+  margin-right: 14px;
+  vertical-align: middle;
+}
+.slide.active .bullet-list li { opacity: 1; transform: translateY(0); }
+.slide.active .bullet-list li:nth-child(1) { transition-delay: .15s; }
+.slide.active .bullet-list li:nth-child(2) { transition-delay: .25s; }
+.slide.active .bullet-list li:nth-child(3) { transition-delay: .3s; }
+.slide.active .bullet-list li:nth-child(4) { transition-delay: .4s; }
+.slide.active .bullet-list li:nth-child(5) { transition-delay: .5s; }
+
+/* ── Stat Cards ── */
+.stat-row { display: flex; gap: 32px; flex-wrap: wrap; justify-content: center; margin-top: 32px; }
+.stat-card {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 20px;
+  padding: 44px 40px;
+  text-align: center;
+  flex: 1 1 280px;
+  max-width: 380px;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.slide.active .stat-card { opacity: 1; transform: translateY(0); }
+.slide.active .stat-card:nth-child(1) { transition-delay: .15s; }
+.slide.active .stat-card:nth-child(2) { transition-delay: .3s; }
+.slide.active .stat-card:nth-child(3) { transition-delay: .45s; }
+.stat-card .big-num {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.stat-card p { font-size: .95rem; margin-top: 8px; }
+
+/* ── 2x2 Grid ── */
+.grid-2x2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 960px;
+  width: 100%;
+  margin-top: 32px;
+}
+.grid-card {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 18px;
+  padding: 36px 32px;
+  opacity: 0; transform: scale(.95);
+  transition: opacity .45s ease, transform .45s ease;
+}
+.grid-card h3 { margin-bottom: 6px; font-size: 1.05rem; }
+.grid-card p { font-size: .9rem; }
+.slide.active .grid-card { opacity: 1; transform: scale(1); }
+.slide.active .grid-card:nth-child(1) { transition-delay: .1s; }
+.slide.active .grid-card:nth-child(2) { transition-delay: .2s; }
+.slide.active .grid-card:nth-child(3) { transition-delay: .3s; }
+.slide.active .grid-card:nth-child(4) { transition-delay: .4s; }
+
+/* ── Pillar Slide ── */
+.pillar-content { text-align: left; max-width: 900px; width: 100%; }
+.pillar-content li {
+  list-style: none;
+  padding: 12px 0 12px 24px;
+  position: relative;
+  color: var(--gray);
+  font-size: clamp(.95rem, 1.4vw, 1.15rem);
+  opacity: 0; transform: translateX(-12px);
+  transition: opacity .4s ease, transform .4s ease;
+}
+.pillar-content li::before {
+  content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  width: 4px; height: 24px; border-radius: 2px;
+  background: var(--gradient);
+}
+.slide.active .pillar-content li { opacity: 1; transform: translateX(0); }
+.slide.active .pillar-content li:nth-child(1) { transition-delay: .15s; }
+.slide.active .pillar-content li:nth-child(2) { transition-delay: .25s; }
+.slide.active .pillar-content li:nth-child(3) { transition-delay: .35s; }
+.slide.active .pillar-content li:nth-child(4) { transition-delay: .45s; }
+
+.accent-bar {
+  width: 80px; height: 4px; border-radius: 2px;
+  background: var(--gradient);
+  margin-top: 32px;
+}
+
+/* ── Check List ── */
+.check-list { list-style: none; text-align: left; max-width: 900px; width: 100%; columns: 2; column-gap: 40px; }
+.check-list li {
+  padding: 12px 0;
+  color: var(--gray);
+  font-size: clamp(.95rem, 1.4vw, 1.1rem);
+  opacity: 0; transform: translateY(10px);
+  transition: opacity .4s ease, transform .4s ease;
+}
+.check-list li::before {
+  content: '\2713';
+  display: inline-block;
+  width: 26px; height: 26px;
+  line-height: 26px;
+  text-align: center;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: #fff;
+  font-size: .75rem;
+  margin-right: 14px;
+  vertical-align: middle;
+}
+.slide.active .check-list li { opacity: 1; transform: translateY(0); }
+.slide.active .check-list li:nth-child(1) { transition-delay: .1s; }
+.slide.active .check-list li:nth-child(2) { transition-delay: .17s; }
+.slide.active .check-list li:nth-child(3) { transition-delay: .24s; }
+.slide.active .check-list li:nth-child(4) { transition-delay: .31s; }
+.slide.active .check-list li:nth-child(5) { transition-delay: .38s; }
+.slide.active .check-list li:nth-child(6) { transition-delay: .45s; }
+.slide.active .check-list li:nth-child(7) { transition-delay: .52s; }
+
+/* ── Bonus List ── */
+.bonus-list { list-style: none; text-align: left; max-width: 900px; width: 100%; }
+.bonus-list li {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  color: var(--gray);
+  font-size: clamp(.9rem, 1.3vw, 1.05rem);
+  opacity: 0; transform: translateX(-10px);
+  transition: opacity .35s ease, transform .35s ease;
+}
+.bonus-list li .val { color: var(--violet); font-weight: 600; font-family: 'Manrope', sans-serif; }
+.slide.active .bonus-list li { opacity: 1; transform: translateX(0); }
+.slide.active .bonus-list li:nth-child(1) { transition-delay: .1s; }
+.slide.active .bonus-list li:nth-child(2) { transition-delay: .17s; }
+.slide.active .bonus-list li:nth-child(3) { transition-delay: .24s; }
+.slide.active .bonus-list li:nth-child(4) { transition-delay: .31s; }
+.slide.active .bonus-list li:nth-child(5) { transition-delay: .38s; }
+.slide.active .bonus-list li:nth-child(6) { transition-delay: .45s; }
+
+.bonus-total {
+  margin-top: 24px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  text-align: center;
+}
+
+/* ── Testimonial Cards ── */
+.testimonial-row { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
+.testimonial-card {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 14px;
+  padding: 28px 24px;
+  flex: 1 1 220px;
+  max-width: 280px;
+  text-align: left;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .45s ease, transform .45s ease;
+}
+.testimonial-card .quote { font-style: italic; font-size: .95rem; color: var(--white); margin-bottom: 12px; line-height: 1.55; }
+.testimonial-card .author { font-size: .85rem; color: var(--violet); font-weight: 600; font-family: 'Manrope', sans-serif; }
+.slide.active .testimonial-card { opacity: 1; transform: translateY(0); }
+.slide.active .testimonial-card:nth-child(1) { transition-delay: .15s; }
+.slide.active .testimonial-card:nth-child(2) { transition-delay: .25s; }
+.slide.active .testimonial-card:nth-child(3) { transition-delay: .35s; }
+.slide.active .testimonial-card:nth-child(4) { transition-delay: .45s; }
+
+/* ── Event Slide ── */
+.slide-bg-image {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  z-index: 0;
+}
+.slide-bg-image::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(5,5,8,.7) 0%, rgba(5,5,8,.85) 100%);
+}
+.slide .z-content { position: relative; z-index: 1; text-align: center; }
+
+/* ── Shield Icon ── */
+.shield-icon {
+  width: 80px; height: 90px;
+  margin: 0 auto 24px;
+  position: relative;
+}
+.shield-icon svg { width: 100%; height: 100%; }
+
+/* ── Pricing ── */
+.price-old {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  color: #555;
+  text-decoration: line-through;
+  margin-bottom: 8px;
+}
+.price-new {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.price-sub {
+  font-size: clamp(.9rem, 1.3vw, 1.1rem);
+  color: var(--gray);
+  margin-top: 8px;
+}
+
+/* ── CTA Button ── */
+.cta-btn {
+  display: inline-block;
+  margin-top: 32px;
+  padding: 18px 48px;
+  background: var(--gradient);
+  color: #fff;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  border: none;
+  border-radius: 60px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+  box-shadow: 0 4px 30px rgba(123,47,255,.3);
+}
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(123,47,255,.45);
+}
+
+/* ── Logo ── */
+.logo-img { height: 64px; margin-bottom: 20px; }
+.logo-img-lg { height: 140px; margin-bottom: 32px;
+  filter: drop-shadow(0 0 40px rgba(123,47,255,0.5)) drop-shadow(0 0 80px rgba(123,47,255,0.25));
+}
+
+/* ── Corner Decorations ── */
+.corner-deco {
+  position: absolute; width: 60px; height: 60px;
+  pointer-events: none; z-index: 1;
+}
+.corner-deco::before, .corner-deco::after {
+  content: ''; position: absolute;
+  background: linear-gradient(135deg, rgba(123,47,255,0.5), rgba(34,51,255,0.3));
+}
+.corner-tl { top: 32px; left: 32px; }
+.corner-tl::before { top: 0; left: 0; width: 40px; height: 2px; }
+.corner-tl::after { top: 0; left: 0; width: 2px; height: 40px; }
+.corner-tr { top: 32px; right: 32px; }
+.corner-tr::before { top: 0; right: 0; width: 40px; height: 2px; }
+.corner-tr::after { top: 0; right: 0; width: 2px; height: 40px; }
+.corner-bl { bottom: 32px; left: 32px; }
+.corner-bl::before { bottom: 0; left: 0; width: 40px; height: 2px; }
+.corner-bl::after { bottom: 0; left: 0; width: 2px; height: 40px; }
+.corner-br { bottom: 32px; right: 32px; }
+.corner-br::before { bottom: 0; right: 0; width: 40px; height: 2px; }
+.corner-br::after { bottom: 0; right: 0; width: 2px; height: 40px; }
+
+/* ── Cover Band ── */
+.cover-band {
+  margin-top: 24px;
+  padding: 18px 48px;
+  background: rgba(123,47,255,0.08);
+  border: 1px solid rgba(123,47,255,0.25);
+  border-radius: 16px;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+  font-weight: 600;
+  color: var(--white);
+  text-align: center;
+}
+.cover-band strong { font-weight: 800; }
+
+.cover-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: 28px;
+  padding: 10px 28px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.cover-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--violet);
+  box-shadow: 0 0 12px rgba(123,47,255,0.6);
+}
+
+.slide-line-top {
+  position: absolute; top: 0; left: 10%; right: 10%; height: 2px;
+  background: var(--gradient); opacity: 0.4;
+  border-radius: 0 0 2px 2px;
+}
+
+/* ── Problem Pills (Slide 2) ── */
+.problem-cols {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 12px 28px; max-width: 1100px; width: 100%;
+}
+.problem-col { display: flex; flex-direction: column; gap: 8px; }
+.problem-pill {
+  display: flex; align-items: center; gap: 16px;
+  background: rgba(123,47,255,0.04);
+  border: 1.5px solid rgba(123,47,255,0.45);
+  border-radius: 60px;
+  padding: 12px 24px 12px 16px;
+  transition: border-color .3s, background .3s, box-shadow .3s, opacity .5s, transform .5s;
+  box-shadow: 0 0 12px rgba(123,47,255,0.15), inset 0 0 8px rgba(123,47,255,0.05);
+}
+.problem-pill:hover {
+  border-color: rgba(123,47,255,0.7);
+  background: rgba(123,47,255,0.08);
+  box-shadow: 0 0 20px rgba(123,47,255,0.3), inset 0 0 12px rgba(123,47,255,0.08);
+}
+.pill-num {
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--gradient);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800; font-size: 13px; color: #fff;
+}
+.pill-txt {
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  color: rgba(255,255,255,0.7);
+  line-height: 1.4;
+}
+.slide.active .problem-pill.fade-in { opacity: 1; transform: translateY(0); }
+.slide.active .problem-col:first-child .problem-pill:nth-child(1) { transition-delay: .05s; }
+.slide.active .problem-col:first-child .problem-pill:nth-child(2) { transition-delay: .08s; }
+.slide.active .problem-col:first-child .problem-pill:nth-child(3) { transition-delay: .11s; }
+.slide.active .problem-col:first-child .problem-pill:nth-child(4) { transition-delay: .14s; }
+.slide.active .problem-col:first-child .problem-pill:nth-child(5) { transition-delay: .17s; }
+.slide.active .problem-col:first-child .problem-pill:nth-child(6) { transition-delay: .20s; }
+.slide.active .problem-col:first-child .problem-pill:nth-child(7) { transition-delay: .23s; }
+.slide.active .problem-col:first-child .problem-pill:nth-child(8) { transition-delay: .26s; }
+.slide.active .problem-col:first-child .problem-pill:nth-child(9) { transition-delay: .29s; }
+.slide.active .problem-col:first-child .problem-pill:nth-child(10) { transition-delay: .32s; }
+.slide.active .problem-col:last-child .problem-pill:nth-child(1) { transition-delay: .07s; }
+.slide.active .problem-col:last-child .problem-pill:nth-child(2) { transition-delay: .10s; }
+.slide.active .problem-col:last-child .problem-pill:nth-child(3) { transition-delay: .13s; }
+.slide.active .problem-col:last-child .problem-pill:nth-child(4) { transition-delay: .16s; }
+.slide.active .problem-col:last-child .problem-pill:nth-child(5) { transition-delay: .19s; }
+.slide.active .problem-col:last-child .problem-pill:nth-child(6) { transition-delay: .22s; }
+.slide.active .problem-col:last-child .problem-pill:nth-child(7) { transition-delay: .25s; }
+.slide.active .problem-col:last-child .problem-pill:nth-child(8) { transition-delay: .28s; }
+.slide.active .problem-col:last-child .problem-pill:nth-child(9) { transition-delay: .31s; }
+
+/* ── Hourglass Animation ── */
+.hourglass-wrap {
+  flex: 0 0 380px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; position: relative;
+}
+.hourglass {
+  width: 220px; height: 420px; position: relative;
+}
+/* Top bulb */
+.hg-top {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 180px; height: 180px;
+  border: 2px solid rgba(123,47,255,0.5);
+  border-radius: 50% 50% 8px 8px / 60% 60% 20% 20%;
+  background: rgba(123,47,255,0.03);
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(123,47,255,0.15), inset 0 0 20px rgba(123,47,255,0.05);
+}
+.hg-sand-top {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 60%;
+  background: linear-gradient(180deg, rgba(123,47,255,0.15), rgba(123,47,255,0.35));
+  animation: sandDrain 6s ease-in-out infinite;
+  border-radius: 0 0 6px 6px;
+}
+@keyframes sandDrain {
+  0%, 100% { height: 60%; }
+  50% { height: 15%; }
+}
+/* Neck */
+.hg-neck {
+  position: absolute; top: 170px; left: 50%; transform: translateX(-50%);
+  width: 20px; height: 80px;
+  background: rgba(123,47,255,0.08);
+  border-left: 2px solid rgba(123,47,255,0.4);
+  border-right: 2px solid rgba(123,47,255,0.4);
+}
+.hg-stream {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  width: 4px; height: 100%;
+  background: linear-gradient(180deg, rgba(123,47,255,0.6), rgba(123,47,255,0.2));
+  border-radius: 2px;
+  animation: streamPulse 2s ease-in-out infinite;
+}
+@keyframes streamPulse {
+  0%, 100% { opacity: 0.8; width: 4px; }
+  50% { opacity: 1; width: 6px; }
+}
+/* Bottom bulb */
+.hg-bottom {
+  position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 180px; height: 180px;
+  border: 2px solid rgba(123,47,255,0.5);
+  border-radius: 8px 8px 50% 50% / 20% 20% 60% 60%;
+  background: rgba(123,47,255,0.03);
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(123,47,255,0.15), inset 0 0 20px rgba(123,47,255,0.05);
+}
+.hg-sand-bottom {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 20%;
+  background: linear-gradient(180deg, rgba(123,47,255,0.25), rgba(123,47,255,0.5));
+  animation: sandFill 6s ease-in-out infinite;
+  border-radius: 0 0 50% 50%;
+}
+@keyframes sandFill {
+  0%, 100% { height: 20%; }
+  50% { height: 65%; }
+}
+/* Person silhouette */
+.hg-person {
+  position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%);
+  width: 36px; height: 72px;
+  z-index: 2;
+  opacity: 0.85;
+  animation: personSink 6s ease-in-out infinite;
+}
+@keyframes personSink {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(12px); }
+}
+/* Falling particles */
+.hg-particles {
+  position: absolute; top: 170px; left: 0; right: 0; height: 180px;
+  pointer-events: none; z-index: 1;
+}
+.hg-particle {
+  position: absolute;
+  left: var(--px, 50%);
+  width: 3px; height: 3px; border-radius: 50%;
+  background: rgba(123,47,255,0.7);
+  box-shadow: 0 0 6px rgba(123,47,255,0.5);
+  animation: particleFall var(--dur, 2.5s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes particleFall {
+  0% { top: 0; opacity: 1; }
+  80% { opacity: 0.6; }
+  100% { top: 100%; opacity: 0; }
+}
+/* Floor glow */
+.hg-floor-glow {
+  width: 250px; height: 40px; margin-top: -10px;
+  background: radial-gradient(ellipse, rgba(123,47,255,0.25) 0%, transparent 70%);
+  filter: blur(8px);
+}
+
+/* ── Promise Slide ── */
+.promise-title {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+.promise-underline {
+  width: 280px; height: 8px;
+  background: var(--gradient);
+  border-radius: 4px;
+  margin: -8px auto 0;
+  transform: skewX(-8deg);
+}
+.promise-quote {
+  max-width: 900px;
+  text-align: center;
+}
+.promise-quote p {
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  color: rgba(255,255,255,0.85);
+  line-height: 1.65;
+  font-weight: 400;
+}
+.promise-quote strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* ── Slide 3 Collage ── */
+.slide3-collage {
+  flex: 0 0 55%;
+  height: 92vh;
+  max-height: 800px;
+}
+.collage-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  height: 100%;
+}
+.collage-img {
+  border-radius: 14px;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(123,47,255,0.25);
+  box-shadow: 0 0 20px rgba(123,47,255,0.1);
+}
+.collage-img-tall {
+  grid-row: 1 / 3;
+}
+
+/* ── Floating Company Logos ── */
+.floating-logos {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+}
+.float-logo {
+  position: absolute;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  color: rgba(255,255,255,0.06);
+  padding: 10px 22px;
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 40px;
+  background: rgba(255,255,255,0.02);
+  white-space: nowrap;
+  animation: floatDrift var(--dur, 18s) ease-in-out infinite alternate;
+  animation-delay: var(--del, 0s);
+}
+.float-logo-img {
+  position: absolute;
+  width: 120px; height: 120px;
+  object-fit: contain;
+  opacity: 0.18;
+  pointer-events: none;
+  animation: floatDrift var(--dur, 18s) ease-in-out infinite alternate;
+  animation-delay: var(--del, 0s);
+  filter: drop-shadow(0 0 15px rgba(123,47,255,0.15));
+}
+@keyframes floatDrift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(var(--dx1, 20px), var(--dy1, -15px)) rotate(2deg); }
+  50% { transform: translate(var(--dx2, -10px), var(--dy2, 25px)) rotate(-1deg); }
+  75% { transform: translate(var(--dx3, 15px), var(--dy3, -20px)) rotate(1.5deg); }
+  100% { transform: translate(var(--dx4, -15px), var(--dy4, 10px)) rotate(-2deg); }
+}
+
+/* ── Watermark / Footer ── */
+#footer-brand {
+  position: fixed; bottom: 20px; left: 28px; z-index: 900;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: .75rem;
+  color: rgba(255,255,255,.2);
+  letter-spacing: 1px;
+}
+
+/* ── Slide Counter ── */
+#slide-counter {
+  position: fixed; bottom: 20px; right: 120px; z-index: 900;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: .85rem;
+  color: rgba(255,255,255,.35);
+}
+
+/* ── Nav Arrows ── */
+#nav-arrows {
+  position: fixed; bottom: 16px; right: 24px; z-index: 900;
+  display: flex; gap: 8px;
+}
+#nav-arrows button {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.5);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+  display: flex; align-items: center; justify-content: center;
+}
+#nav-arrows button:hover {
+  background: rgba(123,47,255,.2);
+  color: #fff;
+  border-color: rgba(123,47,255,.4);
+}
+
+/* ── Overview Grid ── */
+#overview {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(5,5,8,.95);
+  backdrop-filter: blur(20px);
+  display: none;
+  padding: 40px;
+  overflow-y: auto;
+}
+#overview.open { display: block; }
+#overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.overview-thumb {
+  aspect-ratio: 16/9;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 16px;
+  transition: border-color .2s, background .2s;
+  text-align: center;
+}
+.overview-thumb:hover {
+  border-color: var(--violet);
+  background: rgba(123,47,255,.08);
+}
+.overview-thumb.current { border-color: var(--violet); background: rgba(123,47,255,.1); }
+.overview-thumb .thumb-num {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 6px;
+}
+.overview-thumb .thumb-title {
+  font-size: .75rem;
+  color: var(--gray);
+  line-height: 1.3;
+}
+#overview-close {
+  position: fixed; top: 20px; right: 28px; z-index: 2001;
+  font-size: 1.5rem; color: var(--gray); background: none; border: none; cursor: pointer;
+}
+
+/* ── Fade-in helper ── */
+.fade-in {
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.slide.active .fade-in { opacity: 1; transform: translateY(0); }
+.slide.active .fade-in.d1 { transition-delay: .15s; }
+.slide.active .fade-in.d2 { transition-delay: .3s; }
+.slide.active .fade-in.d3 { transition-delay: .45s; }
+.slide.active .fade-in.d4 { transition-delay: .6s; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .slide { padding: 40px 28px; }
+  .grid-2x2 { grid-template-columns: 1fr; }
+  .stat-row { flex-direction: column; align-items: center; }
+  .testimonial-row { flex-direction: column; align-items: center; }
+  .testimonial-card { max-width: 100%; }
+  #nav-arrows { bottom: 12px; right: 12px; }
+  #slide-counter { right: 100px; }
+  #footer-brand { left: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div id="progress-bar"></div>
+
+<!-- Footer Brand -->
+<div id="footer-brand">Alianza Multinivel</div>
+
+<!-- Slide Counter -->
+<div id="slide-counter">1/16</div>
+
+<!-- Nav Arrows -->
+<div id="nav-arrows">
+  <button onclick="prevSlide()" aria-label="Anterior">&#8592;</button>
+  <button onclick="nextSlide()" aria-label="Siguiente">&#8594;</button>
+</div>
+
+<!-- Overview -->
+<div id="overview">
+  <button id="overview-close" onclick="closeOverview()">&times;</button>
+  <div id="overview-grid"></div>
+</div>
+
+<!-- DECK -->
+<div id="deck">
+
+  <!-- Slide 1: Cover -->
+  <div class="slide active" data-title="Portada">
+    <div class="orb orb-violet" style="width:600px;height:600px;top:-200px;right:-150px;"></div>
+    <div class="orb orb-blue" style="width:500px;height:500px;bottom:-150px;left:-120px;"></div>
+    <!-- Floating Alianza logos -->
+    <div class="floating-logos">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:5%;left:4%;--dur:20s;--del:0s;--dx1:25px;--dy1:-18px;--dx2:-15px;--dy2:22px;--dx3:20px;--dy3:-12px;--dx4:-18px;--dy4:15px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:8%;right:6%;--dur:22s;--del:1s;--dx1:-20px;--dy1:15px;--dx2:18px;--dy2:-20px;--dx3:-12px;--dy3:18px;--dx4:22px;--dy4:-14px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:30%;left:2%;--dur:19s;--del:2s;--dx1:18px;--dy1:22px;--dx2:-22px;--dy2:-15px;--dx3:15px;--dy3:20px;--dx4:-20px;--dy4:-18px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:25%;right:3%;--dur:24s;--del:0.5s;--dx1:-15px;--dy1:-20px;--dx2:20px;--dy2:18px;--dx3:-18px;--dy3:-14px;--dx4:14px;--dy4:22px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="bottom:32%;left:5%;--dur:21s;--del:3s;--dx1:22px;--dy1:-14px;--dx2:-18px;--dy2:20px;--dx3:12px;--dy3:-22px;--dx4:-15px;--dy4:18px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="bottom:28%;right:5%;--dur:18s;--del:1.5s;--dx1:-18px;--dy1:20px;--dx2:15px;--dy2:-18px;--dx3:-22px;--dy3:14px;--dx4:20px;--dy4:-20px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="bottom:8%;left:12%;--dur:23s;--del:2.5s;--dx1:14px;--dy1:-22px;--dx2:-20px;--dy2:15px;--dx3:18px;--dy3:-18px;--dx4:-12px;--dy4:20px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="bottom:6%;right:14%;--dur:20s;--del:0.8s;--dx1:-22px;--dy1:14px;--dx2:15px;--dy2:-20px;--dx3:-14px;--dy3:22px;--dx4:18px;--dy4:-15px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:4%;left:35%;--dur:25s;--del:3.5s;--dx1:12px;--dy1:18px;--dx2:-18px;--dy2:-12px;--dx3:20px;--dy3:15px;--dx4:-14px;--dy4:-20px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="bottom:4%;left:40%;--dur:22s;--del:1.2s;--dx1:-14px;--dy1:-18px;--dx2:20px;--dy2:14px;--dx3:-15px;--dy3:-22px;--dx4:18px;--dy4:12px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:50%;left:1%;--dur:17s;--del:0.3s;--dx1:20px;--dy1:12px;--dx2:-14px;--dy2:-20px;--dx3:18px;--dy3:14px;--dx4:-22px;--dy4:-12px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:48%;right:1%;--dur:26s;--del:2.2s;--dx1:-12px;--dy1:22px;--dx2:18px;--dy2:-14px;--dx3:-20px;--dy3:18px;--dx4:14px;--dy4:-20px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:15%;left:18%;--dur:21s;--del:4s;--dx1:15px;--dy1:-12px;--dx2:-20px;--dy2:18px;--dx3:14px;--dy3:-22px;--dx4:-18px;--dy4:14px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="bottom:18%;right:20%;--dur:19s;--del:1.8s;--dx1:-18px;--dy1:-14px;--dx2:14px;--dy2:20px;--dx3:-22px;--dy3:-18px;--dx4:20px;--dy4:12px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:3%;right:30%;--dur:23s;--del:3.2s;--dx1:22px;--dy1:15px;--dx2:-15px;--dy2:-22px;--dx3:12px;--dy3:18px;--dx4:-20px;--dy4:-14px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:20%;left:25%;--dur:18s;--del:0.7s;--dx1:-18px;--dy1:14px;--dx2:22px;--dy2:-18px;--dx3:-14px;--dy3:20px;--dx4:18px;--dy4:-12px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:40%;left:20%;--dur:24s;--del:2.8s;--dx1:15px;--dy1:-20px;--dx2:-12px;--dy2:18px;--dx3:22px;--dy3:-14px;--dx4:-18px;--dy4:22px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:60%;left:8%;--dur:20s;--del:1.3s;--dx1:-22px;--dy1:18px;--dx2:14px;--dy2:-22px;--dx3:-20px;--dy3:12px;--dx4:15px;--dy4:-18px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:65%;right:8%;--dur:21s;--del:3.8s;--dx1:20px;--dy1:-12px;--dx2:-18px;--dy2:20px;--dx3:14px;--dy3:-18px;--dx4:-22px;--dy4:14px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:38%;right:18%;--dur:19s;--del:0.2s;--dx1:-14px;--dy1:22px;--dx2:20px;--dy2:-14px;--dx3:-18px;--dy3:18px;--dx4:12px;--dy4:-20px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:55%;left:35%;--dur:26s;--del:4.2s;--dx1:18px;--dy1:14px;--dx2:-22px;--dy2:-18px;--dx3:15px;--dy3:22px;--dx4:-14px;--dy4:-15px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:72%;right:28%;--dur:17s;--del:1.6s;--dx1:-15px;--dy1:-14px;--dx2:18px;--dy2:22px;--dx3:-20px;--dy3:-12px;--dx4:22px;--dy4:18px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:10%;left:55%;--dur:22s;--del:2.4s;--dx1:14px;--dy1:20px;--dx2:-20px;--dy2:-15px;--dx3:18px;--dy3:12px;--dx4:-12px;--dy4:-22px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:78%;left:55%;--dur:20s;--del:0.6s;--dx1:-20px;--dy1:15px;--dx2:12px;--dy2:-22px;--dx3:-18px;--dy3:14px;--dx4:22px;--dy4:-18px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:85%;left:25%;--dur:25s;--del:3.6s;--dx1:22px;--dy1:-18px;--dx2:-14px;--dy2:14px;--dx3:20px;--dy3:-20px;--dx4:-15px;--dy4:22px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:82%;right:35%;--dur:18s;--del:1.9s;--dx1:-18px;--dy1:22px;--dx2:15px;--dy2:-14px;--dx3:-22px;--dy3:20px;--dx4:14px;--dy4:-12px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:22%;right:40%;--dur:23s;--del:4.5s;--dx1:12px;--dy1:-15px;--dx2:-18px;--dy2:22px;--dx3:20px;--dy3:-18px;--dx4:-14px;--dy4:14px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:45%;left:48%;--dur:21s;--del:2.1s;--dx1:-22px;--dy1:-12px;--dx2:14px;--dy2:18px;--dx3:-15px;--dy3:-22px;--dx4:20px;--dy4:15px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:58%;right:42%;--dur:19s;--del:3.4s;--dx1:18px;--dy1:20px;--dx2:-12px;--dy2:-14px;--dx3:22px;--dy3:18px;--dx4:-20px;--dy4:-22px;">
+      <!-- 15 more to fill gaps -->
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:1%;left:22%;--dur:21s;--del:0.4s;--dx1:14px;--dy1:18px;--dx2:-20px;--dy2:-12px;--dx3:18px;--dy3:15px;--dx4:-15px;--dy4:-18px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:1%;right:15%;--dur:24s;--del:2.6s;--dx1:-18px;--dy1:12px;--dx2:15px;--dy2:-20px;--dx3:-22px;--dy3:18px;--dx4:20px;--dy4:-14px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:18%;left:42%;--dur:18s;--del:1.4s;--dx1:20px;--dy1:-15px;--dx2:-14px;--dy2:22px;--dx3:12px;--dy3:-18px;--dx4:-22px;--dy4:14px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:32%;left:12%;--dur:22s;--del:3.9s;--dx1:-15px;--dy1:20px;--dx2:22px;--dy2:-18px;--dx3:-12px;--dy3:14px;--dx4:18px;--dy4:-22px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:33%;right:32%;--dur:20s;--del:0.9s;--dx1:22px;--dy1:12px;--dx2:-18px;--dy2:-20px;--dx3:14px;--dy3:22px;--dx4:-20px;--dy4:-15px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:45%;right:10%;--dur:19s;--del:4.1s;--dx1:-12px;--dy1:-22px;--dx2:20px;--dy2:15px;--dx3:-18px;--dy3:-14px;--dx4:14px;--dy4:20px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:52%;left:15%;--dur:23s;--del:2.3s;--dx1:18px;--dy1:22px;--dx2:-15px;--dy2:-14px;--dx3:20px;--dy3:18px;--dx4:-22px;--dy4:-12px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:68%;left:42%;--dur:17s;--del:1.7s;--dx1:-20px;--dy1:14px;--dx2:12px;--dy2:-22px;--dx3:-14px;--dy3:20px;--dx4:22px;--dy4:-18px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:70%;left:2%;--dur:25s;--del:3.1s;--dx1:15px;--dy1:-18px;--dx2:-22px;--dy2:14px;--dx3:18px;--dy3:-20px;--dx4:-14px;--dy4:22px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:75%;right:12%;--dur:20s;--del:0.5s;--dx1:-14px;--dy1:20px;--dx2:18px;--dy2:-15px;--dx3:-20px;--dy3:22px;--dx4:12px;--dy4:-14px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:88%;left:8%;--dur:22s;--del:4.4s;--dx1:22px;--dy1:-14px;--dx2:-12px;--dy2:18px;--dx3:20px;--dy3:-22px;--dx4:-18px;--dy4:15px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:90%;left:50%;--dur:19s;--del:2.7s;--dx1:-18px;--dy1:15px;--dx2:14px;--dy2:-20px;--dx3:-22px;--dy3:12px;--dx4:20px;--dy4:-18px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:90%;right:8%;--dur:24s;--del:1.1s;--dx1:12px;--dy1:-22px;--dx2:-20px;--dy2:18px;--dx3:15px;--dy3:-14px;--dx4:-14px;--dy4:20px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:42%;left:60%;--dur:21s;--del:3.7s;--dx1:-22px;--dy1:18px;--dx2:15px;--dy2:-12px;--dx3:-14px;--dy3:20px;--dx4:18px;--dy4:-22px;">
+      <img class="float-logo-img" src="logo-clean.png" alt="" style="top:28%;left:68%;--dur:18s;--del:0.3s;--dx1:14px;--dy1:15px;--dx2:-18px;--dy2:-22px;--dx3:22px;--dy3:12px;--dx4:-12px;--dy4:-18px;">
+    </div>
+    <!-- Corner decorations -->
+    <div class="corner-deco corner-tl"></div>
+    <div class="corner-deco corner-tr"></div>
+    <div class="corner-deco corner-bl"></div>
+    <div class="corner-deco corner-br"></div>
+    <!-- Thin gradient line top -->
+    <div class="slide-line-top"></div>
+    <img src="logo-clean.png" alt="Alianza Multinivel" class="logo-img-lg fade-in" style="height:260px;">
+    <h1 class="fade-in d1" style="font-size:clamp(3rem,7vw,5.5rem);margin-top:12px;">Alianza Multinivel</h1>
+    <div class="cover-band fade-in d2">
+      <span>Escala tu multinivel con <strong class="gradient-text">un m&eacute;todo revolucionario.</strong></span>
+    </div>
+    <div class="cover-tag fade-in d3">
+      <span class="cover-dot"></span>
+      Programa de mentor&iacute;a intensiva
+    </div>
+  </div>
+
+  <!-- Slide 2: The Problem -->
+  <div class="slide" data-title="&iquest;Te suena familiar?">
+    <div class="orb orb-violet" style="width:500px;height:500px;top:-100px;right:-150px;"></div>
+    <div class="orb orb-blue" style="width:400px;height:400px;bottom:-100px;left:-120px;"></div>
+    <h2 class="fade-in" style="margin-bottom:28px;">&iquest;Te suena familiar?</h2>
+    <div class="problem-cols">
+      <div class="problem-col">
+        <div class="problem-pill fade-in"><span class="pill-num">01</span><span class="pill-txt">Arranca con todo… y a los días desaparece.</span></div>
+        <div class="problem-pill fade-in"><span class="pill-num">02</span><span class="pill-txt">El "qué dirán" lo paraliza y lo hace esconderse.</span></div>
+        <div class="problem-pill fade-in"><span class="pill-num">03</span><span class="pill-txt">Cada "visto" lo siente como rechazo personal.</span></div>
+        <div class="problem-pill fade-in"><span class="pill-num">04</span><span class="pill-txt">No sabe qué decir por DM y termina improvisando.</span></div>
+        <div class="problem-pill fade-in"><span class="pill-num">05</span><span class="pill-txt">Su mensaje suena a venta… y la gente se aleja.</span></div>
+        <div class="problem-pill fade-in"><span class="pill-num">06</span><span class="pill-txt">Presenta, presenta… y no cierra nada.</span></div>
+        <div class="problem-pill fade-in"><span class="pill-num">07</span><span class="pill-txt">No tiene seguimiento: se le enfrían los prospectos.</span></div>
+        <div class="problem-pill fade-in"><span class="pill-num">08</span><span class="pill-txt">Pierde tiempo con curiosos porque no sabe calificar.</span></div>
+        <div class="problem-pill fade-in"><span class="pill-num">09</span><span class="pill-txt">Cuando le ponen una objeción, se queda sin respuesta.</span></div>
+        <div class="problem-pill fade-in"><span class="pill-num">10</span><span class="pill-txt">No sabe pedir la decisión: todo queda en "déjame pensarlo".</span></div>
+      </div>
+      <div class="problem-col">
+        <div class="problem-pill fade-in"><span class="pill-num">11</span><span class="pill-txt">No tiene un proceso: solo esperanza y motivación.</span></div>
+        <div class="problem-pill fade-in"><span class="pill-num">12</span><span class="pill-txt">Su equipo no duplica y carga el negocio solo.</span></div>
+        <div class="problem-pill fade-in"><span class="pill-num">13</span><span class="pill-txt">Vive apagando incendios porque no tiene sistema.</span></div>
+        <div class="problem-pill fade-in"><span class="pill-num">14</span><span class="pill-txt">La IA no le ayuda porque no sabe usarla.</span></div>
+        <div class="problem-pill fade-in"><span class="pill-num">15</span><span class="pill-txt">Se frustra, se desgasta y piensa en renunciar.</span></div>
+        <div class="problem-pill fade-in"><span class="pill-num">16</span><span class="pill-txt">No tiene estrategia digital: depende de "a ver si sale algo".</span></div>
+        <div class="problem-pill fade-in"><span class="pill-num">17</span><span class="pill-txt">Un mes le va bien… y al siguiente cae a cero.</span></div>
+        <div class="problem-pill fade-in"><span class="pill-num">18</span><span class="pill-txt">Se quema por querer hacerlo todo y no avanzar en nada.</span></div>
+        <div class="problem-pill fade-in"><span class="pill-num">19</span><span class="pill-txt">La necesidad económica se le nota… y espanta prospectos.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 3: La Promesa -->
+  <div class="slide" data-title="Promesa" style="flex-direction:row;padding:40px 60px;gap:48px;">
+    <div class="orb orb-violet" style="width:400px;height:400px;top:-100px;left:-100px;"></div>
+    <!-- Left: Text -->
+    <div class="slide3-left fade-in" style="flex:1;text-align:left;display:flex;flex-direction:column;justify-content:center;">
+      <div class="promise-title" style="text-align:left;">
+        <h1 style="font-size:clamp(3.5rem,8vw,7rem);font-weight:900;letter-spacing:-0.04em;text-transform:uppercase;margin-bottom:0;">PROMESA</h1>
+        <div class="promise-underline" style="margin:−8px 0 0;"></div>
+      </div>
+      <div class="promise-quote fade-in d2" style="text-align:left;margin-top:36px;">
+        <p>&ldquo;Te damos el <strong>sistema</strong>, las <strong>herramientas</strong> y el <strong>acompa&ntilde;amiento</strong> para dominar la nueva era del multinivel.</p>
+        <p style="margin-top:24px;">En 45 d&iacute;as implementas <strong class="gradient-text">persuasi&oacute;n, IA, marca personal</strong> y estrategias digitales para convertir tu esfuerzo en una m&aacute;quina de prospecci&oacute;n calificada: m&aacute;s cierres, m&aacute;s socios, m&aacute;s rangos.&rdquo;</p>
+      </div>
+    </div>
+    <!-- Right: Photo Collage -->
+    <div class="slide3-collage fade-in d3">
+      <div class="collage-grid">
+        <div class="collage-img collage-img-tall" style="background-image:url('speaker.jpg');"></div>
+        <div class="collage-img" style="background-image:url('evento-ia1.png');"></div>
+        <div class="collage-img" style="background-image:url('evento-ia2.png');"></div>
+        <div class="collage-img" style="background-image:url('evento-principal.jpg');"></div>
+        <div class="collage-img" style="background-image:url('evento-crowd.jpg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4: El Problema Real -->
+  <div class="slide" data-title="El problema real" style="flex-direction:row;gap:40px;">
+    <div class="orb orb-violet" style="width:500px;height:500px;top:-150px;left:-100px;"></div>
+    <div class="orb orb-blue" style="width:300px;height:300px;bottom:-80px;right:-60px;"></div>
+    <!-- Left: Question -->
+    <div style="flex:1;display:flex;align-items:center;justify-content:center;">
+      <div class="promise-title fade-in" style="text-align:center;">
+        <h1 style="font-size:clamp(3.5rem,8vw,7rem);font-weight:900;letter-spacing:-0.04em;text-transform:uppercase;margin-bottom:0;">&iquest;Cu&aacute;l es el<br><span class="gradient-text">problema real?</span></h1>
+        <div class="promise-underline" style="width:320px;margin:−8px auto 0;"></div>
+      </div>
+    </div>
+    <!-- Right: Hourglass video -->
+    <div class="fade-in d2" style="flex:1;display:flex;align-items:center;justify-content:center;position:relative;">
+      <video autoplay loop muted playsinline style="max-height:85vh;max-width:100%;object-fit:contain;border-radius:20px;filter:drop-shadow(0 0 60px rgba(123,47,255,0.4)) drop-shadow(0 0 120px rgba(123,47,255,0.2));">
+        <source src="hourglass.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <!-- Slide 5: The Solution -->
+  <div class="slide" data-title="Alianza Multinivel">
+    <div class="orb orb-blue" style="width:350px;height:350px;top:-80px;right:-40px;"></div>
+    <div class="orb orb-violet" style="width:300px;height:300px;bottom:-60px;left:-40px;"></div>
+    <img src="logo-clean.png" alt="Logo" class="logo-img fade-in">
+    <h2 class="fade-in d1">Te presento <span class="gradient-text">Alianza Multinivel</span></h2>
+    <p class="subtitle fade-in d2">El programa que convierte networkers frustrados en l&iacute;deres que escalan con m&eacute;todo.</p>
+    <div class="grid-2x2" style="margin-top:36px;">
+      <div class="grid-card">
+        <h3 class="gradient-text">Mentor&iacute;a en vivo</h3>
+        <p>No solo videos pregrabados</p>
+      </div>
+      <div class="grid-card">
+        <h3 class="gradient-text">IA aplicada</h3>
+        <p>Ventas y marca personal</p>
+      </div>
+      <div class="grid-card">
+        <h3 class="gradient-text">Implementaci&oacute;n d&iacute;a 1</h3>
+        <p>Resultados desde el inicio</p>
+      </div>
+      <div class="grid-card">
+        <h3 class="gradient-text">Comunidad VIP</h3>
+        <p>Networking de alto nivel</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 6: Pillar 1 -->
+  <div class="slide" data-title="Pilar 1: Mentalidad">
+    <div class="orb orb-violet" style="width:300px;height:300px;top:5%;right:-50px;"></div>
+    <h2 class="fade-in">Pilar 1: <span class="gradient-text">Mentalidad de L&iacute;der</span></h2>
+    <ul class="pillar-content">
+      <li>Identidad profesional</li>
+      <li>Gesti&oacute;n emocional del rechazo</li>
+      <li>Liderazgo aut&eacute;ntico</li>
+    </ul>
+    <div class="accent-bar fade-in d3"></div>
+  </div>
+
+  <!-- Slide 7: Pillar 2 -->
+  <div class="slide" data-title="Pilar 2: Ventas">
+    <div class="orb orb-blue" style="width:300px;height:300px;bottom:5%;left:-50px;"></div>
+    <h2 class="fade-in">Pilar 2: <span class="gradient-text">Sistema de Ventas</span></h2>
+    <ul class="pillar-content">
+      <li>Guiones de prospecci&oacute;n probados</li>
+      <li>Manejo de objeciones</li>
+      <li>Cierre por WhatsApp y Zoom</li>
+      <li>Seguimiento automatizado</li>
+    </ul>
+    <div class="accent-bar fade-in d3"></div>
+  </div>
+
+  <!-- Slide 8: Pillar 3 -->
+  <div class="slide" data-title="Pilar 3: Marca Personal">
+    <div class="orb orb-violet" style="width:350px;height:350px;top:-60px;left:-50px;"></div>
+    <h2 class="fade-in">Pilar 3: <span class="gradient-text">Marca Personal Digital</span></h2>
+    <ul class="pillar-content">
+      <li>Posicionamiento en redes</li>
+      <li>Contenido que atrae prospectos</li>
+      <li>Perfil que convierte</li>
+    </ul>
+    <div class="accent-bar fade-in d3"></div>
+  </div>
+
+  <!-- Slide 9: Pillar 4 -->
+  <div class="slide" data-title="Pilar 4: IA">
+    <div class="orb orb-blue" style="width:400px;height:400px;bottom:-100px;right:-60px;"></div>
+    <h2 class="fade-in">Pilar 4: <span class="gradient-text">Inteligencia Artificial</span></h2>
+    <p class="subtitle fade-in d1" style="margin-bottom:24px;">3 IAs entrenadas para ti</p>
+    <ul class="pillar-content">
+      <li>IA de Marca Personal</li>
+      <li>IA de Ventas</li>
+      <li>IA de Alianzas</li>
+    </ul>
+    <p class="subtitle fade-in d3" style="margin-top:28px;font-style:italic;">&ldquo;Como tener un equipo de 10 personas trabajando 24/7&rdquo;</p>
+  </div>
+
+  <!-- Slide 10: What's Included -->
+  <div class="slide" data-title="&iquest;Qu&eacute; incluye?">
+    <div class="orb orb-violet" style="width:300px;height:300px;top:10%;left:-50px;"></div>
+    <h2 class="fade-in">&iquest;Qu&eacute; incluye el programa?</h2>
+    <ul class="check-list">
+      <li>7 m&oacute;dulos on-demand</li>
+      <li>+100 sesiones en vivo</li>
+      <li>3 IAs entrenadas</li>
+      <li>Plataforma con todo el contenido</li>
+      <li>Comunidad VIP privada</li>
+      <li>Herramientas y plantillas</li>
+      <li>Acceso 12 meses</li>
+    </ul>
+  </div>
+
+  <!-- Slide 11: Bonuses -->
+  <div class="slide" data-title="Bonos incluidos">
+    <div class="orb orb-blue" style="width:350px;height:350px;bottom:-80px;right:-50px;"></div>
+    <h2 class="fade-in">Bonos incluidos</h2>
+    <ul class="bonus-list">
+      <li><span>IA de Marca Personal</span><span class="val">$197</span></li>
+      <li><span>IA Experto en Ventas</span><span class="val">$197</span></li>
+      <li><span>IA Mentor de Aliados</span><span class="val">$197</span></li>
+      <li><span>Plataforma IA 30 d&iacute;as</span><span class="val">$97</span></li>
+      <li><span>Programa VIP Sprint</span><span class="val">$297</span></li>
+      <li><span>Acceso VIP Evento Anual</span><span class="val">$137</span></li>
+    </ul>
+    <p class="bonus-total fade-in d3"><span class="gradient-text">$1,122 en bonos</span> &mdash; incluidos gratis</p>
+  </div>
+
+  <!-- Slide 12: Social Proof -->
+  <div class="slide" data-title="Resultados reales">
+    <div class="orb orb-violet" style="width:400px;height:400px;top:-100px;left:50%;transform:translateX(-50%);"></div>
+    <h2 class="fade-in">Resultados reales</h2>
+    <div class="testimonial-row">
+      <div class="testimonial-card">
+        <p class="quote">&ldquo;De 0 a 15 prospectos por semana en solo 3 semanas.&rdquo;</p>
+        <p class="author">&mdash; Mar&iacute;a G.</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="quote">&ldquo;De $200 a $1,800/mes aplicando el sistema de ventas.&rdquo;</p>
+        <p class="author">&mdash; Carlos R.</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="quote">&ldquo;3 socios activos en 30 d&iacute;as. El m&eacute;todo funciona.&rdquo;</p>
+        <p class="author">&mdash; Luisa M.</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="quote">&ldquo;Primer rango alcanzado en solo 8 semanas.&rdquo;</p>
+        <p class="author">&mdash; Ana L.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 13: Event Photos -->
+  <div class="slide" data-title="Comunidad">
+    <div class="slide-bg-image" style="background-image:url('evento-crowd.jpg');"></div>
+    <div class="z-content">
+      <h2 class="fade-in">Una comunidad que se mueve</h2>
+      <p class="subtitle fade-in d1">Nuestro evento anual. Networking real. Resultados reales.</p>
+    </div>
+  </div>
+
+  <!-- Slide 14: Guarantee -->
+  <div class="slide" data-title="Garant&iacute;a">
+    <div class="orb orb-violet" style="width:350px;height:350px;top:-80px;right:-60px;"></div>
+    <div class="shield-icon fade-in">
+      <svg viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="shieldGrad" x1="0" y1="0" x2="80" y2="90" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#2233FF"/>
+            <stop offset="100%" stop-color="#7B2FFF"/>
+          </linearGradient>
+        </defs>
+        <path d="M40 4L8 20V44C8 64 22 80 40 86C58 80 72 64 72 44V20L40 4Z" stroke="url(#shieldGrad)" stroke-width="3" fill="none"/>
+        <path d="M28 45L36 53L54 35" stroke="url(#shieldGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
+    <h2 class="fade-in d1">Garant&iacute;a de Acompa&ntilde;amiento</h2>
+    <p class="subtitle fade-in d2">Si en 90 d&iacute;as aplicas y no ves resultados, seguimos contigo sin costo adicional.</p>
+    <p class="subtitle fade-in d3" style="margin-top:20px;color:var(--violet);font-weight:600;font-family:'Manrope',sans-serif;">Tu &eacute;xito es nuestra m&eacute;trica. No tus pagos.</p>
+  </div>
+
+  <!-- Slide 15: Pricing -->
+  <div class="slide" data-title="Inversi&oacute;n">
+    <div class="orb orb-violet" style="width:500px;height:500px;top:-150px;left:50%;transform:translateX(-50%);"></div>
+    <div class="orb orb-blue" style="width:300px;height:300px;bottom:-60px;right:-40px;"></div>
+    <h2 class="fade-in">Inversi&oacute;n</h2>
+    <p class="price-old fade-in d1">$3,000 USD</p>
+    <p class="price-new fade-in d2">$1,500 USD</p>
+    <p class="price-sub fade-in d3">o 12 cuotas de ~$125/mes</p>
+    <p class="price-sub fade-in d3" style="margin-top:8px;">Pago &uacute;nico &middot; Acceso inmediato</p>
+  </div>
+
+  <!-- Slide 16: CTA -->
+  <div class="slide" data-title="&iquest;Est&aacute;s listo?">
+    <div class="orb orb-violet" style="width:500px;height:500px;top:-120px;right:-100px;"></div>
+    <div class="orb orb-blue" style="width:400px;height:400px;bottom:-100px;left:-80px;"></div>
+    <img src="logo-clean.png" alt="Alianza Multinivel" class="logo-img-lg fade-in">
+    <h1 class="fade-in d1">&iquest;Est&aacute;s listo para escalar?</h1>
+    <p class="subtitle fade-in d2">El pr&oacute;ximo grupo comienza pronto. Los cupos son limitados.</p>
+    <a href="https://wa.me/TUNUMERO" target="_blank" class="cta-btn fade-in d3">Quiero empezar hoy &rarr;</a>
+  </div>
+
+</div><!-- /deck -->
+
+<script>
+(function() {
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  const progressBar = document.getElementById('progress-bar');
+  const counter = document.getElementById('slide-counter');
+  const overview = document.getElementById('overview');
+  const overviewGrid = document.getElementById('overview-grid');
+  let current = 0;
+
+  function updateProgress() {
+    const pct = ((current + 1) / total) * 100;
+    progressBar.style.width = pct + '%';
+    counter.textContent = (current + 1) + '/' + total;
+  }
+
+  let transitioning = false;
+  function goTo(index) {
+    if (index < 0 || index >= total || index === current || transitioning) return;
+    transitioning = true;
+    const goingForward = index > current;
+    // Exit current slide
+    slides[current].classList.remove('active');
+    slides[current].classList.add('exit-left');
+    // Prepare new slide entry direction
+    const newSlide = slides[index];
+    newSlide.style.transition = 'none';
+    newSlide.style.transform = goingForward ? 'translateX(40px)' : 'translateX(-40px)';
+    newSlide.style.opacity = '0';
+    newSlide.style.visibility = 'visible';
+    // Force reflow
+    void newSlide.offsetWidth;
+    // Animate in
+    newSlide.style.transition = '';
+    newSlide.classList.add('active');
+    newSlide.style.transform = '';
+    newSlide.style.opacity = '';
+    // Clean up old slide after transition
+    const oldIndex = current;
+    current = index;
+    updateProgress();
+    setTimeout(() => {
+      slides[oldIndex].classList.remove('exit-left');
+      slides[oldIndex].style.visibility = '';
+      transitioning = false;
+    }, 600);
+  }
+
+  window.nextSlide = function() { goTo(current + 1); };
+  window.prevSlide = function() { goTo(current - 1); };
+
+  function buildOverview() {
+    overviewGrid.innerHTML = '';
+    slides.forEach((s, i) => {
+      const thumb = document.createElement('div');
+      thumb.className = 'overview-thumb' + (i === current ? ' current' : '');
+      thumb.innerHTML = '<div class="thumb-num">' + (i + 1) + '</div><div class="thumb-title">' + (s.dataset.title || '') + '</div>';
+      thumb.addEventListener('click', () => { goTo(i); closeOverview(); });
+      overviewGrid.appendChild(thumb);
+    });
+  }
+
+  function openOverview() { buildOverview(); overview.classList.add('open'); }
+  window.closeOverview = function() { overview.classList.remove('open'); };
+
+  document.addEventListener('keydown', (e) => {
+    if (overview.classList.contains('open')) {
+      if (e.key === 'Escape') closeOverview();
+      return;
+    }
+    switch (e.key) {
+      case 'ArrowRight': case ' ':
+        e.preventDefault(); nextSlide(); break;
+      case 'ArrowLeft':
+        e.preventDefault(); prevSlide(); break;
+      case 'Escape':
+        e.preventDefault(); openOverview(); break;
+    }
+  });
+
+  updateProgress();
+})();
+</script>
+</body>
+</html>
