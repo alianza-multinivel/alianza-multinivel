@@ -1184,18 +1184,83 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   </div>
 
   <!-- Slide 11: Bonuses -->
-  <div class="slide" data-title="Bonos incluidos">
+  <div class="slide" data-title="Bonos incluidos" style="padding:28px 50px;justify-content:flex-start;overflow-y:auto;">
     <div class="orb orb-blue" style="width:350px;height:350px;bottom:-80px;right:-50px;"></div>
-    <h2 class="fade-in">Bonos incluidos</h2>
-    <ul class="bonus-list">
-      <li><span>IA de Marca Personal</span><span class="val">$197</span></li>
-      <li><span>IA Experto en Ventas</span><span class="val">$197</span></li>
-      <li><span>IA Mentor de Aliados</span><span class="val">$197</span></li>
-      <li><span>Plataforma IA 30 d&iacute;as</span><span class="val">$97</span></li>
-      <li><span>Programa VIP Sprint</span><span class="val">$297</span></li>
-      <li><span>Acceso VIP Evento Anual</span><span class="val">$137</span></li>
-    </ul>
-    <p class="bonus-total fade-in d3"><span class="gradient-text">$1,122 en bonos</span> &mdash; incluidos gratis</p>
+    <div class="orb orb-violet" style="width:300px;height:300px;top:-60px;left:-60px;"></div>
+
+    <!-- Header -->
+    <div style="text-align:center;margin-bottom:24px;position:relative;z-index:2;">
+      <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;padding:6px 16px;border-radius:100px;text-transform:uppercase;background:rgba(123,47,255,0.12);border:1px solid rgba(123,47,255,0.35);color:#C39FFF;margin-bottom:14px;">
+        <span style="width:7px;height:7px;border-radius:50%;background:#7B2FFF;"></span> BONOS EXCLUSIVOS
+      </div>
+      <h2 class="fade-in" style="font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;">7 bonos de acci&oacute;n r&aacute;pida para<br>acelerar resultados <span class="gradient-text">desde el d&iacute;a 1.</span></h2>
+    </div>
+
+    <!-- Bonus Cards Grid -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:960px;margin:0 auto;position:relative;z-index:2;">
+      <!-- Bono 1 -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:18px 22px;display:flex;gap:16px;align-items:flex-start;">
+        <div style="flex-shrink:0;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:13px;color:#fff;">IA</div>
+        <div>
+          <h4 style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">IA de Marca Personal</h4>
+          <p style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.5;">Posicionamiento, creaci&oacute;n de contenido y claridad de mensaje. Como tener un estratega de marca 24/7.</p>
+        </div>
+      </div>
+      <!-- Bono 2 -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:18px 22px;display:flex;gap:16px;align-items:flex-start;">
+        <div style="flex-shrink:0;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:13px;color:#fff;">$$</div>
+        <div>
+          <h4 style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">IA Experto en Ventas</h4>
+          <p style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.5;">Practica objeciones, cierres y guiones en tiempo real. Entrena tu proceso de venta sin necesitar un coach.</p>
+        </div>
+      </div>
+      <!-- Bono 3 -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:18px 22px;display:flex;gap:16px;align-items:flex-start;">
+        <div style="flex-shrink:0;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:13px;color:#fff;">AL</div>
+        <div>
+          <h4 style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">IA Mentor de Aliados</h4>
+          <p style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.5;">Alianzas, networking y acuerdos estrat&eacute;gicos. Tu cerebro artificial para expandir tu red en cualquier pa&iacute;s.</p>
+        </div>
+      </div>
+      <!-- Bono 4 -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:18px 22px;display:flex;gap:16px;align-items:flex-start;">
+        <div style="flex-shrink:0;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:12px;color:#fff;">30D</div>
+        <div>
+          <h4 style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">Plataforma IA Privada (30 d&iacute;as)</h4>
+          <p style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.5;">Acceso guiado a nuestra plataforma de IA para instalar el sistema desde cero con velocidad.</p>
+        </div>
+      </div>
+      <!-- Bono 5 -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:18px 22px;display:flex;gap:16px;align-items:flex-start;">
+        <div style="flex-shrink:0;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:12px;color:#fff;">VIP</div>
+        <div>
+          <h4 style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">Programa VIP Sprint</h4>
+          <p style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.5;">Sprint intensivo con los 10 socios m&aacute;s comprometidos. Reuniones semanales con los fundadores por 4 semanas.</p>
+        </div>
+      </div>
+      <!-- Bono 6 -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:18px 22px;display:flex;gap:16px;align-items:flex-start;">
+        <div style="flex-shrink:0;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:16px;color:#fff;">★</div>
+        <div>
+          <h4 style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">Acceso VIP Evento Anual</h4>
+          <p style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.5;">Entrada preferencial con zona VIP a nuestro evento privado anual. Networking y experiencias exclusivas.</p>
+        </div>
+      </div>
+      <!-- Bono 7 - Full width -->
+      <div style="grid-column:span 2;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:18px 22px;display:flex;gap:16px;align-items:flex-start;">
+        <div style="flex-shrink:0;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:12px;color:#fff;">12M</div>
+        <div>
+          <h4 style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">12 Meses de Acceso Total</h4>
+          <p style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.5;">Extiende tu acceso a toda la informaci&oacute;n por un a&ntilde;o completo. Consolida resultados sin presi&oacute;n de tiempo. Todas las actualizaciones incluidas.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Total Value Bar -->
+    <div style="width:100%;max-width:960px;margin:16px auto 0;background:linear-gradient(135deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.3);border-radius:16px;padding:20px 32px;text-align:center;position:relative;z-index:2;">
+      <p style="font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:6px;">Valor habitual de todos los bonos</p>
+      <p style="font-family:'Manrope',sans-serif;font-weight:900;font-size:clamp(1.4rem,3vw,2rem);"><span class="gradient-text">$1,122 USD en bonos</span> <span style="color:rgba(255,255,255,0.6);">&mdash; incluidos gratis</span></p>
+    </div>
   </div>
 
   <!-- Slide 12: Social Proof -->
