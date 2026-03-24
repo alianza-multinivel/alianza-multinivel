@@ -997,10 +997,10 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
 
 @keyframes neonPulse {
   0%, 100% {
-    text-shadow: 0 0 10px rgba(155,107,255,0.6), 0 0 30px rgba(100,80,255,0.4), 0 0 60px rgba(80,60,255,0.3), 0 0 100px rgba(60,40,255,0.15);
+    text-shadow: 0 0 10px rgba(107,139,255,0.6), 0 0 30px rgba(60,100,255,0.4), 0 0 60px rgba(40,80,255,0.3), 0 0 100px rgba(34,51,255,0.15);
   }
   50% {
-    text-shadow: 0 0 20px rgba(155,107,255,1), 0 0 50px rgba(120,80,255,0.8), 0 0 100px rgba(80,60,255,0.5), 0 0 160px rgba(60,40,255,0.35), 0 0 220px rgba(34,51,255,0.2);
+    text-shadow: 0 0 20px rgba(107,139,255,1), 0 0 50px rgba(80,120,255,0.8), 0 0 100px rgba(50,80,255,0.5), 0 0 160px rgba(34,51,255,0.35), 0 0 220px rgba(20,40,255,0.2);
   }
 }
 
@@ -1296,6 +1296,32 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   color: rgba(255,255,255,0.35);
 }
 
+/* Checklist items - slide 10 */
+.check-item {
+  user-select: none;
+}
+.check-item:hover {
+  background: rgba(255,255,255,0.07) !important;
+  transform: scale(1.03);
+}
+.check-item.checked {
+  transform: scale(1.06);
+  border-color: rgba(57,255,20,0.6) !important;
+  box-shadow: 0 0 12px rgba(57,255,20,0.25), 0 0 30px rgba(57,255,20,0.1);
+  background: rgba(57,255,20,0.06) !important;
+}
+.check-item.checked .check-icon {
+  background: rgba(57,255,20,0.2);
+  border-color: rgba(57,255,20,0.8);
+  color: #39FF14;
+}
+.check-item.checked .check-icon::after {
+  content: '\2714';
+}
+.check-item.checked span:last-child {
+  color: rgba(255,255,255,0.9);
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .slide { padding: 40px 28px; }
@@ -1483,17 +1509,17 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   </div>
 
   <!-- Slide 5: Hoja de Ruta -->
-  <div class="slide" data-title="Tu hoja de ruta" style="padding:24px 40px;justify-content:flex-start;overflow-y:auto;">
+  <div class="slide" data-title="Tu hoja de ruta" style="padding:20px 40px;justify-content:flex-start;overflow-y:auto;">
     <div class="orb orb-violet" style="width:500px;height:500px;top:-120px;right:-120px;"></div>
     <div class="orb orb-blue" style="width:400px;height:400px;bottom:-100px;left:-100px;"></div>
 
     <!-- Header -->
-    <div style="text-align:left;margin-bottom:20px;position:relative;z-index:2;max-width:1200px;margin-left:auto;margin-right:auto;width:100%;">
-      <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;padding:5px 14px;border-radius:100px;text-transform:uppercase;background:rgba(123,47,255,0.12);border:1px solid rgba(123,47,255,0.35);color:#C39FFF;margin-bottom:12px;">
-        <span style="width:7px;height:7px;border-radius:50%;background:#7B2FFF;"></span> As&iacute; funciona el programa
+    <div style="text-align:left;margin-bottom:18px;position:relative;z-index:2;max-width:1200px;margin-left:auto;margin-right:auto;width:100%;">
+      <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;padding:7px 18px;border-radius:100px;text-transform:uppercase;background:rgba(123,47,255,0.12);border:1px solid rgba(123,47,255,0.35);color:#C39FFF;margin-bottom:14px;">
+        <span style="width:8px;height:8px;border-radius:50%;background:#7B2FFF;"></span> As&iacute; funciona el programa
       </div>
-      <h2 class="fade-in" style="font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;text-align:left;">Tu hoja de ruta hacia<br><span class="gradient-text">resultados reales.</span></h2>
-      <p class="fade-in d1" style="color:rgba(255,255,255,0.45);font-size:15px;margin-top:8px;">En 45 d&iacute;as instalas el sistema completo. Despu&eacute;s, lo optimizas y escalas con acompa&ntilde;amiento real.</p>
+      <h2 class="fade-in" style="font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.1;text-align:left;">Tu hoja de ruta hacia<br><span class="gradient-text">resultados reales.</span></h2>
+      <p class="fade-in d1" style="color:rgba(255,255,255,0.45);font-size:18px;margin-top:10px;">En 45 d&iacute;as instalas el sistema completo. Despu&eacute;s, lo optimizas y escalas con acompa&ntilde;amiento real.</p>
     </div>
 
     <!-- Roadmap Timeline -->
@@ -1503,14 +1529,14 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
       <div style="position:absolute;left:28px;top:28px;bottom:28px;width:3px;background:linear-gradient(180deg,#7B2FFF 0%,#2233FF 40%,rgba(34,51,255,0.3) 100%);border-radius:2px;z-index:0;"></div>
 
       <!-- FASE 1: Instalación -->
-      <div class="pillar-card roadmap-phase fade-in" style="display:flex;gap:20px;align-items:flex-start;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:16px;padding:20px 24px;margin-bottom:12px;position:relative;z-index:1;">
-        <div style="flex-shrink:0;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:22px;color:#fff;box-shadow:0 0 20px rgba(123,47,255,0.4);">1</div>
+      <div class="pillar-card roadmap-phase fade-in" style="display:flex;gap:24px;align-items:flex-start;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:18px;padding:24px 28px;margin-bottom:14px;position:relative;z-index:1;">
+        <div style="flex-shrink:0;width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:26px;color:#fff;box-shadow:0 0 20px rgba(123,47,255,0.4);">1</div>
         <div style="flex:1;">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
-            <h3 style="font-size:18px;font-weight:800;color:#fff;">Instalaci&oacute;n del Sistema</h3>
-            <span style="font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:6px;background:rgba(123,47,255,0.2);border:1px solid rgba(123,47,255,0.4);color:#C39FFF;">Semanas 1&ndash;6</span>
+            <h3 style="font-size:22px;font-weight:800;color:#fff;">Instalaci&oacute;n del Sistema</h3>
+            <span style="font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:6px;background:rgba(123,47,255,0.2);border:1px solid rgba(123,47,255,0.4);color:#C39FFF;">Semanas 1&ndash;6</span>
           </div>
-          <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:8px;">En los primeros 45 d&iacute;as instalas y optimizas la <strong style="color:rgba(255,255,255,0.85);">estructura completa</strong> que te ayudar&aacute; a escalar tu negocio a cualquier rango. Mentalidad, prospecci&oacute;n, marca personal y ventas.</p>
+          <p style="font-size:16px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:10px;">En los primeros 45 d&iacute;as instalas y optimizas la <strong style="color:rgba(255,255,255,0.85);">estructura completa</strong> que te ayudar&aacute; a escalar tu negocio a cualquier rango. Mentalidad, prospecci&oacute;n, marca personal y ventas.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
             <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(123,47,255,0.1);border:1px solid rgba(123,47,255,0.25);color:rgba(255,255,255,0.6);">&#128218; 7 m&oacute;dulos on-demand</span>
             <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(123,47,255,0.1);border:1px solid rgba(123,47,255,0.25);color:rgba(255,255,255,0.6);">&#127919; Mentalidad + Ventas + Marca</span>
@@ -1521,13 +1547,13 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
 
       <!-- FASE 2: Herramientas -->
       <div class="pillar-card roadmap-phase fade-in d1" style="display:flex;gap:20px;align-items:flex-start;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:16px;padding:20px 24px;margin-bottom:12px;position:relative;z-index:1;">
-        <div style="flex-shrink:0;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:22px;color:#fff;box-shadow:0 0 20px rgba(123,47,255,0.4);">2</div>
+        <div style="flex-shrink:0;width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:26px;color:#fff;box-shadow:0 0 20px rgba(123,47,255,0.4);">2</div>
         <div style="flex:1;">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
-            <h3 style="font-size:18px;font-weight:800;color:#fff;">Herramientas que Aceleran</h3>
-            <span style="font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:6px;background:rgba(34,51,255,0.2);border:1px solid rgba(34,51,255,0.4);color:#8B9FFF;">Acceso inmediato</span>
+            <h3 style="font-size:22px;font-weight:800;color:#fff;">Herramientas que Aceleran</h3>
+            <span style="font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:6px;background:rgba(34,51,255,0.2);border:1px solid rgba(34,51,255,0.4);color:#8B9FFF;">Acceso inmediato</span>
           </div>
-          <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:8px;">Tendr&aacute;s herramientas listas para usar desde el d&iacute;a 1 que <strong style="color:rgba(255,255,255,0.85);">aceleran tus resultados</strong>: 3 IAs entrenadas con nuestra metodolog&iacute;a, prompts, plantillas, scripts de cierre y embudos probados.</p>
+          <p style="font-size:16px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:10px;">Tendr&aacute;s herramientas listas para usar desde el d&iacute;a 1 que <strong style="color:rgba(255,255,255,0.85);">aceleran tus resultados</strong>: 3 IAs entrenadas con nuestra metodolog&iacute;a, prompts, plantillas, scripts de cierre y embudos probados.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
             <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(34,51,255,0.1);border:1px solid rgba(34,51,255,0.25);color:rgba(255,255,255,0.6);">&#129302; 3 IAs entrenadas</span>
             <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(34,51,255,0.1);border:1px solid rgba(34,51,255,0.25);color:rgba(255,255,255,0.6);">&#128196; PDFs + Plantillas</span>
@@ -1538,13 +1564,13 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
 
       <!-- FASE 3: Optimización -->
       <div class="pillar-card roadmap-phase fade-in d2" style="display:flex;gap:20px;align-items:flex-start;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:16px;padding:20px 24px;margin-bottom:12px;position:relative;z-index:1;">
-        <div style="flex-shrink:0;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:22px;color:#fff;box-shadow:0 0 20px rgba(123,47,255,0.4);">3</div>
+        <div style="flex-shrink:0;width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:26px;color:#fff;box-shadow:0 0 20px rgba(123,47,255,0.4);">3</div>
         <div style="flex:1;">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
-            <h3 style="font-size:18px;font-weight:800;color:#fff;">Optimizaci&oacute;n y Escala</h3>
-            <span style="font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:6px;background:rgba(80,200,120,0.15);border:1px solid rgba(80,200,120,0.35);color:rgba(80,200,120,0.9);">Multiplicar resultados</span>
+            <h3 style="font-size:22px;font-weight:800;color:#fff;">Optimizaci&oacute;n y Escala</h3>
+            <span style="font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:6px;background:rgba(80,200,120,0.15);border:1px solid rgba(80,200,120,0.35);color:rgba(80,200,120,0.9);">Multiplicar resultados</span>
           </div>
-          <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:8px;">Con toda la estructura montada y trabajando para ti, pasamos a darte la informaci&oacute;n y herramientas para <strong style="color:rgba(255,255,255,0.85);">optimizar y multiplicar</strong> tus resultados. Campa&ntilde;as digitales, embudos avanzados y estrategias de duplicaci&oacute;n de equipo.</p>
+          <p style="font-size:16px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:10px;">Con toda la estructura montada y trabajando para ti, pasamos a darte la informaci&oacute;n y herramientas para <strong style="color:rgba(255,255,255,0.85);">optimizar y multiplicar</strong> tus resultados. Campa&ntilde;as digitales, embudos avanzados y estrategias de duplicaci&oacute;n de equipo.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
             <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(80,200,120,0.08);border:1px solid rgba(80,200,120,0.2);color:rgba(255,255,255,0.6);">&#128200; Campa&ntilde;as y pauta digital</span>
             <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(80,200,120,0.08);border:1px solid rgba(80,200,120,0.2);color:rgba(255,255,255,0.6);">&#128101; Duplicaci&oacute;n de equipo</span>
@@ -1555,13 +1581,13 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
 
       <!-- FASE 4: Acompañamiento -->
       <div class="pillar-card roadmap-phase fade-in d3" style="display:flex;gap:20px;align-items:flex-start;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:16px;padding:20px 24px;margin-bottom:12px;position:relative;z-index:1;">
-        <div style="flex-shrink:0;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:22px;color:#fff;box-shadow:0 0 20px rgba(123,47,255,0.4);">4</div>
+        <div style="flex-shrink:0;width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:26px;color:#fff;box-shadow:0 0 20px rgba(123,47,255,0.4);">4</div>
         <div style="flex:1;">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
-            <h3 style="font-size:18px;font-weight:800;color:#fff;">Acompa&ntilde;amiento Intensivo</h3>
-            <span style="font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:6px;background:rgba(255,170,0,0.15);border:1px solid rgba(255,170,0,0.35);color:rgba(255,195,80,0.95);">+100 sesiones en vivo</span>
+            <h3 style="font-size:22px;font-weight:800;color:#fff;">Acompa&ntilde;amiento Intensivo</h3>
+            <span style="font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:6px;background:rgba(255,170,0,0.15);border:1px solid rgba(255,170,0,0.35);color:rgba(255,195,80,0.95);">+100 sesiones en vivo</span>
           </div>
-          <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:8px;">No te dejamos solo. <strong style="color:rgba(255,255,255,0.85);">+15 sesiones mensuales</strong> con nuestros expertos para que avances de forma efectiva y sin perder tiempo.</p>
+          <p style="font-size:16px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:10px;">No te dejamos solo. <strong style="color:rgba(255,255,255,0.85);">+15 sesiones mensuales</strong> con nuestros expertos para que avances de forma efectiva y sin perder tiempo.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
             <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(255,170,0,0.08);border:1px solid rgba(255,170,0,0.2);color:rgba(255,255,255,0.6);">&#128293; 3 sesiones/semana de implementaci&oacute;n</span>
             <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(255,170,0,0.08);border:1px solid rgba(255,170,0,0.2);color:rgba(255,255,255,0.6);">&#10067; 2 Q&amp;A al mes</span>
@@ -1574,14 +1600,14 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
     </div>
 
     <!-- Bottom: The Stack -->
-    <div style="position:relative;z-index:2;max-width:1200px;margin:14px auto 0;width:100%;text-align:center;">
-      <div style="display:flex;justify-content:center;gap:0;margin-bottom:16px;">
-        <div class="stat-hover" style="background:linear-gradient(135deg,#7B2FFF,#2233FF);padding:16px 36px;font-family:'Manrope',sans-serif;font-weight:800;font-size:18px;color:#fff;border-radius:14px 0 0 14px;border-right:1px solid rgba(255,255,255,0.1);">&#128218; Informaci&oacute;n</div>
-        <div class="stat-hover" style="background:linear-gradient(135deg,#5B28CC,#1E2BBB);padding:16px 36px;font-family:'Manrope',sans-serif;font-weight:800;font-size:18px;color:#fff;border-right:1px solid rgba(255,255,255,0.1);">&#128736; Herramientas</div>
-        <div class="stat-hover" style="background:linear-gradient(135deg,#4A22AA,#1A249A);padding:16px 36px;font-family:'Manrope',sans-serif;font-weight:800;font-size:18px;color:#fff;border-right:1px solid rgba(255,255,255,0.1);">&#9881; Sistema</div>
-        <div class="stat-hover" style="background:linear-gradient(135deg,#3A1C88,#151D7A);padding:16px 36px;font-family:'Manrope',sans-serif;font-weight:800;font-size:18px;color:#fff;border-radius:0 14px 14px 0;">&#128101; Equipo</div>
+    <div style="position:relative;z-index:2;max-width:1200px;margin:16px auto 0;width:100%;text-align:center;">
+      <div style="display:flex;justify-content:center;gap:0;margin-bottom:18px;">
+        <div class="stat-hover" style="background:linear-gradient(135deg,#7B2FFF,#2233FF);padding:20px 44px;font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;color:#fff;border-radius:16px 0 0 16px;border-right:1px solid rgba(255,255,255,0.1);">&#128218; Informaci&oacute;n</div>
+        <div class="stat-hover" style="background:linear-gradient(135deg,#5B28CC,#1E2BBB);padding:20px 44px;font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;color:#fff;border-right:1px solid rgba(255,255,255,0.1);">&#128736; Herramientas</div>
+        <div class="stat-hover" style="background:linear-gradient(135deg,#4A22AA,#1A249A);padding:20px 44px;font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;color:#fff;border-right:1px solid rgba(255,255,255,0.1);">&#9881; Sistema</div>
+        <div class="stat-hover" style="background:linear-gradient(135deg,#3A1C88,#151D7A);padding:20px 44px;font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;color:#fff;border-radius:0 16px 16px 0;">&#128101; Equipo</div>
       </div>
-      <p class="fade-in d3" style="font-family:'Manrope',sans-serif;font-size:clamp(1.3rem,3vw,2rem);font-weight:800;color:#fff;">Y no solo tienes la informaci&oacute;n... <span class="gradient-text">La dominas.</span></p>
+      <p class="fade-in d3" style="font-family:'Manrope',sans-serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;color:#fff;">Y no solo tienes la informaci&oacute;n... <span class="gradient-text">La dominas.</span></p>
     </div>
   </div>
 
@@ -1663,7 +1689,7 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
 
       <!-- Big number -->
       <div style="margin-bottom:20px;">
-        <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:clamp(8rem,18vw,14rem);line-height:0.85;color:#9B6BFF;letter-spacing:-0.06em;animation:neonPulse 2.5s ease-in-out infinite;">6</div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:clamp(8rem,18vw,14rem);line-height:0.85;color:#6B8BFF;letter-spacing:-0.06em;animation:neonPulse 2.5s ease-in-out infinite;">6</div>
         <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,3rem);color:#fff;margin-top:-8px;letter-spacing:0.08em;text-transform:uppercase;">meses</div>
       </div>
 
@@ -1870,87 +1896,47 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
     <p class="fade-in d2" style="font-size:11px !important;color:rgba(255,255,255,0.2) !important;text-align:center;z-index:2;position:relative;">* Capturas de conversaciones reales con autorizaci&oacute;n de nuestros aliados</p>
   </div>
 
-  <!-- Slide: Todo Incluido - Resumen completo -->
+  <!-- Slide: Todo Incluido - Checklist interactivo -->
   <div class="slide" data-title="Todo incluido" style="padding:20px 40px;justify-content:center;align-items:center;overflow-y:auto;">
     <div class="orb orb-violet" style="width:500px;height:500px;top:-150px;left:50%;transform:translateX(-50%);opacity:0.6;"></div>
     <div class="orb orb-blue" style="width:350px;height:350px;bottom:-100px;right:-80px;opacity:0.4;"></div>
 
     <!-- Header -->
-    <div style="text-align:center;margin-bottom:24px;position:relative;z-index:2;">
+    <div style="text-align:center;margin-bottom:20px;position:relative;z-index:2;">
       <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;padding:7px 18px;border-radius:100px;text-transform:uppercase;background:rgba(123,47,255,0.12);border:1px solid rgba(123,47,255,0.35);color:#C39FFF;margin-bottom:14px;">
         <span style="width:7px;height:7px;border-radius:50%;background:#7B2FFF;"></span> Resumen de tu inversi&oacute;n
       </div>
       <h2 class="fade-in" style="font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;">Todo lo que recibes<br><span class="gradient-text">en un solo lugar.</span></h2>
+      <p class="fade-in d1" style="color:rgba(255,255,255,0.35);font-size:15px;margin-top:10px;">Haz click en cada punto para marcarlo</p>
     </div>
 
-    <!-- 3 column layout: Programa + Herramientas + Acompañamiento + Bonos -->
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;width:100%;max-width:1200px;margin:0 auto;position:relative;z-index:2;">
-
-      <!-- Col 1: Información -->
-      <div class="pillar-card" style="background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:18px;padding:24px 20px;display:flex;flex-direction:column;">
-        <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:12px;">&#128218;</div>
-        <h3 style="font-size:20px;font-weight:800;color:#fff;margin-bottom:14px;">Informaci&oacute;n</h3>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;flex:1;">
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> 7 m&oacute;dulos on-demand</li>
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> Prospecci&oacute;n y ventas</li>
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> Marca personal y redes</li>
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> IA y automatizaciones</li>
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> Campa&ntilde;as publicitarias</li>
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> Dise&ntilde;o y contenido</li>
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> Landing pages y embudos</li>
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> Mentalidad escalable</li>
-        </ul>
-      </div>
-
-      <!-- Col 2: Herramientas -->
-      <div class="pillar-card" style="background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:18px;padding:24px 20px;display:flex;flex-direction:column;">
-        <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:12px;">&#128736;</div>
-        <h3 style="font-size:20px;font-weight:800;color:#fff;margin-bottom:14px;">Herramientas</h3>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;flex:1;">
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> PDFs y gu&iacute;as paso a paso</li>
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> Prompts de IA listos</li>
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> Scripts de prospecci&oacute;n</li>
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> Plantillas de contenido</li>
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> Gu&iacute;as de pauta digital</li>
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> 3 IAs entrenadas</li>
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> Plataforma IA privada</li>
-        </ul>
-      </div>
-
-      <!-- Col 3: Acompañamiento + Bonos -->
-      <div class="pillar-card" style="background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:18px;padding:24px 20px;display:flex;flex-direction:column;">
-        <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:12px;">&#127919;</div>
-        <h3 style="font-size:20px;font-weight:800;color:#fff;margin-bottom:14px;">Acompa&ntilde;amiento + Bonos</h3>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;flex:1;">
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> +100 sesiones en vivo</li>
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> 3 sesiones/semana</li>
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> Mentor&iacute;a seg&uacute;n nivel</li>
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> Hot seat y roleplay</li>
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> Programa VIP Sprint</li>
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> Acceso VIP evento anual</li>
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> 12 meses acceso total</li>
-          <li style="font-size:14px;color:rgba(255,255,255,0.55);display:flex;gap:8px;line-height:1.4;"><span style="color:#7B2FFF;flex-shrink:0;">&#10004;</span> Comunidad privada 24/7</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Bottom bar -->
-    <div class="fade-in d2" style="width:100%;max-width:1200px;margin:20px auto 0;display:flex;gap:16px;position:relative;z-index:2;">
-      <div class="stat-hover" style="flex:1;background:linear-gradient(135deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.3);border-radius:14px;padding:18px 24px;text-align:center;">
-        <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:28px;color:#fff;">6 meses</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:4px;">Acceso total</div>
-      </div>
-      <div class="stat-hover" style="flex:1;background:linear-gradient(135deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.3);border-radius:14px;padding:18px 24px;text-align:center;">
-        <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:28px;color:#fff;">+100</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:4px;">Sesiones en vivo</div>
-      </div>
-      <div class="stat-hover" style="flex:1;background:linear-gradient(135deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.3);border-radius:14px;padding:18px 24px;text-align:center;">
-        <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:28px;color:#fff;">7 bonos</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:4px;">Valor: $1,122 USD</div>
-      </div>
-      <div class="stat-hover" style="flex:1;background:linear-gradient(135deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.3);border-radius:14px;padding:18px 24px;text-align:center;">
-        <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:28px;color:#fff;">3 IAs</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:4px;">Entrenadas para ti</div>
+    <!-- Checklist grid -->
+    <div class="checklist-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;width:100%;max-width:1200px;margin:0 auto;position:relative;z-index:2;">
+      <!-- Programa -->
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">7 m&oacute;dulos on-demand</span></div>
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">Prospecci&oacute;n y ventas de alto nivel</span></div>
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">Marca personal y redes sociales</span></div>
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">IA y automatizaciones aplicadas</span></div>
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">Campa&ntilde;as publicitarias</span></div>
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">Dise&ntilde;o y edici&oacute;n de contenido</span></div>
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">Landing pages y embudos</span></div>
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">Mentalidad y disciplina escalable</span></div>
+      <!-- Herramientas -->
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">PDFs y gu&iacute;as paso a paso</span></div>
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">Prompts de IA listos para usar</span></div>
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">3 IAs entrenadas con el sistema</span></div>
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">Scripts de prospecci&oacute;n y cierre</span></div>
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">Plantillas de contenido y redes</span></div>
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">Plataforma IA privada (30 d&iacute;as)</span></div>
+      <!-- Acompañamiento + Bonos -->
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">+100 sesiones en vivo</span></div>
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">3 sesiones semanales con expertos</span></div>
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">Mentor&iacute;a semanal seg&uacute;n tu nivel</span></div>
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">Hot seat y roleplay en vivo</span></div>
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">Programa VIP Sprint</span></div>
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">Acceso VIP evento anual</span></div>
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">12 meses de acceso total</span></div>
+      <div class="check-item" onclick="this.classList.toggle('checked')" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:center;cursor:pointer;transition:all .3s;"><span class="check-icon" style="flex-shrink:0;width:24px;height:24px;border-radius:6px;border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;"></span><span style="font-size:15px;color:rgba(255,255,255,0.6);">Comunidad privada 24/7</span></div>
       </div>
     </div>
   </div>
@@ -2051,6 +2037,8 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
     setTimeout(() => {
       slides[oldIndex].classList.remove('exit-left');
       slides[oldIndex].style.visibility = '';
+      // Reset checklist items when leaving
+      slides[oldIndex].querySelectorAll('.check-item.checked').forEach(el => el.classList.remove('checked'));
       transitioning = false;
     }, 600);
   }
