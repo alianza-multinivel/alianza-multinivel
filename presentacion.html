@@ -1296,6 +1296,34 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   color: rgba(255,255,255,0.35);
 }
 
+/* Animated glowing border - guarantee card */
+@keyframes borderGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.glow-border-wrap {
+  position: relative;
+  border-radius: 28px;
+  padding: 3px;
+  background: linear-gradient(270deg, #7B2FFF, #2233FF, #9B6BFF, #5566FF, #7B2FFF);
+  background-size: 400% 400%;
+  animation: borderGlow 4s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(123,47,255,0.3), 0 0 40px rgba(123,47,255,0.15);
+}
+.glow-border-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  background: linear-gradient(270deg, #7B2FFF, #2233FF, #9B6BFF, #5566FF, #7B2FFF);
+  background-size: 400% 400%;
+  animation: borderGlow 4s ease-in-out infinite;
+  filter: blur(12px);
+  opacity: 0.5;
+  z-index: -1;
+}
+
 /* Checklist items - slide 10 */
 .check-item {
   user-select: none;
@@ -1509,105 +1537,83 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   </div>
 
   <!-- Slide 5: Hoja de Ruta -->
-  <div class="slide" data-title="Tu hoja de ruta" style="padding:20px 40px;justify-content:flex-start;overflow-y:auto;">
+  <div class="slide" data-title="Tu hoja de ruta" style="padding:12px 36px;justify-content:center;overflow:hidden;">
     <div class="orb orb-violet" style="width:500px;height:500px;top:-120px;right:-120px;"></div>
     <div class="orb orb-blue" style="width:400px;height:400px;bottom:-100px;left:-100px;"></div>
 
     <!-- Header -->
-    <div style="text-align:left;margin-bottom:18px;position:relative;z-index:2;max-width:1200px;margin-left:auto;margin-right:auto;width:100%;">
-      <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;padding:7px 18px;border-radius:100px;text-transform:uppercase;background:rgba(123,47,255,0.12);border:1px solid rgba(123,47,255,0.35);color:#C39FFF;margin-bottom:14px;">
-        <span style="width:8px;height:8px;border-radius:50%;background:#7B2FFF;"></span> As&iacute; funciona el programa
+    <div style="text-align:left;margin-bottom:8px;position:relative;z-index:2;max-width:1200px;margin-left:auto;margin-right:auto;width:100%;">
+      <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;padding:5px 14px;border-radius:100px;text-transform:uppercase;background:rgba(123,47,255,0.12);border:1px solid rgba(123,47,255,0.35);color:#C39FFF;margin-bottom:8px;">
+        <span style="width:7px;height:7px;border-radius:50%;background:#7B2FFF;"></span> As&iacute; funciona el programa
       </div>
-      <h2 class="fade-in" style="font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.1;text-align:left;">Tu hoja de ruta hacia<br><span class="gradient-text">resultados reales.</span></h2>
-      <p class="fade-in d1" style="color:rgba(255,255,255,0.45);font-size:18px;margin-top:10px;">En 45 d&iacute;as instalas el sistema completo. Despu&eacute;s, lo optimizas y escalas con acompa&ntilde;amiento real.</p>
+      <h2 class="fade-in" style="font-size:clamp(1.6rem,3.5vw,2.4rem);line-height:1.1;text-align:left;">Tu hoja de ruta hacia <span class="gradient-text">resultados reales.</span></h2>
     </div>
 
     <!-- Roadmap Timeline -->
     <div style="position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:0;">
 
       <!-- Timeline connector line -->
-      <div style="position:absolute;left:28px;top:28px;bottom:28px;width:3px;background:linear-gradient(180deg,#7B2FFF 0%,#2233FF 40%,rgba(34,51,255,0.3) 100%);border-radius:2px;z-index:0;"></div>
+      <div style="position:absolute;left:22px;top:22px;bottom:22px;width:2px;background:linear-gradient(180deg,#7B2FFF 0%,#2233FF 40%,rgba(34,51,255,0.3) 100%);border-radius:2px;z-index:0;"></div>
 
-      <!-- FASE 1: Instalación -->
-      <div class="pillar-card roadmap-phase fade-in" style="display:flex;gap:24px;align-items:flex-start;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:18px;padding:24px 28px;margin-bottom:14px;position:relative;z-index:1;">
-        <div style="flex-shrink:0;width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:26px;color:#fff;box-shadow:0 0 20px rgba(123,47,255,0.4);">1</div>
+      <!-- FASE 1 -->
+      <div class="pillar-card roadmap-phase fade-in" style="display:flex;gap:14px;align-items:center;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:14px;padding:14px 20px;margin-bottom:8px;position:relative;z-index:1;">
+        <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:18px;color:#fff;box-shadow:0 0 14px rgba(123,47,255,0.4);">1</div>
         <div style="flex:1;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
-            <h3 style="font-size:22px;font-weight:800;color:#fff;">Instalaci&oacute;n del Sistema</h3>
-            <span style="font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:6px;background:rgba(123,47,255,0.2);border:1px solid rgba(123,47,255,0.4);color:#C39FFF;">Semanas 1&ndash;6</span>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <h3 style="font-size:17px;font-weight:800;color:#fff;">Instalaci&oacute;n del Sistema</h3>
+            <span style="font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:rgba(123,47,255,0.2);border:1px solid rgba(123,47,255,0.4);color:#C39FFF;">Semanas 1&ndash;6</span>
           </div>
-          <p style="font-size:16px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:10px;">En los primeros 45 d&iacute;as instalas y optimizas la <strong style="color:rgba(255,255,255,0.85);">estructura completa</strong> que te ayudar&aacute; a escalar tu negocio a cualquier rango. Mentalidad, prospecci&oacute;n, marca personal y ventas.</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(123,47,255,0.1);border:1px solid rgba(123,47,255,0.25);color:rgba(255,255,255,0.6);">&#128218; 7 m&oacute;dulos on-demand</span>
-            <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(123,47,255,0.1);border:1px solid rgba(123,47,255,0.25);color:rgba(255,255,255,0.6);">&#127919; Mentalidad + Ventas + Marca</span>
-            <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(123,47,255,0.1);border:1px solid rgba(123,47,255,0.25);color:rgba(255,255,255,0.6);">&#128736; Scripts y guiones listos</span>
-          </div>
+          <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;margin-top:4px;">En 45 d&iacute;as instalas la estructura completa: mentalidad, prospecci&oacute;n, marca personal y ventas.</p>
         </div>
       </div>
 
-      <!-- FASE 2: Herramientas -->
-      <div class="pillar-card roadmap-phase fade-in d1" style="display:flex;gap:20px;align-items:flex-start;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:16px;padding:20px 24px;margin-bottom:12px;position:relative;z-index:1;">
-        <div style="flex-shrink:0;width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:26px;color:#fff;box-shadow:0 0 20px rgba(123,47,255,0.4);">2</div>
+      <!-- FASE 2 -->
+      <div class="pillar-card roadmap-phase fade-in d1" style="display:flex;gap:14px;align-items:center;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:14px;padding:14px 20px;margin-bottom:8px;position:relative;z-index:1;">
+        <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:18px;color:#fff;box-shadow:0 0 14px rgba(123,47,255,0.4);">2</div>
         <div style="flex:1;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
-            <h3 style="font-size:22px;font-weight:800;color:#fff;">Herramientas que Aceleran</h3>
-            <span style="font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:6px;background:rgba(34,51,255,0.2);border:1px solid rgba(34,51,255,0.4);color:#8B9FFF;">Acceso inmediato</span>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <h3 style="font-size:17px;font-weight:800;color:#fff;">Herramientas que Aceleran</h3>
+            <span style="font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:rgba(34,51,255,0.2);border:1px solid rgba(34,51,255,0.4);color:#8B9FFF;">Acceso inmediato</span>
           </div>
-          <p style="font-size:16px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:10px;">Tendr&aacute;s herramientas listas para usar desde el d&iacute;a 1 que <strong style="color:rgba(255,255,255,0.85);">aceleran tus resultados</strong>: 3 IAs entrenadas con nuestra metodolog&iacute;a, prompts, plantillas, scripts de cierre y embudos probados.</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(34,51,255,0.1);border:1px solid rgba(34,51,255,0.25);color:rgba(255,255,255,0.6);">&#129302; 3 IAs entrenadas</span>
-            <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(34,51,255,0.1);border:1px solid rgba(34,51,255,0.25);color:rgba(255,255,255,0.6);">&#128196; PDFs + Plantillas</span>
-            <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(34,51,255,0.1);border:1px solid rgba(34,51,255,0.25);color:rgba(255,255,255,0.6);">&#9889; Plataforma IA privada 30 d&iacute;as</span>
-          </div>
+          <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;margin-top:4px;">3 IAs entrenadas, prompts, plantillas, scripts de cierre y embudos probados desde el d&iacute;a 1.</p>
         </div>
       </div>
 
-      <!-- FASE 3: Optimización -->
-      <div class="pillar-card roadmap-phase fade-in d2" style="display:flex;gap:20px;align-items:flex-start;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:16px;padding:20px 24px;margin-bottom:12px;position:relative;z-index:1;">
-        <div style="flex-shrink:0;width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:26px;color:#fff;box-shadow:0 0 20px rgba(123,47,255,0.4);">3</div>
+      <!-- FASE 3 -->
+      <div class="pillar-card roadmap-phase fade-in d2" style="display:flex;gap:14px;align-items:center;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:14px;padding:14px 20px;margin-bottom:8px;position:relative;z-index:1;">
+        <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:18px;color:#fff;box-shadow:0 0 14px rgba(123,47,255,0.4);">3</div>
         <div style="flex:1;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
-            <h3 style="font-size:22px;font-weight:800;color:#fff;">Optimizaci&oacute;n y Escala</h3>
-            <span style="font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:6px;background:rgba(80,200,120,0.15);border:1px solid rgba(80,200,120,0.35);color:rgba(80,200,120,0.9);">Multiplicar resultados</span>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <h3 style="font-size:17px;font-weight:800;color:#fff;">Optimizaci&oacute;n y Escala</h3>
+            <span style="font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:rgba(80,200,120,0.15);border:1px solid rgba(80,200,120,0.35);color:rgba(80,200,120,0.9);">Multiplicar</span>
           </div>
-          <p style="font-size:16px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:10px;">Con toda la estructura montada y trabajando para ti, pasamos a darte la informaci&oacute;n y herramientas para <strong style="color:rgba(255,255,255,0.85);">optimizar y multiplicar</strong> tus resultados. Campa&ntilde;as digitales, embudos avanzados y estrategias de duplicaci&oacute;n de equipo.</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(80,200,120,0.08);border:1px solid rgba(80,200,120,0.2);color:rgba(255,255,255,0.6);">&#128200; Campa&ntilde;as y pauta digital</span>
-            <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(80,200,120,0.08);border:1px solid rgba(80,200,120,0.2);color:rgba(255,255,255,0.6);">&#128101; Duplicaci&oacute;n de equipo</span>
-            <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(80,200,120,0.08);border:1px solid rgba(80,200,120,0.2);color:rgba(255,255,255,0.6);">&#128640; Embudos avanzados</span>
-          </div>
+          <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;margin-top:4px;">Campa&ntilde;as digitales, embudos avanzados y estrategias de duplicaci&oacute;n de equipo.</p>
         </div>
       </div>
 
-      <!-- FASE 4: Acompañamiento -->
-      <div class="pillar-card roadmap-phase fade-in d3" style="display:flex;gap:20px;align-items:flex-start;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:16px;padding:20px 24px;margin-bottom:12px;position:relative;z-index:1;">
-        <div style="flex-shrink:0;width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:26px;color:#fff;box-shadow:0 0 20px rgba(123,47,255,0.4);">4</div>
+      <!-- FASE 4 -->
+      <div class="pillar-card roadmap-phase fade-in d3" style="display:flex;gap:14px;align-items:center;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:14px;padding:14px 20px;margin-bottom:8px;position:relative;z-index:1;">
+        <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:18px;color:#fff;box-shadow:0 0 14px rgba(123,47,255,0.4);">4</div>
         <div style="flex:1;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
-            <h3 style="font-size:22px;font-weight:800;color:#fff;">Acompa&ntilde;amiento Intensivo</h3>
-            <span style="font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:6px;background:rgba(255,170,0,0.15);border:1px solid rgba(255,170,0,0.35);color:rgba(255,195,80,0.95);">+100 sesiones en vivo</span>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <h3 style="font-size:17px;font-weight:800;color:#fff;">Acompa&ntilde;amiento Intensivo</h3>
+            <span style="font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:rgba(255,170,0,0.15);border:1px solid rgba(255,170,0,0.35);color:rgba(255,195,80,0.95);">+100 sesiones</span>
           </div>
-          <p style="font-size:16px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:10px;">No te dejamos solo. <strong style="color:rgba(255,255,255,0.85);">+15 sesiones mensuales</strong> con nuestros expertos para que avances de forma efectiva y sin perder tiempo.</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(255,170,0,0.08);border:1px solid rgba(255,170,0,0.2);color:rgba(255,255,255,0.6);">&#128293; 3 sesiones/semana de implementaci&oacute;n</span>
-            <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(255,170,0,0.08);border:1px solid rgba(255,170,0,0.2);color:rgba(255,255,255,0.6);">&#10067; 2 Q&amp;A al mes</span>
-            <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(255,170,0,0.08);border:1px solid rgba(255,170,0,0.2);color:rgba(255,255,255,0.6);">&#127942; Sesi&oacute;n semanal por etapa</span>
-            <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(255,170,0,0.08);border:1px solid rgba(255,170,0,0.2);color:rgba(255,255,255,0.6);">&#128165; Retos + Hot seat en vivo</span>
-          </div>
+          <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;margin-top:4px;">+15 sesiones mensuales con expertos. Hot seat, roleplay y Q&amp;A en vivo.</p>
         </div>
       </div>
 
     </div>
 
     <!-- Bottom: The Stack -->
-    <div style="position:relative;z-index:2;max-width:1200px;margin:16px auto 0;width:100%;text-align:center;">
-      <div style="display:flex;justify-content:center;gap:0;margin-bottom:18px;">
-        <div class="stat-hover" style="background:linear-gradient(135deg,#7B2FFF,#2233FF);padding:20px 44px;font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;color:#fff;border-radius:16px 0 0 16px;border-right:1px solid rgba(255,255,255,0.1);">&#128218; Informaci&oacute;n</div>
-        <div class="stat-hover" style="background:linear-gradient(135deg,#5B28CC,#1E2BBB);padding:20px 44px;font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;color:#fff;border-right:1px solid rgba(255,255,255,0.1);">&#128736; Herramientas</div>
-        <div class="stat-hover" style="background:linear-gradient(135deg,#4A22AA,#1A249A);padding:20px 44px;font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;color:#fff;border-right:1px solid rgba(255,255,255,0.1);">&#9881; Sistema</div>
-        <div class="stat-hover" style="background:linear-gradient(135deg,#3A1C88,#151D7A);padding:20px 44px;font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;color:#fff;border-radius:0 16px 16px 0;">&#128101; Equipo</div>
+    <div style="position:relative;z-index:2;max-width:1200px;margin:10px auto 0;width:100%;text-align:center;">
+      <div style="display:flex;justify-content:center;gap:0;margin-bottom:10px;">
+        <div class="stat-hover" style="background:linear-gradient(135deg,#7B2FFF,#2233FF);padding:12px 32px;font-family:'Manrope',sans-serif;font-weight:800;font-size:16px;color:#fff;border-radius:12px 0 0 12px;border-right:1px solid rgba(255,255,255,0.1);">&#128218; Informaci&oacute;n</div>
+        <div class="stat-hover" style="background:linear-gradient(135deg,#5B28CC,#1E2BBB);padding:12px 32px;font-family:'Manrope',sans-serif;font-weight:800;font-size:16px;color:#fff;border-right:1px solid rgba(255,255,255,0.1);">&#128736; Herramientas</div>
+        <div class="stat-hover" style="background:linear-gradient(135deg,#4A22AA,#1A249A);padding:12px 32px;font-family:'Manrope',sans-serif;font-weight:800;font-size:16px;color:#fff;border-right:1px solid rgba(255,255,255,0.1);">&#9881; Sistema</div>
+        <div class="stat-hover" style="background:linear-gradient(135deg,#3A1C88,#151D7A);padding:12px 32px;font-family:'Manrope',sans-serif;font-weight:800;font-size:16px;color:#fff;border-radius:0 12px 12px 0;">&#128101; Equipo</div>
       </div>
-      <p class="fade-in d3" style="font-family:'Manrope',sans-serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;color:#fff;">Y no solo tienes la informaci&oacute;n... <span class="gradient-text">La dominas.</span></p>
+      <p class="fade-in d3" style="font-family:'Manrope',sans-serif;font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:800;color:#fff;">Y no solo tienes la informaci&oacute;n... <span class="gradient-text">La dominas.</span></p>
     </div>
   </div>
 
@@ -1956,18 +1962,19 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
     <div class="orb orb-blue" style="width:350px;height:350px;bottom:-80px;left:-60px;opacity:0.4;"></div>
 
     <!-- Left: Text -->
-    <div class="fade-in" style="flex:1;max-width:520px;position:relative;z-index:2;">
-      <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;padding:7px 18px;border-radius:100px;text-transform:uppercase;background:rgba(123,47,255,0.12);border:1px solid rgba(123,47,255,0.35);color:#C39FFF;margin-bottom:20px;">
+    <div class="fade-in" style="flex:1;max-width:560px;position:relative;z-index:2;">
+      <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;letter-spacing:.08em;padding:8px 20px;border-radius:100px;text-transform:uppercase;background:rgba(123,47,255,0.12);border:1px solid rgba(123,47,255,0.35);color:#C39FFF;margin-bottom:24px;">
         <span style="width:8px;height:8px;border-radius:50%;background:#7B2FFF;"></span> Nuestra garant&iacute;a
       </div>
-      <h2 style="font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;line-height:1.1;margin-bottom:20px;">Nosotros no paramos<br>hasta que <span class="gradient-text">t&uacute; escales.</span></h2>
-      <p style="font-size:18px;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:20px;">Si en los primeros 90 d&iacute;as aplicas el sistema y no ves resultados concretos, te acompa&ntilde;amos sin costo adicional hasta que los tengas. No es un programa que se entrega y se olvida. Es un compromiso real con tu crecimiento.</p>
-      <p style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;">Tu &eacute;xito es nuestra m&eacute;trica. <span class="gradient-text">No tus pagos.</span></p>
+      <h2 style="font-size:clamp(2.6rem,6vw,4rem);font-weight:900;line-height:1.1;margin-bottom:24px;">Nosotros no paramos<br>hasta que <span class="gradient-text">t&uacute; escales.</span></h2>
+      <p style="font-size:20px;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:24px;">Si en los primeros 90 d&iacute;as aplicas el sistema y no ves resultados concretos, te acompa&ntilde;amos sin costo adicional hasta que los tengas. No es un programa que se entrega y se olvida. Es un compromiso real con tu crecimiento.</p>
+      <p style="font-family:'Manrope',sans-serif;font-size:24px;font-weight:800;color:#fff;">Tu &eacute;xito es nuestra m&eacute;trica. <span class="gradient-text">No tus pagos.</span></p>
     </div>
 
-    <!-- Right: Shield Card -->
+    <!-- Right: Shield Card with animated glowing border -->
     <div class="fade-in d1" style="position:relative;z-index:2;flex-shrink:0;">
-      <div style="background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:24px;padding:48px 56px;text-align:center;min-width:360px;box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+      <div class="glow-border-wrap">
+      <div style="background:linear-gradient(160deg,#0D0D16,#111125);border-radius:25px;padding:56px 64px;text-align:center;min-width:400px;">
 
         <!-- Professional Shield SVG -->
         <div style="margin:0 auto 28px;width:120px;height:140px;">
@@ -2011,24 +2018,79 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
           </svg>
         </div>
 
-        <h3 style="font-family:'Manrope',sans-serif;font-size:24px;font-weight:900;color:#fff;margin-bottom:12px;">Garant&iacute;a de Acompa&ntilde;amiento</h3>
-        <p style="font-size:16px;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:20px;">90 d&iacute;as para ver resultados.<br>Si aplicas y no llegan, seguimos contigo.</p>
-        <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;padding:12px 24px;border-radius:12px;background:rgba(123,47,255,0.12);border:1px solid rgba(123,47,255,0.35);color:#C39FFF;">
-          <span style="font-size:16px;">&#128274;</span> Compromiso blindado &middot; 90 d&iacute;as
+        <h3 style="font-family:'Manrope',sans-serif;font-size:28px;font-weight:900;color:#fff;margin-bottom:14px;">Garant&iacute;a de Acompa&ntilde;amiento</h3>
+        <p style="font-size:18px;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:24px;">90 d&iacute;as para ver resultados.<br>Si aplicas y no llegan, seguimos contigo.</p>
+        <div style="display:inline-flex;align-items:center;gap:10px;font-family:'Manrope',sans-serif;font-size:16px;font-weight:700;padding:14px 28px;border-radius:14px;background:rgba(123,47,255,0.12);border:1px solid rgba(123,47,255,0.35);color:#C39FFF;">
+          <span style="font-size:18px;">&#128274;</span> Compromiso blindado &middot; 90 d&iacute;as
         </div>
+      </div>
       </div>
     </div>
   </div>
 
   <!-- Slide 15: Pricing -->
-  <div class="slide" data-title="Inversi&oacute;n">
+  <div class="slide" data-title="Inversi&oacute;n" style="padding:30px 40px;justify-content:center;align-items:center;">
     <div class="orb orb-violet" style="width:500px;height:500px;top:-150px;left:50%;transform:translateX(-50%);"></div>
     <div class="orb orb-blue" style="width:300px;height:300px;bottom:-60px;right:-40px;"></div>
-    <h2 class="fade-in">Inversi&oacute;n</h2>
-    <p class="price-old fade-in d1">$3,000 USD</p>
-    <p class="price-new fade-in d2">$1,500 USD</p>
-    <p class="price-sub fade-in d3">o 12 cuotas de ~$125/mes</p>
-    <p class="price-sub fade-in d3" style="margin-top:8px;">Pago &uacute;nico &middot; Acceso inmediato</p>
+
+    <!-- Title -->
+    <div class="fade-in" style="text-align:center;margin-bottom:20px;position:relative;z-index:2;">
+      <h2 style="font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;line-height:1.1;">Todo lo que necesitas.<br><span class="gradient-text">Un solo precio.</span></h2>
+      <p style="font-size:18px;color:rgba(255,255,255,0.45);margin-top:10px;">Sin costos ocultos. Sin renovaciones. Sin excusas.</p>
+    </div>
+
+    <!-- Pricing Card -->
+    <div class="fade-in d1 glow-border-wrap" style="position:relative;z-index:2;max-width:520px;width:100%;">
+      <div style="background:linear-gradient(160deg,#0D0D16,#111125);border-radius:25px;padding:36px 40px;text-align:center;">
+
+        <!-- Badge -->
+        <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 16px;border-radius:100px;background:rgba(123,47,255,0.12);border:1px solid rgba(123,47,255,0.35);color:#C39FFF;margin-bottom:20px;">
+          <span style="color:#FFAA00;">&#9889;</span> Cupos limitados &mdash; Pr&oacute;ximo grupo
+        </div>
+
+        <!-- Program name -->
+        <p style="font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:16px;">Alianza Multinivel &middot; Programa Completo</p>
+
+        <!-- Price -->
+        <div style="margin-bottom:8px;">
+          <span style="font-family:'Manrope',sans-serif;font-weight:900;font-size:clamp(4rem,10vw,5.5rem);color:#fff;line-height:1;">$1,500</span>
+        </div>
+        <p style="font-size:16px;color:#fff;margin-bottom:16px;">USD &middot; Pago &uacute;nico</p>
+
+        <!-- Installments -->
+        <div style="display:inline-block;padding:10px 24px;border-radius:10px;border:1px solid rgba(255,255,255,0.15);margin-bottom:24px;">
+          <p style="font-size:15px;color:#fff;">o 12 cuotas de ~$125/mes con tarjeta de cr&eacute;dito</p>
+        </div>
+
+        <!-- Divider -->
+        <div style="width:100%;height:1px;background:rgba(255,255,255,0.08);margin-bottom:20px;"></div>
+
+        <!-- Includes grid -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;text-align:left;margin-bottom:24px;">
+          <div style="display:flex;gap:8px;align-items:center;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#7B2FFF;">&#10004;</span> 7 m&oacute;dulos on-demand</div>
+          <div style="display:flex;gap:8px;align-items:center;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#7B2FFF;">&#10004;</span> +100 sesiones en vivo</div>
+          <div style="display:flex;gap:8px;align-items:center;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#7B2FFF;">&#10004;</span> 3 IAs entrenadas + prompts</div>
+          <div style="display:flex;gap:8px;align-items:center;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#7B2FFF;">&#10004;</span> 7 bonos ($1,122 valor)</div>
+          <div style="display:flex;gap:8px;align-items:center;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#7B2FFF;">&#10004;</span> Herramientas y PDFs</div>
+          <div style="display:flex;gap:8px;align-items:center;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#7B2FFF;">&#10004;</span> 12 meses de acceso</div>
+          <div style="display:flex;gap:8px;align-items:center;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#7B2FFF;">&#10004;</span> Comunidad VIP privada</div>
+          <div style="display:flex;gap:8px;align-items:center;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#7B2FFF;">&#10004;</span> Garant&iacute;a 90 d&iacute;as</div>
+        </div>
+
+        <!-- CTA Button -->
+        <a href="https://wa.me/TUNUMERO" target="_blank" style="display:block;width:100%;padding:18px 0;border-radius:14px;background:var(--gradient);font-family:'Manrope',sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;text-align:center;transition:transform .2s,box-shadow .2s;">Quiero empezar hoy &rarr;</a>
+
+        <!-- Security note -->
+        <p style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:14px;">&#128274; Pago seguro &middot; Acceso inmediato tras el pago</p>
+      </div>
+    </div>
+
+    <!-- Bottom badges -->
+    <div class="fade-in d2" style="display:flex;gap:12px;margin-top:16px;position:relative;z-index:2;">
+      <div style="padding:8px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);font-size:13px;color:rgba(255,255,255,0.5);">&#128994; Garant&iacute;a 90 d&iacute;as</div>
+      <div style="padding:8px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);font-size:13px;color:rgba(255,255,255,0.5);">&#128994; Acceso inmediato</div>
+      <div style="padding:8px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);font-size:13px;color:rgba(255,255,255,0.5);">&#128994; Solo 10 cupos VIP</div>
+    </div>
   </div>
 
   <!-- Slide 16: CTA -->
