@@ -435,13 +435,27 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   border: 1.5px solid rgba(123,47,255,0.45);
   border-radius: 60px;
   padding: 12px 24px 12px 16px;
+  transform-origin: center center;
+  transition: transform .3s cubic-bezier(.22,1,.36,1), border-color .3s, background .3s, box-shadow .3s, z-index 0s;
+  position: relative;
+  z-index: 1;
+  cursor: default;
   transition: border-color .3s, background .3s, box-shadow .3s, opacity .5s, transform .5s;
   box-shadow: 0 0 12px rgba(123,47,255,0.15), inset 0 0 8px rgba(123,47,255,0.05);
 }
 .problem-pill:hover {
-  border-color: rgba(123,47,255,0.7);
-  background: rgba(123,47,255,0.08);
-  box-shadow: 0 0 20px rgba(123,47,255,0.3), inset 0 0 12px rgba(123,47,255,0.08);
+  transform: scale(1.12);
+  border-color: rgba(123,47,255,0.9);
+  background: rgba(123,47,255,0.12);
+  box-shadow: 0 0 30px rgba(123,47,255,0.4), inset 0 0 16px rgba(123,47,255,0.1), 0 8px 32px rgba(0,0,0,0.3);
+  z-index: 10;
+}
+.problem-pill:hover .pill-num {
+  transform: scale(1.15);
+  text-shadow: 0 0 12px rgba(123,47,255,0.6);
+}
+.problem-pill:hover .pill-txt {
+  color: #fff;
 }
 .pill-num {
   flex-shrink: 0;
@@ -451,13 +465,16 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   display: flex; align-items: center; justify-content: center;
   font-family: 'Manrope', sans-serif;
   font-weight: 800; font-size: 13px; color: #fff;
+  transition: transform .3s cubic-bezier(.22,1,.36,1), text-shadow .3s;
 }
 .pill-txt {
   font-size: clamp(0.85rem, 1.1vw, 1rem);
   color: rgba(255,255,255,0.7);
   line-height: 1.4;
+  transition: color .3s;
 }
-.slide.active .problem-pill.fade-in { opacity: 1; transform: translateY(0); }
+.slide.active .problem-pill.fade-in { opacity: 1; transform: translateY(0) scale(1); }
+.slide.active .problem-pill.fade-in:hover { transform: translateY(0) scale(1.12); }
 .slide.active .problem-col:first-child .problem-pill:nth-child(1) { transition-delay: .05s; }
 .slide.active .problem-col:first-child .problem-pill:nth-child(2) { transition-delay: .08s; }
 .slide.active .problem-col:first-child .problem-pill:nth-child(3) { transition-delay: .11s; }
