@@ -922,6 +922,13 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+@keyframes marqueeScrollReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.marquee-track.reverse {
+  animation-name: marqueeScrollReverse;
+}
 
 .marquee-strip {
   overflow: hidden;
@@ -1532,9 +1539,9 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
       <h2 class="fade-in" style="font-size:clamp(1.6rem,3.5vw,2.4rem);">Gente que tom&oacute; la decisi&oacute;n<br><span class="gradient-text">y no mir&oacute; hacia atr&aacute;s.</span></h2>
     </div>
 
-    <!-- Row 1: Testimonial cards — gente que tomó la decisión (→ izquierda) -->
+    <!-- Row 1: Testimonial cards — gente que tomó la decisión (← derecha) -->
     <div class="marquee-strip">
-      <div class="marquee-track" style="--speed:55s;">
+      <div class="marquee-track reverse" style="--speed:55s;">
         <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;En 6 semanas pas&eacute; de no saber c&oacute;mo prospectar a tener un sistema completo trabajando para m&iacute;. Los roleplays me cambiaron el juego.&rdquo;</p><div class="sp-result">&#128200; De 0 a 15 prospectos/semana</div><div class="sp-author"><div class="sp-av">M</div><div><b>Mar&iacute;a G.</b><br><span>Venezuela &middot; Vital Health</span></div></div></div>
         <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;Llevaba 2 a&ntilde;os sin pasar de $200/mes. En el primer mes entend&iacute; por qu&eacute;. La estructura que me dieron transform&oacute; mi negocio por completo.&rdquo;</p><div class="sp-result">&#128176; De $200 a $1,800/mes</div><div class="sp-author"><div class="sp-av">C</div><div><b>Carlos R.</b><br><span>Colombia &middot; OMNI</span></div></div></div>
         <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;Lo que m&aacute;s me sorprendi&oacute; fue el acompa&ntilde;amiento real. No te dejan solo. Hay alguien respondiendo en vivo todos los d&iacute;as.&rdquo;</p><div class="sp-result">&#128156; 3 socios activos en 30 d&iacute;as</div><div class="sp-author"><div class="sp-av">L</div><div><b>Luisa M.</b><br><span>M&eacute;xico &middot; 4Life</span></div></div></div>
@@ -1586,9 +1593,9 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
       </div>
     </div>
 
-    <!-- Row 3: YouTube testimonial thumbnails (→ izquierda, coordinado) -->
+    <!-- Row 3: YouTube testimonial thumbnails (← derecha, coordinado) -->
     <div class="marquee-strip">
-      <div class="marquee-track" style="--speed:50s;">
+      <div class="marquee-track reverse" style="--speed:50s;">
         <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(123,47,255,0.6);--yt-c2:rgba(20,10,50,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">12:34</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">M</div><div class="sp-yt-text"><h4>C&oacute;mo pas&eacute; de 0 a 15 prospectos por semana &mdash; Mar&iacute;a G.</h4><span>Alianza Multinivel &middot; 2.3K vistas</span></div></div></div>
         <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(34,51,255,0.5);--yt-c2:rgba(10,10,30,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">18:07</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">C</div><div class="sp-yt-text"><h4>De $200 a $1,800/mes: Mi transformaci&oacute;n con el sistema &mdash; Carlos R.</h4><span>Alianza Multinivel &middot; 4.1K vistas</span></div></div></div>
         <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(255,100,50,0.4);--yt-c2:rgba(30,10,10,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">15:22</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">L</div><div class="sp-yt-text"><h4>3 socios activos en 30 d&iacute;as sin lista fr&iacute;a &mdash; Luisa M.</h4><span>Alianza Multinivel &middot; 1.8K vistas</span></div></div></div>
