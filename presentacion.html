@@ -1951,23 +1951,73 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   </div>
 
   <!-- Slide 14: Guarantee -->
-  <div class="slide" data-title="Garant&iacute;a">
-    <div class="orb orb-violet" style="width:350px;height:350px;top:-80px;right:-60px;"></div>
-    <div class="shield-icon fade-in">
-      <svg viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="shieldGrad" x1="0" y1="0" x2="80" y2="90" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#2233FF"/>
-            <stop offset="100%" stop-color="#7B2FFF"/>
-          </linearGradient>
-        </defs>
-        <path d="M40 4L8 20V44C8 64 22 80 40 86C58 80 72 64 72 44V20L40 4Z" stroke="url(#shieldGrad)" stroke-width="3" fill="none"/>
-        <path d="M28 45L36 53L54 35" stroke="url(#shieldGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      </svg>
+  <div class="slide" data-title="Garant&iacute;a" style="flex-direction:row;padding:40px 60px;gap:60px;align-items:center;justify-content:center;">
+    <div class="orb orb-violet" style="width:450px;height:450px;top:-100px;right:-80px;opacity:0.5;"></div>
+    <div class="orb orb-blue" style="width:350px;height:350px;bottom:-80px;left:-60px;opacity:0.4;"></div>
+
+    <!-- Left: Text -->
+    <div class="fade-in" style="flex:1;max-width:520px;position:relative;z-index:2;">
+      <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;padding:7px 18px;border-radius:100px;text-transform:uppercase;background:rgba(123,47,255,0.12);border:1px solid rgba(123,47,255,0.35);color:#C39FFF;margin-bottom:20px;">
+        <span style="width:8px;height:8px;border-radius:50%;background:#7B2FFF;"></span> Nuestra garant&iacute;a
+      </div>
+      <h2 style="font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;line-height:1.1;margin-bottom:20px;">Nosotros no paramos<br>hasta que <span class="gradient-text">t&uacute; escales.</span></h2>
+      <p style="font-size:18px;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:20px;">Si en los primeros 90 d&iacute;as aplicas el sistema y no ves resultados concretos, te acompa&ntilde;amos sin costo adicional hasta que los tengas. No es un programa que se entrega y se olvida. Es un compromiso real con tu crecimiento.</p>
+      <p style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;">Tu &eacute;xito es nuestra m&eacute;trica. <span class="gradient-text">No tus pagos.</span></p>
     </div>
-    <h2 class="fade-in d1">Garant&iacute;a de Acompa&ntilde;amiento</h2>
-    <p class="subtitle fade-in d2">Si en 90 d&iacute;as aplicas y no ves resultados, seguimos contigo sin costo adicional.</p>
-    <p class="subtitle fade-in d3" style="margin-top:20px;color:var(--violet);font-weight:600;font-family:'Manrope',sans-serif;">Tu &eacute;xito es nuestra m&eacute;trica. No tus pagos.</p>
+
+    <!-- Right: Shield Card -->
+    <div class="fade-in d1" style="position:relative;z-index:2;flex-shrink:0;">
+      <div style="background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:24px;padding:48px 56px;text-align:center;min-width:360px;box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+
+        <!-- Professional Shield SVG -->
+        <div style="margin:0 auto 28px;width:120px;height:140px;">
+          <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;filter:drop-shadow(0 0 20px rgba(123,47,255,0.4));">
+            <defs>
+              <linearGradient id="shieldFill" x1="20" y1="10" x2="100" y2="130" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#2233FF" stop-opacity="0.25"/>
+                <stop offset="100%" stop-color="#7B2FFF" stop-opacity="0.15"/>
+              </linearGradient>
+              <linearGradient id="shieldStroke" x1="20" y1="10" x2="100" y2="130" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#5566FF"/>
+                <stop offset="50%" stop-color="#7B2FFF"/>
+                <stop offset="100%" stop-color="#9B6BFF"/>
+              </linearGradient>
+              <linearGradient id="shieldInner" x1="30" y1="20" x2="90" y2="110" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#3344FF" stop-opacity="0.12"/>
+                <stop offset="100%" stop-color="#7B2FFF" stop-opacity="0.08"/>
+              </linearGradient>
+              <linearGradient id="checkGrad" x1="35" y1="55" x2="85" y2="85" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#5566FF"/>
+                <stop offset="100%" stop-color="#9B6BFF"/>
+              </linearGradient>
+              <filter id="shieldGlow">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+            <!-- Outer shield -->
+            <path d="M60 8L14 30V62C14 94 34 118 60 128C86 118 106 94 106 62V30L60 8Z" fill="url(#shieldFill)" stroke="url(#shieldStroke)" stroke-width="2.5"/>
+            <!-- Inner shield line -->
+            <path d="M60 18L22 36V62C22 88 38 110 60 118C82 110 98 88 98 62V36L60 18Z" fill="url(#shieldInner)" stroke="url(#shieldStroke)" stroke-width="1" stroke-opacity="0.3"/>
+            <!-- Decorative top diamond -->
+            <path d="M60 2L66 8L60 14L54 8Z" fill="url(#shieldStroke)" opacity="0.8"/>
+            <!-- Check mark with glow -->
+            <g filter="url(#shieldGlow)">
+              <path d="M42 68L54 80L80 54" stroke="url(#checkGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </g>
+            <!-- Subtle inner highlights -->
+            <path d="M40 40L60 30L80 40" stroke="url(#shieldStroke)" stroke-width="0.8" stroke-opacity="0.15" fill="none"/>
+            <path d="M35 50L60 38L85 50" stroke="url(#shieldStroke)" stroke-width="0.5" stroke-opacity="0.1" fill="none"/>
+          </svg>
+        </div>
+
+        <h3 style="font-family:'Manrope',sans-serif;font-size:24px;font-weight:900;color:#fff;margin-bottom:12px;">Garant&iacute;a de Acompa&ntilde;amiento</h3>
+        <p style="font-size:16px;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:20px;">90 d&iacute;as para ver resultados.<br>Si aplicas y no llegan, seguimos contigo.</p>
+        <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;padding:12px 24px;border-radius:12px;background:rgba(123,47,255,0.12);border:1px solid rgba(123,47,255,0.35);color:#C39FFF;">
+          <span style="font-size:16px;">&#128274;</span> Compromiso blindado &middot; 90 d&iacute;as
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Slide 15: Pricing -->
