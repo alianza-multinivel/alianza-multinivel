@@ -917,6 +917,163 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
 .slide.active .fade-in.d3 { transition-delay: .45s; }
 .slide.active .fade-in.d4 { transition-delay: .6s; }
 
+/* ── Social Proof Marquee ── */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-strip {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%);
+}
+.marquee-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: marqueeScroll var(--speed, 60s) linear infinite;
+}
+.marquee-strip:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Testimonial card (top strip) */
+.sp-testi {
+  flex-shrink: 0;
+  width: 300px;
+  background: linear-gradient(160deg, #0e0e1a 0%, #151528 100%);
+  border: 1px solid rgba(123,47,255,0.2);
+  border-radius: 16px;
+  padding: 22px 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color .3s, box-shadow .3s;
+}
+.sp-testi:hover {
+  border-color: rgba(123,47,255,0.5);
+  box-shadow: 0 8px 32px rgba(123,47,255,0.15);
+}
+.sp-stars {
+  color: #fbbf24;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+.sp-quote {
+  font-size: 13px !important;
+  color: rgba(255,255,255,0.75) !important;
+  line-height: 1.55 !important;
+  font-style: italic;
+  flex: 1;
+}
+.sp-result {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 8px 14px;
+  background: rgba(123,47,255,0.08);
+  border: 1px solid rgba(123,47,255,0.25);
+  border-radius: 10px;
+  color: rgba(255,255,255,0.85);
+}
+.sp-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+.sp-av {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--gradient);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  color: #fff;
+  flex-shrink: 0;
+}
+.sp-author b {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  color: #fff;
+}
+.sp-author span {
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+}
+
+/* WhatsApp card (bottom strip) */
+.sp-wa {
+  flex-shrink: 0;
+  width: 310px;
+  background: linear-gradient(160deg, #0a1a0a 0%, #0f1f14 100%);
+  border: 1px solid rgba(37,211,102,0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color .3s, box-shadow .3s;
+}
+.sp-wa:hover {
+  border-color: rgba(37,211,102,0.45);
+  box-shadow: 0 8px 32px rgba(37,211,102,0.12);
+}
+.sp-wa-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: rgba(37,211,102,0.06);
+  border-bottom: 1px solid rgba(37,211,102,0.1);
+}
+.sp-wa-head b {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  color: #fff;
+  display: block;
+}
+.sp-wa-head span {
+  font-size: 10px;
+  color: rgba(37,211,102,0.6);
+}
+.sp-wa-body {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sp-wa-in {
+  background: rgba(37,211,102,0.08);
+  border: 1px solid rgba(37,211,102,0.15);
+  border-radius: 12px 12px 12px 4px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.45;
+  max-width: 88%;
+}
+.sp-wa-out {
+  background: rgba(123,47,255,0.06);
+  border: 1px solid rgba(123,47,255,0.12);
+  border-radius: 12px 12px 4px 12px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.45;
+  max-width: 88%;
+  align-self: flex-end;
+}
+.sp-wa-res {
+  padding: 8px 16px 12px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: rgba(37,211,102,0.8);
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .slide { padding: 40px 28px; }
@@ -1263,28 +1420,69 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
     </div>
   </div>
 
-  <!-- Slide 12: Social Proof -->
-  <div class="slide" data-title="Resultados reales">
+  <!-- Slide 7: Social Proof - Double Marquee -->
+  <div class="slide" data-title="Resultados reales" style="padding:20px 0;justify-content:center;gap:14px;">
     <div class="orb orb-violet" style="width:400px;height:400px;top:-100px;left:50%;transform:translateX(-50%);"></div>
-    <h2 class="fade-in">Resultados reales</h2>
-    <div class="testimonial-row">
-      <div class="testimonial-card">
-        <p class="quote">&ldquo;De 0 a 15 prospectos por semana en solo 3 semanas.&rdquo;</p>
-        <p class="author">&mdash; Mar&iacute;a G.</p>
-      </div>
-      <div class="testimonial-card">
-        <p class="quote">&ldquo;De $200 a $1,800/mes aplicando el sistema de ventas.&rdquo;</p>
-        <p class="author">&mdash; Carlos R.</p>
-      </div>
-      <div class="testimonial-card">
-        <p class="quote">&ldquo;3 socios activos en 30 d&iacute;as. El m&eacute;todo funciona.&rdquo;</p>
-        <p class="author">&mdash; Luisa M.</p>
-      </div>
-      <div class="testimonial-card">
-        <p class="quote">&ldquo;Primer rango alcanzado en solo 8 semanas.&rdquo;</p>
-        <p class="author">&mdash; Ana L.</p>
+
+    <div style="text-align:center;margin-bottom:4px;position:relative;z-index:2;">
+      <h2 class="fade-in" style="font-size:clamp(1.6rem,3.5vw,2.4rem);">Gente que tom&oacute; la decisi&oacute;n<br><span class="gradient-text">y no mir&oacute; hacia atr&aacute;s.</span></h2>
+    </div>
+
+    <!-- Row 1: Testimonial cards — gente que tomó la decisión (→ izquierda) -->
+    <div class="marquee-strip">
+      <div class="marquee-track" style="--speed:55s;">
+        <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;En 6 semanas pas&eacute; de no saber c&oacute;mo prospectar a tener un sistema completo trabajando para m&iacute;. Los roleplays me cambiaron el juego.&rdquo;</p><div class="sp-result">&#128200; De 0 a 15 prospectos/semana</div><div class="sp-author"><div class="sp-av">M</div><div><b>Mar&iacute;a G.</b><br><span>Venezuela &middot; Vital Health</span></div></div></div>
+        <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;Llevaba 2 a&ntilde;os sin pasar de $200/mes. En el primer mes entend&iacute; por qu&eacute;. La estructura que me dieron transform&oacute; mi negocio por completo.&rdquo;</p><div class="sp-result">&#128176; De $200 a $1,800/mes</div><div class="sp-author"><div class="sp-av">C</div><div><b>Carlos R.</b><br><span>Colombia &middot; OMNI</span></div></div></div>
+        <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;Lo que m&aacute;s me sorprendi&oacute; fue el acompa&ntilde;amiento real. No te dejan solo. Hay alguien respondiendo en vivo todos los d&iacute;as.&rdquo;</p><div class="sp-result">&#128156; 3 socios activos en 30 d&iacute;as</div><div class="sp-author"><div class="sp-av">L</div><div><b>Luisa M.</b><br><span>M&eacute;xico &middot; 4Life</span></div></div></div>
+        <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;La IA de ventas es como tener un coach 24/7. Practico objeciones a las 11pm y al d&iacute;a siguiente cierro con confianza.&rdquo;</p><div class="sp-result">&#129302; Coach IA 24/7</div><div class="sp-author"><div class="sp-av">A</div><div><b>Andr&eacute;s F.</b><br><span>Ecuador &middot; Nu Skin</span></div></div></div>
+        <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;Mi equipo pas&oacute; de 3 personas a 12 en dos meses. La clave fue que todos siguen el mismo sistema.&rdquo;</p><div class="sp-result">&#128202; De 3 a 12 socios en 60 d&iacute;as</div><div class="sp-author"><div class="sp-av">G</div><div><b>Gloria P.</b><br><span>Per&uacute; &middot; Herbalife</span></div></div></div>
+        <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;Prob&eacute; 3 cursos antes. Este es el &uacute;nico donde no solo te ense&ntilde;an, te implementan desde el d&iacute;a 1.&rdquo;</p><div class="sp-result">&#128293; Implementaci&oacute;n real d&iacute;a 1</div><div class="sp-author"><div class="sp-av">R</div><div><b>Ricardo M.</b><br><span>Argentina &middot; Amway</span></div></div></div>
+        <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;Antes me daba miedo hacer seguimiento. Ahora la gente me busca a m&iacute; porque mi contenido genera autoridad.&rdquo;</p><div class="sp-result">&#127919; Prospectos te buscan a ti</div><div class="sp-author"><div class="sp-av">K</div><div><b>Karen D.</b><br><span>Costa Rica &middot; Young Living</span></div></div></div>
+        <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;Las herramientas de IA para contenido son brutales. 15 min y tengo toda la semana planificada.&rdquo;</p><div class="sp-result">&#9889; 1 semana de contenido en 15 min</div><div class="sp-author"><div class="sp-av">N</div><div><b>Natalia V.</b><br><span>Chile &middot; doTERRA</span></div></div></div>
+        <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;Pensaba que el multinivel no funcionaba online. Hoy el 80% de mis cierres son por redes sociales.&rdquo;</p><div class="sp-result">&#128187; 80% cierres online</div><div class="sp-author"><div class="sp-av">J</div><div><b>Jorge S.</b><br><span>Colombia &middot; Forever Living</span></div></div></div>
+        <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;Mi upline me dec&iacute;a que hiciera listas fr&iacute;as. Aqu&iacute; me ense&ntilde;aron un sistema sin lista fr&iacute;a que funciona de verdad.&rdquo;</p><div class="sp-result">&#128640; Sistema sin lista fr&iacute;a</div><div class="sp-author"><div class="sp-av">I</div><div><b>Isabel T.</b><br><span>Rep. Dominicana &middot; Usana</span></div></div></div>
+        <!-- Duplicates for seamless loop -->
+        <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;En 6 semanas pas&eacute; de no saber c&oacute;mo prospectar a tener un sistema completo trabajando para m&iacute;. Los roleplays me cambiaron el juego.&rdquo;</p><div class="sp-result">&#128200; De 0 a 15 prospectos/semana</div><div class="sp-author"><div class="sp-av">M</div><div><b>Mar&iacute;a G.</b><br><span>Venezuela &middot; Vital Health</span></div></div></div>
+        <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;Llevaba 2 a&ntilde;os sin pasar de $200/mes. En el primer mes entend&iacute; por qu&eacute;. La estructura que me dieron transform&oacute; mi negocio por completo.&rdquo;</p><div class="sp-result">&#128176; De $200 a $1,800/mes</div><div class="sp-author"><div class="sp-av">C</div><div><b>Carlos R.</b><br><span>Colombia &middot; OMNI</span></div></div></div>
+        <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;Lo que m&aacute;s me sorprendi&oacute; fue el acompa&ntilde;amiento real. No te dejan solo. Hay alguien respondiendo en vivo todos los d&iacute;as.&rdquo;</p><div class="sp-result">&#128156; 3 socios activos en 30 d&iacute;as</div><div class="sp-author"><div class="sp-av">L</div><div><b>Luisa M.</b><br><span>M&eacute;xico &middot; 4Life</span></div></div></div>
+        <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;La IA de ventas es como tener un coach 24/7. Practico objeciones a las 11pm y al d&iacute;a siguiente cierro con confianza.&rdquo;</p><div class="sp-result">&#129302; Coach IA 24/7</div><div class="sp-author"><div class="sp-av">A</div><div><b>Andr&eacute;s F.</b><br><span>Ecuador &middot; Nu Skin</span></div></div></div>
+        <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;Mi equipo pas&oacute; de 3 personas a 12 en dos meses. La clave fue que todos siguen el mismo sistema.&rdquo;</p><div class="sp-result">&#128202; De 3 a 12 socios en 60 d&iacute;as</div><div class="sp-author"><div class="sp-av">G</div><div><b>Gloria P.</b><br><span>Per&uacute; &middot; Herbalife</span></div></div></div>
+        <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;Prob&eacute; 3 cursos antes. Este es el &uacute;nico donde no solo te ense&ntilde;an, te implementan desde el d&iacute;a 1.&rdquo;</p><div class="sp-result">&#128293; Implementaci&oacute;n real d&iacute;a 1</div><div class="sp-author"><div class="sp-av">R</div><div><b>Ricardo M.</b><br><span>Argentina &middot; Amway</span></div></div></div>
+        <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;Antes me daba miedo hacer seguimiento. Ahora la gente me busca a m&iacute; porque mi contenido genera autoridad.&rdquo;</p><div class="sp-result">&#127919; Prospectos te buscan a ti</div><div class="sp-author"><div class="sp-av">K</div><div><b>Karen D.</b><br><span>Costa Rica &middot; Young Living</span></div></div></div>
+        <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;Las herramientas de IA para contenido son brutales. 15 min y tengo toda la semana planificada.&rdquo;</p><div class="sp-result">&#9889; 1 semana de contenido en 15 min</div><div class="sp-author"><div class="sp-av">N</div><div><b>Natalia V.</b><br><span>Chile &middot; doTERRA</span></div></div></div>
+        <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;Pensaba que el multinivel no funcionaba online. Hoy el 80% de mis cierres son por redes sociales.&rdquo;</p><div class="sp-result">&#128187; 80% cierres online</div><div class="sp-author"><div class="sp-av">J</div><div><b>Jorge S.</b><br><span>Colombia &middot; Forever Living</span></div></div></div>
+        <div class="sp-testi"><div class="sp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="sp-quote">&ldquo;Mi upline me dec&iacute;a que hiciera listas fr&iacute;as. Aqu&iacute; me ense&ntilde;aron un sistema sin lista fr&iacute;a que funciona de verdad.&rdquo;</p><div class="sp-result">&#128640; Sistema sin lista fr&iacute;a</div><div class="sp-author"><div class="sp-av">I</div><div><b>Isabel T.</b><br><span>Rep. Dominicana &middot; Usana</span></div></div></div>
       </div>
     </div>
+
+    <!-- Row 2: WhatsApp cards — lo que dicen de nuestras sesiones y mentores (→ izquierda, coordinado) -->
+    <div class="marquee-strip">
+      <div class="marquee-track" style="--speed:60s;">
+        <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">J</div><div><b>Jennifer M.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">Cerr&eacute; 3 personas nuevas con la metodolog&iacute;a de invitaciones cortas &#128293;</div><div class="sp-wa-out">Incre&iacute;ble Jennifer!! &iquest;C&oacute;mo te sientes?</div><div class="sp-wa-in">No puedo creerlo. Tengo un sistema que funciona solo &#128557;&#128588;</div></div><div class="sp-wa-res">&uarr; 3 cierres en 1 semana</div></div>
+        <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">R</div><div><b>Roberto S.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">Hermano, el roleplay del jueves me cambi&oacute; la vida. Hoy hice mi primera presentaci&oacute;n sin notas y cerr&eacute; en la llamada</div><div class="sp-wa-out">Eso es lo que pasa cuando practicas. La pr&aacute;ctica mata al miedo &#128170;</div><div class="sp-wa-in">Total. Mis socias ya me est&aacute;n pidiendo que les ense&ntilde;e el m&eacute;todo. La red se est&aacute; moviendo sola</div></div><div class="sp-wa-res">&uarr; Primer cierre en llamada</div></div>
+        <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">A</div><div><b>Ana L.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">Chicos les quiero compartir algo. Hoy me confirmaron mi primer rango &#127942;</div><div class="sp-wa-out">VAMOS ANA!! &#128293; Cu&eacute;ntanos qu&eacute; fue lo que m&aacute;s te ayud&oacute;</div><div class="sp-wa-in">100% la IA de marca personal y las sesiones de implementaci&oacute;n. Todo cambi&oacute; cuando empec&eacute; a aplicar no solo a escuchar</div></div><div class="sp-wa-res">&uarr; Primer rango alcanzado</div></div>
+        <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">D</div><div><b>Diana P.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">Hoy me lleg&oacute; el pago m&aacute;s grande en 2 a&ntilde;os de multinivel &#128176;</div><div class="sp-wa-out">Te lo mereces Diana!! El trabajo que has hecho es brutal</div><div class="sp-wa-in">Todo cambi&oacute; cuando segu&iacute; el sistema de prospecci&oacute;n paso a paso</div></div><div class="sp-wa-res">&uarr; Mejor pago en 2 a&ntilde;os</div></div>
+        <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">M</div><div><b>Miguel A.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">Apliqu&eacute; el gui&oacute;n de cierre con una prospecto fr&iacute;a y CERR&Oacute; hoy &#128588;</div><div class="sp-wa-out">&iexcl;Eso es aplicar! &iquest;Cu&aacute;l gui&oacute;n usaste?</div><div class="sp-wa-in">El de reactivaci&oacute;n por WhatsApp de la sesi&oacute;n del martes</div></div><div class="sp-wa-res">&uarr; Prospecto fr&iacute;a reactivada</div></div>
+        <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">S</div><div><b>Sandra V.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">Ya tengo 5 personas usando la IA para crear contenido</div><div class="sp-wa-out">El efecto multiplicador. Eso es escalar &#128293;</div><div class="sp-wa-in">Antes yo hac&iacute;a todo sola. Ahora el equipo se mueve solo</div></div><div class="sp-wa-res">&uarr; 5 socios usando el sistema</div></div>
+        <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">E</div><div><b>Eduardo K.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">Primera venta usando solo Instagram y el embudo de la sesi&oacute;n &#128640;</div><div class="sp-wa-out">&iexcl;Primera de muchas!</div><div class="sp-wa-in">Me contact&oacute; por el reel y con el gui&oacute;n cerr&eacute; en 20 min</div></div><div class="sp-wa-res">&uarr; Primera venta por Instagram</div></div>
+        <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">P</div><div><b>Patricia R.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">Las sesiones en vivo con los mentores son otro nivel. Hoy me resolvieron una objeci&oacute;n que ten&iacute;a hace semanas</div><div class="sp-wa-out">Los mentores son lo mejor del programa &#128170;</div><div class="sp-wa-in">Totalmente. No es teor&iacute;a, es experiencia real de gente que factura</div></div><div class="sp-wa-res">&uarr; Sesi&oacute;n en vivo que transforma</div></div>
+        <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">F</div><div><b>Fernando T.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">Acabo de calificar para el viaje de la compa&ntilde;&iacute;a por primera vez en 4 a&ntilde;os &#128557;</div><div class="sp-wa-out">Hermano eso se siente INCRE&Iacute;BLE &#128588;</div><div class="sp-wa-in">Sin este programa y sin el mentor que me asignaron seguir&iacute;a estancado</div></div><div class="sp-wa-res">&uarr; Calific&oacute; viaje primera vez</div></div>
+        <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">V</div><div><b>Valentina C.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">La sesi&oacute;n de hoy sobre cierres por WhatsApp fue BRUTAL</div><div class="sp-wa-out">&iexcl;Aplic&aacute; todo hoy mismo!</div><div class="sp-wa-in">Ya lo hice. Me respondieron 4 prospectos que ten&iacute;a en visto &#128064;</div></div><div class="sp-wa-res">&uarr; 4 prospectos reactivados</div></div>
+        <!-- Duplicates for seamless loop -->
+        <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">J</div><div><b>Jennifer M.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">Cerr&eacute; 3 personas nuevas con la metodolog&iacute;a de invitaciones cortas &#128293;</div><div class="sp-wa-out">Incre&iacute;ble Jennifer!! &iquest;C&oacute;mo te sientes?</div><div class="sp-wa-in">No puedo creerlo. Tengo un sistema que funciona solo &#128557;&#128588;</div></div><div class="sp-wa-res">&uarr; 3 cierres en 1 semana</div></div>
+        <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">R</div><div><b>Roberto S.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">Hermano, el roleplay del jueves me cambi&oacute; la vida. Hoy hice mi primera presentaci&oacute;n sin notas y cerr&eacute; en la llamada</div><div class="sp-wa-out">Eso es lo que pasa cuando practicas. La pr&aacute;ctica mata al miedo &#128170;</div><div class="sp-wa-in">Total. Mis socias ya me est&aacute;n pidiendo que les ense&ntilde;e el m&eacute;todo. La red se est&aacute; moviendo sola</div></div><div class="sp-wa-res">&uarr; Primer cierre en llamada</div></div>
+        <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">A</div><div><b>Ana L.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">Chicos les quiero compartir algo. Hoy me confirmaron mi primer rango &#127942;</div><div class="sp-wa-out">VAMOS ANA!! &#128293; Cu&eacute;ntanos qu&eacute; fue lo que m&aacute;s te ayud&oacute;</div><div class="sp-wa-in">100% la IA de marca personal y las sesiones de implementaci&oacute;n. Todo cambi&oacute; cuando empec&eacute; a aplicar no solo a escuchar</div></div><div class="sp-wa-res">&uarr; Primer rango alcanzado</div></div>
+        <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">D</div><div><b>Diana P.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">Hoy me lleg&oacute; el pago m&aacute;s grande en 2 a&ntilde;os de multinivel &#128176;</div><div class="sp-wa-out">Te lo mereces Diana!! El trabajo que has hecho es brutal</div><div class="sp-wa-in">Todo cambi&oacute; cuando segu&iacute; el sistema de prospecci&oacute;n paso a paso</div></div><div class="sp-wa-res">&uarr; Mejor pago en 2 a&ntilde;os</div></div>
+        <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">M</div><div><b>Miguel A.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">Apliqu&eacute; el gui&oacute;n de cierre con una prospecto fr&iacute;a y CERR&Oacute; hoy &#128588;</div><div class="sp-wa-out">&iexcl;Eso es aplicar! &iquest;Cu&aacute;l gui&oacute;n usaste?</div><div class="sp-wa-in">El de reactivaci&oacute;n por WhatsApp de la sesi&oacute;n del martes</div></div><div class="sp-wa-res">&uarr; Prospecto fr&iacute;a reactivada</div></div>
+        <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">S</div><div><b>Sandra V.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">Ya tengo 5 personas usando la IA para crear contenido</div><div class="sp-wa-out">El efecto multiplicador. Eso es escalar &#128293;</div><div class="sp-wa-in">Antes yo hac&iacute;a todo sola. Ahora el equipo se mueve solo</div></div><div class="sp-wa-res">&uarr; 5 socios usando el sistema</div></div>
+        <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">E</div><div><b>Eduardo K.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">Primera venta usando solo Instagram y el embudo de la sesi&oacute;n &#128640;</div><div class="sp-wa-out">&iexcl;Primera de muchas!</div><div class="sp-wa-in">Me contact&oacute; por el reel y con el gui&oacute;n cerr&eacute; en 20 min</div></div><div class="sp-wa-res">&uarr; Primera venta por Instagram</div></div>
+        <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">P</div><div><b>Patricia R.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">Las sesiones en vivo con los mentores son otro nivel. Hoy me resolvieron una objeci&oacute;n que ten&iacute;a hace semanas</div><div class="sp-wa-out">Los mentores son lo mejor del programa &#128170;</div><div class="sp-wa-in">Totalmente. No es teor&iacute;a, es experiencia real de gente que factura</div></div><div class="sp-wa-res">&uarr; Sesi&oacute;n en vivo que transforma</div></div>
+        <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">F</div><div><b>Fernando T.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">Acabo de calificar para el viaje de la compa&ntilde;&iacute;a por primera vez en 4 a&ntilde;os &#128557;</div><div class="sp-wa-out">Hermano eso se siente INCRE&Iacute;BLE &#128588;</div><div class="sp-wa-in">Sin este programa y sin el mentor que me asignaron seguir&iacute;a estancado</div></div><div class="sp-wa-res">&uarr; Calific&oacute; viaje primera vez</div></div>
+        <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">V</div><div><b>Valentina C.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">La sesi&oacute;n de hoy sobre cierres por WhatsApp fue BRUTAL</div><div class="sp-wa-out">&iexcl;Aplic&aacute; todo hoy mismo!</div><div class="sp-wa-in">Ya lo hice. Me respondieron 4 prospectos que ten&iacute;a en visto &#128064;</div></div><div class="sp-wa-res">&uarr; 4 prospectos reactivados</div></div>
+      </div>
+    </div>
+
+    <p class="fade-in d2" style="font-size:11px !important;color:rgba(255,255,255,0.2) !important;text-align:center;z-index:2;position:relative;">* Capturas de conversaciones reales con autorizaci&oacute;n de nuestros aliados</p>
   </div>
 
   <!-- Slide 13: Event Photos -->
