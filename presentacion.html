@@ -1074,6 +1074,110 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   color: rgba(37,211,102,0.8);
 }
 
+/* YouTube thumbnail card (third strip) */
+.sp-yt {
+  flex-shrink: 0;
+  width: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: #0a0a14;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: border-color .3s, box-shadow .3s;
+  cursor: pointer;
+}
+.sp-yt:hover {
+  border-color: rgba(255,0,0,0.4);
+  box-shadow: 0 8px 32px rgba(255,0,0,0.1);
+}
+.sp-yt-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+.sp-yt-thumb-bg {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.sp-yt-gradient {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, var(--yt-c1, rgba(123,47,255,0.5)) 0%, var(--yt-c2, rgba(5,5,8,0.85)) 60%, rgba(5,5,8,0.95) 100%);
+}
+.sp-yt-avatar {
+  position: absolute; bottom: 12px; left: 12px;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--gradient);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800; font-size: 16px; color: #fff;
+  border: 2px solid rgba(255,255,255,0.2);
+  z-index: 2;
+}
+.sp-yt-play {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px; height: 48px;
+  background: rgba(255,0,0,0.9);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.sp-yt-play::after {
+  content: '';
+  display: block;
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 9px 0 9px 16px;
+  border-color: transparent transparent transparent #fff;
+  margin-left: 3px;
+}
+.sp-yt-duration {
+  position: absolute; bottom: 8px; right: 8px;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  z-index: 2;
+}
+.sp-yt-info {
+  padding: 10px 12px;
+  display: flex;
+  gap: 10px;
+}
+.sp-yt-info-av {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--gradient);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800; font-size: 12px; color: #fff;
+  flex-shrink: 0;
+}
+.sp-yt-text h4 {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: #fff;
+  line-height: 1.35;
+  margin-bottom: 3px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.sp-yt-text span {
+  font-size: 10px;
+  color: rgba(255,255,255,0.35);
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .slide { padding: 40px 28px; }
@@ -1421,7 +1525,7 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   </div>
 
   <!-- Slide 7: Social Proof - Double Marquee -->
-  <div class="slide" data-title="Resultados reales" style="padding:20px 0;justify-content:center;gap:14px;">
+  <div class="slide" data-title="Resultados reales" style="padding:16px 0;justify-content:center;gap:10px;">
     <div class="orb orb-violet" style="width:400px;height:400px;top:-100px;left:50%;transform:translateX(-50%);"></div>
 
     <div style="text-align:center;margin-bottom:4px;position:relative;z-index:2;">
@@ -1479,6 +1583,33 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
         <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">P</div><div><b>Patricia R.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">Las sesiones en vivo con los mentores son otro nivel. Hoy me resolvieron una objeci&oacute;n que ten&iacute;a hace semanas</div><div class="sp-wa-out">Los mentores son lo mejor del programa &#128170;</div><div class="sp-wa-in">Totalmente. No es teor&iacute;a, es experiencia real de gente que factura</div></div><div class="sp-wa-res">&uarr; Sesi&oacute;n en vivo que transforma</div></div>
         <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">F</div><div><b>Fernando T.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">Acabo de calificar para el viaje de la compa&ntilde;&iacute;a por primera vez en 4 a&ntilde;os &#128557;</div><div class="sp-wa-out">Hermano eso se siente INCRE&Iacute;BLE &#128588;</div><div class="sp-wa-in">Sin este programa y sin el mentor que me asignaron seguir&iacute;a estancado</div></div><div class="sp-wa-res">&uarr; Calific&oacute; viaje primera vez</div></div>
         <div class="sp-wa"><div class="sp-wa-head"><div class="sp-av" style="width:32px;height:32px;font-size:13px;background:linear-gradient(135deg,#25D366,#128C7E);">V</div><div><b>Valentina C.</b><span>en l&iacute;nea</span></div></div><div class="sp-wa-body"><div class="sp-wa-in">La sesi&oacute;n de hoy sobre cierres por WhatsApp fue BRUTAL</div><div class="sp-wa-out">&iexcl;Aplic&aacute; todo hoy mismo!</div><div class="sp-wa-in">Ya lo hice. Me respondieron 4 prospectos que ten&iacute;a en visto &#128064;</div></div><div class="sp-wa-res">&uarr; 4 prospectos reactivados</div></div>
+      </div>
+    </div>
+
+    <!-- Row 3: YouTube testimonial thumbnails (→ izquierda, coordinado) -->
+    <div class="marquee-strip">
+      <div class="marquee-track" style="--speed:50s;">
+        <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(123,47,255,0.6);--yt-c2:rgba(20,10,50,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">12:34</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">M</div><div class="sp-yt-text"><h4>C&oacute;mo pas&eacute; de 0 a 15 prospectos por semana &mdash; Mar&iacute;a G.</h4><span>Alianza Multinivel &middot; 2.3K vistas</span></div></div></div>
+        <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(34,51,255,0.5);--yt-c2:rgba(10,10,30,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">18:07</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">C</div><div class="sp-yt-text"><h4>De $200 a $1,800/mes: Mi transformaci&oacute;n con el sistema &mdash; Carlos R.</h4><span>Alianza Multinivel &middot; 4.1K vistas</span></div></div></div>
+        <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(255,100,50,0.4);--yt-c2:rgba(30,10,10,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">15:22</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">L</div><div class="sp-yt-text"><h4>3 socios activos en 30 d&iacute;as sin lista fr&iacute;a &mdash; Luisa M.</h4><span>Alianza Multinivel &middot; 1.8K vistas</span></div></div></div>
+        <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(123,47,255,0.5);--yt-c2:rgba(5,5,20,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">21:45</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">A</div><div class="sp-yt-text"><h4>La IA que me hizo cerrar el doble: Mi experiencia real &mdash; Andr&eacute;s F.</h4><span>Alianza Multinivel &middot; 3.5K vistas</span></div></div></div>
+        <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(50,200,100,0.4);--yt-c2:rgba(5,20,10,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">16:53</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">G</div><div class="sp-yt-text"><h4>De 3 a 12 socios en 60 d&iacute;as: El poder del sistema &mdash; Gloria P.</h4><span>Alianza Multinivel &middot; 2.9K vistas</span></div></div></div>
+        <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(255,180,0,0.4);--yt-c2:rgba(30,20,5,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">14:18</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">R</div><div class="sp-yt-text"><h4>Por qu&eacute; este programa es diferente a todo lo dem&aacute;s &mdash; Ricardo M.</h4><span>Alianza Multinivel &middot; 5.2K vistas</span></div></div></div>
+        <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(200,50,200,0.4);--yt-c2:rgba(20,5,25,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">11:06</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">K</div><div class="sp-yt-text"><h4>Ahora los prospectos me buscan a m&iacute; &mdash; Karen D.</h4><span>Alianza Multinivel &middot; 1.5K vistas</span></div></div></div>
+        <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(34,51,255,0.6);--yt-c2:rgba(5,5,30,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">19:30</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">N</div><div class="sp-yt-text"><h4>Contenido de 1 semana en 15 minutos con IA &mdash; Natalia V.</h4><span>Alianza Multinivel &middot; 6.1K vistas</span></div></div></div>
+        <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(0,150,255,0.5);--yt-c2:rgba(5,10,30,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">13:42</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">J</div><div class="sp-yt-text"><h4>80% de mis cierres son online: As&iacute; lo logr&eacute; &mdash; Jorge S.</h4><span>Alianza Multinivel &middot; 3.8K vistas</span></div></div></div>
+        <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(123,47,255,0.5);--yt-c2:rgba(15,5,30,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">17:15</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">I</div><div class="sp-yt-text"><h4>Dej&eacute; la lista fr&iacute;a para siempre: Mi historia &mdash; Isabel T.</h4><span>Alianza Multinivel &middot; 2.1K vistas</span></div></div></div>
+        <!-- Duplicates -->
+        <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(123,47,255,0.6);--yt-c2:rgba(20,10,50,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">12:34</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">M</div><div class="sp-yt-text"><h4>C&oacute;mo pas&eacute; de 0 a 15 prospectos por semana &mdash; Mar&iacute;a G.</h4><span>Alianza Multinivel &middot; 2.3K vistas</span></div></div></div>
+        <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(34,51,255,0.5);--yt-c2:rgba(10,10,30,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">18:07</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">C</div><div class="sp-yt-text"><h4>De $200 a $1,800/mes: Mi transformaci&oacute;n con el sistema &mdash; Carlos R.</h4><span>Alianza Multinivel &middot; 4.1K vistas</span></div></div></div>
+        <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(255,100,50,0.4);--yt-c2:rgba(30,10,10,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">15:22</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">L</div><div class="sp-yt-text"><h4>3 socios activos en 30 d&iacute;as sin lista fr&iacute;a &mdash; Luisa M.</h4><span>Alianza Multinivel &middot; 1.8K vistas</span></div></div></div>
+        <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(123,47,255,0.5);--yt-c2:rgba(5,5,20,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">21:45</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">A</div><div class="sp-yt-text"><h4>La IA que me hizo cerrar el doble: Mi experiencia real &mdash; Andr&eacute;s F.</h4><span>Alianza Multinivel &middot; 3.5K vistas</span></div></div></div>
+        <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(50,200,100,0.4);--yt-c2:rgba(5,20,10,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">16:53</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">G</div><div class="sp-yt-text"><h4>De 3 a 12 socios en 60 d&iacute;as: El poder del sistema &mdash; Gloria P.</h4><span>Alianza Multinivel &middot; 2.9K vistas</span></div></div></div>
+        <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(255,180,0,0.4);--yt-c2:rgba(30,20,5,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">14:18</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">R</div><div class="sp-yt-text"><h4>Por qu&eacute; este programa es diferente a todo lo dem&aacute;s &mdash; Ricardo M.</h4><span>Alianza Multinivel &middot; 5.2K vistas</span></div></div></div>
+        <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(200,50,200,0.4);--yt-c2:rgba(20,5,25,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">11:06</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">K</div><div class="sp-yt-text"><h4>Ahora los prospectos me buscan a m&iacute; &mdash; Karen D.</h4><span>Alianza Multinivel &middot; 1.5K vistas</span></div></div></div>
+        <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(34,51,255,0.6);--yt-c2:rgba(5,5,30,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">19:30</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">N</div><div class="sp-yt-text"><h4>Contenido de 1 semana en 15 minutos con IA &mdash; Natalia V.</h4><span>Alianza Multinivel &middot; 6.1K vistas</span></div></div></div>
+        <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(0,150,255,0.5);--yt-c2:rgba(5,10,30,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">13:42</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">J</div><div class="sp-yt-text"><h4>80% de mis cierres son online: As&iacute; lo logr&eacute; &mdash; Jorge S.</h4><span>Alianza Multinivel &middot; 3.8K vistas</span></div></div></div>
+        <div class="sp-yt"><div class="sp-yt-thumb"><div class="sp-yt-gradient" style="--yt-c1:rgba(123,47,255,0.5);--yt-c2:rgba(15,5,30,0.9);"></div><div class="sp-yt-play"></div><div class="sp-yt-duration">17:15</div></div><div class="sp-yt-info"><div class="sp-yt-info-av">I</div><div class="sp-yt-text"><h4>Dej&eacute; la lista fr&iacute;a para siempre: Mi historia &mdash; Isabel T.</h4><span>Alianza Multinivel &middot; 2.1K vistas</span></div></div></div>
       </div>
     </div>
 
