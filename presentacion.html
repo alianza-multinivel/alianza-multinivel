@@ -770,14 +770,14 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   -webkit-text-stroke: 0;
 }
 .promesa-letter.glow-active {
-  animation: letterGlow 0.6s ease-out forwards;
+  animation: letterGlow 0.85s ease-out forwards;
 }
 @keyframes letterGlow {
   0% {
     text-shadow: none;
     color: #fff;
   }
-  30% {
+  35% {
     text-shadow: 0 0 8px #a855f7, 0 0 20px #a855f7, 0 0 40px rgba(168,85,247,0.6), 0 0 80px rgba(168,85,247,0.3);
     color: #d8b4fe;
   }
@@ -787,22 +787,18 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   }
 }
 
-/* Underline bounce animation */
-.promise-underline-bounce {
-  animation: underlineBounce 2s ease-in-out infinite;
+/* Underline slide animation — moves side to side under PROMESA */
+.promise-underline-active {
+  animation: underlineSlide 2.4s ease-in-out infinite, underlineGlowPulse 1.8s ease-in-out infinite alternate;
 }
-@keyframes underlineBounce {
-  0%, 100% { transform: translateX(0); opacity: 0.8; }
-  25% { transform: translateX(12px); opacity: 1; }
-  50% { transform: translateX(0); opacity: 0.8; }
-  75% { transform: translateX(-12px); opacity: 1; }
+@keyframes underlineSlide {
+  0%   { transform: skewX(-8deg) translateX(-30px); }
+  50%  { transform: skewX(-8deg) translateX(30px); }
+  100% { transform: skewX(-8deg) translateX(-30px); }
 }
-.promise-underline-glow {
-  animation: underlineGlow 1.5s ease-in-out infinite alternate;
-}
-@keyframes underlineGlow {
-  0% { box-shadow: 0 0 8px rgba(168,85,247,0.3), 0 0 20px rgba(168,85,247,0.15); }
-  100% { box-shadow: 0 0 16px rgba(168,85,247,0.6), 0 0 40px rgba(168,85,247,0.3), 0 0 60px rgba(168,85,247,0.15); }
+@keyframes underlineGlowPulse {
+  0%   { box-shadow: 0 0 8px rgba(168,85,247,0.3), 0 0 16px rgba(168,85,247,0.15); }
+  100% { box-shadow: 0 0 16px rgba(168,85,247,0.6), 0 0 35px rgba(168,85,247,0.3), 0 0 50px rgba(168,85,247,0.15); }
 }
 
 .promise-underline {
@@ -1864,20 +1860,20 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
     // Reset all
     letters.forEach(l => l.classList.remove('glow-active'));
     if (underline) {
-      underline.classList.remove('promise-underline-bounce', 'promise-underline-glow');
+      underline.classList.remove('promise-underline-active');
     }
-    // Trigger glow letter by letter
+    // Trigger glow letter by letter (200ms between each)
     letters.forEach((letter, i) => {
       setTimeout(() => {
         letter.classList.add('glow-active');
-      }, 200 + i * 150);
+      }, 300 + i * 200);
     });
-    // After all letters done, start underline animation
+    // After all letters done, start underline sliding animation
     promesaGlowTimeout = setTimeout(() => {
       if (underline) {
-        underline.classList.add('promise-underline-bounce', 'promise-underline-glow');
+        underline.classList.add('promise-underline-active');
       }
-    }, 200 + letters.length * 150 + 400);
+    }, 300 + letters.length * 200 + 500);
   }
   function stopPromesaGlow() {
     if (promesaGlowTimeout) clearTimeout(promesaGlowTimeout);
@@ -1885,7 +1881,7 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
     const underline = document.getElementById('promesa-underline');
     letters.forEach(l => l.classList.remove('glow-active'));
     if (underline) {
-      underline.classList.remove('promise-underline-bounce', 'promise-underline-glow');
+      underline.classList.remove('promise-underline-active');
     }
   }
 
