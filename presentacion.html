@@ -1163,6 +1163,13 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   box-shadow: 0 0 25px rgba(168,85,247,0.5), 0 0 60px rgba(168,85,247,0.2), inset 0 0 20px rgba(168,85,247,0.06);
   z-index: 5;
 }
+.roadmap-phase {
+  transform-origin: left center;
+}
+.roadmap-phase:hover {
+  transform: scale(1.12) !important;
+  z-index: 20;
+}
 .stat-hover:hover {
   transform: scale(1.08);
   border-color: #a855f7 !important;
@@ -1481,7 +1488,7 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
       <div style="position:absolute;left:28px;top:28px;bottom:28px;width:3px;background:linear-gradient(180deg,#7B2FFF 0%,#2233FF 40%,rgba(34,51,255,0.3) 100%);border-radius:2px;z-index:0;"></div>
 
       <!-- FASE 1: Instalación -->
-      <div class="pillar-card fade-in" style="display:flex;gap:20px;align-items:flex-start;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:16px;padding:20px 24px;margin-bottom:12px;position:relative;z-index:1;">
+      <div class="pillar-card roadmap-phase fade-in" style="display:flex;gap:20px;align-items:flex-start;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:16px;padding:20px 24px;margin-bottom:12px;position:relative;z-index:1;">
         <div style="flex-shrink:0;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:22px;color:#fff;box-shadow:0 0 20px rgba(123,47,255,0.4);">1</div>
         <div style="flex:1;">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
@@ -1498,7 +1505,7 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
       </div>
 
       <!-- FASE 2: Herramientas -->
-      <div class="pillar-card fade-in d1" style="display:flex;gap:20px;align-items:flex-start;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:16px;padding:20px 24px;margin-bottom:12px;position:relative;z-index:1;">
+      <div class="pillar-card roadmap-phase fade-in d1" style="display:flex;gap:20px;align-items:flex-start;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:16px;padding:20px 24px;margin-bottom:12px;position:relative;z-index:1;">
         <div style="flex-shrink:0;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:22px;color:#fff;box-shadow:0 0 20px rgba(123,47,255,0.4);">2</div>
         <div style="flex:1;">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
@@ -1515,7 +1522,7 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
       </div>
 
       <!-- FASE 3: Optimización -->
-      <div class="pillar-card fade-in d2" style="display:flex;gap:20px;align-items:flex-start;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:16px;padding:20px 24px;margin-bottom:12px;position:relative;z-index:1;">
+      <div class="pillar-card roadmap-phase fade-in d2" style="display:flex;gap:20px;align-items:flex-start;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:16px;padding:20px 24px;margin-bottom:12px;position:relative;z-index:1;">
         <div style="flex-shrink:0;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:22px;color:#fff;box-shadow:0 0 20px rgba(123,47,255,0.4);">3</div>
         <div style="flex:1;">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
@@ -1532,7 +1539,7 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
       </div>
 
       <!-- FASE 4: Acompañamiento -->
-      <div class="pillar-card fade-in d3" style="display:flex;gap:20px;align-items:flex-start;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:16px;padding:20px 24px;margin-bottom:12px;position:relative;z-index:1;">
+      <div class="pillar-card roadmap-phase fade-in d3" style="display:flex;gap:20px;align-items:flex-start;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:16px;padding:20px 24px;margin-bottom:12px;position:relative;z-index:1;">
         <div style="flex-shrink:0;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:22px;color:#fff;box-shadow:0 0 20px rgba(123,47,255,0.4);">4</div>
         <div style="flex:1;">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
