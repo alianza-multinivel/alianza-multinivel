@@ -989,6 +989,12 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
 .slide.active .fade-in.d4 { transition-delay: .6s; }
 
 /* ── Social Proof Marquee ── */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 @keyframes marqueeScroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -1638,7 +1644,52 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
     </div>
   </div>
 
-  <!-- Slide 11: Bonuses -->
+  <!-- Slide 7: Acceso Total -->
+  <div class="slide" data-title="Acceso total" style="padding:0;justify-content:center;align-items:center;">
+    <div class="orb orb-violet" style="width:600px;height:600px;top:-180px;left:50%;transform:translateX(-50%);opacity:0.7;"></div>
+    <div class="orb orb-blue" style="width:400px;height:400px;bottom:-120px;right:-80px;opacity:0.5;"></div>
+
+    <!-- Central panel -->
+    <div class="fade-in" style="position:relative;z-index:2;text-align:center;max-width:900px;width:90%;margin:0 auto;">
+
+      <!-- Big number -->
+      <div style="margin-bottom:20px;">
+        <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:clamp(8rem,18vw,14rem);line-height:0.85;background:linear-gradient(135deg,#7B2FFF 0%,#2233FF 50%,#7B2FFF 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200% 200%;animation:gradientShift 4s ease-in-out infinite;letter-spacing:-0.06em;">6</div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,3rem);color:#fff;margin-top:-8px;letter-spacing:0.08em;text-transform:uppercase;">meses</div>
+      </div>
+
+      <!-- Divider line -->
+      <div style="width:120px;height:4px;background:var(--gradient);border-radius:2px;margin:0 auto 24px;"></div>
+
+      <!-- Title -->
+      <h2 class="fade-in d1" style="font-size:clamp(2rem,5vw,3.5rem);font-weight:900;line-height:1.15;margin-bottom:16px;">Acceso total al programa<br><span class="gradient-text">y todas sus actualizaciones.</span></h2>
+
+      <!-- Subtitle -->
+      <p class="fade-in d2" style="font-size:clamp(1rem,2vw,1.3rem);color:rgba(255,255,255,0.5);max-width:650px;margin:0 auto 32px;line-height:1.6;">Todo el contenido, las herramientas, las IAs, las sesiones en vivo y la comunidad privada. Sin l&iacute;mites, sin restricciones.</p>
+
+      <!-- Stats row -->
+      <div class="fade-in d3" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
+        <div class="stat-hover" style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.25);border-radius:14px;padding:20px 32px;text-align:center;min-width:160px;">
+          <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:32px;color:#fff;">+100</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.45);margin-top:4px;">Sesiones en vivo</div>
+        </div>
+        <div class="stat-hover" style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.25);border-radius:14px;padding:20px 32px;text-align:center;min-width:160px;">
+          <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:32px;color:#fff;">3 IAs</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.45);margin-top:4px;">Entrenadas para ti</div>
+        </div>
+        <div class="stat-hover" style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.25);border-radius:14px;padding:20px 32px;text-align:center;min-width:160px;">
+          <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:32px;color:#fff;">7</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.45);margin-top:4px;">M&oacute;dulos on-demand</div>
+        </div>
+        <div class="stat-hover" style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.25);border-radius:14px;padding:20px 32px;text-align:center;min-width:160px;">
+          <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:32px;color:#fff;">24/7</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.45);margin-top:4px;">Comunidad privada</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide: Bonuses -->
   <div class="slide" data-title="Bonos incluidos" style="padding:28px 50px;justify-content:flex-start;overflow-y:auto;">
     <div class="orb orb-blue" style="width:350px;height:350px;bottom:-80px;right:-50px;"></div>
     <div class="orb orb-violet" style="width:300px;height:300px;top:-60px;left:-60px;"></div>
