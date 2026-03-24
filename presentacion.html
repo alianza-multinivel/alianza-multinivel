@@ -1098,6 +1098,24 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   color: rgba(37,211,102,0.8);
 }
 
+/* Slide 5 Pillar & Stat card hover */
+.pillar-card, .stat-hover {
+  transition: transform .35s cubic-bezier(.22,1,.36,1), border-color .35s, box-shadow .35s, background .35s;
+  cursor: default;
+}
+.pillar-card:hover {
+  transform: scale(1.07);
+  border-color: #a855f7 !important;
+  box-shadow: 0 0 25px rgba(168,85,247,0.5), 0 0 60px rgba(168,85,247,0.2), inset 0 0 20px rgba(168,85,247,0.06);
+  z-index: 5;
+}
+.stat-hover:hover {
+  transform: scale(1.08);
+  border-color: #a855f7 !important;
+  box-shadow: 0 0 20px rgba(168,85,247,0.45), 0 0 50px rgba(168,85,247,0.15);
+  z-index: 5;
+}
+
 /* YouTube thumbnail card (third strip) */
 .sp-yt {
   flex-shrink: 0;
@@ -1402,7 +1420,7 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
     <!-- 4 Pillar Cards -->
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;width:100%;max-width:1300px;margin:0 auto 18px;position:relative;z-index:2;">
       <!-- Pilar 1 -->
-      <div style="background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:18px;padding:26px 23px;">
+      <div class="pillar-card" style="background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:18px;padding:26px 23px;">
         <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:39px;background:linear-gradient(135deg,#2233FF,#7B2FFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;">01</div>
         <h3 style="font-size:21px;font-weight:800;margin-bottom:13px;color:#fff;">Mentalidad de L&iacute;der</h3>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;">
@@ -1413,7 +1431,7 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
         </ul>
       </div>
       <!-- Pilar 2 -->
-      <div style="background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:18px;padding:26px 23px;">
+      <div class="pillar-card" style="background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:18px;padding:26px 23px;">
         <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:39px;background:linear-gradient(135deg,#2233FF,#7B2FFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;">02</div>
         <h3 style="font-size:21px;font-weight:800;margin-bottom:13px;color:#fff;">Sistema de Ventas</h3>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;">
@@ -1424,7 +1442,7 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
         </ul>
       </div>
       <!-- Pilar 3 -->
-      <div style="background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:18px;padding:26px 23px;">
+      <div class="pillar-card" style="background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:18px;padding:26px 23px;">
         <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:39px;background:linear-gradient(135deg,#2233FF,#7B2FFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;">03</div>
         <h3 style="font-size:21px;font-weight:800;margin-bottom:13px;color:#fff;">Marca Personal Digital</h3>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;">
@@ -1435,7 +1453,7 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
         </ul>
       </div>
       <!-- Pilar 4 -->
-      <div style="background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:18px;padding:26px 23px;">
+      <div class="pillar-card" style="background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:18px;padding:26px 23px;">
         <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:39px;background:linear-gradient(135deg,#2233FF,#7B2FFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;">04</div>
         <h3 style="font-size:21px;font-weight:800;margin-bottom:13px;color:#fff;">Inteligencia Artificial</h3>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;">
@@ -1449,19 +1467,19 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
 
     <!-- What's Included - Bottom bar -->
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;width:100%;max-width:1300px;margin:0 auto;position:relative;z-index:2;">
-      <div style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.2);border-radius:13px;padding:18px 23px;text-align:center;">
+      <div class="stat-hover" style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.2);border-radius:13px;padding:18px 23px;text-align:center;">
         <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:34px;color:#fff;">7</div>
         <div style="font-size:16px;color:rgba(255,255,255,0.45);margin-top:3px;">M&oacute;dulos on-demand</div>
       </div>
-      <div style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.2);border-radius:13px;padding:18px 23px;text-align:center;">
+      <div class="stat-hover" style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.2);border-radius:13px;padding:18px 23px;text-align:center;">
         <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:34px;color:#fff;">+100</div>
         <div style="font-size:16px;color:rgba(255,255,255,0.45);margin-top:3px;">Sesiones en vivo</div>
       </div>
-      <div style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.2);border-radius:13px;padding:18px 23px;text-align:center;">
+      <div class="stat-hover" style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.2);border-radius:13px;padding:18px 23px;text-align:center;">
         <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:34px;color:#fff;">3 IAs</div>
         <div style="font-size:16px;color:rgba(255,255,255,0.45);margin-top:3px;">Entrenadas para ti</div>
       </div>
-      <div style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.2);border-radius:13px;padding:18px 23px;text-align:center;">
+      <div class="stat-hover" style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.2);border-radius:13px;padding:18px 23px;text-align:center;">
         <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:34px;color:#fff;">12</div>
         <div style="font-size:16px;color:rgba(255,255,255,0.45);margin-top:3px;">Meses de acceso total</div>
       </div>
