@@ -995,6 +995,15 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   100% { background-position: 0% 50%; }
 }
 
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(123,47,255,0.6), 0 0 30px rgba(123,47,255,0.4), 0 0 60px rgba(123,47,255,0.3), 0 0 100px rgba(123,47,255,0.15);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(123,47,255,1), 0 0 50px rgba(123,47,255,0.7), 0 0 100px rgba(123,47,255,0.5), 0 0 160px rgba(123,47,255,0.3), 0 0 220px rgba(34,51,255,0.15);
+  }
+}
+
 @keyframes marqueeScroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -1654,7 +1663,7 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
 
       <!-- Big number -->
       <div style="margin-bottom:20px;">
-        <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:clamp(8rem,18vw,14rem);line-height:0.85;background:linear-gradient(135deg,#7B2FFF 0%,#2233FF 50%,#7B2FFF 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200% 200%;animation:gradientShift 4s ease-in-out infinite;letter-spacing:-0.06em;">6</div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:clamp(8rem,18vw,14rem);line-height:0.85;color:#7B2FFF;letter-spacing:-0.06em;animation:neonPulse 2.5s ease-in-out infinite;">6</div>
         <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,3rem);color:#fff;margin-top:-8px;letter-spacing:0.08em;text-transform:uppercase;">meses</div>
       </div>
 
