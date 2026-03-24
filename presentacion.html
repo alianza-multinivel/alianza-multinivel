@@ -762,6 +762,49 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   margin-bottom: 40px;
   position: relative;
 }
+/* Letter glow animation for PROMESA */
+.promesa-letter {
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  -webkit-text-stroke: 0;
+}
+.promesa-letter.glow-active {
+  animation: letterGlow 0.6s ease-out forwards;
+}
+@keyframes letterGlow {
+  0% {
+    text-shadow: none;
+    color: #fff;
+  }
+  30% {
+    text-shadow: 0 0 8px #a855f7, 0 0 20px #a855f7, 0 0 40px rgba(168,85,247,0.6), 0 0 80px rgba(168,85,247,0.3);
+    color: #d8b4fe;
+  }
+  100% {
+    text-shadow: none;
+    color: #fff;
+  }
+}
+
+/* Underline bounce animation */
+.promise-underline-bounce {
+  animation: underlineBounce 2s ease-in-out infinite;
+}
+@keyframes underlineBounce {
+  0%, 100% { transform: translateX(0); opacity: 0.8; }
+  25% { transform: translateX(12px); opacity: 1; }
+  50% { transform: translateX(0); opacity: 0.8; }
+  75% { transform: translateX(-12px); opacity: 1; }
+}
+.promise-underline-glow {
+  animation: underlineGlow 1.5s ease-in-out infinite alternate;
+}
+@keyframes underlineGlow {
+  0% { box-shadow: 0 0 8px rgba(168,85,247,0.3), 0 0 20px rgba(168,85,247,0.15); }
+  100% { box-shadow: 0 0 16px rgba(168,85,247,0.6), 0 0 40px rgba(168,85,247,0.3), 0 0 60px rgba(168,85,247,0.15); }
+}
+
 .promise-underline {
   width: 280px; height: 8px;
   background: var(--gradient);
@@ -1382,8 +1425,8 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
     <!-- Left: Text -->
     <div class="slide3-left fade-in" style="flex:1;text-align:left;display:flex;flex-direction:column;justify-content:center;">
       <div class="promise-title" style="text-align:left;">
-        <h1 style="font-size:clamp(3.5rem,8vw,7rem);font-weight:900;letter-spacing:-0.04em;text-transform:uppercase;margin-bottom:0;">PROMESA</h1>
-        <div class="promise-underline" style="margin:−8px 0 0;"></div>
+        <h1 id="promesa-title" style="font-size:clamp(3.5rem,8vw,7rem);font-weight:900;letter-spacing:-0.04em;text-transform:uppercase;margin-bottom:0;"><span class="promesa-letter">P</span><span class="promesa-letter">R</span><span class="promesa-letter">O</span><span class="promesa-letter">M</span><span class="promesa-letter">E</span><span class="promesa-letter">S</span><span class="promesa-letter">A</span></h1>
+        <div id="promesa-underline" class="promise-underline" style="margin:−8px 0 0;"></div>
       </div>
       <div class="promise-quote fade-in d2" style="text-align:left;margin-top:36px;">
         <p>&ldquo;Te damos el <strong>sistema</strong>, las <strong>herramientas</strong> y el <strong>acompa&ntilde;amiento</strong> para dominar la nueva era del multinivel.</p>
@@ -1813,18 +1856,65 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
     });
   });
 
-  // Reset selected pills when leaving slide 2
+  // Slide 3: PROMESA letter glow + underline animation
+  let promesaGlowTimeout = null;
+  function startPromesaGlow() {
+    const letters = document.querySelectorAll('#promesa-title .promesa-letter');
+    const underline = document.getElementById('promesa-underline');
+    // Reset all
+    letters.forEach(l => l.classList.remove('glow-active'));
+    if (underline) {
+      underline.classList.remove('promise-underline-bounce', 'promise-underline-glow');
+    }
+    // Trigger glow letter by letter
+    letters.forEach((letter, i) => {
+      setTimeout(() => {
+        letter.classList.add('glow-active');
+      }, 200 + i * 150);
+    });
+    // After all letters done, start underline animation
+    promesaGlowTimeout = setTimeout(() => {
+      if (underline) {
+        underline.classList.add('promise-underline-bounce', 'promise-underline-glow');
+      }
+    }, 200 + letters.length * 150 + 400);
+  }
+  function stopPromesaGlow() {
+    if (promesaGlowTimeout) clearTimeout(promesaGlowTimeout);
+    const letters = document.querySelectorAll('#promesa-title .promesa-letter');
+    const underline = document.getElementById('promesa-underline');
+    letters.forEach(l => l.classList.remove('glow-active'));
+    if (underline) {
+      underline.classList.remove('promise-underline-bounce', 'promise-underline-glow');
+    }
+  }
+
+  // Find slide 3 index (Promesa)
+  const promesaSlideIndex = Array.from(slides).findIndex(s => s.dataset.title === 'Promesa');
+
+  // Wrap goTo: reset pills + handle promesa animation
   const originalGoTo = goTo;
   goTo = function(index) {
     // Clear all selected pills before transitioning
     document.querySelectorAll('.problem-pill.pill-selected').forEach(p => {
       p.classList.remove('pill-selected');
     });
+    // Stop promesa animation when leaving
+    stopPromesaGlow();
     originalGoTo(index);
+    // Start promesa animation when arriving at slide 3
+    if (index === promesaSlideIndex) {
+      setTimeout(startPromesaGlow, 300);
+    }
   };
   // Re-bind window functions
   window.nextSlide = function() { goTo(current + 1); };
   window.prevSlide = function() { goTo(current - 1); };
+
+  // If starting on slide 3, trigger immediately
+  if (current === promesaSlideIndex) {
+    setTimeout(startPromesaGlow, 500);
+  }
 
   updateProgress();
 })();
