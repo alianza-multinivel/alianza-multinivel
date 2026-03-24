@@ -439,7 +439,7 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   transition: transform .3s cubic-bezier(.22,1,.36,1), border-color .3s, background .3s, box-shadow .3s, z-index 0s;
   position: relative;
   z-index: 1;
-  cursor: default;
+  cursor: pointer;
   transition: border-color .3s, background .3s, box-shadow .3s, opacity .5s, transform .5s;
   box-shadow: 0 0 12px rgba(123,47,255,0.15), inset 0 0 8px rgba(123,47,255,0.05);
 }
@@ -473,8 +473,23 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   line-height: 1.4;
   transition: color .3s;
 }
+.problem-pill.pill-selected {
+  transform: scale(1.12) !important;
+  border-color: #a855f7 !important;
+  background: rgba(168,85,247,0.15) !important;
+  box-shadow: 0 0 30px rgba(168,85,247,0.5), inset 0 0 16px rgba(168,85,247,0.1), 0 8px 32px rgba(0,0,0,0.3) !important;
+  z-index: 10;
+}
+.problem-pill.pill-selected .pill-num {
+  transform: scale(1.15);
+  text-shadow: 0 0 12px rgba(168,85,247,0.6);
+}
+.problem-pill.pill-selected .pill-txt {
+  color: #fff;
+}
 .slide.active .problem-pill.fade-in { opacity: 1; transform: translateY(0) scale(1); }
 .slide.active .problem-pill.fade-in:hover { transform: translateY(0) scale(1.12); }
+.slide.active .problem-pill.fade-in.pill-selected { transform: translateY(0) scale(1.12); }
 .slide.active .problem-col:first-child .problem-pill:nth-child(1) { transition-delay: .05s; }
 .slide.active .problem-col:first-child .problem-pill:nth-child(2) { transition-delay: .08s; }
 .slide.active .problem-col:first-child .problem-pill:nth-child(3) { transition-delay: .11s; }
@@ -1789,6 +1804,27 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
         e.preventDefault(); openOverview(); break;
     }
   });
+
+  // Slide 2: click to toggle pill selection, reset on slide change
+  document.querySelectorAll('.problem-pill').forEach(pill => {
+    pill.addEventListener('click', function(e) {
+      e.stopPropagation();
+      this.classList.toggle('pill-selected');
+    });
+  });
+
+  // Reset selected pills when leaving slide 2
+  const originalGoTo = goTo;
+  goTo = function(index) {
+    // Clear all selected pills before transitioning
+    document.querySelectorAll('.problem-pill.pill-selected').forEach(p => {
+      p.classList.remove('pill-selected');
+    });
+    originalGoTo(index);
+  };
+  // Re-bind window functions
+  window.nextSlide = function() { goTo(current + 1); };
+  window.prevSlide = function() { goTo(current - 1); };
 
   updateProgress();
 })();
