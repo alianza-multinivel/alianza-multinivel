@@ -2153,10 +2153,12 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
       <p class="fade-in d1 gradient-text" style="font-size:clamp(1.4rem,3vw,2.2rem);font-weight:800;margin-bottom:36px;">Prueba tu suerte.</p>
 
       <!-- Golden coupon that turns green -->
-      <div id="coupon-real" class="fade-in d2" style="cursor:pointer;position:relative;width:400px;max-width:90vw;margin:0 auto;background:linear-gradient(135deg,#D4A017 0%,#FFD700 25%,#D4A017 50%,#FFD700 75%,#D4A017 100%);background-size:200% 200%;animation:goldShimmer 3s ease-in-out infinite;border-radius:20px;padding:48px 32px;box-shadow:0 0 40px rgba(212,160,23,0.3),inset 0 1px 0 rgba(255,255,255,0.3);border:2px solid rgba(255,215,0,0.5);transition:all .6s ease;overflow:hidden;">
+      <div id="coupon-real" class="fade-in d2" style="cursor:pointer;position:relative;width:420px;max-width:90vw;margin:0 auto;background:linear-gradient(135deg,#D4A017 0%,#FFD700 25%,#D4A017 50%,#FFD700 75%,#D4A017 100%);background-size:200% 200%;animation:goldShimmer 3s ease-in-out infinite;border-radius:20px;padding:48px 32px;box-shadow:0 0 40px rgba(212,160,23,0.3),inset 0 1px 0 rgba(255,255,255,0.3);border:2px solid rgba(255,215,0,0.5);transition:all .6s ease;overflow:hidden;">
         <div style="position:absolute;top:12px;left:12px;right:12px;bottom:12px;border:2px dashed rgba(139,90,0,0.4);border-radius:14px;pointer-events:none;" id="coupon-real-inner-border"></div>
         <div id="coupon-real-title" style="font-family:'Manrope',sans-serif;font-weight:900;font-size:28px;color:#5C3A00;text-transform:uppercase;letter-spacing:0.06em;text-shadow:0 1px 0 rgba(255,255,255,0.3);">&#127915; Cup&oacute;n</div>
-        <div id="coupon-real-sub" style="font-family:'Manrope',sans-serif;font-weight:700;font-size:16px;color:#7A5000;margin-top:8px;">Toca para descubrir tu descuento</div>
+        <div id="coupon-client-name" style="font-family:'Manrope',sans-serif;font-weight:800;font-size:18px;color:#5C3A00;margin-top:10px;text-shadow:0 1px 0 rgba(255,255,255,0.2);"></div>
+        <div id="coupon-client-company" style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#7A5000;margin-top:2px;font-style:italic;"></div>
+        <div id="coupon-real-sub" style="font-family:'Manrope',sans-serif;font-weight:700;font-size:16px;color:#7A5000;margin-top:10px;">Toca para descubrir tu descuento</div>
         <div id="coupon-real-fine" style="font-family:'Manrope',sans-serif;font-size:12px;color:rgba(92,58,0,0.6);margin-top:12px;">* V&aacute;lido solo para esta sesi&oacute;n</div>
 
         <!-- Scratch overlay (canvas) -->
@@ -2177,9 +2179,11 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
     <div id="discount-prompt" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:99999;justify-content:center;align-items:center;">
       <div style="background:#1a1a2e;border-radius:16px;padding:40px;text-align:center;max-width:420px;width:90%;border:1px solid rgba(123,47,255,0.3);box-shadow:0 0 40px rgba(123,47,255,0.2);">
         <div style="font-size:36px;margin-bottom:12px;">&#9881;</div>
-        <h3 style="font-family:'Manrope',sans-serif;font-weight:800;font-size:20px;color:#fff;margin-bottom:8px;">Configurar descuento</h3>
-        <p style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:20px;">Escribe el porcentaje que quieres ofrecer</p>
-        <input id="discount-input" type="text" placeholder="Ej: 15%" style="width:100%;padding:14px;border-radius:10px;border:1px solid rgba(123,47,255,0.4);background:rgba(255,255,255,0.05);color:#fff;font-family:'Manrope',sans-serif;font-weight:700;font-size:24px;text-align:center;outline:none;" autofocus>
+        <h3 style="font-family:'Manrope',sans-serif;font-weight:800;font-size:20px;color:#fff;margin-bottom:8px;">Configurar cup&oacute;n</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:20px;">Completa los datos del cliente y el descuento</p>
+        <input id="client-name-input" type="text" placeholder="Nombre del cliente" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(123,47,255,0.4);background:rgba(255,255,255,0.05);color:#fff;font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;text-align:center;outline:none;margin-bottom:10px;">
+        <input id="client-company-input" type="text" placeholder="Empresa / Red" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(123,47,255,0.4);background:rgba(255,255,255,0.05);color:#fff;font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;text-align:center;outline:none;margin-bottom:10px;">
+        <input id="discount-input" type="text" placeholder="Descuento (Ej: 15%)" style="width:100%;padding:14px;border-radius:10px;border:1px solid rgba(123,47,255,0.4);background:rgba(255,255,255,0.05);color:#fff;font-family:'Manrope',sans-serif;font-weight:700;font-size:24px;text-align:center;outline:none;">
         <button id="discount-confirm" style="margin-top:16px;width:100%;padding:14px;border-radius:10px;border:none;background:var(--gradient);color:#fff;font-family:'Manrope',sans-serif;font-weight:800;font-size:16px;cursor:pointer;">Confirmar</button>
       </div>
     </div>
@@ -2359,13 +2363,30 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   const discountInput = document.getElementById('discount-input');
   const discountConfirm = document.getElementById('discount-confirm');
 
+  const clientNameInput = document.getElementById('client-name-input');
+  const clientCompanyInput = document.getElementById('client-company-input');
+
   if (discountConfirm) {
     discountConfirm.addEventListener('click', function() {
       discountValue = discountInput.value.trim() || '10%';
       if (!discountValue.includes('%') && !discountValue.includes('$')) discountValue += '%';
       document.getElementById('discount-amount').textContent = discountValue;
+      // Set client name and company on coupon
+      const clientName = clientNameInput ? clientNameInput.value.trim() : '';
+      const clientCompany = clientCompanyInput ? clientCompanyInput.value.trim() : '';
+      const nameEl = document.getElementById('coupon-client-name');
+      const companyEl = document.getElementById('coupon-client-company');
+      if (nameEl) nameEl.textContent = clientName || '';
+      if (companyEl) companyEl.textContent = clientCompany || '';
       promptOverlay.style.display = 'none';
       initScratchCoupon();
+    });
+    // Allow Enter to move between fields and confirm
+    if (clientNameInput) clientNameInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') { e.preventDefault(); clientCompanyInput.focus(); }
+    });
+    if (clientCompanyInput) clientCompanyInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') { e.preventDefault(); discountInput.focus(); }
     });
     discountInput.addEventListener('keydown', function(e) {
       if (e.key === 'Enter') discountConfirm.click();
@@ -2388,6 +2409,8 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
       document.getElementById('coupon-real-inner-border').style.borderColor = 'rgba(0,80,30,0.4)';
       document.getElementById('coupon-real-title').style.color = '#003D00';
       document.getElementById('coupon-real-title').innerHTML = '&#127881; &iexcl;Ganaste!';
+      document.getElementById('coupon-client-name').style.color = '#003D00';
+      document.getElementById('coupon-client-company').style.color = '#1B5E20';
       document.getElementById('coupon-real-sub').style.color = '#1B5E20';
       document.getElementById('coupon-real-sub').textContent = 'Raspa para descubrir tu premio';
       document.getElementById('coupon-real-fine').style.color = 'rgba(27,94,32,0.6)';
@@ -2469,6 +2492,10 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
       if (ib) ib.style.borderColor = '';
       const rt = document.getElementById('coupon-real-title');
       if (rt) { rt.style.color = '#5C3A00'; rt.innerHTML = '&#127915; Cup\u00f3n'; }
+      const cn = document.getElementById('coupon-client-name');
+      if (cn) { cn.textContent = ''; cn.style.color = '#5C3A00'; }
+      const cc = document.getElementById('coupon-client-company');
+      if (cc) { cc.textContent = ''; cc.style.color = '#7A5000'; }
       const rs = document.getElementById('coupon-real-sub');
       if (rs) { rs.style.color = '#7A5000'; rs.textContent = 'Toca para descubrir tu descuento'; }
       const rf = document.getElementById('coupon-real-fine');
@@ -2490,8 +2517,10 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
     // Show discount prompt when entering real coupon slide
     if (index === couponRealSlideIndex && promptOverlay) {
       discountInput.value = '';
+      if (clientNameInput) clientNameInput.value = '';
+      if (clientCompanyInput) clientCompanyInput.value = '';
       promptOverlay.style.display = 'flex';
-      setTimeout(() => discountInput.focus(), 400);
+      setTimeout(() => { if (clientNameInput) clientNameInput.focus(); else discountInput.focus(); }, 400);
     }
   };
   window.nextSlide = function() { goTo(current + 1); };
