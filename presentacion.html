@@ -2124,21 +2124,22 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
       <p class="fade-in d1 gradient-text" style="font-size:clamp(1.4rem,3vw,2.2rem);font-weight:800;margin-bottom:36px;">Prueba tu suerte.</p>
 
       <!-- Golden coupon -->
-      <div class="coupon-fake fade-in d2" onclick="this.querySelector('.coupon-popup').classList.add('show')" style="cursor:pointer;position:relative;width:400px;max-width:90vw;margin:0 auto;background:linear-gradient(135deg,#D4A017 0%,#FFD700 25%,#D4A017 50%,#FFD700 75%,#D4A017 100%);background-size:200% 200%;animation:goldShimmer 3s ease-in-out infinite;border-radius:20px;padding:48px 32px;box-shadow:0 0 40px rgba(212,160,23,0.3),inset 0 1px 0 rgba(255,255,255,0.3);border:2px solid rgba(255,215,0,0.5);transition:transform .3s,box-shadow .3s;">
+      <div class="coupon-fake fade-in d2" onclick="this.closest('.slide').querySelector('.coupon-popup').classList.add('show')" style="cursor:pointer;position:relative;width:400px;max-width:90vw;margin:0 auto;background:linear-gradient(135deg,#D4A017 0%,#FFD700 25%,#D4A017 50%,#FFD700 75%,#D4A017 100%);background-size:200% 200%;animation:goldShimmer 3s ease-in-out infinite;border-radius:20px;padding:48px 32px;box-shadow:0 0 40px rgba(212,160,23,0.3),inset 0 1px 0 rgba(255,255,255,0.3);border:2px solid rgba(255,215,0,0.5);transition:transform .3s,box-shadow .3s;">
         <div style="position:absolute;top:12px;left:12px;right:12px;bottom:12px;border:2px dashed rgba(139,90,0,0.4);border-radius:14px;pointer-events:none;"></div>
         <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:28px;color:#5C3A00;text-transform:uppercase;letter-spacing:0.06em;text-shadow:0 1px 0 rgba(255,255,255,0.3);">&#127915; Cup&oacute;n</div>
         <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:16px;color:#7A5000;margin-top:8px;">Toca para descubrir tu descuento</div>
         <div style="font-family:'Manrope',sans-serif;font-size:12px;color:rgba(92,58,0,0.6);margin-top:12px;">* V&aacute;lido solo para esta sesi&oacute;n</div>
 
-        <!-- Red popup -->
-        <div class="coupon-popup" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.8);z-index:9999;justify-content:center;align-items:center;">
-          <div style="background:linear-gradient(135deg,#8B0000,#CC0000);border-radius:20px;padding:48px;text-align:center;max-width:500px;width:90%;box-shadow:0 0 60px rgba(200,0,0,0.5);border:2px solid rgba(255,50,50,0.4);animation:popupBounce .4s ease-out;">
-            <div style="font-size:56px;margin-bottom:16px;">&#128532;</div>
-            <h3 style="font-family:'Manrope',sans-serif;font-weight:900;font-size:26px;color:#fff;margin-bottom:12px;">Los cupones disponibles se terminaron</h3>
-            <p style="font-size:16px;color:rgba(255,255,255,0.7);line-height:1.5;">Lamentablemente ya no quedan cupones de descuento para este grupo.</p>
-            <button onclick="event.stopPropagation();this.closest('.coupon-popup').classList.remove('show')" style="margin-top:24px;padding:12px 32px;border-radius:10px;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.1);color:#fff;font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;cursor:pointer;transition:background .3s;">Cerrar</button>
-          </div>
-        </div>
+      </div>
+    </div>
+
+    <!-- Red popup (absolute within slide) -->
+    <div class="coupon-popup" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:9999;justify-content:center;align-items:center;">
+      <div style="background:linear-gradient(135deg,#8B0000,#CC0000);border-radius:20px;padding:48px;text-align:center;max-width:500px;width:90%;box-shadow:0 0 60px rgba(200,0,0,0.5);border:2px solid rgba(255,50,50,0.4);animation:popupBounce .4s ease-out;">
+        <div style="font-size:56px;margin-bottom:16px;">&#128532;</div>
+        <h3 style="font-family:'Manrope',sans-serif;font-weight:900;font-size:26px;color:#fff;margin-bottom:12px;">Los cupones disponibles se terminaron</h3>
+        <p style="font-size:16px;color:rgba(255,255,255,0.7);line-height:1.5;">Lamentablemente ya no quedan cupones de descuento para este grupo.</p>
+        <button onclick="event.stopPropagation();this.closest('.coupon-popup').classList.remove('show')" style="margin-top:24px;padding:12px 32px;border-radius:10px;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.1);color:#fff;font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;cursor:pointer;transition:background .3s;">Cerrar</button>
       </div>
     </div>
   </div>
@@ -2173,7 +2174,7 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
     </div>
 
     <!-- Prompt dialog (appears on slide enter) -->
-    <div id="discount-prompt" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.85);z-index:99999;justify-content:center;align-items:center;">
+    <div id="discount-prompt" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:99999;justify-content:center;align-items:center;">
       <div style="background:#1a1a2e;border-radius:16px;padding:40px;text-align:center;max-width:420px;width:90%;border:1px solid rgba(123,47,255,0.3);box-shadow:0 0 40px rgba(123,47,255,0.2);">
         <div style="font-size:36px;margin-bottom:12px;">&#9881;</div>
         <h3 style="font-family:'Manrope',sans-serif;font-weight:800;font-size:20px;color:#fff;margin-bottom:8px;">Configurar descuento</h3>
