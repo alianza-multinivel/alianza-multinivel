@@ -999,6 +999,14 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+@keyframes confettiFall {
+  0% { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
+  20% { opacity: 1; }
+  100% { opacity: 0; left: var(--confX); top: var(--confY); transform: rotate(var(--confR)) scale(0.5); }
+}
+#coupon-real {
+  transition: all .6s ease, transform .5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
 @keyframes popupBounce {
   0% { transform: scale(0.5); opacity: 0; }
   70% { transform: scale(1.05); }
@@ -2119,27 +2127,27 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   <div class="slide" data-title="Cup&oacute;n (sin desc.)" style="padding:40px;justify-content:center;align-items:center;">
     <div class="orb orb-violet" style="width:500px;height:500px;top:-120px;left:50%;transform:translateX(-50%);opacity:0.5;"></div>
 
-    <div style="position:relative;z-index:2;text-align:center;max-width:800px;">
-      <h2 class="fade-in" style="font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.2;margin-bottom:8px;">Queremos ayudarte a escalar tu negocio.</h2>
-      <p class="fade-in d1 gradient-text" style="font-size:clamp(1.4rem,3vw,2.2rem);font-weight:800;margin-bottom:36px;">Prueba tu suerte.</p>
+    <div style="position:relative;z-index:2;text-align:center;max-width:900px;">
+      <h2 class="fade-in" style="font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.2;margin-bottom:12px;">Queremos ayudarte a escalar tu negocio.</h2>
+      <p class="fade-in d1 gradient-text" style="font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:800;margin-bottom:40px;">Prueba tu suerte.</p>
 
       <!-- Golden coupon -->
-      <div class="coupon-fake fade-in d2" onclick="this.closest('.slide').querySelector('.coupon-popup').classList.add('show')" style="cursor:pointer;position:relative;width:400px;max-width:90vw;margin:0 auto;background:linear-gradient(135deg,#D4A017 0%,#FFD700 25%,#D4A017 50%,#FFD700 75%,#D4A017 100%);background-size:200% 200%;animation:goldShimmer 3s ease-in-out infinite;border-radius:20px;padding:48px 32px;box-shadow:0 0 40px rgba(212,160,23,0.3),inset 0 1px 0 rgba(255,255,255,0.3);border:2px solid rgba(255,215,0,0.5);transition:transform .3s,box-shadow .3s;">
+      <div class="coupon-fake fade-in d2" onclick="this.closest('.slide').querySelector('.coupon-popup').classList.add('show')" style="cursor:pointer;position:relative;width:480px;max-width:90vw;margin:0 auto;background:linear-gradient(135deg,#D4A017 0%,#FFD700 25%,#D4A017 50%,#FFD700 75%,#D4A017 100%);background-size:200% 200%;animation:goldShimmer 3s ease-in-out infinite;border-radius:20px;padding:56px 36px;box-shadow:0 0 40px rgba(212,160,23,0.3),inset 0 1px 0 rgba(255,255,255,0.3);border:2px solid rgba(255,215,0,0.5);transition:transform .3s,box-shadow .3s;">
         <div style="position:absolute;top:12px;left:12px;right:12px;bottom:12px;border:2px dashed rgba(139,90,0,0.4);border-radius:14px;pointer-events:none;"></div>
-        <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:28px;color:#5C3A00;text-transform:uppercase;letter-spacing:0.06em;text-shadow:0 1px 0 rgba(255,255,255,0.3);">&#127915; Cup&oacute;n</div>
-        <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:16px;color:#7A5000;margin-top:8px;">Toca para descubrir tu descuento</div>
-        <div style="font-family:'Manrope',sans-serif;font-size:12px;color:rgba(92,58,0,0.6);margin-top:12px;">* V&aacute;lido solo para esta sesi&oacute;n</div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:34px;color:#5C3A00;text-transform:uppercase;letter-spacing:0.06em;text-shadow:0 1px 0 rgba(255,255,255,0.3);">&#127915; Cup&oacute;n</div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:19px;color:#7A5000;margin-top:10px;">Toca para descubrir tu descuento</div>
+        <div style="font-family:'Manrope',sans-serif;font-size:14px;color:rgba(92,58,0,0.6);margin-top:14px;">* V&aacute;lido solo para esta sesi&oacute;n</div>
 
       </div>
     </div>
 
     <!-- Red popup (absolute within slide) -->
     <div class="coupon-popup" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:9999;justify-content:center;align-items:center;">
-      <div style="background:linear-gradient(135deg,#8B0000,#CC0000);border-radius:20px;padding:48px;text-align:center;max-width:500px;width:90%;box-shadow:0 0 60px rgba(200,0,0,0.5);border:2px solid rgba(255,50,50,0.4);animation:popupBounce .4s ease-out;">
-        <div style="font-size:56px;margin-bottom:16px;">&#128532;</div>
-        <h3 style="font-family:'Manrope',sans-serif;font-weight:900;font-size:26px;color:#fff;margin-bottom:12px;">Los cupones disponibles se terminaron</h3>
-        <p style="font-size:16px;color:rgba(255,255,255,0.7);line-height:1.5;">Lamentablemente ya no quedan cupones de descuento para este grupo.</p>
-        <button onclick="event.stopPropagation();this.closest('.coupon-popup').classList.remove('show')" style="margin-top:24px;padding:12px 32px;border-radius:10px;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.1);color:#fff;font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;cursor:pointer;transition:background .3s;">Cerrar</button>
+      <div style="background:linear-gradient(135deg,#8B0000,#CC0000);border-radius:20px;padding:56px;text-align:center;max-width:550px;width:90%;box-shadow:0 0 60px rgba(200,0,0,0.5);border:2px solid rgba(255,50,50,0.4);animation:popupBounce .4s ease-out;">
+        <div style="font-size:64px;margin-bottom:16px;">&#128532;</div>
+        <h3 style="font-family:'Manrope',sans-serif;font-weight:900;font-size:30px;color:#fff;margin-bottom:14px;">Los cupones disponibles se terminaron</h3>
+        <p style="font-size:18px;color:rgba(255,255,255,0.7);line-height:1.5;">Lamentablemente ya no quedan cupones de descuento para este grupo.</p>
+        <button onclick="event.stopPropagation();this.closest('.coupon-popup').classList.remove('show')" style="margin-top:28px;padding:14px 36px;border-radius:10px;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.1);color:#fff;font-family:'Manrope',sans-serif;font-weight:700;font-size:17px;cursor:pointer;transition:background .3s;">Cerrar</button>
       </div>
     </div>
   </div>
@@ -2148,29 +2156,29 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   <div class="slide" data-title="Cup&oacute;n (con desc.)" style="padding:40px;justify-content:center;align-items:center;">
     <div class="orb orb-violet" style="width:500px;height:500px;top:-120px;left:50%;transform:translateX(-50%);opacity:0.5;"></div>
 
-    <div style="position:relative;z-index:2;text-align:center;max-width:800px;" id="coupon-real-container">
-      <h2 class="fade-in" style="font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.2;margin-bottom:8px;">Queremos ayudarte a escalar tu negocio.</h2>
-      <p class="fade-in d1 gradient-text" style="font-size:clamp(1.4rem,3vw,2.2rem);font-weight:800;margin-bottom:36px;">Prueba tu suerte.</p>
+    <div style="position:relative;z-index:2;text-align:center;max-width:900px;" id="coupon-real-container">
+      <h2 class="fade-in" style="font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.2;margin-bottom:12px;">Queremos ayudarte a escalar tu negocio.</h2>
+      <p class="fade-in d1 gradient-text" style="font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:800;margin-bottom:40px;">Prueba tu suerte.</p>
 
       <!-- Golden coupon that turns green -->
-      <div id="coupon-real" class="fade-in d2" style="cursor:pointer;position:relative;width:420px;max-width:90vw;margin:0 auto;background:linear-gradient(135deg,#D4A017 0%,#FFD700 25%,#D4A017 50%,#FFD700 75%,#D4A017 100%);background-size:200% 200%;animation:goldShimmer 3s ease-in-out infinite;border-radius:20px;padding:48px 32px;box-shadow:0 0 40px rgba(212,160,23,0.3),inset 0 1px 0 rgba(255,255,255,0.3);border:2px solid rgba(255,215,0,0.5);transition:all .6s ease;overflow:hidden;">
+      <div id="coupon-real" class="fade-in d2" style="cursor:pointer;position:relative;width:480px;max-width:90vw;margin:0 auto;background:linear-gradient(135deg,#D4A017 0%,#FFD700 25%,#D4A017 50%,#FFD700 75%,#D4A017 100%);background-size:200% 200%;animation:goldShimmer 3s ease-in-out infinite;border-radius:20px;padding:56px 36px;box-shadow:0 0 40px rgba(212,160,23,0.3),inset 0 1px 0 rgba(255,255,255,0.3);border:2px solid rgba(255,215,0,0.5);transition:all .6s ease;overflow:hidden;">
         <div style="position:absolute;top:12px;left:12px;right:12px;bottom:12px;border:2px dashed rgba(139,90,0,0.4);border-radius:14px;pointer-events:none;" id="coupon-real-inner-border"></div>
-        <div id="coupon-real-title" style="font-family:'Manrope',sans-serif;font-weight:900;font-size:28px;color:#5C3A00;text-transform:uppercase;letter-spacing:0.06em;text-shadow:0 1px 0 rgba(255,255,255,0.3);">&#127915; Cup&oacute;n</div>
-        <div id="coupon-client-name" style="font-family:'Manrope',sans-serif;font-weight:800;font-size:18px;color:#5C3A00;margin-top:10px;text-shadow:0 1px 0 rgba(255,255,255,0.2);"></div>
-        <div id="coupon-client-company" style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#7A5000;margin-top:2px;font-style:italic;"></div>
-        <div id="coupon-real-sub" style="font-family:'Manrope',sans-serif;font-weight:700;font-size:16px;color:#7A5000;margin-top:10px;">Toca para descubrir tu descuento</div>
-        <div id="coupon-real-fine" style="font-family:'Manrope',sans-serif;font-size:12px;color:rgba(92,58,0,0.6);margin-top:12px;">* V&aacute;lido solo para esta sesi&oacute;n</div>
+        <div id="coupon-real-title" style="font-family:'Manrope',sans-serif;font-weight:900;font-size:34px;color:#5C3A00;text-transform:uppercase;letter-spacing:0.06em;text-shadow:0 1px 0 rgba(255,255,255,0.3);">&#127915; Cup&oacute;n</div>
+        <div id="coupon-client-name" style="font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;color:#5C3A00;margin-top:12px;text-shadow:0 1px 0 rgba(255,255,255,0.2);"></div>
+        <div id="coupon-client-company" style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#7A5000;margin-top:4px;font-style:italic;"></div>
+        <div id="coupon-real-sub" style="font-family:'Manrope',sans-serif;font-weight:700;font-size:19px;color:#7A5000;margin-top:12px;">Toca para descubrir tu descuento</div>
+        <div id="coupon-real-fine" style="font-family:'Manrope',sans-serif;font-size:14px;color:rgba(92,58,0,0.6);margin-top:14px;">* V&aacute;lido solo para esta sesi&oacute;n</div>
 
         <!-- Scratch overlay (canvas) -->
         <canvas id="scratch-canvas" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;border-radius:20px;cursor:grab;z-index:10;touch-action:none;"></canvas>
 
         <!-- Hidden discount (revealed after scratch) -->
         <div id="discount-reveal" style="display:none;position:absolute;inset:0;border-radius:20px;background:linear-gradient(135deg,#00C853,#00E676,#00C853,#69F0AE,#00C853);background-size:200% 200%;animation:greenShimmer 3s ease-in-out infinite;display:none;flex-direction:column;align-items:center;justify-content:center;z-index:5;">
-          <div style="font-size:48px;margin-bottom:8px;">&#127881;</div>
-          <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:20px;color:#003D00;text-transform:uppercase;letter-spacing:0.06em;">&#161;Felicidades!</div>
-          <div id="discount-amount" style="font-family:'Manrope',sans-serif;font-weight:900;font-size:64px;color:#003D00;margin:8px 0;text-shadow:0 2px 0 rgba(255,255,255,0.3);"></div>
-          <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:16px;color:#1B5E20;">de descuento en tu inscripci&oacute;n</div>
-          <div style="font-family:'Manrope',sans-serif;font-size:12px;color:rgba(27,94,32,0.6);margin-top:12px;">* Aplicable solo hoy</div>
+          <div style="font-size:56px;margin-bottom:10px;">&#127881;</div>
+          <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:24px;color:#003D00;text-transform:uppercase;letter-spacing:0.06em;">&#161;Felicidades!</div>
+          <div id="discount-amount" style="font-family:'Manrope',sans-serif;font-weight:900;font-size:72px;color:#003D00;margin:10px 0;text-shadow:0 2px 0 rgba(255,255,255,0.3);"></div>
+          <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:19px;color:#1B5E20;">de descuento en tu inscripci&oacute;n</div>
+          <div style="font-family:'Manrope',sans-serif;font-size:14px;color:rgba(27,94,32,0.6);margin-top:14px;">* Aplicable solo hoy</div>
         </div>
       </div>
     </div>
@@ -2455,6 +2463,12 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
           canvas.style.opacity = '0';
           setTimeout(() => { canvas.style.display = 'none'; }, 500);
           couponRevealed = true;
+          // Zoom coupon 50% over everything
+          coupon.style.transform = 'scale(1.5)';
+          coupon.style.zIndex = '10000';
+          coupon.style.boxShadow = '0 0 80px rgba(0,200,83,0.6),0 0 160px rgba(0,200,83,0.3)';
+          // Launch confetti
+          launchConfetti(coupon.closest('.slide'));
         }
       }
       canvas.addEventListener('mousedown', (e) => { scratching = true; });
@@ -2488,6 +2502,8 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
       coupon.style.animation = 'goldShimmer 3s ease-in-out infinite';
       coupon.style.borderColor = '';
       coupon.style.boxShadow = '';
+      coupon.style.transform = '';
+      coupon.style.zIndex = '';
       const ib = document.getElementById('coupon-real-inner-border');
       if (ib) ib.style.borderColor = '';
       const rt = document.getElementById('coupon-real-title');
@@ -2506,6 +2522,35 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
       if (reveal) reveal.style.display = 'none';
       scratchInitialized = false;
       couponRevealed = false;
+    }
+  }
+
+  // Confetti launcher
+  function launchConfetti(container) {
+    const colors = ['#FFD700','#FF6B6B','#00E676','#448AFF','#E040FB','#FF9100','#00E5FF','#FFEB3B'];
+    const confettiCount = 120;
+    for (let i = 0; i < confettiCount; i++) {
+      const c = document.createElement('div');
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      const size = Math.random() * 10 + 6;
+      const isCircle = Math.random() > 0.5;
+      const startX = Math.random() > 0.5 ? -10 : 110; // from left or right edge
+      const endX = 20 + Math.random() * 60;
+      const startY = 30 + Math.random() * 40;
+      const endY = -(20 + Math.random() * 60);
+      const dur = 1.2 + Math.random() * 1.5;
+      const delay = Math.random() * 0.6;
+      const rot = Math.random() * 720 - 360;
+      c.style.cssText = 'position:absolute;z-index:99999;pointer-events:none;' +
+        'width:' + size + 'px;height:' + (isCircle ? size : size*0.5) + 'px;' +
+        'background:' + color + ';' +
+        'border-radius:' + (isCircle ? '50%' : '2px') + ';' +
+        'left:' + startX + '%;top:' + startY + '%;' +
+        'opacity:1;' +
+        'animation:confettiFall ' + dur + 's ease-out ' + delay + 's forwards;' +
+        '--confX:' + endX + '%;--confY:' + endY + '%;--confR:' + rot + 'deg;';
+      container.appendChild(c);
+      setTimeout(() => c.remove(), (dur + delay) * 1000 + 200);
     }
   }
 
