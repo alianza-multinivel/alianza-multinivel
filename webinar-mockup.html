@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Webinar Multinivel — Mockup (preview)</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#0A0A14; --bg2:#0D0D16; --bg3:#111125;
+    --violet:#7B2FFF; --blue:#2233FF; --gold:#FFD700;
+    --pink:#FF0080; --pink-deep:#E4007C; --pink-light:#FF66B2; --pink-bright:#FF1A8B;
+    --text:#fff; --muted:rgba(255,255,255,0.55); --dim:rgba(255,255,255,0.35);
+    --gradient:linear-gradient(135deg,#7B2FFF 0%,#2233FF 100%);
+    --pink-gradient:linear-gradient(135deg,#E4007C 0%,#FF0080 45%,#FF1A8B 100%);
+    --gold-gradient:linear-gradient(135deg,#E5B524 0%,#FFE066 25%,#FFD700 50%,#FFF1A8 70%,#E5B524 100%);
+  }
+  html,body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;line-height:1.5;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .gradient-text{background:var(--gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .pink-text{background:var(--pink-gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .gold-text{background:var(--gold-gradient);background-size:200% 200%;animation:goldShimmer 3s ease-in-out infinite;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  @keyframes goldShimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.4)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  .fade-in{animation:fadeUp .8s ease-out both}
+  .d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}.d4{animation-delay:.4s}.d5{animation-delay:.5s}
+
+  /* Orbs */
+  .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;pointer-events:none;z-index:0}
+  .orb-violet{background:var(--violet)}
+  .orb-blue{background:var(--blue)}
+  .orb-pink{background:var(--pink);opacity:.4}
+
+  /* Container */
+  .container{max-width:1240px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
+
+  /* CTA buttons (rosa mexicano neón) */
+  .cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:18px 36px;border-radius:14px;background:var(--pink-gradient);font-weight:800;font-size:18px;color:#fff;box-shadow:0 0 30px rgba(255,0,128,0.6),0 0 70px rgba(255,0,128,0.3);border:1px solid rgba(255,102,178,0.55);text-shadow:0 0 12px rgba(255,255,255,0.25);transition:transform .25s,box-shadow .25s;letter-spacing:0.01em;cursor:pointer}
+  .cta:hover{transform:scale(1.03);box-shadow:0 0 60px rgba(255,0,128,0.9),0 0 120px rgba(255,0,128,0.5)}
+  .cta.cta-vip{border:2px solid rgba(255,215,0,0.7);box-shadow:0 0 30px rgba(255,0,128,0.6),0 0 50px rgba(255,215,0,0.3)}
+  .cta.cta-vip:hover{box-shadow:0 0 60px rgba(255,0,128,0.9),0 0 90px rgba(255,215,0,0.55)}
+  .cta.cta-block{display:flex;width:100%}
+  .cta.cta-lg{padding:22px 48px;font-size:20px}
+  .micro{margin-top:14px;font-size:13px;color:var(--dim)}
+
+  /* Inline CTA strip (used between sections) */
+  .cta-strip{text-align:center;padding:48px 0;position:relative;z-index:2}
+  .cta-strip .micro-above{font-size:13px;color:var(--muted);margin-bottom:14px;letter-spacing:0.04em;text-transform:uppercase;font-weight:700}
+
+  /* HERO */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:80px 0}
+  .hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:center}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.08em;padding:8px 18px;border-radius:100px;text-transform:uppercase;background:rgba(255,0,128,0.12);border:1px solid rgba(255,0,128,0.4);color:#FF99CC;margin-bottom:24px}
+  .dot-pulse{width:8px;height:8px;border-radius:50%;background:#FF3B5C;animation:pulse 1.5s ease-in-out infinite}
+  .hero h1{font-size:clamp(2.6rem,5.5vw,4.6rem);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:24px}
+  .hero p.sub{font-size:19px;color:var(--muted);max-width:580px;margin-bottom:36px;line-height:1.55}
+  .social-proof{display:flex;align-items:center;gap:14px;margin-top:36px}
+  .avatars{display:flex}
+  .avatars img{width:38px;height:38px;border-radius:50%;border:2px solid var(--bg);margin-left:-12px;object-fit:cover}
+  .avatars img:first-child{margin-left:0}
+  .social-proof span{font-size:14px;color:var(--muted)}
+  .social-proof b{color:#fff}
+
+  /* HERO VSL */
+  .vsl-player{position:relative;width:100%;aspect-ratio:16/9;border-radius:24px;overflow:hidden;background:linear-gradient(160deg,#0c0c1c,#161629);border:1px solid rgba(255,0,128,0.4);box-shadow:0 0 60px rgba(255,0,128,0.28),0 30px 80px rgba(0,0,0,0.55);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .35s,box-shadow .35s}
+  .vsl-player:hover{transform:scale(1.015);box-shadow:0 0 100px rgba(255,0,128,0.5),0 30px 80px rgba(0,0,0,0.55)}
+  .vsl-player::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,rgba(255,0,128,0.2) 0%,transparent 65%)}
+  .vsl-play{position:relative;width:108px;height:108px;border-radius:50%;background:var(--pink-gradient);display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(255,0,128,0.8),0 0 90px rgba(255,0,128,0.45);animation:pulse-play 2s ease-in-out infinite;z-index:2}
+  .vsl-play::after{content:"";display:block;width:0;height:0;margin-left:10px;border-left:32px solid #fff;border-top:20px solid transparent;border-bottom:20px solid transparent}
+  @keyframes pulse-play{0%,100%{box-shadow:0 0 40px rgba(255,0,128,0.8),0 0 90px rgba(255,0,128,0.45);transform:scale(1)}50%{box-shadow:0 0 70px rgba(255,0,128,0.95),0 0 140px rgba(255,0,128,0.65);transform:scale(1.04)}}
+  .vsl-label{position:absolute;top:18px;left:18px;display:inline-flex;align-items:center;gap:6px;background:rgba(255,0,128,0.2);border:1px solid rgba(255,0,128,0.5);border-radius:8px;padding:6px 14px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#FFB3D9;backdrop-filter:blur(8px);z-index:3}
+  .vsl-duration{position:absolute;bottom:18px;right:18px;background:rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:5px 12px;font-size:13px;font-weight:700;backdrop-filter:blur(8px);z-index:3}
+
+  /* Sections */
+  section.s{padding:100px 0;position:relative;overflow:hidden}
+  .s-head{text-align:center;max-width:760px;margin:0 auto 56px}
+  .s-head h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.1;letter-spacing:-0.02em;margin-bottom:14px}
+  .s-head p{color:var(--muted);font-size:18px}
+
+  /* Problems grid */
+  .pcards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .pcard{background:linear-gradient(160deg,var(--bg2),var(--bg3));border:1px solid rgba(123,47,255,0.2);border-radius:20px;padding:32px;transition:transform .35s,border-color .35s,box-shadow .35s}
+  .pcard:hover{transform:scale(1.04);border-color:#a855f7;box-shadow:0 0 30px rgba(123,47,255,0.35)}
+  .picon{width:56px;height:56px;border-radius:14px;background:var(--gradient);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+  .picon svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:2}
+  .pcard h3{font-size:22px;font-weight:800;margin-bottom:10px}
+  .pcard p{color:var(--muted);font-size:16px;line-height:1.55}
+
+  /* Learn list */
+  .learn{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+  .lrow{display:flex;gap:20px;align-items:flex-start;background:linear-gradient(160deg,rgba(123,47,255,0.08),rgba(34,51,255,0.04));border:1px solid rgba(123,47,255,0.2);border-radius:14px;padding:20px 26px}
+  .lrow .num{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--gradient);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;box-shadow:0 0 18px rgba(123,47,255,0.45)}
+  .lrow h4{font-size:19px;font-weight:800;margin-bottom:4px}
+  .lrow p{color:var(--muted);font-size:15px}
+
+  /* Testimonials */
+  .tcards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .tcard{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:14px}
+  .stars{color:#FFD700;font-size:16px;letter-spacing:2px}
+  .tcard .quote{font-size:15px;line-height:1.55;color:rgba(255,255,255,0.85)}
+  .tresult{font-size:13px;font-weight:800;color:#FF66B2;padding:6px 12px;background:rgba(255,0,128,0.12);border:1px solid rgba(255,0,128,0.3);border-radius:8px;align-self:flex-start}
+  .tauthor{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08)}
+  .tauthor img{width:42px;height:42px;border-radius:50%;object-fit:cover}
+  .tauthor b{display:block;font-size:14px}
+  .tauthor span{font-size:12px;color:var(--dim)}
+
+  /* Reservation block */
+  .reservation{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+  .tz-panel{background:linear-gradient(160deg,var(--bg2),var(--bg3));border:1px solid rgba(255,0,128,0.32);border-radius:24px;padding:40px;position:relative;overflow:hidden}
+  .tz-panel::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at top,rgba(255,0,128,0.08) 0%,transparent 60%);pointer-events:none}
+  .tz-head{text-align:center;margin-bottom:32px;position:relative;z-index:1}
+  .tag-pink{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:.1em;padding:7px 16px;border-radius:100px;background:rgba(255,0,128,0.14);border:1px solid rgba(255,0,128,0.45);color:#FFB3D9;margin-bottom:14px;text-transform:uppercase}
+  .tz-head h3{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;line-height:1.15}
+
+  /* Symmetric flag grid */
+  .tz-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;position:relative;z-index:1}
+  .tz-item{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px 18px;transition:border-color .25s,background .25s,transform .25s}
+  .tz-item:hover{border-color:rgba(255,0,128,0.45);background:rgba(255,0,128,0.06);transform:translateY(-2px)}
+  .tz-item .flag-img{width:32px;height:24px;object-fit:cover;border-radius:4px;flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,0.4)}
+  .tz-item .country{flex:1;font-size:14px;font-weight:700;color:rgba(255,255,255,0.9);line-height:1.2}
+  .tz-item .country small{display:block;font-size:11px;font-weight:600;color:var(--dim);margin-top:2px;letter-spacing:0.04em;text-transform:uppercase}
+  .tz-item .time{font-size:15px;font-weight:800;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .tz-item.replay .time{color:#FFB3D9;font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:800}
+
+  /* Pricing cards */
+  .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .price-card{background:linear-gradient(160deg,var(--bg2),var(--bg3));border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:40px 32px 32px;position:relative;display:flex;flex-direction:column;transition:transform .35s,border-color .35s}
+  .price-card:hover{transform:translateY(-4px)}
+  .price-card.vip{border:1px solid rgba(255,215,0,0.5);box-shadow:0 0 40px rgba(255,215,0,0.12),0 0 100px rgba(255,0,128,0.08)}
+  .badge-recommended{position:absolute;top:-12px;left:50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:900;letter-spacing:.1em;padding:7px 18px;border-radius:100px;background:var(--gold-gradient);background-size:200% 200%;animation:goldShimmer 3s ease-in-out infinite;color:#3D2700;text-transform:uppercase;box-shadow:0 4px 20px rgba(255,215,0,0.4)}
+  .price-card .plan-label{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .price-card.vip .plan-label{color:#FFD700}
+  .price-card .plan-sub{font-size:14px;color:var(--dim);margin-bottom:18px}
+  .price-card .price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+  .price-card .amount{font-size:52px;font-weight:900;letter-spacing:-0.03em;line-height:1}
+  .price-card.vip .amount{background:var(--gold-gradient);background-size:200% 200%;animation:goldShimmer 3s ease-in-out infinite;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .price-card .currency{font-size:14px;color:var(--muted);font-weight:600}
+  .price-card .price-note{font-size:13px;color:var(--dim);margin-bottom:24px}
+  .price-card .features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px;flex:1}
+  .price-card .features li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:rgba(255,255,255,0.82);line-height:1.45}
+  .price-card .features li::before{content:"";display:block;width:20px;height:20px;flex-shrink:0;margin-top:1px;background-size:contain;background-repeat:no-repeat}
+  .price-card.free .features li::before{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23FF0080' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='4 11 8 15 16 5'/></svg>")}
+  .price-card.vip .features li::before{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23FFD700' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='4 11 8 15 16 5'/></svg>")}
+
+  /* Footer */
+  footer{padding:40px 0;border-top:1px solid rgba(255,255,255,0.06);text-align:center;color:var(--dim);font-size:13px}
+
+  /* Mobile */
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr}
+    .pcards,.tcards{grid-template-columns:1fr}
+    .tz-grid{grid-template-columns:1fr 1fr}
+    .pricing-grid{grid-template-columns:1fr}
+    .vsl-play{width:80px;height:80px}
+    .vsl-play::after{border-left-width:24px;border-top-width:14px;border-bottom-width:14px;margin-left:6px}
+  }
+  @media (max-width:520px){
+    .tz-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO with VSL -->
+<section class="hero">
+  <div class="orb orb-violet" style="width:600px;height:600px;top:-200px;right:-150px"></div>
+  <div class="orb orb-pink" style="width:500px;height:500px;bottom:-200px;left:-150px"></div>
+
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="badge fade-in"><span class="dot-pulse"></span> En vivo · Webinar gratuito</div>
+        <h1 class="fade-in d1">El nuevo multinivel ya no se hace solo.<br>Se hace con <span class="gradient-text">método, IA y comunidad.</span></h1>
+        <p class="sub fade-in d2">En 90 minutos te muestro cómo los networkers de élite están escalando hoy — sin lista fría, sin perseguir gente, sin depender de la motivación.</p>
+        <a href="#reserva" class="cta fade-in d3">Reservar mi cupo gratis →</a>
+        <p class="micro fade-in d4">🔒 100% gratis · Cupo limitado · Acceso al replay por 48h</p>
+        <div class="social-proof fade-in d5">
+          <div class="avatars">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop" alt="">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop" alt="">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop" alt="">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop" alt="">
+          </div>
+          <span><b>+2,400 networkers</b> ya reservaron</span>
+        </div>
+      </div>
+
+      <!-- VSL en el hero (reemplaza la foto) -->
+      <div class="fade-in d2">
+        <div class="vsl-player" onclick="alert('🎬 Aquí va el video VSL embebido (Wistia, Vimeo, YouTube, etc.)')">
+          <span class="vsl-label">▶ Ver video</span>
+          <span class="vsl-duration">3:24</span>
+          <div class="vsl-play"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMAS -->
+<section class="s" style="background:linear-gradient(180deg,var(--bg) 0%,#0c0c1c 100%)">
+  <div class="orb orb-violet" style="width:400px;height:400px;top:50px;left:-100px;opacity:0.3"></div>
+  <div class="container">
+    <div class="s-head">
+      <h2>¿Por qué la mayoría de networkers <span class="gradient-text">no escala?</span></h2>
+      <p>Tres bloqueos que el 90% del mercado sigue sin resolver.</p>
+    </div>
+    <div class="pcards">
+      <div class="pcard">
+        <div class="picon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>Sin método</h3>
+        <p>Improvisas cada conversación y dependes 100% de tu motivación. Un mes vendes, al siguiente desapareces.</p>
+      </div>
+      <div class="pcard">
+        <div class="picon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg></div>
+        <h3>Sin marca personal</h3>
+        <p>Nadie te busca. Persigues prospectos en redes y tu mensaje suena igual al de los otros 10,000 networkers.</p>
+      </div>
+      <div class="pcard">
+        <div class="picon"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+        <h3>Sin IA aplicada</h3>
+        <p>Tus competidores ya usan IA para escribir, cerrar y duplicar. Tú aún copias y pegas guiones de 2015.</p>
+      </div>
+    </div>
+
+    <!-- CTA inline -->
+    <div class="cta-strip">
+      <div class="micro-above">Cambia esto en 90 minutos</div>
+      <a href="#reserva" class="cta">Reservar mi cupo gratis →</a>
+    </div>
+  </div>
+</section>
+
+<!-- LO QUE APRENDERÁS -->
+<section class="s">
+  <div class="orb orb-blue" style="width:450px;height:450px;bottom:0;right:-100px;opacity:0.3"></div>
+  <div class="container">
+    <div class="s-head">
+      <h2>Lo que vas a aprender <span class="gradient-text">en el webinar</span></h2>
+      <p>4 enseñanzas accionables que puedes aplicar el mismo día.</p>
+    </div>
+    <div class="learn">
+      <div class="lrow"><div class="num">1</div><div><h4>La estructura mental del networker élite</h4><p>Cómo dejar de pensar como vendedor y operar como un empresario de red.</p></div></div>
+      <div class="lrow"><div class="num">2</div><div><h4>El sistema de prospección sin lista fría</h4><p>Cómo atraer prospectos calificados con marca personal y contenido estratégico.</p></div></div>
+      <div class="lrow"><div class="num">3</div><div><h4>IA para cierres, contenido y seguimiento</h4><p>Las 3 IAs que cambian el juego, prompts incluidos.</p></div></div>
+      <div class="lrow"><div class="num">4</div><div><h4>Cómo construir un equipo que duplica solo</h4><p>El modelo de liderazgo que escala sin que tú seas el cuello de botella.</p></div></div>
+    </div>
+
+    <!-- CTA inline -->
+    <div class="cta-strip">
+      <div class="micro-above">Cupos limitados · Reserva el tuyo</div>
+      <a href="#reserva" class="cta">Reservar mi cupo gratis →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="s" style="background:linear-gradient(180deg,#0c0c1c 0%,var(--bg) 100%)">
+  <div class="container">
+    <div class="s-head">
+      <h2>Resultados <span class="gradient-text">de aliados reales</span></h2>
+      <p>Lo que pasa cuando aplican el sistema que verás en el webinar.</p>
+    </div>
+    <div class="tcards">
+      <div class="tcard">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"En 6 semanas pasé de no saber cómo prospectar a tener un sistema completo trabajando para mí."</p>
+        <span class="tresult">↑ De 0 a 15 prospectos/sem</span>
+        <div class="tauthor">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop" alt="">
+          <div><b>María G.</b><span>Venezuela · Vital Health</span></div>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Llevaba 2 años sin pasar de $200/mes. En el primer mes entendí por qué. La estructura me cambió el negocio."</p>
+        <span class="tresult">↑ De $200 a $1,800/mes</span>
+        <div class="tauthor">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop" alt="">
+          <div><b>Carlos R.</b><span>Colombia · OMNI</span></div>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Mi equipo pasó de 3 personas a 12 en dos meses. La clave fue que todos siguen el mismo sistema."</p>
+        <span class="tresult">↑ 3 a 12 socios en 60 días</span>
+        <div class="tauthor">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop" alt="">
+          <div><b>Gloria P.</b><span>Perú · Herbalife</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA inline -->
+    <div class="cta-strip">
+      <div class="micro-above">Tú puedes ser el próximo</div>
+      <a href="#reserva" class="cta">Reservar mi cupo gratis →</a>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVA -->
+<section class="s" id="reserva">
+  <div class="orb orb-violet" style="width:500px;height:500px;top:50%;left:0;transform:translateY(-50%);opacity:0.2"></div>
+  <div class="orb orb-pink" style="width:500px;height:500px;top:50%;right:0;transform:translateY(-50%);opacity:0.18"></div>
+
+  <div class="container">
+    <div class="s-head">
+      <h2>Reserva tu <span class="gradient-text">lugar.</span></h2>
+      <p>Escoge tu zona horaria y el tipo de acceso que prefieras.</p>
+    </div>
+
+    <div class="reservation">
+
+      <!-- Time zones panel -->
+      <div class="tz-panel">
+        <div class="tz-head">
+          <span class="tag-pink">⚡ Próxima sesión · Cupos limitados</span>
+          <h3>Jueves 22 de Mayo</h3>
+        </div>
+
+        <!-- Symmetric 3x4 flag grid -->
+        <div class="tz-grid">
+          <div class="tz-item">
+            <img class="flag-img" src="https://flagcdn.com/mx.svg" alt="México">
+            <div class="country">México<small>CDMX</small></div>
+            <div class="time">7:00 PM</div>
+          </div>
+          <div class="tz-item">
+            <img class="flag-img" src="https://flagcdn.com/co.svg" alt="Colombia">
+            <div class="country">Colombia<small>Bogotá</small></div>
+            <div class="time">8:00 PM</div>
+          </div>
+          <div class="tz-item">
+            <img class="flag-img" src="https://flagcdn.com/pe.svg" alt="Perú">
+            <div class="country">Perú<small>Lima</small></div>
+            <div class="time">8:00 PM</div>
+          </div>
+
+          <div class="tz-item">
+            <img class="flag-img" src="https://flagcdn.com/ec.svg" alt="Ecuador">
+            <div class="country">Ecuador<small>Quito</small></div>
+            <div class="time">8:00 PM</div>
+          </div>
+          <div class="tz-item">
+            <img class="flag-img" src="https://flagcdn.com/ve.svg" alt="Venezuela">
+            <div class="country">Venezuela<small>Caracas</small></div>
+            <div class="time">9:00 PM</div>
+          </div>
+          <div class="tz-item">
+            <img class="flag-img" src="https://flagcdn.com/cl.svg" alt="Chile">
+            <div class="country">Chile<small>Santiago</small></div>
+            <div class="time">9:00 PM</div>
+          </div>
+
+          <div class="tz-item">
+            <img class="flag-img" src="https://flagcdn.com/ar.svg" alt="Argentina">
+            <div class="country">Argentina<small>Buenos Aires</small></div>
+            <div class="time">10:00 PM</div>
+          </div>
+          <div class="tz-item">
+            <img class="flag-img" src="https://flagcdn.com/uy.svg" alt="Uruguay">
+            <div class="country">Uruguay<small>Montevideo</small></div>
+            <div class="time">10:00 PM</div>
+          </div>
+          <div class="tz-item">
+            <img class="flag-img" src="https://flagcdn.com/us.svg" alt="USA Este">
+            <div class="country">USA Este<small>NY · Miami</small></div>
+            <div class="time">8:00 PM</div>
+          </div>
+
+          <div class="tz-item">
+            <img class="flag-img" src="https://flagcdn.com/us.svg" alt="USA Central">
+            <div class="country">USA Central<small>Chicago · TX</small></div>
+            <div class="time">7:00 PM</div>
+          </div>
+          <div class="tz-item">
+            <img class="flag-img" src="https://flagcdn.com/us.svg" alt="USA Pacífico">
+            <div class="country">USA Pacífico<small>LA · SF</small></div>
+            <div class="time">5:00 PM</div>
+          </div>
+          <div class="tz-item replay">
+            <img class="flag-img" src="https://flagcdn.com/es.svg" alt="España">
+            <div class="country">España<small>Acceso vía replay</small></div>
+            <div class="time">48 h</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pricing options -->
+      <div class="pricing-grid">
+
+        <!-- GRATUITO -->
+        <div class="price-card free">
+          <span class="plan-label">Registro gratuito</span>
+          <p class="plan-sub">El acceso esencial al webinar en vivo.</p>
+          <div class="price-row">
+            <span class="amount">$0</span>
+            <span class="currency">USD</span>
+          </div>
+          <p class="price-note">Sin tarjeta · Acceso inmediato</p>
+          <ul class="features">
+            <li>Acceso al webinar en vivo (90 minutos)</li>
+            <li>Material PDF con el resumen del método</li>
+            <li>Recordatorios por email y WhatsApp</li>
+            <li>Acceso al replay durante 48 horas</li>
+          </ul>
+          <a href="#PLACEHOLDER_SIGUIENTE_PASO" class="cta cta-block">Reservar mi cupo gratis →</a>
+        </div>
+
+        <!-- VIP -->
+        <div class="price-card vip">
+          <span class="badge-recommended">⭐ Recomendado</span>
+          <span class="plan-label">Acceso VIP</span>
+          <p class="plan-sub">Para quienes vienen a implementar, no solo a mirar.</p>
+          <div class="price-row">
+            <span class="amount">$10</span>
+            <span class="currency">USD · pago único</span>
+          </div>
+          <p class="price-note">Acceso inmediato tras la compra</p>
+          <ul class="features">
+            <li><strong>Todo lo del registro gratuito</strong></li>
+            <li>Asiento en primera fila + Q&amp;A en vivo con el speaker</li>
+            <li>Replay disponible por 30 días (sin caducidad)</li>
+            <li>Pack de plantillas y prompts de IA listos para aplicar</li>
+            <li>Sesión grupal de implementación 48 h después del webinar</li>
+            <li>Acceso al grupo privado de aliados VIP</li>
+          </ul>
+          <a href="#PLACEHOLDER_SIGUIENTE_PASO" class="cta cta-vip cta-block">⭐ Quiero acceso VIP por $10 →</a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL grande -->
+<section class="s" style="padding-top:0">
+  <div class="container">
+    <div class="cta-strip" style="padding:20px 0 60px">
+      <div class="micro-above">Última oportunidad antes de que se llene la sala</div>
+      <a href="#reserva" class="cta cta-lg">Reservar mi cupo gratis →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 Alianza Multinivel · Este sitio no está afiliado a Facebook ni a ninguna compañía MLM específica.
+  </div>
+</footer>
+
+</body>
+</html>
