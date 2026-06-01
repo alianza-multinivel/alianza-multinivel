@@ -91,10 +91,10 @@
   .micro{font-size:13px;color:var(--dim);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
   .micro .sep{width:3px;height:3px;border-radius:50%;background:var(--dim)}
 
-  /* Hero logo */
+  /* Hero logo (transparent PNG, no visible black frame) */
   .hero-logo-wrap{position:relative;display:flex;align-items:center;justify-content:center;animation:floatSlow 7s ease-in-out infinite}
-  .hero-logo-wrap::before{content:"";position:absolute;width:90%;height:90%;background:radial-gradient(circle,rgba(255,0,128,0.35) 0%,transparent 65%);filter:blur(60px);z-index:0}
-  .hero-logo-wrap img{position:relative;z-index:1;width:100%;max-width:640px;animation:glowPulse 4s ease-in-out infinite}
+  .hero-logo-wrap::before{content:"";position:absolute;width:80%;height:80%;background:radial-gradient(circle,rgba(255,0,128,0.55) 0%,rgba(255,0,128,0.15) 40%,transparent 70%);filter:blur(90px);z-index:0}
+  .hero-logo-wrap img{position:relative;z-index:1;width:100%;max-width:880px;animation:glowPulse 4s ease-in-out infinite}
 
   /* ============== BRAND MARQUEE ============== */
   .marquee-section{padding:50px 0;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);position:relative;background:linear-gradient(180deg,rgba(255,0,128,0.03) 0%,transparent 100%)}
@@ -278,7 +278,7 @@
       </div>
 
       <div class="hero-logo-wrap fade-in-fast d2">
-        <img src="reliquias/01_logo_landing_hero_oscuro.png" alt="Las Reliquias del Multinivel">
+        <img src="reliquias/logo_las_3_reliquias_transparente_4096.png" alt="Las Reliquias del Multinivel">
       </div>
     </div>
   </div>
