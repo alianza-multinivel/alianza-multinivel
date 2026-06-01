@@ -3,407 +3,576 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Webinar Multinivel — Mockup (preview)</title>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<title>Las Reliquias del Multinivel — Webinar Intensivo</title>
+<meta name="description" content="27 de junio · 10 AM CDMX. Un día intensivo para desbloquear las 3 reliquias que dominan el multinivel moderno: IA, ventas elite y estrategia digital.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   :root{
-    --bg:#0A0A14; --bg2:#0D0D16; --bg3:#111125;
-    --violet:#7B2FFF; --blue:#2233FF; --gold:#FFD700;
-    --pink:#FF0080; --pink-deep:#E4007C; --pink-light:#FF66B2; --pink-bright:#FF1A8B;
-    --text:#fff; --muted:rgba(255,255,255,0.55); --dim:rgba(255,255,255,0.35);
-    --gradient:linear-gradient(135deg,#7B2FFF 0%,#2233FF 100%);
+    --bg:#06060c; --bg2:#0c0c14; --bg3:#15151f;
+    --pink:#FF0080; --pink-deep:#E4007C; --pink-bright:#FF1A8B; --pink-glow:#FF66B2;
+    --gold:#FFD700; --gold-deep:#C9A227;
+    --silver:#D8D8E0; --silver-dim:#9090A0;
+    --text:#fff; --muted:rgba(255,255,255,0.6); --dim:rgba(255,255,255,0.4);
     --pink-gradient:linear-gradient(135deg,#E4007C 0%,#FF0080 45%,#FF1A8B 100%);
-    --gold-gradient:linear-gradient(135deg,#E5B524 0%,#FFE066 25%,#FFD700 50%,#FFF1A8 70%,#E5B524 100%);
+    --gold-gradient:linear-gradient(135deg,#C9A227 0%,#FFE066 25%,#FFD700 50%,#FFF1A8 70%,#C9A227 100%);
+    --silver-gradient:linear-gradient(135deg,#9090A0 0%,#D8D8E0 50%,#FFFFFF 75%,#D8D8E0 100%);
+    --container:1500px;
   }
-  html,body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;line-height:1.5;overflow-x:hidden}
+  html,body{background:#000;color:var(--text);font-family:'Manrope',sans-serif;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  body{background:radial-gradient(ellipse at top,#1a0820 0%,#06060c 40%,#000 100%)}
   a{color:inherit;text-decoration:none}
-  .gradient-text{background:var(--gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-  .pink-text{background:var(--pink-gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-  .gold-text{background:var(--gold-gradient);background-size:200% 200%;animation:goldShimmer 3s ease-in-out infinite;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-  @keyframes goldShimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.4)}}
-  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-  .fade-in{animation:fadeUp .8s ease-out both}
-  .d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}.d4{animation-delay:.4s}.d5{animation-delay:.5s}
+  img{max-width:100%;display:block}
 
-  /* Orbs */
-  .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;pointer-events:none;z-index:0}
-  .orb-violet{background:var(--violet)}
-  .orb-blue{background:var(--blue)}
-  .orb-pink{background:var(--pink);opacity:.4}
+  /* Typography */
+  .serif{font-family:'Cinzel',serif;letter-spacing:0.02em}
+  .pink-text{background:var(--pink-gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .gold-text{background:var(--gold-gradient);background-size:200% 200%;animation:goldShimmer 4s ease-in-out infinite;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .silver-text{background:var(--silver-gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+  /* Animations */
+  @keyframes goldShimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(1.4)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes floatSlow{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-18px) rotate(0.5deg)}}
+  @keyframes glowPulse{0%,100%{filter:drop-shadow(0 0 40px rgba(255,0,128,0.45)) drop-shadow(0 0 100px rgba(255,0,128,0.25))}50%{filter:drop-shadow(0 0 70px rgba(255,0,128,0.75)) drop-shadow(0 0 160px rgba(255,0,128,0.4))}}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @keyframes kenburns{0%,100%{transform:scale(1.05) translate(0,0)}50%{transform:scale(1.12) translate(-1%,-1.5%)}}
+  @keyframes pulse-play{0%,100%{box-shadow:0 0 40px rgba(255,0,128,0.7),0 0 100px rgba(255,0,128,0.35);transform:scale(1)}50%{box-shadow:0 0 70px rgba(255,0,128,0.95),0 0 160px rgba(255,0,128,0.55);transform:scale(1.05)}}
+  .fade-in{animation:fadeUp 1s cubic-bezier(.2,.7,.2,1) both}
+  .fade-in-fast{animation:fadeIn .8s ease-out both}
+  .d1{animation-delay:.12s}.d2{animation-delay:.22s}.d3{animation-delay:.34s}.d4{animation-delay:.46s}.d5{animation-delay:.58s}.d6{animation-delay:.7s}
 
   /* Container */
-  .container{max-width:1240px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
+  .container{max-width:var(--container);margin:0 auto;padding:0 40px;position:relative;z-index:2}
 
-  /* CTA buttons (rosa mexicano neón) */
-  .cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:18px 36px;border-radius:14px;background:var(--pink-gradient);font-weight:800;font-size:18px;color:#fff;box-shadow:0 0 30px rgba(255,0,128,0.6),0 0 70px rgba(255,0,128,0.3);border:1px solid rgba(255,102,178,0.55);text-shadow:0 0 12px rgba(255,255,255,0.25);transition:transform .25s,box-shadow .25s;letter-spacing:0.01em;cursor:pointer}
-  .cta:hover{transform:scale(1.03);box-shadow:0 0 60px rgba(255,0,128,0.9),0 0 120px rgba(255,0,128,0.5)}
-  .cta.cta-vip{border:2px solid rgba(255,215,0,0.7);box-shadow:0 0 30px rgba(255,0,128,0.6),0 0 50px rgba(255,215,0,0.3)}
-  .cta.cta-vip:hover{box-shadow:0 0 60px rgba(255,0,128,0.9),0 0 90px rgba(255,215,0,0.55)}
-  .cta.cta-block{display:flex;width:100%}
-  .cta.cta-lg{padding:22px 48px;font-size:20px}
-  .micro{margin-top:14px;font-size:13px;color:var(--dim)}
+  /* Decorative orbs */
+  .orb{position:absolute;border-radius:50%;filter:blur(110px);pointer-events:none;z-index:0}
+  .orb-pink{background:var(--pink);opacity:.35}
+  .orb-deep{background:#3a0a30;opacity:.5}
 
-  /* Inline CTA strip (used between sections) */
-  .cta-strip{text-align:center;padding:48px 0;position:relative;z-index:2}
-  .cta-strip .micro-above{font-size:13px;color:var(--muted);margin-bottom:14px;letter-spacing:0.04em;text-transform:uppercase;font-weight:700}
+  /* CTA — rosa mexicano neón */
+  .cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:20px 40px;border-radius:14px;background:var(--pink-gradient);font-family:'Manrope',sans-serif;font-weight:800;font-size:18px;color:#fff;box-shadow:0 0 30px rgba(255,0,128,0.6),0 0 80px rgba(255,0,128,0.3),inset 0 1px 0 rgba(255,255,255,0.25);border:1px solid rgba(255,102,178,0.55);text-shadow:0 0 12px rgba(255,255,255,0.25);transition:transform .3s,box-shadow .3s;letter-spacing:0.01em;cursor:pointer;white-space:nowrap}
+  .cta:hover{transform:scale(1.04);box-shadow:0 0 60px rgba(255,0,128,0.95),0 0 140px rgba(255,0,128,0.55),inset 0 1px 0 rgba(255,255,255,0.3)}
+  .cta-lg{padding:24px 52px;font-size:21px}
+  .cta-block{display:flex;width:100%}
+  .cta-vip{border:2px solid rgba(255,215,0,0.7);box-shadow:0 0 30px rgba(255,0,128,0.6),0 0 60px rgba(255,215,0,0.3)}
+  .cta-vip:hover{box-shadow:0 0 60px rgba(255,0,128,0.95),0 0 100px rgba(255,215,0,0.55)}
 
-  /* HERO */
-  .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:80px 0}
-  .hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:center}
-  .badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.08em;padding:8px 18px;border-radius:100px;text-transform:uppercase;background:rgba(255,0,128,0.12);border:1px solid rgba(255,0,128,0.4);color:#FF99CC;margin-bottom:24px}
-  .dot-pulse{width:8px;height:8px;border-radius:50%;background:#FF3B5C;animation:pulse 1.5s ease-in-out infinite}
-  .hero h1{font-size:clamp(2.6rem,5.5vw,4.6rem);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:24px}
-  .hero p.sub{font-size:19px;color:var(--muted);max-width:580px;margin-bottom:36px;line-height:1.55}
-  .social-proof{display:flex;align-items:center;gap:14px;margin-top:36px}
-  .avatars{display:flex}
-  .avatars img{width:38px;height:38px;border-radius:50%;border:2px solid var(--bg);margin-left:-12px;object-fit:cover}
-  .avatars img:first-child{margin-left:0}
-  .social-proof span{font-size:14px;color:var(--muted)}
-  .social-proof b{color:#fff}
+  /* CTA strip used between sections */
+  .cta-strip{text-align:center;padding:60px 0 20px;position:relative;z-index:2}
+  .cta-strip .above{font-family:'Cinzel',serif;font-size:13px;color:var(--pink-glow);margin-bottom:18px;letter-spacing:0.18em;text-transform:uppercase;font-weight:700}
 
-  /* HERO VSL */
-  .vsl-player{position:relative;width:100%;aspect-ratio:16/9;border-radius:24px;overflow:hidden;background:linear-gradient(160deg,#0c0c1c,#161629);border:1px solid rgba(255,0,128,0.4);box-shadow:0 0 60px rgba(255,0,128,0.28),0 30px 80px rgba(0,0,0,0.55);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .35s,box-shadow .35s}
-  .vsl-player:hover{transform:scale(1.015);box-shadow:0 0 100px rgba(255,0,128,0.5),0 30px 80px rgba(0,0,0,0.55)}
-  .vsl-player::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,rgba(255,0,128,0.2) 0%,transparent 65%)}
-  .vsl-play{position:relative;width:108px;height:108px;border-radius:50%;background:var(--pink-gradient);display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(255,0,128,0.8),0 0 90px rgba(255,0,128,0.45);animation:pulse-play 2s ease-in-out infinite;z-index:2}
-  .vsl-play::after{content:"";display:block;width:0;height:0;margin-left:10px;border-left:32px solid #fff;border-top:20px solid transparent;border-bottom:20px solid transparent}
-  @keyframes pulse-play{0%,100%{box-shadow:0 0 40px rgba(255,0,128,0.8),0 0 90px rgba(255,0,128,0.45);transform:scale(1)}50%{box-shadow:0 0 70px rgba(255,0,128,0.95),0 0 140px rgba(255,0,128,0.65);transform:scale(1.04)}}
-  .vsl-label{position:absolute;top:18px;left:18px;display:inline-flex;align-items:center;gap:6px;background:rgba(255,0,128,0.2);border:1px solid rgba(255,0,128,0.5);border-radius:8px;padding:6px 14px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#FFB3D9;backdrop-filter:blur(8px);z-index:3}
-  .vsl-duration{position:absolute;bottom:18px;right:18px;background:rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:5px 12px;font-size:13px;font-weight:700;backdrop-filter:blur(8px);z-index:3}
+  /* Tag pill */
+  .tag{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:800;letter-spacing:.14em;padding:10px 20px;border-radius:100px;text-transform:uppercase;background:rgba(255,0,128,0.1);border:1px solid rgba(255,0,128,0.4);color:#FFB3D9;backdrop-filter:blur(8px)}
+  .dot-pulse{width:8px;height:8px;border-radius:50%;background:#FF3B5C;animation:pulse 1.5s ease-in-out infinite;box-shadow:0 0 12px #FF3B5C}
 
-  /* Sections */
-  section.s{padding:100px 0;position:relative;overflow:hidden}
-  .s-head{text-align:center;max-width:760px;margin:0 auto 56px}
-  .s-head h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.1;letter-spacing:-0.02em;margin-bottom:14px}
-  .s-head p{color:var(--muted);font-size:18px}
+  /* ============== HERO ============== */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:60px 0 100px}
+  .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+  .hero-bg .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,0,128,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,0,128,0.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 70%)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:80px;align-items:center;position:relative;z-index:2}
+  .hero-eyebrow{font-family:'Cinzel',serif;font-size:13px;font-weight:700;letter-spacing:0.28em;color:var(--pink-glow);text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:14px}
+  .hero-eyebrow::before,.hero-eyebrow::after{content:"";flex:0 0 40px;height:1px;background:linear-gradient(90deg,transparent,var(--pink),transparent)}
+  .hero h1{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(3rem,6.5vw,5.8rem);line-height:1;letter-spacing:-0.01em;margin-bottom:28px}
+  .hero h1 .silver-text{display:block}
+  .hero h1 .pink-text{display:block}
+  .hero p.lede{font-size:20px;color:var(--muted);max-width:580px;margin-bottom:20px;line-height:1.55}
+  .date-card{display:inline-flex;align-items:center;gap:16px;padding:14px 22px;background:linear-gradient(160deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.12);border-radius:14px;margin:28px 0 32px;backdrop-filter:blur(10px)}
+  .date-card .cal{width:44px;height:44px;border-radius:10px;background:var(--pink-gradient);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;flex-shrink:0;box-shadow:0 0 20px rgba(255,0,128,0.45)}
+  .date-card .cal .day{font-family:'Manrope',sans-serif;font-weight:900;font-size:18px;line-height:1}
+  .date-card .cal .mon{font-family:'Manrope',sans-serif;font-weight:700;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;margin-top:2px}
+  .date-card .lbl{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim)}
+  .date-card .val{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:#fff;margin-top:2px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+  .micro{font-size:13px;color:var(--dim);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .micro .sep{width:3px;height:3px;border-radius:50%;background:var(--dim)}
 
-  /* Problems grid */
-  .pcards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .pcard{background:linear-gradient(160deg,var(--bg2),var(--bg3));border:1px solid rgba(123,47,255,0.2);border-radius:20px;padding:32px;transition:transform .35s,border-color .35s,box-shadow .35s}
-  .pcard:hover{transform:scale(1.04);border-color:#a855f7;box-shadow:0 0 30px rgba(123,47,255,0.35)}
-  .picon{width:56px;height:56px;border-radius:14px;background:var(--gradient);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
-  .picon svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:2}
-  .pcard h3{font-size:22px;font-weight:800;margin-bottom:10px}
-  .pcard p{color:var(--muted);font-size:16px;line-height:1.55}
+  /* Hero logo */
+  .hero-logo-wrap{position:relative;display:flex;align-items:center;justify-content:center;animation:floatSlow 7s ease-in-out infinite}
+  .hero-logo-wrap::before{content:"";position:absolute;width:90%;height:90%;background:radial-gradient(circle,rgba(255,0,128,0.35) 0%,transparent 65%);filter:blur(60px);z-index:0}
+  .hero-logo-wrap img{position:relative;z-index:1;width:100%;max-width:640px;animation:glowPulse 4s ease-in-out infinite}
 
-  /* Learn list */
-  .learn{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
-  .lrow{display:flex;gap:20px;align-items:flex-start;background:linear-gradient(160deg,rgba(123,47,255,0.08),rgba(34,51,255,0.04));border:1px solid rgba(123,47,255,0.2);border-radius:14px;padding:20px 26px}
-  .lrow .num{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--gradient);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;box-shadow:0 0 18px rgba(123,47,255,0.45)}
-  .lrow h4{font-size:19px;font-weight:800;margin-bottom:4px}
-  .lrow p{color:var(--muted);font-size:15px}
+  /* ============== BRAND MARQUEE ============== */
+  .marquee-section{padding:50px 0;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);position:relative;background:linear-gradient(180deg,rgba(255,0,128,0.03) 0%,transparent 100%)}
+  .marquee-heading{text-align:center;margin-bottom:32px;position:relative;z-index:2}
+  .marquee-heading p{font-family:'Cinzel',serif;font-size:12px;font-weight:700;color:var(--silver-dim);letter-spacing:0.28em;text-transform:uppercase}
+  .marquee-strip{position:relative;overflow:hidden;mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%)}
+  .marquee-track{display:flex;gap:60px;width:max-content;animation:marquee 50s linear infinite;will-change:transform}
+  .marquee-strip:hover .marquee-track{animation-play-state:paused}
+  .brand-chip{font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;letter-spacing:0.04em;color:rgba(255,255,255,0.55);white-space:nowrap;transition:color .3s,transform .3s;flex-shrink:0;text-transform:uppercase}
+  .brand-chip:hover{color:#fff;transform:scale(1.05)}
+  .brand-chip.serif{font-family:'Cinzel',serif;letter-spacing:0.06em;font-weight:700;text-transform:none}
+  .brand-chip.italic{font-style:italic}
+  .brand-chip.light{font-weight:500}
+  .brand-chip.tight{letter-spacing:-0.02em;font-weight:900}
+  .brand-chip.bold{font-weight:900;letter-spacing:0.08em}
+  .brand-sep{width:8px;height:8px;border-radius:50%;background:rgba(255,0,128,0.55);align-self:center;flex-shrink:0;box-shadow:0 0 8px rgba(255,0,128,0.7)}
 
-  /* Testimonials */
-  .tcards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .tcard{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:14px}
-  .stars{color:#FFD700;font-size:16px;letter-spacing:2px}
-  .tcard .quote{font-size:15px;line-height:1.55;color:rgba(255,255,255,0.85)}
-  .tresult{font-size:13px;font-weight:800;color:#FF66B2;padding:6px 12px;background:rgba(255,0,128,0.12);border:1px solid rgba(255,0,128,0.3);border-radius:8px;align-self:flex-start}
-  .tauthor{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08)}
-  .tauthor img{width:42px;height:42px;border-radius:50%;object-fit:cover}
-  .tauthor b{display:block;font-size:14px}
-  .tauthor span{font-size:12px;color:var(--dim)}
+  /* ============== SECTION BASE ============== */
+  section.s{padding:140px 0;position:relative;overflow:hidden}
+  .s-head{text-align:center;max-width:880px;margin:0 auto 70px;position:relative;z-index:2}
+  .s-head .pre{font-family:'Cinzel',serif;font-size:13px;color:var(--pink-glow);letter-spacing:0.28em;text-transform:uppercase;margin-bottom:18px;font-weight:700}
+  .s-head h2{font-family:'Cinzel',serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:900;line-height:1.08;letter-spacing:-0.005em;margin-bottom:18px}
+  .s-head p{color:var(--muted);font-size:19px;line-height:1.6}
 
-  /* Reservation block */
-  .reservation{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
-  .tz-panel{background:linear-gradient(160deg,var(--bg2),var(--bg3));border:1px solid rgba(255,0,128,0.32);border-radius:24px;padding:40px;position:relative;overflow:hidden}
-  .tz-panel::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at top,rgba(255,0,128,0.08) 0%,transparent 60%);pointer-events:none}
-  .tz-head{text-align:center;margin-bottom:32px;position:relative;z-index:1}
-  .tag-pink{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:.1em;padding:7px 16px;border-radius:100px;background:rgba(255,0,128,0.14);border:1px solid rgba(255,0,128,0.45);color:#FFB3D9;margin-bottom:14px;text-transform:uppercase}
-  .tz-head h3{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;line-height:1.15}
+  /* ============== DESARROLLO / WHY ============== */
+  .why-section{position:relative;padding:140px 0;overflow:hidden}
+  .why-bg{position:absolute;inset:0;z-index:0;opacity:0.18;background-image:url('reliquias/03_logo_landing_sigil_geometrico.png');background-size:cover;background-position:center;background-repeat:no-repeat;animation:kenburns 20s ease-in-out infinite}
+  .why-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,rgba(0,0,0,0.85) 70%,#000 100%)}
+  .why-content{max-width:900px;margin:0 auto;text-align:center;position:relative;z-index:2}
+  .why-content h2{font-family:'Cinzel',serif;font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:900;line-height:1.15;margin-bottom:32px;letter-spacing:-0.005em}
+  .why-content .body{font-size:20px;color:rgba(255,255,255,0.78);line-height:1.7;margin-bottom:18px}
+  .why-content .body strong{color:#fff;font-weight:700}
 
-  /* Symmetric flag grid */
-  .tz-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;position:relative;z-index:1}
-  .tz-item{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px 18px;transition:border-color .25s,background .25s,transform .25s}
-  .tz-item:hover{border-color:rgba(255,0,128,0.45);background:rgba(255,0,128,0.06);transform:translateY(-2px)}
-  .tz-item .flag-img{width:32px;height:24px;object-fit:cover;border-radius:4px;flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,0.4)}
-  .tz-item .country{flex:1;font-size:14px;font-weight:700;color:rgba(255,255,255,0.9);line-height:1.2}
-  .tz-item .country small{display:block;font-size:11px;font-weight:600;color:var(--dim);margin-top:2px;letter-spacing:0.04em;text-transform:uppercase}
-  .tz-item .time{font-size:15px;font-weight:800;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
-  .tz-item.replay .time{color:#FFB3D9;font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:800}
+  /* ============== 3 RELIQUIAS ============== */
+  .reliquias-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;z-index:2}
+  .reliquia{position:relative;border-radius:24px;overflow:hidden;background:#0a0a14;border:1px solid rgba(255,0,128,0.2);min-height:680px;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer;transition:transform .5s cubic-bezier(.2,.7,.2,1),border-color .5s,box-shadow .5s}
+  .reliquia:hover{transform:translateY(-8px);border-color:rgba(255,0,128,0.55);box-shadow:0 30px 90px rgba(0,0,0,0.6),0 0 60px rgba(255,0,128,0.25)}
+  .reliquia-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .9s cubic-bezier(.2,.7,.2,1);will-change:transform}
+  .reliquia:hover .reliquia-bg{transform:scale(1.08)}
+  .reliquia::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,6,12,0.05) 0%,rgba(6,6,12,0.65) 55%,rgba(6,6,12,0.98) 100%);z-index:1}
+  .reliquia-content{position:relative;z-index:2;padding:38px 34px 36px;display:flex;flex-direction:column;gap:14px}
+  .reliquia-roman{position:absolute;top:28px;right:32px;font-family:'Cinzel',serif;font-size:48px;font-weight:900;color:rgba(255,255,255,0.18);letter-spacing:0.08em;z-index:2;line-height:1}
+  .reliquia-symbol{font-size:38px;margin-bottom:4px;filter:drop-shadow(0 0 18px rgba(255,0,128,0.55))}
+  .reliquia-kicker{font-family:'Cinzel',serif;font-size:12px;font-weight:700;color:var(--pink-glow);letter-spacing:0.2em;text-transform:uppercase}
+  .reliquia-title{font-family:'Cinzel',serif;font-size:32px;font-weight:900;line-height:1.1;letter-spacing:-0.01em}
+  .reliquia-sub{font-size:14px;color:var(--silver-dim);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-top:-4px}
+  .reliquia-desc{font-size:16px;color:rgba(255,255,255,0.75);line-height:1.55;margin-top:6px}
 
-  /* Pricing cards */
-  .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-  .price-card{background:linear-gradient(160deg,var(--bg2),var(--bg3));border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:40px 32px 32px;position:relative;display:flex;flex-direction:column;transition:transform .35s,border-color .35s}
-  .price-card:hover{transform:translateY(-4px)}
-  .price-card.vip{border:1px solid rgba(255,215,0,0.5);box-shadow:0 0 40px rgba(255,215,0,0.12),0 0 100px rgba(255,0,128,0.08)}
-  .badge-recommended{position:absolute;top:-12px;left:50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:900;letter-spacing:.1em;padding:7px 18px;border-radius:100px;background:var(--gold-gradient);background-size:200% 200%;animation:goldShimmer 3s ease-in-out infinite;color:#3D2700;text-transform:uppercase;box-shadow:0 4px 20px rgba(255,215,0,0.4)}
-  .price-card .plan-label{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  /* ============== PARA QUIÉN ES / NO ES ============== */
+  .audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:1200px;margin:0 auto;position:relative;z-index:2}
+  .audience-card{background:linear-gradient(160deg,var(--bg2),var(--bg3));border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:42px 38px;position:relative;overflow:hidden}
+  .audience-card.yes{border-color:rgba(255,0,128,0.35);box-shadow:0 0 50px rgba(255,0,128,0.08)}
+  .audience-card.no{border-color:rgba(255,255,255,0.1)}
+  .audience-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--pink-gradient);opacity:0}
+  .audience-card.yes::before{opacity:1}
+  .audience-card h3{font-family:'Cinzel',serif;font-size:26px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:14px}
+  .audience-card h3 .ic{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;flex-shrink:0;font-size:22px}
+  .audience-card.yes h3 .ic{background:var(--pink-gradient);box-shadow:0 0 20px rgba(255,0,128,0.55);color:#fff}
+  .audience-card.no h3 .ic{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);color:var(--muted)}
+  .audience-card .sub{color:var(--dim);font-size:14px;margin-bottom:24px;letter-spacing:0.04em;text-transform:uppercase;font-weight:700}
+  .audience-card ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+  .audience-card li{font-size:16px;color:rgba(255,255,255,0.82);line-height:1.5;display:flex;gap:14px;align-items:flex-start}
+  .audience-card li::before{content:"";display:block;width:22px;height:22px;flex-shrink:0;margin-top:1px;background-size:contain;background-repeat:no-repeat}
+  .audience-card.yes li::before{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22' fill='none' stroke='%23FF0080' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'><polyline points='5 12 9 16 17 6'/></svg>")}
+  .audience-card.no li::before{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22' fill='none' stroke='%23606070' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><line x1='6' y1='6' x2='16' y2='16'/><line x1='16' y1='6' x2='6' y2='16'/></svg>")}
+  .audience-card.no li{color:rgba(255,255,255,0.55)}
+
+  /* ============== RESERVATION ============== */
+  .reservation{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:32px;position:relative;z-index:2}
+  .tz-panel{background:linear-gradient(160deg,var(--bg2),var(--bg3));border:1px solid rgba(255,0,128,0.35);border-radius:24px;padding:40px 44px;position:relative;overflow:hidden}
+  .tz-panel::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at top,rgba(255,0,128,0.1) 0%,transparent 60%);pointer-events:none}
+  .tz-head{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin-bottom:28px;position:relative;z-index:1;justify-content:space-between}
+  .tz-head .left{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+  .big-date{display:flex;align-items:center;gap:18px}
+  .big-date .num{font-family:'Cinzel',serif;font-weight:900;font-size:64px;background:var(--pink-gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1;letter-spacing:-0.02em}
+  .big-date .info .day{font-family:'Cinzel',serif;font-size:14px;color:var(--pink-glow);text-transform:uppercase;letter-spacing:0.2em;font-weight:700}
+  .big-date .info .mes{font-family:'Manrope',sans-serif;font-size:24px;font-weight:900;color:#fff;line-height:1.1}
+  .big-date .info .hora{font-size:14px;color:var(--muted);margin-top:4px;font-weight:600}
+
+  /* Compressed timezones — horizontal pill row */
+  .tz-row{display:flex;flex-wrap:wrap;gap:10px;position:relative;z-index:1}
+  .tz-pill{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:100px;padding:9px 16px 9px 10px;font-size:13px;font-weight:700;transition:all .25s;color:rgba(255,255,255,0.85)}
+  .tz-pill:hover{border-color:rgba(255,0,128,0.5);background:rgba(255,0,128,0.08);transform:translateY(-2px)}
+  .tz-pill img{width:22px;height:16px;object-fit:cover;border-radius:3px;flex-shrink:0;box-shadow:0 1px 3px rgba(0,0,0,0.5)}
+  .tz-pill .time{font-weight:900;color:#fff;font-variant-numeric:tabular-nums}
+
+  /* Pricing */
+  .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .price-card{background:linear-gradient(160deg,var(--bg2),var(--bg3));border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:44px 36px 36px;position:relative;display:flex;flex-direction:column;transition:transform .4s,border-color .4s}
+  .price-card:hover{transform:translateY(-6px)}
+  .price-card.vip{border:1px solid rgba(255,215,0,0.5);box-shadow:0 0 50px rgba(255,215,0,0.12),0 0 100px rgba(255,0,128,0.08)}
+  .badge-rec{position:absolute;top:-13px;left:50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:6px;font-family:'Manrope',sans-serif;font-size:11px;font-weight:900;letter-spacing:0.14em;padding:7px 18px;border-radius:100px;background:var(--gold-gradient);background-size:200% 200%;animation:goldShimmer 3s ease-in-out infinite;color:#3D2700;text-transform:uppercase;box-shadow:0 4px 24px rgba(255,215,0,0.45)}
+  .plan-label{font-family:'Cinzel',serif;font-size:13px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
   .price-card.vip .plan-label{color:#FFD700}
-  .price-card .plan-sub{font-size:14px;color:var(--dim);margin-bottom:18px}
-  .price-card .price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
-  .price-card .amount{font-size:52px;font-weight:900;letter-spacing:-0.03em;line-height:1}
+  .plan-sub{font-size:14px;color:var(--dim);margin-bottom:22px}
+  .price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+  .amount{font-family:'Cinzel',serif;font-size:56px;font-weight:900;letter-spacing:-0.03em;line-height:1}
   .price-card.vip .amount{background:var(--gold-gradient);background-size:200% 200%;animation:goldShimmer 3s ease-in-out infinite;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-  .price-card .currency{font-size:14px;color:var(--muted);font-weight:600}
-  .price-card .price-note{font-size:13px;color:var(--dim);margin-bottom:24px}
-  .price-card .features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px;flex:1}
-  .price-card .features li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:rgba(255,255,255,0.82);line-height:1.45}
-  .price-card .features li::before{content:"";display:block;width:20px;height:20px;flex-shrink:0;margin-top:1px;background-size:contain;background-repeat:no-repeat}
-  .price-card.free .features li::before{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23FF0080' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='4 11 8 15 16 5'/></svg>")}
-  .price-card.vip .features li::before{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23FFD700' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='4 11 8 15 16 5'/></svg>")}
+  .currency{font-size:14px;color:var(--muted);font-weight:600}
+  .price-note{font-size:13px;color:var(--dim);margin-bottom:24px}
+  .features{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:30px;flex:1}
+  .features li{display:flex;gap:14px;align-items:flex-start;font-size:15px;color:rgba(255,255,255,0.84);line-height:1.45}
+  .features li::before{content:"";display:block;width:22px;height:22px;flex-shrink:0;margin-top:1px;background-size:contain;background-repeat:no-repeat}
+  .price-card.free .features li::before{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22' fill='none' stroke='%23FF0080' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'><polyline points='5 12 9 16 17 6'/></svg>")}
+  .price-card.vip .features li::before{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22' fill='none' stroke='%23FFD700' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'><polyline points='5 12 9 16 17 6'/></svg>")}
+
+  /* Final close */
+  .final-close{text-align:center;padding:140px 0 80px;position:relative;overflow:hidden}
+  .final-close-bg{position:absolute;inset:0;background-image:url('reliquias/02_logo_landing_altar_futurista.png');background-size:cover;background-position:center;opacity:0.18;animation:kenburns 24s ease-in-out infinite;z-index:0}
+  .final-close-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,rgba(0,0,0,0.7) 65%,#000 100%)}
+  .final-close .container{position:relative;z-index:2}
+  .final-close h2{font-family:'Cinzel',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:900;line-height:1.1;margin-bottom:18px;max-width:880px;margin-left:auto;margin-right:auto}
+  .final-close p{font-size:18px;color:var(--muted);margin-bottom:36px;max-width:600px;margin-left:auto;margin-right:auto}
 
   /* Footer */
-  footer{padding:40px 0;border-top:1px solid rgba(255,255,255,0.06);text-align:center;color:var(--dim);font-size:13px}
+  footer{padding:50px 0;border-top:1px solid rgba(255,255,255,0.06);text-align:center;color:var(--dim);font-size:13px}
 
-  /* Mobile */
-  @media (max-width:900px){
-    .hero-grid{grid-template-columns:1fr}
-    .pcards,.tcards{grid-template-columns:1fr}
-    .tz-grid{grid-template-columns:1fr 1fr}
-    .pricing-grid{grid-template-columns:1fr}
-    .vsl-play{width:80px;height:80px}
-    .vsl-play::after{border-left-width:24px;border-top-width:14px;border-bottom-width:14px;margin-left:6px}
+  /* ============== RESPONSIVE ============== */
+  @media (max-width:1100px){
+    .hero-grid{grid-template-columns:1fr;gap:60px;text-align:center}
+    .hero-eyebrow{justify-content:center}
+    .hero-logo-wrap{max-width:480px;margin:0 auto}
+    .hero p.lede{margin-left:auto;margin-right:auto}
+    .hero-ctas{justify-content:center}
+    .micro{justify-content:center}
+    .reliquias-grid{grid-template-columns:1fr;gap:20px}
+    .reliquia{min-height:520px}
   }
-  @media (max-width:520px){
-    .tz-grid{grid-template-columns:1fr}
+  @media (max-width:760px){
+    .container{padding:0 24px}
+    section.s{padding:80px 0}
+    .audience-grid,.pricing-grid{grid-template-columns:1fr}
+    .tz-head{flex-direction:column;align-items:flex-start}
+    .big-date .num{font-size:48px}
+    .reliquia{min-height:460px}
   }
 </style>
 </head>
 <body>
 
-<!-- HERO with VSL -->
+<!-- ============== HERO ============== -->
 <section class="hero">
-  <div class="orb orb-violet" style="width:600px;height:600px;top:-200px;right:-150px"></div>
-  <div class="orb orb-pink" style="width:500px;height:500px;bottom:-200px;left:-150px"></div>
+  <div class="hero-bg">
+    <div class="grid"></div>
+    <div class="orb orb-pink" style="width:680px;height:680px;top:-180px;right:-160px"></div>
+    <div class="orb orb-deep" style="width:520px;height:520px;bottom:-180px;left:-160px"></div>
+  </div>
 
   <div class="container">
     <div class="hero-grid">
       <div>
-        <div class="badge fade-in"><span class="dot-pulse"></span> En vivo · Webinar gratuito</div>
-        <h1 class="fade-in d1">El nuevo multinivel ya no se hace solo.<br>Se hace con <span class="gradient-text">método, IA y comunidad.</span></h1>
-        <p class="sub fade-in d2">En 90 minutos te muestro cómo los networkers de élite están escalando hoy — sin lista fría, sin perseguir gente, sin depender de la motivación.</p>
-        <a href="#reserva" class="cta fade-in d3">Reservar mi cupo gratis →</a>
-        <p class="micro fade-in d4">🔒 100% gratis · Cupo limitado · Acceso al replay por 48h</p>
-        <div class="social-proof fade-in d5">
-          <div class="avatars">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop" alt="">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop" alt="">
-            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop" alt="">
-            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop" alt="">
+        <div class="hero-eyebrow fade-in-fast"><span class="dot-pulse"></span> Webinar Gratuito · 1 día intensivo · Cupos limitados</div>
+
+        <h1 class="fade-in d1">
+          <span class="silver-text">Las Reliquias</span>
+          <span class="silver-text">del</span>
+          <span class="pink-text">Multinivel.</span>
+        </h1>
+
+        <p class="lede fade-in d2">Los 3 sistemas modernos que el <strong style="color:#fff">95% de los networkers no implementa</strong> — y que juntos crean un líder imparable.</p>
+
+        <div class="date-card fade-in d3">
+          <div class="cal">
+            <span class="day">27</span>
+            <span class="mon">JUN</span>
           </div>
-          <span><b>+2,400 networkers</b> ya reservaron</span>
+          <div>
+            <div class="lbl">Día del evento</div>
+            <div class="val">Viernes 27 · 10:00 AM CDMX</div>
+          </div>
+        </div>
+
+        <div class="hero-ctas fade-in d4">
+          <a href="#reserva" class="cta">Reservar mi cupo gratis →</a>
+        </div>
+        <div class="micro fade-in d5">
+          <span>🔒 100% gratis</span><span class="sep"></span>
+          <span>Cupo limitado</span><span class="sep"></span>
+          <span>Acceso al replay 48h</span>
         </div>
       </div>
 
-      <!-- VSL en el hero (reemplaza la foto) -->
-      <div class="fade-in d2">
-        <div class="vsl-player" onclick="alert('🎬 Aquí va el video VSL embebido (Wistia, Vimeo, YouTube, etc.)')">
-          <span class="vsl-label">▶ Ver video</span>
-          <span class="vsl-duration">3:24</span>
-          <div class="vsl-play"></div>
-        </div>
+      <div class="hero-logo-wrap fade-in-fast d2">
+        <img src="reliquias/01_logo_landing_hero_oscuro.png" alt="Las Reliquias del Multinivel">
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- PROBLEMAS -->
-<section class="s" style="background:linear-gradient(180deg,var(--bg) 0%,#0c0c1c 100%)">
-  <div class="orb orb-violet" style="width:400px;height:400px;top:50px;left:-100px;opacity:0.3"></div>
+<!-- ============== BRAND MARQUEE ============== -->
+<section class="marquee-section">
+  <div class="marquee-heading">
+    <p>Networkers de las redes que dominan el mercado aplican estos sistemas</p>
+  </div>
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span class="brand-chip bold">HERBALIFE</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip serif">doTERRA</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip italic">Mary Kay</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip tight">NU SKIN</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip">VITAL HEALTH</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip bold">AMWAY</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip serif">Inmunotec</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip">FUXION</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip light">iCRUISES</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip bold">4LIFE</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip serif">Young Living</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip">FOREVER LIVING</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip italic">Arbonne</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip bold">ISAGENIX</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip">USANA</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip light">OMNILIFE</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip tight">IT WORKS</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip serif">Monat</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip">MELALEUCA</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip bold">YOUNIQUE</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip italic">Modere</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip">PLEXUS</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip light">AVON</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip serif">Rodan + Fields</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip">JUICE PLUS+</span>
+      <span class="brand-sep"></span>
+
+      <!-- duplicate for seamless loop -->
+      <span class="brand-chip bold">HERBALIFE</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip serif">doTERRA</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip italic">Mary Kay</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip tight">NU SKIN</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip">VITAL HEALTH</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip bold">AMWAY</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip serif">Inmunotec</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip">FUXION</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip light">iCRUISES</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip bold">4LIFE</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip serif">Young Living</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip">FOREVER LIVING</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip italic">Arbonne</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip bold">ISAGENIX</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip">USANA</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip light">OMNILIFE</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip tight">IT WORKS</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip serif">Monat</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip">MELALEUCA</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip bold">YOUNIQUE</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip italic">Modere</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip">PLEXUS</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip light">AVON</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip serif">Rodan + Fields</span>
+      <span class="brand-sep"></span>
+      <span class="brand-chip">JUICE PLUS+</span>
+      <span class="brand-sep"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============== DESARROLLO / WHY ============== -->
+<section class="why-section">
+  <div class="why-bg"></div>
   <div class="container">
-    <div class="s-head">
-      <h2>¿Por qué la mayoría de networkers <span class="gradient-text">no escala?</span></h2>
-      <p>Tres bloqueos que el 90% del mercado sigue sin resolver.</p>
-    </div>
-    <div class="pcards">
-      <div class="pcard">
-        <div class="picon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-        <h3>Sin método</h3>
-        <p>Improvisas cada conversación y dependes 100% de tu motivación. Un mes vendes, al siguiente desapareces.</p>
-      </div>
-      <div class="pcard">
-        <div class="picon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg></div>
-        <h3>Sin marca personal</h3>
-        <p>Nadie te busca. Persigues prospectos en redes y tu mensaje suena igual al de los otros 10,000 networkers.</p>
-      </div>
-      <div class="pcard">
-        <div class="picon"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
-        <h3>Sin IA aplicada</h3>
-        <p>Tus competidores ya usan IA para escribir, cerrar y duplicar. Tú aún copias y pegas guiones de 2015.</p>
-      </div>
-    </div>
+    <div class="why-content">
+      <h2>El multinivel funciona<br><span class="pink-text">¿Entonces por qué la mayoría no avanza?</span></h2>
+      <p class="body">Porque <strong>todo en la vida evoluciona</strong> — y el multinivel se está transformando. Esa evolución convirtió los métodos de siempre en <strong>reliquias</strong>: estrategias modernas que te permiten escalar tu negocio de redes de forma veloz, efectiva y duplicable para todo tu equipo.</p>
+      <p class="body">En este día intensivo te entrego <strong style="color:var(--pink-glow)">las 3 que lo cambian todo.</strong></p>
 
-    <!-- CTA inline -->
-    <div class="cta-strip">
-      <div class="micro-above">Cambia esto en 90 minutos</div>
-      <a href="#reserva" class="cta">Reservar mi cupo gratis →</a>
+      <div class="cta-strip">
+        <div class="above">⚜️ Desbloquéalas el 27 de junio</div>
+        <a href="#reserva" class="cta">Reservar mi cupo gratis →</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- LO QUE APRENDERÁS -->
+<!-- ============== 3 RELIQUIAS ============== -->
 <section class="s">
-  <div class="orb orb-blue" style="width:450px;height:450px;bottom:0;right:-100px;opacity:0.3"></div>
+  <div class="orb orb-pink" style="width:700px;height:700px;top:-100px;left:50%;transform:translateX(-50%);opacity:0.15"></div>
   <div class="container">
     <div class="s-head">
-      <h2>Lo que vas a aprender <span class="gradient-text">en el webinar</span></h2>
-      <p>4 enseñanzas accionables que puedes aplicar el mismo día.</p>
-    </div>
-    <div class="learn">
-      <div class="lrow"><div class="num">1</div><div><h4>La estructura mental del networker élite</h4><p>Cómo dejar de pensar como vendedor y operar como un empresario de red.</p></div></div>
-      <div class="lrow"><div class="num">2</div><div><h4>El sistema de prospección sin lista fría</h4><p>Cómo atraer prospectos calificados con marca personal y contenido estratégico.</p></div></div>
-      <div class="lrow"><div class="num">3</div><div><h4>IA para cierres, contenido y seguimiento</h4><p>Las 3 IAs que cambian el juego, prompts incluidos.</p></div></div>
-      <div class="lrow"><div class="num">4</div><div><h4>Cómo construir un equipo que duplica solo</h4><p>El modelo de liderazgo que escala sin que tú seas el cuello de botella.</p></div></div>
+      <div class="pre">⚜️ Las 3 Reliquias</div>
+      <h2>Una por una, <span class="pink-text">se desbloquean.</span></h2>
+      <p>Tres sistemas que separan al networker que se estanca del líder que escala.</p>
     </div>
 
-    <!-- CTA inline -->
+    <div class="reliquias-grid">
+
+      <!-- Reliquia I -->
+      <article class="reliquia">
+        <div class="reliquia-bg" style="background-image:url('reliquias/02_logo_landing_altar_futurista.png')"></div>
+        <div class="reliquia-roman">I</div>
+        <div class="reliquia-content">
+          <div class="reliquia-symbol">⚜️</div>
+          <div class="reliquia-kicker">Reliquia I</div>
+          <h3 class="reliquia-title">La Emperatriz</h3>
+          <div class="reliquia-sub">El sistema de IA</div>
+          <p class="reliquia-desc">Pon la inteligencia artificial a prospectar y filtrar por ti. Deja de perseguir a todo el mundo — empieza a <strong style="color:#fff">elegir con quién trabajas</strong>.</p>
+        </div>
+      </article>
+
+      <!-- Reliquia II -->
+      <article class="reliquia">
+        <div class="reliquia-bg" style="background-image:url('reliquias/04_logo_landing_roca_cristal.png')"></div>
+        <div class="reliquia-roman">II</div>
+        <div class="reliquia-content">
+          <div class="reliquia-symbol">⚔️</div>
+          <div class="reliquia-kicker">Reliquia II</div>
+          <h3 class="reliquia-title">La Espada de Filo Infinito</h3>
+          <div class="reliquia-sub">El sistema de Ventas</div>
+          <p class="reliquia-desc">Cierra desde la autoridad y disuelve cualquier objeción. <strong style="color:#fff">Sin rogar, sin insistir, sin parecer desesperado.</strong></p>
+        </div>
+      </article>
+
+      <!-- Reliquia III -->
+      <article class="reliquia">
+        <div class="reliquia-bg" style="background-image:url('reliquias/05_logo_landing_circulo_mistico.png')"></div>
+        <div class="reliquia-roman">III</div>
+        <div class="reliquia-content">
+          <div class="reliquia-symbol">🔦</div>
+          <div class="reliquia-kicker">Reliquia III</div>
+          <h3 class="reliquia-title">El Faro</h3>
+          <div class="reliquia-sub">Estrategia Digital</div>
+          <p class="reliquia-desc">Posiciónate de forma magnética. <strong style="color:#fff">La gente correcta viene a ti sola</strong> — en vez de andar cazándola uno por uno.</p>
+        </div>
+      </article>
+
+    </div>
+
     <div class="cta-strip">
-      <div class="micro-above">Cupos limitados · Reserva el tuyo</div>
+      <div class="above">Desbloquéalas el 27 de junio</div>
       <a href="#reserva" class="cta">Reservar mi cupo gratis →</a>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIOS -->
-<section class="s" style="background:linear-gradient(180deg,#0c0c1c 0%,var(--bg) 100%)">
+<!-- ============== PARA QUIÉN ES / NO ES ============== -->
+<section class="s" style="background:linear-gradient(180deg,#06060c 0%,#0c0815 50%,#06060c 100%)">
   <div class="container">
     <div class="s-head">
-      <h2>Resultados <span class="gradient-text">de aliados reales</span></h2>
-      <p>Lo que pasa cuando aplican el sistema que verás en el webinar.</p>
-    </div>
-    <div class="tcards">
-      <div class="tcard">
-        <div class="stars">★★★★★</div>
-        <p class="quote">"En 6 semanas pasé de no saber cómo prospectar a tener un sistema completo trabajando para mí."</p>
-        <span class="tresult">↑ De 0 a 15 prospectos/sem</span>
-        <div class="tauthor">
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop" alt="">
-          <div><b>María G.</b><span>Venezuela · Vital Health</span></div>
-        </div>
-      </div>
-      <div class="tcard">
-        <div class="stars">★★★★★</div>
-        <p class="quote">"Llevaba 2 años sin pasar de $200/mes. En el primer mes entendí por qué. La estructura me cambió el negocio."</p>
-        <span class="tresult">↑ De $200 a $1,800/mes</span>
-        <div class="tauthor">
-          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop" alt="">
-          <div><b>Carlos R.</b><span>Colombia · OMNI</span></div>
-        </div>
-      </div>
-      <div class="tcard">
-        <div class="stars">★★★★★</div>
-        <p class="quote">"Mi equipo pasó de 3 personas a 12 en dos meses. La clave fue que todos siguen el mismo sistema."</p>
-        <span class="tresult">↑ 3 a 12 socios en 60 días</span>
-        <div class="tauthor">
-          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop" alt="">
-          <div><b>Gloria P.</b><span>Perú · Herbalife</span></div>
-        </div>
-      </div>
+      <div class="pre">Honestidad ante todo</div>
+      <h2>Este webinar <span class="pink-text">no es para todo el mundo.</span></h2>
     </div>
 
-    <!-- CTA inline -->
+    <div class="audience-grid">
+
+      <div class="audience-card yes">
+        <h3><span class="ic">✓</span> Es para ti si…</h3>
+        <p class="sub">Reconoces alguno de estos puntos</p>
+        <ul>
+          <li>Eres networker y sientes que trabajas mucho pero no escalas.</li>
+          <li>Estás cansado de perseguir gente, rogar y recibir "no" tras "no".</li>
+          <li>Quieres modernizar tu negocio con IA y sistemas que sí funcionan hoy.</li>
+          <li>Eres líder y quieres darle a tu equipo herramientas de verdad.</li>
+        </ul>
+      </div>
+
+      <div class="audience-card no">
+        <h3><span class="ic">✕</span> No es para ti si…</h3>
+        <p class="sub">Mejor evitemos perder tu tiempo</p>
+        <ul>
+          <li>Buscas un truco mágico para hacerte rico sin trabajar.</li>
+          <li>Estás cómodo con tus resultados y no quieres cambiar nada.</li>
+          <li>Crees que los métodos de hace 10 años todavía funcionan igual.</li>
+          <li>No estás dispuesto a implementar lo que aprendas.</li>
+        </ul>
+      </div>
+
+    </div>
+
     <div class="cta-strip">
-      <div class="micro-above">Tú puedes ser el próximo</div>
+      <div class="above">Si te identificaste con la columna izquierda</div>
       <a href="#reserva" class="cta">Reservar mi cupo gratis →</a>
     </div>
   </div>
 </section>
 
-<!-- RESERVA -->
+<!-- ============== RESERVATION ============== -->
 <section class="s" id="reserva">
-  <div class="orb orb-violet" style="width:500px;height:500px;top:50%;left:0;transform:translateY(-50%);opacity:0.2"></div>
-  <div class="orb orb-pink" style="width:500px;height:500px;top:50%;right:0;transform:translateY(-50%);opacity:0.18"></div>
-
+  <div class="orb orb-pink" style="width:600px;height:600px;top:30%;left:-160px;opacity:0.18"></div>
+  <div class="orb orb-deep" style="width:600px;height:600px;bottom:0;right:-160px;opacity:0.4"></div>
   <div class="container">
     <div class="s-head">
-      <h2>Reserva tu <span class="gradient-text">lugar.</span></h2>
-      <p>Escoge tu zona horaria y el tipo de acceso que prefieras.</p>
+      <div class="pre">⚜️ Reserva tu lugar</div>
+      <h2>Tu acceso al <span class="pink-text">día intensivo.</span></h2>
+      <p>Confirma tu horario local y elige cómo quieres vivir el webinar.</p>
     </div>
 
     <div class="reservation">
 
-      <!-- Time zones panel -->
+      <!-- Time zones panel (compacto) -->
       <div class="tz-panel">
         <div class="tz-head">
-          <span class="tag-pink">⚡ Próxima sesión · Cupos limitados</span>
-          <h3>Jueves 22 de Mayo</h3>
+          <div class="left">
+            <div class="big-date">
+              <div class="num">27</div>
+              <div class="info">
+                <div class="day">Viernes</div>
+                <div class="mes">Junio</div>
+                <div class="hora">10:00 AM CDMX</div>
+              </div>
+            </div>
+          </div>
+          <span class="tag"><span class="dot-pulse"></span> Próxima y única sesión</span>
         </div>
 
-        <!-- Symmetric 3x4 flag grid -->
-        <div class="tz-grid">
-          <div class="tz-item">
-            <img class="flag-img" src="https://flagcdn.com/mx.svg" alt="México">
-            <div class="country">México<small>CDMX</small></div>
-            <div class="time">7:00 PM</div>
-          </div>
-          <div class="tz-item">
-            <img class="flag-img" src="https://flagcdn.com/co.svg" alt="Colombia">
-            <div class="country">Colombia<small>Bogotá</small></div>
-            <div class="time">8:00 PM</div>
-          </div>
-          <div class="tz-item">
-            <img class="flag-img" src="https://flagcdn.com/pe.svg" alt="Perú">
-            <div class="country">Perú<small>Lima</small></div>
-            <div class="time">8:00 PM</div>
-          </div>
-
-          <div class="tz-item">
-            <img class="flag-img" src="https://flagcdn.com/ec.svg" alt="Ecuador">
-            <div class="country">Ecuador<small>Quito</small></div>
-            <div class="time">8:00 PM</div>
-          </div>
-          <div class="tz-item">
-            <img class="flag-img" src="https://flagcdn.com/ve.svg" alt="Venezuela">
-            <div class="country">Venezuela<small>Caracas</small></div>
-            <div class="time">9:00 PM</div>
-          </div>
-          <div class="tz-item">
-            <img class="flag-img" src="https://flagcdn.com/cl.svg" alt="Chile">
-            <div class="country">Chile<small>Santiago</small></div>
-            <div class="time">9:00 PM</div>
-          </div>
-
-          <div class="tz-item">
-            <img class="flag-img" src="https://flagcdn.com/ar.svg" alt="Argentina">
-            <div class="country">Argentina<small>Buenos Aires</small></div>
-            <div class="time">10:00 PM</div>
-          </div>
-          <div class="tz-item">
-            <img class="flag-img" src="https://flagcdn.com/uy.svg" alt="Uruguay">
-            <div class="country">Uruguay<small>Montevideo</small></div>
-            <div class="time">10:00 PM</div>
-          </div>
-          <div class="tz-item">
-            <img class="flag-img" src="https://flagcdn.com/us.svg" alt="USA Este">
-            <div class="country">USA Este<small>NY · Miami</small></div>
-            <div class="time">8:00 PM</div>
-          </div>
-
-          <div class="tz-item">
-            <img class="flag-img" src="https://flagcdn.com/us.svg" alt="USA Central">
-            <div class="country">USA Central<small>Chicago · TX</small></div>
-            <div class="time">7:00 PM</div>
-          </div>
-          <div class="tz-item">
-            <img class="flag-img" src="https://flagcdn.com/us.svg" alt="USA Pacífico">
-            <div class="country">USA Pacífico<small>LA · SF</small></div>
-            <div class="time">5:00 PM</div>
-          </div>
-          <div class="tz-item replay">
-            <img class="flag-img" src="https://flagcdn.com/es.svg" alt="España">
-            <div class="country">España<small>Acceso vía replay</small></div>
-            <div class="time">48 h</div>
-          </div>
+        <div class="tz-row">
+          <div class="tz-pill"><img src="https://flagcdn.com/mx.svg" alt="MX"><span>México</span><span class="time">10:00 AM</span></div>
+          <div class="tz-pill"><img src="https://flagcdn.com/co.svg" alt="CO"><span>Colombia</span><span class="time">11:00 AM</span></div>
+          <div class="tz-pill"><img src="https://flagcdn.com/pe.svg" alt="PE"><span>Perú</span><span class="time">11:00 AM</span></div>
+          <div class="tz-pill"><img src="https://flagcdn.com/ec.svg" alt="EC"><span>Ecuador</span><span class="time">11:00 AM</span></div>
+          <div class="tz-pill"><img src="https://flagcdn.com/ve.svg" alt="VE"><span>Venezuela</span><span class="time">12:00 PM</span></div>
+          <div class="tz-pill"><img src="https://flagcdn.com/cl.svg" alt="CL"><span>Chile</span><span class="time">12:00 PM</span></div>
+          <div class="tz-pill"><img src="https://flagcdn.com/ar.svg" alt="AR"><span>Argentina</span><span class="time">1:00 PM</span></div>
+          <div class="tz-pill"><img src="https://flagcdn.com/uy.svg" alt="UY"><span>Uruguay</span><span class="time">1:00 PM</span></div>
+          <div class="tz-pill"><img src="https://flagcdn.com/es.svg" alt="ES"><span>España</span><span class="time">6:00 PM</span></div>
+          <div class="tz-pill"><img src="https://flagcdn.com/us.svg" alt="US"><span>USA Este</span><span class="time">12:00 PM</span></div>
+          <div class="tz-pill"><img src="https://flagcdn.com/us.svg" alt="US"><span>USA Centro</span><span class="time">11:00 AM</span></div>
+          <div class="tz-pill"><img src="https://flagcdn.com/us.svg" alt="US"><span>USA Pacífico</span><span class="time">9:00 AM</span></div>
         </div>
       </div>
 
-      <!-- Pricing options -->
+      <!-- Pricing -->
       <div class="pricing-grid">
 
-        <!-- GRATUITO -->
         <div class="price-card free">
-          <span class="plan-label">Registro gratuito</span>
-          <p class="plan-sub">El acceso esencial al webinar en vivo.</p>
+          <span class="plan-label">Registro Gratuito</span>
+          <p class="plan-sub">El acceso esencial al día intensivo.</p>
           <div class="price-row">
             <span class="amount">$0</span>
             <span class="currency">USD</span>
           </div>
           <p class="price-note">Sin tarjeta · Acceso inmediato</p>
           <ul class="features">
-            <li>Acceso al webinar en vivo (90 minutos)</li>
+            <li>Acceso en vivo al día intensivo completo</li>
             <li>Material PDF con el resumen del método</li>
             <li>Recordatorios por email y WhatsApp</li>
             <li>Acceso al replay durante 48 horas</li>
@@ -411,9 +580,8 @@
           <a href="#PLACEHOLDER_SIGUIENTE_PASO" class="cta cta-block">Reservar mi cupo gratis →</a>
         </div>
 
-        <!-- VIP -->
         <div class="price-card vip">
-          <span class="badge-recommended">⭐ Recomendado</span>
+          <span class="badge-rec">⭐ Recomendado</span>
           <span class="plan-label">Acceso VIP</span>
           <p class="plan-sub">Para quienes vienen a implementar, no solo a mirar.</p>
           <div class="price-row">
@@ -424,9 +592,9 @@
           <ul class="features">
             <li><strong>Todo lo del registro gratuito</strong></li>
             <li>Asiento en primera fila + Q&amp;A en vivo con el speaker</li>
-            <li>Replay disponible por 30 días (sin caducidad)</li>
-            <li>Pack de plantillas y prompts de IA listos para aplicar</li>
-            <li>Sesión grupal de implementación 48 h después del webinar</li>
+            <li>Replay disponible por 30 días</li>
+            <li>Pack de plantillas y prompts de IA listos para usar</li>
+            <li>Sesión grupal de implementación 48 h después</li>
             <li>Acceso al grupo privado de aliados VIP</li>
           </ul>
           <a href="#PLACEHOLDER_SIGUIENTE_PASO" class="cta cta-vip cta-block">⭐ Quiero acceso VIP por $10 →</a>
@@ -438,19 +606,19 @@
   </div>
 </section>
 
-<!-- CTA FINAL grande -->
-<section class="s" style="padding-top:0">
+<!-- ============== FINAL CLOSE ============== -->
+<section class="final-close">
+  <div class="final-close-bg"></div>
   <div class="container">
-    <div class="cta-strip" style="padding:20px 0 60px">
-      <div class="micro-above">Última oportunidad antes de que se llene la sala</div>
-      <a href="#reserva" class="cta cta-lg">Reservar mi cupo gratis →</a>
-    </div>
+    <h2><span class="silver-text">El 27 de junio</span><br><span class="pink-text">despertarán las reliquias.</span></h2>
+    <p>Tu lugar es uno de los pocos que quedan en la sala. Reserva ahora antes de que se cierre.</p>
+    <a href="#reserva" class="cta cta-lg">Reservar mi cupo gratis →</a>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    © 2026 Alianza Multinivel · Este sitio no está afiliado a Facebook ni a ninguna compañía MLM específica.
+    © 2026 Alianza Multinivel · Las Reliquias del Multinivel es un programa educativo. Este sitio no está afiliado a Facebook ni a ninguna compañía MLM específica.
   </div>
 </footer>
 
