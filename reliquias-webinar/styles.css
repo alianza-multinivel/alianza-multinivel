@@ -99,7 +99,7 @@ em{font-style:italic}
 .eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--serif);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--rose-neon);margin-bottom:22px;padding:9px 18px;border:1px solid rgba(255,45,142,.35);border-radius:100px;background:rgba(255,45,142,.07)}
 .eyebrow-dot{width:8px;height:8px;border-radius:50%;background:var(--rose-neon);box-shadow:0 0 12px var(--rose-neon);animation:dotPulse 1.6s ease-in-out infinite}
 @keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
-.hero-title{font-family:var(--serif);font-size:clamp(2.6rem,6vw,5.2rem);font-weight:900;line-height:1.02;margin-bottom:14px;color:var(--moonlight)}
+.hero-title{font-family:var(--serif);font-size:clamp(2.4rem,4.4vw,4.1rem);font-weight:900;line-height:1.04;margin-bottom:14px;color:var(--moonlight)}
 .hero-title em{color:transparent;background:var(--title-gradient);-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 0 30px rgba(255,45,142,.35))}
 .hero-slogan{font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.5rem);font-weight:700;letter-spacing:.02em;margin-bottom:18px;color:var(--silver)}
 .hero-lede{font-size:clamp(1rem,1.6vw,1.22rem);color:var(--moon-soft);max-width:520px;line-height:1.6;margin-bottom:24px}
@@ -114,7 +114,7 @@ em{font-style:italic}
 .hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
 .hero-video-glow{position:absolute;width:80%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,45,142,.55) 0,rgba(166,14,77,.2) 40%,transparent 70%);filter:blur(70px);z-index:0;animation:glowBreathe 5s ease-in-out infinite}
 @keyframes glowBreathe{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
-.hero-video{position:relative;z-index:1;width:100%;max-width:580px;mix-blend-mode:screen;-webkit-mask-image:radial-gradient(ellipse 72% 72% at center,#000 46%,transparent 72%);mask-image:radial-gradient(ellipse 72% 72% at center,#000 46%,transparent 72%);filter:drop-shadow(0 0 50px rgba(255,45,142,.3))}
+.hero-video{position:relative;z-index:1;width:100%;max-width:clamp(340px,38vh,460px);mix-blend-mode:screen;-webkit-mask-image:radial-gradient(ellipse 72% 72% at center,#000 46%,transparent 72%);mask-image:radial-gradient(ellipse 72% 72% at center,#000 46%,transparent 72%);filter:drop-shadow(0 0 50px rgba(255,45,142,.3))}
 .hero-scroll{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--moon-dim)}
 .hero-scroll-line{width:1px;height:40px;background:linear-gradient(var(--rose-neon),transparent);animation:scrollLine 2s ease-in-out infinite}
 @keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
@@ -275,6 +275,22 @@ em{font-style:italic}
   .aud-card{padding:32px 24px}
   .btn-block{font-size:.98rem;padding:16px 20px}
   .deco-compass{display:none}
+}
+
+/* Short desktop screens (laptops, non-maximized windows): keep hero from overflowing */
+@media (min-width:1024px) and (max-height:860px){
+  .hero{min-height:100svh;padding-top:92px;padding-bottom:48px}
+  .hero-title{font-size:clamp(2.2rem,3.4vw,3.3rem)}
+  .hero-slogan{font-size:clamp(1rem,1.6vw,1.25rem);margin-bottom:14px}
+  .hero-lede{font-size:1.02rem;margin-bottom:18px;max-width:480px}
+  .hero-date{padding:11px 18px;margin-bottom:18px}
+  .hero-video{max-width:clamp(300px,34vh,400px)}
+  .eyebrow{margin-bottom:18px}
+}
+@media (min-width:1024px) and (max-height:720px){
+  .hero-title{font-size:clamp(2rem,3vw,2.8rem)}
+  .hero-video{max-width:clamp(260px,30vh,340px)}
+  .hero-scroll{display:none}
 }
 
 /* 19. REDUCED MOTION */
