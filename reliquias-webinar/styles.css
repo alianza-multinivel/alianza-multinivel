@@ -114,7 +114,7 @@ em{font-style:italic}
 .hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
 .hero-video-glow{position:absolute;width:80%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,45,142,.55) 0,rgba(166,14,77,.2) 40%,transparent 70%);filter:blur(70px);z-index:0;animation:glowBreathe 5s ease-in-out infinite}
 @keyframes glowBreathe{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
-.hero-video{position:relative;z-index:1;width:100%;max-width:clamp(340px,38vh,460px);mix-blend-mode:screen;-webkit-mask-image:radial-gradient(ellipse 72% 72% at center,#000 46%,transparent 72%);mask-image:radial-gradient(ellipse 72% 72% at center,#000 46%,transparent 72%);filter:drop-shadow(0 0 50px rgba(255,45,142,.3))}
+.hero-video{position:relative;z-index:1;width:100%;max-width:580px;max-height:66vh;object-fit:contain;mix-blend-mode:screen;-webkit-mask-image:radial-gradient(ellipse 72% 72% at center,#000 46%,transparent 72%);mask-image:radial-gradient(ellipse 72% 72% at center,#000 46%,transparent 72%);filter:drop-shadow(0 0 50px rgba(255,45,142,.3))}
 .hero-scroll{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--moon-dim)}
 .hero-scroll-line{width:1px;height:40px;background:linear-gradient(var(--rose-neon),transparent);animation:scrollLine 2s ease-in-out infinite}
 @keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
@@ -277,19 +277,18 @@ em{font-style:italic}
   .deco-compass{display:none}
 }
 
-/* Short desktop screens (laptops, non-maximized windows): keep hero from overflowing */
+/* Short desktop screens (laptops, non-maximized windows): keep hero from overflowing.
+   Video stays large (capped by max-height:66vh); only the copy compacts. */
 @media (min-width:1024px) and (max-height:860px){
   .hero{min-height:100svh;padding-top:92px;padding-bottom:48px}
   .hero-title{font-size:clamp(2.2rem,3.4vw,3.3rem)}
   .hero-slogan{font-size:clamp(1rem,1.6vw,1.25rem);margin-bottom:14px}
   .hero-lede{font-size:1.02rem;margin-bottom:18px;max-width:480px}
   .hero-date{padding:11px 18px;margin-bottom:18px}
-  .hero-video{max-width:clamp(300px,34vh,400px)}
   .eyebrow{margin-bottom:18px}
 }
 @media (min-width:1024px) and (max-height:720px){
   .hero-title{font-size:clamp(2rem,3vw,2.8rem)}
-  .hero-video{max-width:clamp(260px,30vh,340px)}
   .hero-scroll{display:none}
 }
 
