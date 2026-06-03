@@ -10,13 +10,13 @@
   --violet:#7B2FFF; --violet-deep:#5B1FCC; --violet-neon:#9D5BFF;
   --silver:#B7BDC6; --silver-dim:#6E7480;
   --moonlight:#F2EEE8; --moon-soft:rgba(242,238,232,0.62); --moon-dim:rgba(242,238,232,0.4);
-  --gold:#D4AF37; --gold-light:#FFE9A0; --gold-deep:#B8860B;
+  --gold:#E0A815; --gold-light:#FFCB3E; --gold-deep:#9A6E0A;
   --line:rgba(242,238,232,0.1);
   --rose-gradient:linear-gradient(135deg,#A60E4D 0%,#E8186F 50%,#FF2D8E 100%);
   /* dual rose→violet for titles & ambient — cools down the pink */
   --title-gradient:linear-gradient(115deg,#FF2D8E 0%,#E8186F 38%,#B23BC9 72%,#9D5BFF 100%);
   --cta-gradient:linear-gradient(135deg,#A60E4D 0%,#E8186F 45%,#C13B8E 75%,#7B2FFF 130%);
-  --gold-gradient:linear-gradient(135deg,#B8860B 0%,#E8C24A 20%,#FFE9A0 42%,#FFF6D4 52%,#FFE9A0 62%,#E8C24A 82%,#B8860B 100%);
+  --gold-gradient:linear-gradient(135deg,#8A5A00 0%,#C8920E 18%,#F0B228 38%,#FFCB3E 50%,#F0B228 62%,#C8920E 82%,#8A5A00 100%);
   --serif:'Cinzel','Times New Roman',serif;
   --sans:'Montserrat',system-ui,sans-serif;
   --ease-out:cubic-bezier(0.16,1,0.3,1); --ease-soft:cubic-bezier(0.25,0.46,0.45,0.94);
@@ -61,8 +61,8 @@ em{font-style:italic}
 .btn-primary{background:var(--cta-gradient);color:var(--moonlight);box-shadow:0 0 30px rgba(255,45,142,.4),0 0 70px rgba(123,47,255,.22),inset 0 1px 0 rgba(255,255,255,.2);border:1px solid rgba(255,102,178,.4);text-shadow:0 0 14px rgba(255,255,255,.25)}
 .btn-primary:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 0 50px rgba(255,45,142,.7),0 0 120px rgba(123,47,255,.42)}
 .btn-primary:active{transform:translateY(-1px)}
-.btn-gold{background:var(--gold-gradient);background-size:200% 200%;animation:goldShimmer 3.5s ease-in-out infinite;color:#4A3500;font-weight:800;border:1px solid rgba(255,233,160,.9);box-shadow:0 0 34px rgba(212,175,55,.6),0 0 70px rgba(212,175,55,.3),inset 0 1px 0 rgba(255,255,255,.6);text-shadow:0 1px 0 rgba(255,255,255,.45)}
-.btn-gold:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 0 55px rgba(212,175,55,.85),0 0 110px rgba(212,175,55,.5),inset 0 1px 0 rgba(255,255,255,.6)}
+.btn-gold{background:var(--gold-gradient);background-size:200% 200%;animation:goldShimmer 3.5s ease-in-out infinite;color:#4A3000;font-weight:800;border:1px solid rgba(255,203,62,.95);box-shadow:0 0 34px rgba(224,168,21,.7),0 0 70px rgba(224,168,21,.35),inset 0 1px 0 rgba(255,240,180,.7);text-shadow:0 1px 0 rgba(255,230,150,.5)}
+.btn-gold:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 0 55px rgba(224,168,21,.95),0 0 110px rgba(224,168,21,.55),inset 0 1px 0 rgba(255,240,180,.7)}
 
 /* 5. TEXTURE BG (high-res rock w/ magenta veins) */
 .tex-bg{position:absolute;inset:0;z-index:0;background-image:url('assets/img/rock-texture.jpg');background-size:cover;background-position:center;opacity:.55;filter:saturate(1.05)}
@@ -243,8 +243,8 @@ em{font-style:italic}
 
 /* 15. CLOSE */
 .close{position:relative;padding-left:var(--pad);padding-right:var(--pad);text-align:center;overflow:hidden}
-.close-bg{position:absolute;inset:0;z-index:0;background-image:url('assets/img/altar.jpg');background-size:cover;background-position:center;opacity:.2;animation:texDrift 28s ease-in-out infinite}
-.close-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0,rgba(10,10,11,.72) 62%,var(--obsidian) 100%)}
+.close-bg{position:absolute;inset:0;z-index:0;background-image:url('assets/img/brujula.jpg');background-size:min(620px,80%) auto;background-position:center 42%;background-repeat:no-repeat;opacity:.42;mix-blend-mode:screen;animation:texDrift 28s ease-in-out infinite}
+.close-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at center 44%,transparent 0,rgba(10,10,11,.55) 55%,var(--obsidian) 85%)}
 .close-inner{position:relative;z-index:2;max-width:880px;margin:0 auto}
 .close-logo{width:clamp(84px,12vw,128px);margin:0 auto 28px;filter:drop-shadow(0 0 40px rgba(255,45,142,.55))}
 .close-title{font-family:var(--serif);font-size:clamp(2.2rem,5.2vw,3.9rem);font-weight:900;line-height:1.08;margin-bottom:16px}
