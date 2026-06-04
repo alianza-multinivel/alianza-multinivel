@@ -243,8 +243,11 @@ em{font-style:italic}
 
 /* 15. CLOSE */
 .close{position:relative;padding-left:var(--pad);padding-right:var(--pad);text-align:center;overflow:hidden}
-.close-bg{position:absolute;inset:0;z-index:0;background-image:url('assets/img/brujula.jpg');background-size:min(620px,80%) auto;background-position:center 42%;background-repeat:no-repeat;opacity:.42;mix-blend-mode:screen;animation:texDrift 28s ease-in-out infinite}
-.close-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at center 44%,transparent 0,rgba(10,10,11,.55) 55%,var(--obsidian) 85%)}
+.close-bg{position:absolute;inset:0;z-index:0;background-image:url('assets/img/brujula.jpg');background-size:cover;background-position:center;opacity:.62}
+/* black band down the middle so the text never competes with the image; relic shows on the sides */
+.close-bg::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg,transparent 0%,var(--obsidian) 26%,var(--obsidian) 74%,transparent 100%),
+  linear-gradient(180deg,var(--obsidian) 0%,transparent 22%,transparent 78%,var(--obsidian) 100%)}
 .close-inner{position:relative;z-index:2;max-width:880px;margin:0 auto}
 .close-logo{width:clamp(84px,12vw,128px);margin:0 auto 28px;filter:drop-shadow(0 0 40px rgba(255,45,142,.55))}
 .close-title{font-family:var(--serif);font-size:clamp(2.2rem,5.2vw,3.9rem);font-weight:900;line-height:1.08;margin-bottom:16px}
