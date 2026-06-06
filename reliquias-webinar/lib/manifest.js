@@ -59,17 +59,15 @@
 
     // Horarios — dos espacios (8–10 AM y 2–4 PM CDMX) traducidos por país
     timezones: [
-      { cc:"mx", country:"México (CDMX)",  s1:"8:00 AM",  s2:"2:00 PM" },
-      { cc:"co", country:"Colombia",        s1:"9:00 AM",  s2:"3:00 PM" },
-      { cc:"pe", country:"Perú",            s1:"9:00 AM",  s2:"3:00 PM" },
-      { cc:"ec", country:"Ecuador",         s1:"9:00 AM",  s2:"3:00 PM" },
-      { cc:"ve", country:"Venezuela",       s1:"10:00 AM", s2:"4:00 PM" },
-      { cc:"cl", country:"Chile",           s1:"10:00 AM", s2:"4:00 PM" },
-      { cc:"ar", country:"Argentina",       s1:"11:00 AM", s2:"5:00 PM" },
-      { cc:"us", country:"USA Pacífico",    s1:"7:00 AM",  s2:"1:00 PM" },
-      { cc:"us", country:"USA Centro",      s1:"8:00 AM",  s2:"2:00 PM" },
-      { cc:"us", country:"USA Este",        s1:"10:00 AM", s2:"4:00 PM" },
-      { cc:"es", country:"España",          s1:"4:00 PM",  s2:"10:00 PM" }
+      { cc:"mx", country:"México (CDMX)",     s1:"8:00 AM",  s2:"2:00 PM" },
+      { cc:"co", country:"Colombia",           s1:"9:00 AM",  s2:"3:00 PM" },
+      { cc:"pe", country:"Perú",               s1:"9:00 AM",  s2:"3:00 PM" },
+      { cc:"ec", country:"Ecuador",            s1:"9:00 AM",  s2:"3:00 PM" },
+      { cc:"cl", country:"Chile",              s1:"10:00 AM", s2:"4:00 PM" },
+      { cc:"ar", country:"Argentina",          s1:"11:00 AM", s2:"5:00 PM" },
+      { cc:"us", country:"USA (Miami)",        s1:"10:00 AM", s2:"4:00 PM" },
+      { cc:"es", country:"España",             s1:"4:00 PM",  s2:"10:00 PM" },
+      { cc:"do", country:"Rep. Dominicana",    s1:"10:00 AM", s2:"4:00 PM" }
     ],
 
     faqs: [
