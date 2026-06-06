@@ -40,14 +40,20 @@
   function mountMentors() {
     const target = $("[data-mentors]");
     if (!target || target.children.length > 0 || !data.mentores) return;
-    target.innerHTML = data.mentores.map(m => `
-      <article class="mentor" data-tilt>
-        <div class="mentor-glow" aria-hidden="true"></div>
-        <span class="mentor-initial">${escHTML(m.name.charAt(0))}</span>
-        <span class="mentor-arch">${escHTML(m.title)}</span>
-        <h3 class="mentor-name">${escHTML(m.name)}</h3>
-        <p class="mentor-desc">${escHTML(m.desc)}</p>
-      </article>`).join("");
+    target.innerHTML = data.mentores.map(m => {
+      const avatar = m.photo
+        ? `<span class="mentor-photo" style="background-image:url('${escHTML(m.photo)}')"></span>`
+        : `<span class="mentor-photo mentor-photo-empty">${escHTML(m.name.charAt(0))}</span>`;
+      return `
+      <article class="mentor">
+        <div class="mentor-art" style="background-image:url('${escHTML(m.arch)}')"></div>
+        <div class="mentor-info">
+          ${avatar}
+          <span class="mentor-arch">${escHTML(m.title)}</span>
+          <h3 class="mentor-name">${escHTML(m.name)}</h3>
+        </div>
+      </article>`;
+    }).join("");
   }
 
   function mountRelics() {

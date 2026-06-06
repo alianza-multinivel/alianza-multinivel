@@ -48,13 +48,13 @@
         { t:"La práctica mata el miedo hermano 💪", me:true } ], result:"Presenta sin miedo" }
     ],
 
-    // Mentores — concepto místico (sin foto: usar inicial + arquetipo)
+    // Mentores — arte de arquetipo + foto real (cuando exista)
     mentores: [
-      { name:"Jimmy", title:"El Mago", desc:"Transforma lo complejo en simple. La magia de la prospección moderna." },
-      { name:"Raúl T.", title:"El Mentalista", desc:"Lee a tu prospecto y disuelve cualquier objeción antes de que aparezca." },
-      { name:"Jaime", title:"El Capitán", desc:"Lidera equipos que duplican. Estructura, dirección y resultados." },
-      { name:"Raúl V.", title:"El Alquimista", desc:"Convierte la IA y la estrategia digital en oro para tu negocio." },
-      { name:"Daniela", title:"La Arquitecta", desc:"Diseña el sistema que sostiene tu crecimiento a largo plazo." }
+      { name:"Jimmy",   title:"El Mago",        arch:"assets/img/mentor-mago.jpg",       photo:"assets/img/foto-jimmy.jpg" },
+      { name:"Raúl T.", title:"El Mentalista",  arch:"assets/img/mentor-mentalista.jpg", photo:"assets/img/foto-raul.jpg" },
+      { name:"Jaime",   title:"El Capitán",     arch:"assets/img/mentor-capitan.jpg",    photo:null },
+      { name:"Raúl V.", title:"El Alquimista",  arch:"assets/img/mentor-alquimista.jpg", photo:null },
+      { name:"Daniela", title:"La Arquitecta",  arch:"assets/img/mentor-arquitecta.jpg", photo:null }
     ],
 
     // Horarios — dos espacios (8–10 AM y 2–4 PM CDMX) traducidos por país
