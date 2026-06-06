@@ -65,9 +65,9 @@
     mentores: [
       { name:"Jimmy",   title:"El Mago",        arch:"assets/img/mentor-mago.jpg",       photo:"assets/img/foto-jimmy.jpg" },
       { name:"Raúl T.", title:"El Mentalista",  arch:"assets/img/mentor-mentalista.jpg", photo:"assets/img/foto-raul.jpg" },
-      { name:"Jaime",   title:"El Capitán",     arch:"assets/img/mentor-capitan.jpg",    photo:null },
-      { name:"Raúl V.", title:"El Alquimista",  arch:"assets/img/mentor-alquimista.jpg", photo:null },
-      { name:"Daniela", title:"La Arquitecta",  arch:"assets/img/mentor-arquitecta.jpg", photo:null }
+      { name:"Jaime",   title:"El Capitán",     arch:"assets/img/mentor-capitan.jpg",    photo:"assets/img/foto-jaime.jpg" },
+      { name:"Raúl V.", title:"El Alquimista",  arch:"assets/img/mentor-alquimista.jpg", photo:"assets/img/foto-raulv.jpg" },
+      { name:"Daniela", title:"La Arquitecta",  arch:"assets/img/mentor-arquitecta.jpg", photo:"assets/img/foto-daniela.jpg" }
     ],
 
     // Horarios — dos espacios (8–10 AM y 2–4 PM CDMX) traducidos por país

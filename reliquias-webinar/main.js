@@ -29,9 +29,8 @@
           <svg class="wa-logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Z"/><path fill="#fff" d="M9 7.2c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.7 4.2 3.7 2.1.8 2.5.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.6-.3l-1.5-.7c-.2-.1-.4-.1-.5.1l-.6.8c-.1.2-.3.2-.5.1-.7-.3-1.4-.6-2.1-1.6-.2-.3.2-.5.4-.8.1-.1.1-.3.2-.4 0-.2 0-.3 0-.4l-.8-1.6Z"/></svg>
         </div>
         <div class="wa-body">
-          ${t.msgs.map(m => `<div class="wa-msg ${m.me ? "wa-out" : "wa-in"}">${escHTML(m.t)}</div>`).join("")}
+          ${t.msgs.map((m,i) => `<div class="wa-msg ${m.me ? "wa-out" : "wa-in"}">${escHTML(m.t)}<span class="wa-time">${m.me ? "✓✓" : ""} ${10 + i}:0${i}</span></div>`).join("")}
         </div>
-        <div class="wa-result">↑ ${escHTML(t.result)}</div>
       </div>`;
     const html = data.testimonials.map(card).join("");
     target.innerHTML = html + html; // duplicate for seamless loop

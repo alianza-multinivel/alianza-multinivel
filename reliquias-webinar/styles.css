@@ -71,6 +71,9 @@ em{font-style:italic}
 @keyframes btnPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
 .btn-pulse{animation:btnPulse 2.1s ease-in-out infinite}
 .btn-pulse:hover{animation-play-state:paused;transform:translateY(-4px) scale(1.05)}
+/* Rose→purple mix CTA — high-contrast standout */
+.btn-rosemix{background:linear-gradient(120deg,#FF2D8E 0%,#E8186F 30%,#A12FCC 65%,#7B2FFF 100%);background-size:180% 180%;color:#fff;font-weight:800;border:1px solid rgba(255,102,178,.6);text-shadow:0 0 14px rgba(255,255,255,.3);box-shadow:0 0 34px rgba(255,45,142,.5),0 0 70px rgba(123,47,255,.35),inset 0 1px 0 rgba(255,255,255,.25)}
+.btn-rosemix:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 0 55px rgba(255,45,142,.8),0 0 110px rgba(123,47,255,.55)}
 
 /* 5. TEXTURE BG (high-res rock w/ magenta veins) */
 .tex-bg{position:absolute;inset:0;z-index:0;background-image:url('assets/img/rock-texture.jpg');background-size:cover;background-position:center;opacity:.55;filter:saturate(1.05)}
@@ -300,18 +303,20 @@ em{font-style:italic}
 .testi{position:relative;overflow:hidden}
 .testi-head{text-align:center;margin-bottom:clamp(34px,5vh,48px)}
 .testi-marquee{overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.testi-track{display:inline-flex;gap:20px;will-change:transform;padding:8px 0}
-.wa-card{flex-shrink:0;width:300px;background:linear-gradient(160deg,#0f1512,#0c0c14);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:16px;box-shadow:0 16px 40px rgba(0,0,0,.45)}
-.wa-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.wa-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;flex-shrink:0}
-.wa-head b{font-size:14px;color:var(--moonlight);display:block;line-height:1.1}
-.wa-head span{font-size:11px;color:#25D366}
+.testi-track{display:inline-flex;gap:22px;will-change:transform;padding:8px 0}
+/* Realistic WhatsApp capture: neon-pink border, real chat colors, no pink result box */
+.wa-card{flex-shrink:0;width:300px;border-radius:16px;overflow:hidden;border:1.5px solid rgba(255,45,142,.65);box-shadow:0 0 22px rgba(255,45,142,.3),0 16px 40px rgba(0,0,0,.5)}
+.wa-head{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#1F2C34}
+.wa-av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;flex-shrink:0}
+.wa-head b{font-size:14px;color:#E9EDEF;display:block;line-height:1.15}
+.wa-head span{font-size:11px;color:#8696A0}
 .wa-logo{width:22px;height:22px;margin-left:auto;flex-shrink:0}
-.wa-body{display:flex;flex-direction:column;gap:7px}
-.wa-msg{font-size:13px;line-height:1.4;padding:8px 12px;border-radius:12px;max-width:88%}
-.wa-in{align-self:flex-start;background:rgba(255,255,255,.07);color:rgba(242,238,232,.9);border-bottom-left-radius:4px}
-.wa-out{align-self:flex-end;background:linear-gradient(135deg,#075E54,#128C7E);color:#fff;border-bottom-right-radius:4px}
-.wa-result{margin-top:12px;font-size:12px;font-weight:800;color:var(--rose-neon);background:rgba(255,45,142,.1);border:1px solid rgba(255,45,142,.28);border-radius:8px;padding:7px 12px;text-align:center}
+/* chat background like WhatsApp (dark) with subtle texture */
+.wa-body{display:flex;flex-direction:column;gap:6px;padding:14px 12px;background:#0B141A;background-image:radial-gradient(rgba(255,255,255,.015) 1px,transparent 1px);background-size:18px 18px}
+.wa-msg{font-size:13px;line-height:1.4;padding:6px 9px 5px;border-radius:8px;max-width:85%;position:relative;box-shadow:0 1px 1px rgba(0,0,0,.2)}
+.wa-in{align-self:flex-start;background:#1F2C34;color:#E9EDEF;border-top-left-radius:2px}
+.wa-out{align-self:flex-end;background:#005C4B;color:#E9EDEF;border-top-right-radius:2px}
+.wa-time{display:block;text-align:right;font-size:9px;color:rgba(233,237,239,.45);margin-top:2px}
 .testi-foot{text-align:center;font-size:11px;color:var(--moon-dim);margin-top:24px;padding:0 var(--pad)}
 
 /* ============ MENTORS ============ */
