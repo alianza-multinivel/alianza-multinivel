@@ -268,6 +268,300 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   text-align: center;
 }
 
+/* ── NEURAL NETWORK V2 (Premium) ── */
+.neural-network-slide-v2 {
+  position: relative !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.neural-container-v2 {
+  position: relative;
+  width: 90%;
+  height: 85%;
+  max-width: 1200px;
+  max-height: 700px;
+  margin-top: 40px;
+}
+
+.neural-svg-v2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Central Logo V2 */
+.neural-center-v2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+}
+
+.neural-logo-v2 {
+  width: 140px;
+  height: 140px;
+  filter: drop-shadow(0 0 30px rgba(123, 47, 255, 0.6))
+          drop-shadow(0 0 60px rgba(123, 47, 255, 0.3));
+  animation: logoBreathingV2 3s ease-in-out infinite, logoInitialGlow 0.8s ease-out 0.3s forwards;
+  z-index: 6;
+}
+
+@keyframes logoBreathingV2 {
+  0%, 100% { filter: drop-shadow(0 0 30px rgba(123, 47, 255, 0.5)) drop-shadow(0 0 60px rgba(123, 47, 255, 0.2)); }
+  50% { filter: drop-shadow(0 0 50px rgba(123, 47, 255, 0.8)) drop-shadow(0 0 100px rgba(123, 47, 255, 0.4)); }
+}
+
+@keyframes logoInitialGlow {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+    filter: drop-shadow(0 0 0px rgba(123, 47, 255, 0));
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 30px rgba(123, 47, 255, 0.6)) drop-shadow(0 0 60px rgba(123, 47, 255, 0.3));
+  }
+}
+
+.center-glow-effect-v2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+  filter: blur(30px);
+  animation: glowPulseV2 2s ease-in-out infinite;
+  z-index: 3;
+}
+
+@keyframes glowPulseV2 {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Neural Nodes V2 */
+.neural-nodes-v2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  z-index: 4;
+}
+
+.neural-node-v2 {
+  position: absolute;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 4;
+}
+
+.neural-node-inner-v2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.slide.active .neural-node-inner-v2 {
+  animation: nodeAppearV2 0.6s ease-out forwards;
+}
+
+@keyframes nodeAppearV2 {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.neural-node-circle-v2 {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(123, 47, 255, 0.12);
+  border: 2px solid rgba(123, 47, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 20px rgba(123, 47, 255, 0.2),
+              inset 0 0 20px rgba(123, 47, 255, 0.05);
+  position: relative;
+}
+
+.neural-node-circle-v2::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(123, 47, 255, 0.1) 0%, transparent 70%);
+  z-index: -1;
+}
+
+.neural-node-label-v2 {
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  max-width: 95px;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Manrope', sans-serif;
+  transition: all 0.4s ease;
+}
+
+.neural-node-validation-v2 {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 215, 0, 0.2);
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  color: #ffd700;
+  font-weight: 700;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  animation: validationSlideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes validationSlideUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+/* Hover Effect - Scale, Golden Glow + Intelligent Pulsation */
+.neural-node-v2:hover .neural-node-circle-v2 {
+  transform: scale(1.35);
+  background: rgba(168, 85, 247, 0.25);
+  border-color: #ffd700;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.6),
+              0 0 60px rgba(255, 215, 0, 0.3),
+              inset 0 0 20px rgba(255, 215, 0, 0.1),
+              0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.neural-node-v2:hover .neural-node-label-v2 {
+  color: #ffd700;
+  font-weight: 700;
+  transform: scale(1.1);
+}
+
+.neural-node-v2:hover .neural-node-validation-v2 {
+  animation: validationSlideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.neural-node-v2.active .neural-node-circle-v2 {
+  transform: scale(1.35);
+  background: rgba(168, 85, 247, 0.25);
+  border-color: #ffd700;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.6),
+              0 0 60px rgba(255, 215, 0, 0.3),
+              inset 0 0 20px rgba(255, 215, 0, 0.1);
+}
+
+.neural-node-v2.active .neural-node-label-v2 {
+  color: #ffd700;
+  font-weight: 700;
+}
+
+/* SVG Path Styles V2 */
+.neural-path-v2 {
+  stroke: url(#energy-gradient-v2);
+  stroke-width: 2.5;
+  fill: none;
+  filter: url(#neon-glow-v2);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.neural-path-highlight-v2 {
+  stroke: url(#golden-gradient-v2);
+  stroke-width: 3.5;
+  fill: none;
+  filter: url(#neon-glow-v2);
+  opacity: 0;
+  stroke-linecap: round;
+  transition: opacity 0.3s ease;
+}
+
+.neural-path-dimmed-v2 {
+  opacity: 0.2;
+  transition: opacity 0.3s ease;
+}
+
+/* Connection point circles at end of rays */
+.connection-point-v2 {
+  fill: none;
+  stroke: rgba(123, 47, 255, 0.5);
+  stroke-width: 2;
+  filter: url(#neon-glow-v2);
+}
+
+.connection-point-glow-v2 {
+  fill: none;
+  stroke: rgba(123, 47, 255, 0.8);
+  stroke-width: 1;
+  opacity: 0;
+  animation: connectionPulseV2 1.5s ease-in-out infinite;
+}
+
+@keyframes connectionPulseV2 {
+  0%, 100% { r: 8px; opacity: 0; }
+  50% { r: 12px; opacity: 1; }
+}
+
+/* Responsive V2 */
+@media (max-width: 768px) {
+  .neural-node-circle-v2 {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .neural-node-label-v2 {
+    font-size: 11px;
+    max-width: 70px;
+  }
+
+  .neural-logo-v2 {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 /* ── Testimonial Cards ── */
 .testimonial-row { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
 .testimonial-card {
@@ -1403,7 +1697,7 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
 <div id="footer-brand">Alianza Multinivel</div>
 
 <!-- Slide Counter -->
-<div id="slide-counter">1/16</div>
+<div id="slide-counter">1/19</div>
 
 <!-- Nav Arrows -->
 <div id="nav-arrows">
@@ -2384,6 +2678,193 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   // If starting on slide 3, trigger immediately
   if (current === promesaSlideIndex) {
     setTimeout(startPromesaGlow, 500);
+  }
+
+  // === NEURAL NETWORK V2 INTERACTIVE ===
+  function initNeuralNetworkV2() {
+    const items = [
+      { label: 'Expandirse con\nestrategias digitales', icon: '🚀' },
+      { label: 'Construir autoridad\nen internet', icon: '👑' },
+      { label: 'Aumentar ventas\ny prospección', icon: '📈' },
+      { label: 'Duplicar equipos', icon: '👥' },
+      { label: 'Estructura\nprofesionalmente\nprocesos', icon: '⚙️' },
+      { label: 'Integrar la IA\nen los procesos', icon: '🤖' },
+      { label: 'Automatizar\nprocesos', icon: '⚡' },
+      { label: 'Mentalidad\nempresarial', icon: '🧠' },
+      { label: 'Herramientas', icon: '🛠️' },
+      { label: 'Mentoría\nde alto nivel', icon: '🎯' }
+    ];
+
+    const svg = document.querySelector('.neural-svg-v2');
+    if (!svg) return; // Exit if V2 slide not in deck
+
+    const container = document.querySelector('.neural-nodes-v2');
+    const centerX = 600;
+    const centerY = 450;
+    const radius = 300;
+
+    // Asymmetric angles (non-uniform distribution)
+    const angles = [0, 35, 68, 105, 142, 180, 225, 270, 315, 340];
+
+    // Create asymmetric positions with varying radius
+    const positions = angles.map((angle, i) => {
+      const rad = (angle * Math.PI) / 180;
+      const dist = radius * (0.85 + Math.sin(i * 0.5) * 0.15);
+      return {
+        x: centerX + Math.cos(rad) * dist,
+        y: centerY + Math.sin(rad) * dist,
+        angle: angle,
+        index: i
+      };
+    });
+
+    // Draw neural paths with VARIABLE SPEEDS (Point 2)
+    const pathsGroup = document.getElementById('neural-paths-v2');
+    const connectionPointsGroup = document.getElementById('connection-points-v2');
+
+    positions.forEach((pos, i) => {
+      // Main path with variable animation speed
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      const d = `M ${centerX} ${centerY} Q ${(centerX + pos.x) / 2} ${(centerY + pos.y) / 2 + 30} ${pos.x} ${pos.y}`;
+      path.setAttribute('d', d);
+      path.setAttribute('class', 'neural-path-v2');
+      path.style.strokeDasharray = '200';
+      path.style.strokeDashoffset = '200';
+
+      // Variable speeds for organic feel (2.5s to 4s)
+      const speed = 2.5 + (Math.random() * 1.5);
+      const delay = i * 0.12;
+
+      path.style.animation = `pathFlowV2 ${speed}s ease-in-out infinite`;
+      path.style.animationDelay = `${delay}s`;
+      pathsGroup.appendChild(path);
+
+      // Highlight path for hover effect
+      const pathHL = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      pathHL.setAttribute('d', d);
+      pathHL.setAttribute('class', 'neural-path-highlight-v2');
+      pathHL.setAttribute('data-index', i);
+      pathsGroup.appendChild(pathHL);
+
+      // Connection point circle
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('cx', pos.x);
+      circle.setAttribute('cy', pos.y);
+      circle.setAttribute('r', '8');
+      circle.setAttribute('class', 'connection-point-v2');
+      circle.style.animation = `connectionPulseV2 2s ease-in-out infinite`;
+      circle.style.animationDelay = `${i * 0.1}s`;
+      connectionPointsGroup.appendChild(circle);
+
+      // Animated glow circle
+      const glowCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      glowCircle.setAttribute('cx', pos.x);
+      glowCircle.setAttribute('cy', pos.y);
+      glowCircle.setAttribute('r', '8');
+      glowCircle.setAttribute('class', 'connection-point-glow-v2');
+      glowCircle.style.animationDelay = `${i * 0.1}s`;
+      connectionPointsGroup.appendChild(glowCircle);
+    });
+
+    // Create interactive nodes with initialization sequence (Point 5)
+    positions.forEach((pos, i) => {
+      const node = document.createElement('div');
+      node.className = 'neural-node-v2';
+      node.setAttribute('data-index', i);
+      node.style.left = (pos.x - 35) + 'px';
+      node.style.top = (pos.y - 35) + 'px';
+
+      const innerHTML = `
+        <div class="neural-node-inner-v2" style="animation-delay: ${0.3 + i * 0.08}s;">
+          <div class="neural-node-circle-v2">${items[i].icon}</div>
+          <div class="neural-node-label-v2">${items[i].label}</div>
+          <div class="neural-node-validation-v2">✓ Pilar fundamental</div>
+        </div>
+      `;
+      node.innerHTML = innerHTML;
+
+      // Intelligent Pulsation Hover Effect (My Favorite)
+      node.addEventListener('mouseenter', () => {
+        node.classList.add('active');
+
+        // Highlight the connected path in golden
+        const pathHL = document.querySelector(`.neural-path-highlight-v2[data-index="${i}"]`);
+        if (pathHL) pathHL.style.opacity = '1';
+
+        // Dim other paths for focus effect
+        document.querySelectorAll('.neural-path-v2').forEach((p, idx) => {
+          if (idx !== i) {
+            p.classList.add('neural-path-dimmed-v2');
+          }
+        });
+      });
+
+      node.addEventListener('mouseleave', () => {
+        node.classList.remove('active');
+
+        // Restore path opacity
+        const pathHL = document.querySelector(`.neural-path-highlight-v2[data-index="${i}"]`);
+        if (pathHL) pathHL.style.opacity = '0';
+
+        // Restore all paths to normal
+        document.querySelectorAll('.neural-path-v2').forEach(p => {
+          p.classList.remove('neural-path-dimmed-v2');
+        });
+      });
+
+      container.appendChild(node);
+    });
+
+    // Animate center aura
+    const centerAura = document.getElementById('center-aura-v2');
+    const pulseRing1 = document.getElementById('pulse-ring-1-v2');
+    const pulseRing2 = document.getElementById('pulse-ring-2-v2');
+
+    if (centerAura) centerAura.style.animation = 'centerAuraGlowV2 3s ease-in-out infinite 0.5s forwards';
+    if (pulseRing1) pulseRing1.style.animation = 'pulseRingAnimV2-1 2.5s ease-out infinite 0.5s';
+    if (pulseRing2) pulseRing2.style.animation = 'pulseRingAnimV2-2 2.5s ease-out infinite 1.75s';
+
+    // Add dynamic keyframes
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes pathFlowV2 {
+        0%, 100% { stroke-dashoffset: 200; }
+        50% { stroke-dashoffset: 0; }
+      }
+
+      @keyframes centerAuraGlowV2 {
+        0%, 100% { opacity: 0.2; r: 110; }
+        50% { opacity: 0.6; r: 140; }
+      }
+
+      @keyframes pulseRingAnimV2-1 {
+        0% { r: 100; opacity: 0.8; stroke-width: 2; }
+        100% { r: 160; opacity: 0; stroke-width: 0.5; }
+      }
+
+      @keyframes pulseRingAnimV2-2 {
+        0% { r: 100; opacity: 0.8; stroke-width: 2; }
+        100% { r: 160; opacity: 0; stroke-width: 0.5; }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // Initialize when slide becomes active
+  const neuralSlideV2 = document.querySelector('.neural-network-slide-v2');
+  if (neuralSlideV2) {
+    const observer = new MutationObserver(() => {
+      if (neuralSlideV2.classList.contains('active')) {
+        setTimeout(() => initNeuralNetworkV2(), 100);
+        observer.disconnect();
+      }
+    });
+    observer.observe(neuralSlideV2, { attributes: true, attributeFilter: ['class'] });
+
+    // Initialize immediately if already active
+    if (neuralSlideV2.classList.contains('active')) {
+      setTimeout(() => initNeuralNetworkV2(), 100);
+    }
   }
 
   // === COUPON SLIDES ===
