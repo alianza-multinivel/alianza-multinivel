@@ -1519,15 +1519,27 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
       .lo-title h2{font-size:clamp(1.7rem,3.6vw,2.7rem);font-weight:900;letter-spacing:-0.02em;line-height:1;}
       .lo-title .lo-pre{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#C39FFF;margin-bottom:10px;}
       .lo-stage{position:relative;width:min(1180px,94vw);height:min(74vh,760px);margin-top:1vh;}
-      /* rays svg */
+      /* rays svg — plexus energy network */
       .lo-rays{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:visible;}
-      .lo-ray{stroke:url(#loRayGrad);stroke-width:2;fill:none;vector-effect:non-scaling-stroke;stroke-linecap:round;
-        stroke-dasharray:1;stroke-dashoffset:1;opacity:0;filter:drop-shadow(0 0 4px rgba(123,47,255,.7));transition:opacity .4s,stroke .4s,filter .4s;}
-      .slide.active .lo-ray{animation:loDraw var(--d,1.1s) cubic-bezier(.5,0,.2,1) forwards var(--delay,.3s),loPulse var(--p,3s) ease-in-out infinite calc(var(--delay,.3s) + var(--d,1.1s));}
-      @keyframes loDraw{from{stroke-dashoffset:1;opacity:0;}20%{opacity:.85;}to{stroke-dashoffset:0;opacity:.6;}}
-      @keyframes loPulse{0%,100%{opacity:.42;filter:drop-shadow(0 0 3px rgba(123,47,255,.55));}50%{opacity:.85;filter:drop-shadow(0 0 8px rgba(123,47,255,.9));}}
-      .lo-stage.lo-focusing .lo-ray{opacity:.12!important;filter:none!important;}
-      .lo-ray.lo-ray-on{opacity:1!important;stroke:#ffd700!important;stroke-width:3;filter:drop-shadow(0 0 8px rgba(255,215,0,.95))!important;animation:none!important;}
+      .lo-conn{opacity:0;transition:opacity .6s ease;}
+      .lo-conn.lo-in{opacity:1;}
+      .lo-path-glow{fill:none;stroke:rgba(123,47,255,.20);stroke-width:6;stroke-linecap:round;}
+      .lo-path{fill:none;stroke:url(#loGrad);stroke-width:1.4;stroke-linecap:round;filter:drop-shadow(0 0 5px rgba(123,47,255,.85));}
+      .lo-dash{fill:none;stroke:rgba(238,228,255,.9);stroke-width:1.1;stroke-linecap:round;stroke-dasharray:2.4 20.8;filter:drop-shadow(0 0 3px #b98cff);animation:loFlow var(--fd,2s) linear infinite;}
+      @keyframes loFlow{to{stroke-dashoffset:-23.2;}}
+      .lo-mesh{stroke:rgba(123,47,255,.09);stroke-width:1;}
+      .lo-node{fill:#d8c6ff;filter:drop-shadow(0 0 4px #9b5cff);animation:loTwinkle var(--td,2.4s) ease-in-out infinite var(--tb,0s);}
+      @keyframes loTwinkle{0%,100%{opacity:.12;}50%{opacity:.95;}}
+      .lo-comet{fill:#fff;filter:drop-shadow(0 0 5px #cba4ff) drop-shadow(0 0 11px #7B2FFF);}
+      .lo-comet-halo{fill:rgba(185,140,255,.30);}
+      .lo-stage.lo-focusing .lo-conn{opacity:.14;}
+      .lo-stage.lo-focusing #loMesh{opacity:.35;}
+      .lo-stage.lo-focusing .lo-conn.lo-conn-on{opacity:1;}
+      .lo-conn-on .lo-path{stroke:#ffd700;filter:drop-shadow(0 0 7px rgba(255,215,0,.95));}
+      .lo-conn-on .lo-path-glow{stroke:rgba(255,215,0,.28);}
+      .lo-conn-on .lo-dash{stroke:#fff3b0;filter:drop-shadow(0 0 4px #ffd700);animation-duration:.9s;}
+      .lo-conn-on .lo-node{fill:#ffe89a;filter:drop-shadow(0 0 5px #ffd700);}
+      .lo-conn-on .lo-comet{filter:drop-shadow(0 0 6px #ffe27a) drop-shadow(0 0 13px #ffd700);}
       /* center logo */
       .lo-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;width:clamp(120px,15vw,190px);height:clamp(120px,15vw,190px);display:grid;place-items:center;}
       .lo-core::before{content:"";position:absolute;inset:-30%;border-radius:50%;background:radial-gradient(circle,rgba(123,47,255,.55),transparent 65%);filter:blur(18px);animation:loBreathe 4s ease-in-out infinite;}
@@ -1569,23 +1581,15 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
       </div>
 
       <div class="lo-stage" id="loStage">
-        <!-- Rays -->
-        <svg class="lo-rays" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <!-- Rays (plexus network, built by JS to real pixel coords) -->
+        <svg class="lo-rays" id="loRaysSvg" aria-hidden="true">
           <defs>
-            <linearGradient id="loRayGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#7B2FFF"/><stop offset="100%" stop-color="#2233FF"/>
+            <linearGradient id="loGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#9b5cff"/><stop offset="100%" stop-color="#3d4dff"/>
             </linearGradient>
           </defs>
-          <line class="lo-ray" id="loRay1"  x1="50" y1="50" x2="15" y2="16" pathLength="1" style="--d:1.0s;--delay:.30s;--p:2.6s;"/>
-          <line class="lo-ray" id="loRay2"  x1="50" y1="50" x2="37" y2="7"  pathLength="1" style="--d:1.2s;--delay:.38s;--p:3.4s;"/>
-          <line class="lo-ray" id="loRay3"  x1="50" y1="50" x2="63" y2="7"  pathLength="1" style="--d:1.1s;--delay:.46s;--p:2.9s;"/>
-          <line class="lo-ray" id="loRay4"  x1="50" y1="50" x2="86" y2="16" pathLength="1" style="--d:1.3s;--delay:.34s;--p:3.7s;"/>
-          <line class="lo-ray" id="loRay5"  x1="50" y1="50" x2="93" y2="49" pathLength="1" style="--d:.95s;--delay:.5s;--p:2.4s;"/>
-          <line class="lo-ray" id="loRay6"  x1="50" y1="50" x2="85" y2="82" pathLength="1" style="--d:1.25s;--delay:.42s;--p:3.2s;"/>
-          <line class="lo-ray" id="loRay7"  x1="50" y1="50" x2="62" y2="93" pathLength="1" style="--d:1.05s;--delay:.54s;--p:2.7s;"/>
-          <line class="lo-ray" id="loRay8"  x1="50" y1="50" x2="38" y2="93" pathLength="1" style="--d:1.15s;--delay:.36s;--p:3.5s;"/>
-          <line class="lo-ray" id="loRay9"  x1="50" y1="50" x2="15" y2="82" pathLength="1" style="--d:1.35s;--delay:.48s;--p:3.0s;"/>
-          <line class="lo-ray" id="loRay10" x1="50" y1="50" x2="7"  y2="49" pathLength="1" style="--d:1.0s;--delay:.4s;--p:2.5s;"/>
+          <g id="loMesh" style="transition:opacity .4s;"></g>
+          <g id="loConns"></g>
         </svg>
 
         <!-- Center logo -->
@@ -1613,18 +1617,99 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
   <script>
   (function(){
     var stage=document.getElementById('loStage');
-    if(!stage) return;
+    var svg=document.getElementById('loRaysSvg');
+    if(!stage||!svg) return;
+    var NS='http://www.w3.org/2000/svg';
+    var PTS=[[15,16],[37,7],[63,7],[86,16],[93,49],[85,82],[62,93],[38,93],[15,82],[7,49]];
+    var slide=stage.closest('.slide');
+
+    function el(n,attrs){var e=document.createElementNS(NS,n);for(var k in attrs)e.setAttribute(k,attrs[k]);return e;}
+    function qPoint(p0,c,p1,t){var m=1-t;return [m*m*p0[0]+2*m*t*c[0]+t*t*p1[0], m*m*p0[1]+2*m*t*c[1]+t*t*p1[1]];}
+
+    function build(){
+      var W=stage.offsetWidth,H=stage.offsetHeight;
+      if(!W||!H) return;
+      svg.setAttribute('viewBox','0 0 '+W+' '+H);
+      var mesh=document.getElementById('loMesh'),conns=document.getElementById('loConns');
+      mesh.innerHTML='';conns.innerHTML='';
+      var px=PTS.map(function(p){return [p[0]/100*W,p[1]/100*H];});
+      var c=[W/2,H/2];
+      // subtle plexus mesh ring between neighbors
+      for(var i=0;i<px.length;i++){
+        var a=px[i],b=px[(i+1)%px.length];
+        mesh.appendChild(el('line',{x1:a[0],y1:a[1],x2:b[0],y2:b[1],'class':'lo-mesh'}));
+      }
+      px.forEach(function(p,i){
+        var dx=p[0]-c[0],dy=p[1]-c[1],len=Math.sqrt(dx*dx+dy*dy)||1;
+        var sign=(i%2?1:-1);
+        var off=len*0.13*sign*(0.7+((i*37)%10)/18);          // organic curvature, deterministic
+        var ctrl=[(c[0]+p[0])/2 - dy/len*off,(c[1]+p[1])/2 + dx/len*off];
+        var d='M'+c[0].toFixed(1)+' '+c[1].toFixed(1)+' Q'+ctrl[0].toFixed(1)+' '+ctrl[1].toFixed(1)+' '+p[0].toFixed(1)+' '+p[1].toFixed(1);
+        var g=el('g',{'class':'lo-conn','data-conn':i+1});
+        g.appendChild(el('path',{d:d,'class':'lo-path-glow'}));
+        var main=el('path',{d:d,'class':'lo-path'});
+        g.appendChild(main);
+        var dash=el('path',{d:d,'class':'lo-dash',pathLength:100});
+        dash.style.setProperty('--fd',(1.5+((i*53)%100)/70).toFixed(2)+'s');
+        g.appendChild(dash);
+        // twinkle nodes along the curve
+        [0.35,0.68].forEach(function(t,k){
+          var q=qPoint(c,ctrl,p,t);
+          var n=el('circle',{cx:q[0],cy:q[1],r:2.1,'class':'lo-node'});
+          n.style.setProperty('--td',(1.8+((i*31+k*17)%100)/50).toFixed(2)+'s');
+          n.style.setProperty('--tb',(((i*13+k*29)%100)/50).toFixed(2)+'s');
+          g.appendChild(n);
+        });
+        // energy comets traveling center -> item
+        [[3.1,'lo-comet'],[5.4,'lo-comet-halo']].forEach(function(cfg){
+          var dot=el('circle',{r:cfg[0],'class':cfg[1]});
+          var am=el('animateMotion',{dur:(2.1+((i*41)%100)/45).toFixed(2)+'s',repeatCount:'indefinite',path:d,begin:(((i*61)%100)/60).toFixed(2)+'s'});
+          dot.appendChild(am);
+          g.appendChild(dot);
+        });
+        conns.appendChild(g);
+        main._len=main.getTotalLength();
+      });
+      if(slide.classList.contains('active')) drawIn();
+    }
+
+    function drawIn(){
+      svg.querySelectorAll('.lo-conn').forEach(function(g,i){
+        var main=g.querySelector('.lo-path'),glow=g.querySelector('.lo-path-glow');
+        var L=main._len||main.getTotalLength();
+        [main,glow].forEach(function(pp){pp.style.transition='none';pp.style.strokeDasharray=L;pp.style.strokeDashoffset=L;});
+        g.classList.remove('lo-in');
+        void g.getBoundingClientRect();
+        setTimeout(function(){
+          g.classList.add('lo-in');
+          [main,glow].forEach(function(pp){
+            pp.style.transition='stroke-dashoffset 1s cubic-bezier(.5,0,.2,1)';
+            pp.style.strokeDashoffset=0;
+            setTimeout(function(){pp.style.strokeDasharray='none';pp.style.transition='';},1150);
+          });
+        },200+i*90);
+      });
+    }
+
+    // rebuild on resize (debounced)
+    var rto;window.addEventListener('resize',function(){clearTimeout(rto);rto=setTimeout(build,250);});
+    // replay draw-in each time the slide activates
+    new MutationObserver(function(){if(slide.classList.contains('active'))drawIn();})
+      .observe(slide,{attributes:true,attributeFilter:['class']});
+    // hover focus
     stage.querySelectorAll('.lo-item').forEach(function(item){
-      var ray=stage.querySelector('#loRay'+item.dataset.ray);
       item.addEventListener('mouseenter',function(){
         stage.classList.add('lo-focusing');
-        if(ray) ray.classList.add('lo-ray-on');
+        var g=svg.querySelector('.lo-conn[data-conn="'+item.dataset.ray+'"]');
+        if(g)g.classList.add('lo-conn-on');
       });
       item.addEventListener('mouseleave',function(){
         stage.classList.remove('lo-focusing');
-        if(ray) ray.classList.remove('lo-ray-on');
+        var on=svg.querySelector('.lo-conn-on');
+        if(on)on.classList.remove('lo-conn-on');
       });
     });
+    build();
   })();
   </script>
 
