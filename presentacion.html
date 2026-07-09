@@ -1511,6 +1511,123 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
     </div>
   </div>
 
+  <!-- Slide: Lo que ofrecemos -->
+  <div class="slide" data-title="Lo que ofrecemos" style="padding:0;justify-content:center;align-items:center;overflow:hidden;">
+    <style>
+      .lo-wrap{position:relative;z-index:2;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;}
+      .lo-title{position:absolute;top:clamp(14px,3.2vh,34px);left:50%;transform:translateX(-50%);text-align:center;z-index:6;}
+      .lo-title h2{font-size:clamp(1.7rem,3.6vw,2.7rem);font-weight:900;letter-spacing:-0.02em;line-height:1;}
+      .lo-title .lo-pre{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#C39FFF;margin-bottom:10px;}
+      .lo-stage{position:relative;width:min(1180px,94vw);height:min(74vh,760px);margin-top:1vh;}
+      /* rays svg */
+      .lo-rays{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:visible;}
+      .lo-ray{stroke:url(#loRayGrad);stroke-width:2;fill:none;vector-effect:non-scaling-stroke;stroke-linecap:round;
+        stroke-dasharray:1;stroke-dashoffset:1;opacity:0;filter:drop-shadow(0 0 4px rgba(123,47,255,.7));transition:opacity .4s,stroke .4s,filter .4s;}
+      .slide.active .lo-ray{animation:loDraw var(--d,1.1s) cubic-bezier(.5,0,.2,1) forwards var(--delay,.3s),loPulse var(--p,3s) ease-in-out infinite calc(var(--delay,.3s) + var(--d,1.1s));}
+      @keyframes loDraw{from{stroke-dashoffset:1;opacity:0;}20%{opacity:.85;}to{stroke-dashoffset:0;opacity:.6;}}
+      @keyframes loPulse{0%,100%{opacity:.42;filter:drop-shadow(0 0 3px rgba(123,47,255,.55));}50%{opacity:.85;filter:drop-shadow(0 0 8px rgba(123,47,255,.9));}}
+      .lo-stage.lo-focusing .lo-ray{opacity:.12!important;filter:none!important;}
+      .lo-ray.lo-ray-on{opacity:1!important;stroke:#ffd700!important;stroke-width:3;filter:drop-shadow(0 0 8px rgba(255,215,0,.95))!important;animation:none!important;}
+      /* center logo */
+      .lo-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;width:clamp(120px,15vw,190px);height:clamp(120px,15vw,190px);display:grid;place-items:center;}
+      .lo-core::before{content:"";position:absolute;inset:-30%;border-radius:50%;background:radial-gradient(circle,rgba(123,47,255,.55),transparent 65%);filter:blur(18px);animation:loBreathe 4s ease-in-out infinite;}
+      .lo-core img{position:relative;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 18px rgba(123,47,255,.6));opacity:0;transform:scale(.6);}
+      .slide.active .lo-core img{animation:loLogoIn .9s cubic-bezier(.34,1.56,.64,1) forwards 1s;}
+      @keyframes loLogoIn{to{opacity:1;transform:scale(1);}}
+      @keyframes loBreathe{0%,100%{opacity:.6;transform:scale(1);}50%{opacity:1;transform:scale(1.12);}}
+      /* items */
+      .lo-item{position:absolute;transform:translate(-50%,-50%) scale(.7);z-index:4;width:clamp(120px,12vw,158px);
+        display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;padding:14px 12px;border-radius:16px;
+        background:linear-gradient(160deg,rgba(20,18,40,.92),rgba(12,10,24,.92));border:1px solid rgba(123,47,255,.32);
+        box-shadow:0 8px 26px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.05);cursor:default;opacity:0;
+        transition:transform .35s cubic-bezier(.34,1.56,.64,1),border-color .35s,box-shadow .35s,background .35s;}
+      .slide.active .lo-item{animation:loItemIn .6s cubic-bezier(.34,1.56,.64,1) forwards;}
+      @keyframes loItemIn{to{opacity:1;transform:translate(-50%,-50%) scale(1);}}
+      .lo-emoji{font-size:clamp(1.5rem,2.4vw,2rem);line-height:1;filter:drop-shadow(0 0 6px rgba(123,47,255,.5));}
+      .lo-text{font-size:clamp(11px,1vw,13px);font-weight:700;color:rgba(255,255,255,.9);line-height:1.25;}
+      .lo-item:hover{transform:translate(-50%,-50%) scale(1.16)!important;border-color:#ffd700;
+        box-shadow:0 0 24px rgba(255,215,0,.5),0 14px 40px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.1);
+        background:linear-gradient(160deg,rgba(40,32,10,.95),rgba(20,16,30,.95));z-index:7;}
+      .lo-check{position:absolute;bottom:-30px;left:50%;transform:translateX(-50%) translateY(6px);white-space:nowrap;
+        font-size:10px;font-weight:800;letter-spacing:.04em;color:#0a0a0a;background:linear-gradient(135deg,#ffd700,#ffb300);
+        padding:5px 12px;border-radius:100px;box-shadow:0 4px 14px rgba(255,215,0,.5);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;}
+      .lo-item:hover .lo-check{opacity:1;transform:translateX(-50%) translateY(0);}
+      /* bottom question */
+      .lo-foot{position:absolute;bottom:clamp(12px,2.6vh,30px);left:50%;transform:translateX(-50%);width:min(880px,90vw);text-align:center;z-index:6;}
+      .lo-foot p{font-family:'Manrope',sans-serif;font-size:clamp(.95rem,1.9vw,1.35rem);font-weight:700;line-height:1.4;color:#fff;}
+      .lo-foot p .gradient-text{font-weight:900;}
+      @media (max-width:900px){.lo-item{width:104px;padding:10px 8px;}.lo-text{font-size:10px;}}
+    </style>
+
+    <div class="orb orb-violet" style="width:520px;height:520px;top:-140px;left:-120px;"></div>
+    <div class="orb orb-blue" style="width:440px;height:440px;bottom:-140px;right:-120px;"></div>
+
+    <div class="lo-wrap">
+      <div class="lo-title">
+        <span class="lo-pre">Alianza Multinivel</span>
+        <h2>Lo que <span class="gradient-text">ofrecemos.</span></h2>
+      </div>
+
+      <div class="lo-stage" id="loStage">
+        <!-- Rays -->
+        <svg class="lo-rays" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="loRayGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#7B2FFF"/><stop offset="100%" stop-color="#2233FF"/>
+            </linearGradient>
+          </defs>
+          <line class="lo-ray" id="loRay1"  x1="50" y1="50" x2="15" y2="16" pathLength="1" style="--d:1.0s;--delay:.30s;--p:2.6s;"/>
+          <line class="lo-ray" id="loRay2"  x1="50" y1="50" x2="37" y2="7"  pathLength="1" style="--d:1.2s;--delay:.38s;--p:3.4s;"/>
+          <line class="lo-ray" id="loRay3"  x1="50" y1="50" x2="63" y2="7"  pathLength="1" style="--d:1.1s;--delay:.46s;--p:2.9s;"/>
+          <line class="lo-ray" id="loRay4"  x1="50" y1="50" x2="86" y2="16" pathLength="1" style="--d:1.3s;--delay:.34s;--p:3.7s;"/>
+          <line class="lo-ray" id="loRay5"  x1="50" y1="50" x2="93" y2="49" pathLength="1" style="--d:.95s;--delay:.5s;--p:2.4s;"/>
+          <line class="lo-ray" id="loRay6"  x1="50" y1="50" x2="85" y2="82" pathLength="1" style="--d:1.25s;--delay:.42s;--p:3.2s;"/>
+          <line class="lo-ray" id="loRay7"  x1="50" y1="50" x2="62" y2="93" pathLength="1" style="--d:1.05s;--delay:.54s;--p:2.7s;"/>
+          <line class="lo-ray" id="loRay8"  x1="50" y1="50" x2="38" y2="93" pathLength="1" style="--d:1.15s;--delay:.36s;--p:3.5s;"/>
+          <line class="lo-ray" id="loRay9"  x1="50" y1="50" x2="15" y2="82" pathLength="1" style="--d:1.35s;--delay:.48s;--p:3.0s;"/>
+          <line class="lo-ray" id="loRay10" x1="50" y1="50" x2="7"  y2="49" pathLength="1" style="--d:1.0s;--delay:.4s;--p:2.5s;"/>
+        </svg>
+
+        <!-- Center logo -->
+        <div class="lo-core"><img src="logo-clean.png" alt="Alianza Multinivel"></div>
+
+        <!-- Items (asymmetric ring) -->
+        <div class="lo-item" data-ray="1"  style="left:15%;top:16%;animation-delay:1.25s;"><span class="lo-emoji">🚀</span><span class="lo-text">Expandirse con estrategias digitales</span><span class="lo-check">✓ Pilar fundamental</span></div>
+        <div class="lo-item" data-ray="2"  style="left:37%;top:7%;animation-delay:1.35s;"><span class="lo-emoji">👑</span><span class="lo-text">Construir autoridad en internet</span><span class="lo-check">✓ Pilar fundamental</span></div>
+        <div class="lo-item" data-ray="3"  style="left:63%;top:7%;animation-delay:1.45s;"><span class="lo-emoji">📈</span><span class="lo-text">Aumentar ventas y prospección</span><span class="lo-check">✓ Pilar fundamental</span></div>
+        <div class="lo-item" data-ray="4"  style="left:86%;top:16%;animation-delay:1.55s;"><span class="lo-emoji">👥</span><span class="lo-text">Duplicar equipos</span><span class="lo-check">✓ Pilar fundamental</span></div>
+        <div class="lo-item" data-ray="5"  style="left:93%;top:49%;animation-delay:1.65s;"><span class="lo-emoji">⚙️</span><span class="lo-text">Estructurar procesos profesionalmente</span><span class="lo-check">✓ Pilar fundamental</span></div>
+        <div class="lo-item" data-ray="6"  style="left:85%;top:82%;animation-delay:1.75s;"><span class="lo-emoji">🤖</span><span class="lo-text">Integrar la IA en los procesos</span><span class="lo-check">✓ Pilar fundamental</span></div>
+        <div class="lo-item" data-ray="7"  style="left:62%;top:93%;animation-delay:1.85s;"><span class="lo-emoji">⚡</span><span class="lo-text">Automatizar procesos</span><span class="lo-check">✓ Pilar fundamental</span></div>
+        <div class="lo-item" data-ray="8"  style="left:38%;top:93%;animation-delay:1.95s;"><span class="lo-emoji">🧠</span><span class="lo-text">Mentalidad empresarial</span><span class="lo-check">✓ Pilar fundamental</span></div>
+        <div class="lo-item" data-ray="9"  style="left:15%;top:82%;animation-delay:2.05s;"><span class="lo-emoji">🛠️</span><span class="lo-text">Herramientas</span><span class="lo-check">✓ Pilar fundamental</span></div>
+        <div class="lo-item" data-ray="10" style="left:7%;top:49%;animation-delay:2.15s;"><span class="lo-emoji">🎯</span><span class="lo-text">Mentoría de alto nivel</span><span class="lo-check">✓ Pilar fundamental</span></div>
+      </div>
+
+      <div class="lo-foot">
+        <p>¿<span class="gradient-text">Cuáles de estos puntos</span> sientes que ayudarían a que tu negocio crezca y dé los resultados que esperas?</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    var stage=document.getElementById('loStage');
+    if(!stage) return;
+    stage.querySelectorAll('.lo-item').forEach(function(item){
+      var ray=stage.querySelector('#loRay'+item.dataset.ray);
+      item.addEventListener('mouseenter',function(){
+        stage.classList.add('lo-focusing');
+        if(ray) ray.classList.add('lo-ray-on');
+      });
+      item.addEventListener('mouseleave',function(){
+        stage.classList.remove('lo-focusing');
+        if(ray) ray.classList.remove('lo-ray-on');
+      });
+    });
+  })();
+  </script>
+
   <!-- Slide 3: La Promesa -->
   <div class="slide" data-title="Promesa" style="flex-direction:row;padding:40px 60px;gap:48px;">
     <div class="orb orb-violet" style="width:400px;height:400px;top:-100px;left:-100px;"></div>
