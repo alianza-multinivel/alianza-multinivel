@@ -1028,10 +1028,14 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
 
 @keyframes neonPulse {
   0%, 100% {
-    text-shadow: 0 0 10px rgba(107,139,255,0.6), 0 0 30px rgba(60,100,255,0.4), 0 0 60px rgba(40,80,255,0.3), 0 0 100px rgba(34,51,255,0.15);
+    color: #5570dd;
+    text-shadow: 0 0 6px rgba(107,139,255,0.4), 0 0 18px rgba(60,100,255,0.25);
+    filter: brightness(0.8);
   }
   50% {
-    text-shadow: 0 0 20px rgba(107,139,255,1), 0 0 50px rgba(80,120,255,0.8), 0 0 100px rgba(50,80,255,0.5), 0 0 160px rgba(34,51,255,0.35), 0 0 220px rgba(20,40,255,0.2);
+    color: #a8bcff;
+    text-shadow: 0 0 16px #b8c8ff, 0 0 40px rgba(130,160,255,0.95), 0 0 85px rgba(90,120,255,0.7), 0 0 150px rgba(50,80,255,0.5), 0 0 230px rgba(34,51,255,0.3);
+    filter: brightness(1.4);
   }
 }
 
@@ -1490,27 +1494,6 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
     </div>
   </div>
 
-  <!-- Slide 2: The Problem -->
-  <div class="slide" data-title="&iquest;Te suena familiar?">
-    <div class="orb orb-violet" style="width:500px;height:500px;top:-100px;right:-150px;"></div>
-    <div class="orb orb-blue" style="width:400px;height:400px;bottom:-100px;left:-120px;"></div>
-    <h2 class="fade-in" style="margin-bottom:28px;">&iquest;Te suena familiar?</h2>
-    <div class="problem-cols">
-      <div class="problem-col">
-        <div class="problem-pill fade-in"><span class="pill-num">01</span><span class="pill-txt">No tener mentalidad empresarial.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">02</span><span class="pill-txt">Falta de procesos de ventas Elite.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">03</span><span class="pill-txt">Improvisación al tomar acción.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">04</span><span class="pill-txt">Falta de liderazgo estratégico.</span></div>
-      </div>
-      <div class="problem-col">
-        <div class="problem-pill fade-in"><span class="pill-num">05</span><span class="pill-txt">No desarrollar marca personal.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">06</span><span class="pill-txt">No tener estrategias digitales.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">07</span><span class="pill-txt">Falta de implementación IA en el negocio.</span></div>
-        <div class="problem-pill fade-in"><span class="pill-num">08</span><span class="pill-txt">Falta de acompañamiento de expertos.</span></div>
-      </div>
-    </div>
-  </div>
-
   <!-- Slide: Lo que ofrecemos -->
   <div class="slide" data-title="Lo que ofrecemos" style="padding:0;justify-content:center;align-items:center;overflow:hidden;">
     <style>
@@ -1821,62 +1804,76 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
       <h2 class="fade-in" style="font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.1;text-align:left;">Tu hoja de ruta hacia <span class="gradient-text">resultados reales.</span></h2>
     </div>
 
-    <!-- Roadmap Timeline -->
-    <div style="position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:0;">
+    <style>
+      .rm-list{position:relative;z-index:2;max-width:1200px;margin:6px auto 0;width:100%;display:flex;flex-direction:column;gap:16px;}
+      .rm-line{position:absolute;left:46px;top:30px;bottom:30px;width:2px;background:linear-gradient(180deg,#7B2FFF 0%,#2233FF 40%,rgba(34,51,255,.3) 100%);border-radius:2px;z-index:0;}
+      .rm-item{display:flex;gap:0;align-items:stretch;position:relative;z-index:1;}
+      .rm-num{flex-shrink:0;width:92px;height:92px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:40px;color:#fff;cursor:pointer;user-select:none;position:relative;z-index:2;border:2px solid rgba(255,255,255,.12);box-shadow:0 0 18px rgba(123,47,255,.45);animation:rmIdle 2.6s ease-in-out infinite;transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;}
+      @keyframes rmIdle{0%,100%{box-shadow:0 0 14px rgba(123,47,255,.4);}50%{box-shadow:0 0 30px rgba(123,47,255,.8);}}
+      .rm-num:hover{transform:scale(1.12);}
+      .rm-item.open .rm-num{animation:none;box-shadow:0 0 34px rgba(123,47,255,.95),0 0 70px rgba(123,47,255,.5);border-color:rgba(195,159,255,.8);}
+      .rm-panel{flex:1;max-width:0;opacity:0;overflow:hidden;margin-left:0;border-radius:20px;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0);display:flex;flex-direction:column;justify-content:center;padding:0;transition:max-width .65s cubic-bezier(.5,0,.2,1),opacity .45s ease .1s,margin-left .65s cubic-bezier(.5,0,.2,1),padding .65s cubic-bezier(.5,0,.2,1),border-color .5s,box-shadow .5s;}
+      .rm-item.open .rm-panel{max-width:1100px;opacity:1;margin-left:24px;padding:18px 32px;border-color:rgba(123,47,255,.55);box-shadow:0 0 30px rgba(123,47,255,.35),0 0 70px rgba(123,47,255,.15),inset 0 0 30px rgba(123,47,255,.06);animation:rmGlow 2.2s ease-in-out infinite .6s;}
+      @keyframes rmGlow{0%,100%{box-shadow:0 0 24px rgba(123,47,255,.3),0 0 60px rgba(123,47,255,.12),inset 0 0 30px rgba(123,47,255,.05);}50%{box-shadow:0 0 44px rgba(123,47,255,.65),0 0 100px rgba(123,47,255,.3),inset 0 0 40px rgba(123,47,255,.1);}}
+      .rm-panel .rm-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;white-space:nowrap;}
+      .rm-panel h3{font-size:clamp(20px,2.4vw,30px);font-weight:800;color:#fff;}
+      .rm-panel .rm-badge{font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:8px;}
+      .rm-panel p{font-size:clamp(15px,1.7vw,20px);color:rgba(255,255,255,.55);line-height:1.45;margin-top:6px;min-width:420px;}
+      .rm-hint{position:relative;z-index:2;max-width:1200px;margin:14px auto 0;width:100%;font-family:'Manrope',sans-serif;font-size:13px;color:rgba(255,255,255,.35);}
+    </style>
 
-      <!-- Timeline connector line -->
-      <div style="position:absolute;left:22px;top:22px;bottom:22px;width:2px;background:linear-gradient(180deg,#7B2FFF 0%,#2233FF 40%,rgba(34,51,255,0.3) 100%);border-radius:2px;z-index:0;"></div>
-
-      <!-- FASE 1 -->
-      <div class="pillar-card roadmap-phase fade-in" style="display:flex;gap:24px;align-items:center;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:20px;padding:30px 36px;margin-bottom:18px;position:relative;z-index:1;">
-        <div style="flex-shrink:0;width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:36px;color:#fff;box-shadow:0 0 18px rgba(123,47,255,0.45);">1</div>
-        <div style="flex:1;">
-          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-            <h3 style="font-size:32px;font-weight:800;color:#fff;">Instalaci&oacute;n del Sistema</h3>
-            <span style="font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:8px;background:rgba(123,47,255,0.2);border:1px solid rgba(123,47,255,0.4);color:#C39FFF;">Semanas 1&ndash;6</span>
-          </div>
-          <p style="font-size:22px;color:rgba(255,255,255,0.55);line-height:1.5;margin-top:8px;">En 45 d&iacute;as instalas la estructura completa: mentalidad, prospecci&oacute;n, marca personal y ventas.</p>
+    <!-- Roadmap Timeline (interactive: click number to reveal) -->
+    <div class="rm-list" id="rmList">
+      <div class="rm-line"></div>
+      <div class="rm-item fade-in">
+        <div class="rm-num">1</div>
+        <div class="rm-panel">
+          <div class="rm-row"><h3>Instalaci&oacute;n del Sistema</h3><span class="rm-badge" style="background:rgba(123,47,255,0.2);border:1px solid rgba(123,47,255,0.4);color:#C39FFF;">Semanas 1&ndash;6</span></div>
+          <p>En 45 d&iacute;as instalas la estructura completa: mentalidad, prospecci&oacute;n, marca personal y ventas.</p>
         </div>
       </div>
-
-      <!-- FASE 2 -->
-      <div class="pillar-card roadmap-phase fade-in d1" style="display:flex;gap:24px;align-items:center;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:20px;padding:30px 36px;margin-bottom:18px;position:relative;z-index:1;">
-        <div style="flex-shrink:0;width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:36px;color:#fff;box-shadow:0 0 18px rgba(123,47,255,0.45);">2</div>
-        <div style="flex:1;">
-          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-            <h3 style="font-size:32px;font-weight:800;color:#fff;">Herramientas que Aceleran</h3>
-            <span style="font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:8px;background:rgba(34,51,255,0.2);border:1px solid rgba(34,51,255,0.4);color:#8B9FFF;">Acceso inmediato</span>
-          </div>
-          <p style="font-size:22px;color:rgba(255,255,255,0.55);line-height:1.5;margin-top:8px;">3 IAs entrenadas, prompts, plantillas, scripts de cierre y embudos probados desde el d&iacute;a 1.</p>
+      <div class="rm-item fade-in d1">
+        <div class="rm-num">2</div>
+        <div class="rm-panel">
+          <div class="rm-row"><h3>Herramientas que Aceleran</h3><span class="rm-badge" style="background:rgba(34,51,255,0.2);border:1px solid rgba(34,51,255,0.4);color:#8B9FFF;">Acceso inmediato</span></div>
+          <p>3 IAs entrenadas, prompts, plantillas, scripts de cierre y embudos probados desde el d&iacute;a 1.</p>
         </div>
       </div>
-
-      <!-- FASE 3 -->
-      <div class="pillar-card roadmap-phase fade-in d2" style="display:flex;gap:24px;align-items:center;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:20px;padding:30px 36px;margin-bottom:18px;position:relative;z-index:1;">
-        <div style="flex-shrink:0;width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:36px;color:#fff;box-shadow:0 0 18px rgba(123,47,255,0.45);">3</div>
-        <div style="flex:1;">
-          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-            <h3 style="font-size:32px;font-weight:800;color:#fff;">Optimizaci&oacute;n y Escala</h3>
-            <span style="font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:8px;background:rgba(80,200,120,0.15);border:1px solid rgba(80,200,120,0.35);color:rgba(80,200,120,0.9);">Multiplicar</span>
-          </div>
-          <p style="font-size:22px;color:rgba(255,255,255,0.55);line-height:1.5;margin-top:8px;">Campa&ntilde;as digitales, embudos avanzados y estrategias de duplicaci&oacute;n de equipo.</p>
+      <div class="rm-item fade-in d2">
+        <div class="rm-num">3</div>
+        <div class="rm-panel">
+          <div class="rm-row"><h3>Optimizaci&oacute;n y Escala</h3><span class="rm-badge" style="background:rgba(80,200,120,0.15);border:1px solid rgba(80,200,120,0.35);color:rgba(80,200,120,0.9);">Multiplicar</span></div>
+          <p>Campa&ntilde;as digitales, embudos avanzados y estrategias de duplicaci&oacute;n de equipo.</p>
         </div>
       </div>
-
-      <!-- FASE 4 -->
-      <div class="pillar-card roadmap-phase fade-in d3" style="display:flex;gap:24px;align-items:center;background:linear-gradient(160deg,#0D0D16,#111125);border:1px solid rgba(123,47,255,0.25);border-radius:20px;padding:30px 36px;margin-bottom:18px;position:relative;z-index:1;">
-        <div style="flex-shrink:0;width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,#7B2FFF,#2233FF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:36px;color:#fff;box-shadow:0 0 18px rgba(123,47,255,0.45);">4</div>
-        <div style="flex:1;">
-          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-            <h3 style="font-size:32px;font-weight:800;color:#fff;">Acompa&ntilde;amiento Intensivo</h3>
-            <span style="font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:8px;background:rgba(255,170,0,0.15);border:1px solid rgba(255,170,0,0.35);color:rgba(255,195,80,0.95);">+100 sesiones</span>
-          </div>
-          <p style="font-size:22px;color:rgba(255,255,255,0.55);line-height:1.5;margin-top:8px;">+15 sesiones mensuales con expertos. Hot seat, roleplay y Q&amp;A en vivo.</p>
+      <div class="rm-item fade-in d3">
+        <div class="rm-num">4</div>
+        <div class="rm-panel">
+          <div class="rm-row"><h3>Acompa&ntilde;amiento Intensivo</h3><span class="rm-badge" style="background:rgba(255,170,0,0.15);border:1px solid rgba(255,170,0,0.35);color:rgba(255,195,80,0.95);">+100 sesiones</span></div>
+          <p>+15 sesiones mensuales con expertos. Hot seat, roleplay y Q&amp;A en vivo.</p>
         </div>
       </div>
-
     </div>
+    <div class="rm-hint fade-in d3">&#128070; Haz click en cada n&uacute;mero para revelar la fase</div>
   </div>
+
+  <script>
+  (function(){
+    var list=document.getElementById('rmList');
+    if(!list) return;
+    list.addEventListener('click',function(e){
+      var num=e.target.closest('.rm-num');
+      if(!num) return;
+      num.parentElement.classList.toggle('open');
+    });
+    // collapse all when leaving the slide so it always starts numbers-only
+    var slide=list.closest('.slide');
+    new MutationObserver(function(){
+      if(!slide.classList.contains('active'))
+        list.querySelectorAll('.rm-item.open').forEach(function(it){it.classList.remove('open');});
+    }).observe(slide,{attributes:true,attributeFilter:['class']});
+  })();
+  </script>
 
   <!-- Slide 7: Resultados reales -->
   <div class="slide" data-title="Resultados reales" style="padding:16px 0;justify-content:center;gap:10px;">
@@ -1972,7 +1969,7 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
 
   <!-- Slide: Todo Incluido - Checklist interactivo -->
   <div class="slide" data-title="Comunidad">
-    <div class="slide-bg-image" style="background-image:url('evento-crowd.jpg');"></div>
+    <div class="slide-bg-image" style="background-image:url('slide-pregunta.jpg');"></div>
     <div class="z-content">
       <h2 class="fade-in" style="font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.15;">&iquest;D&oacute;nde estar&iacute;a tu negocio con un sistema<br><span class="gradient-text">tan claro y eficaz como este?</span></h2>
     </div>
@@ -1988,7 +1985,7 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
 
       <!-- Big number -->
       <div style="margin-bottom:20px;">
-        <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:clamp(8rem,18vw,14rem);line-height:0.85;color:#6B8BFF;letter-spacing:-0.06em;animation:neonPulse 2.5s ease-in-out infinite;">6</div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:900;font-size:clamp(8rem,18vw,14rem);line-height:0.85;color:#6B8BFF;letter-spacing:-0.06em;animation:neonPulse 1.8s ease-in-out infinite;">6</div>
         <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,3rem);color:#fff;margin-top:-8px;letter-spacing:0.08em;text-transform:uppercase;">meses</div>
       </div>
 
@@ -2120,7 +2117,80 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
     </div>
   </div>
 
-  <!-- Slide: Special Pricing (gold version) -->
+  <!-- Slide: Bonuses (moved after pricing) -->
+  <div class="slide" data-title="Bonos incluidos" style="padding:20px 40px;justify-content:center;align-items:center;overflow-y:auto;">
+    <div class="orb orb-blue" style="width:350px;height:350px;bottom:-80px;right:-50px;"></div>
+    <div class="orb orb-violet" style="width:300px;height:300px;top:-60px;left:-60px;"></div>
+
+    <!-- Header -->
+    <div style="text-align:center;margin-bottom:24px;position:relative;z-index:2;">
+      <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;letter-spacing:.08em;padding:8px 20px;border-radius:100px;text-transform:uppercase;background:rgba(123,47,255,0.12);border:1px solid rgba(123,47,255,0.35);color:#C39FFF;margin-bottom:14px;">
+        <span style="width:8px;height:8px;border-radius:50%;background:#7B2FFF;"></span> Bonos exclusivos
+      </div>
+      <h2 class="fade-in" style="font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.1;">Adem&aacute;s, recibes <span class="gradient-text">6 bonos</span> que aceleran tus resultados.</h2>
+    </div>
+
+    <!-- 3x2 Image card grid -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;width:100%;max-width:1180px;margin:0 auto;position:relative;z-index:2;">
+
+      <!-- Bono 1: IA Marca Personal -->
+      <div class="pillar-card" style="position:relative;height:240px;border-radius:18px;overflow:hidden;cursor:pointer;background-image:url('bono-marca-personal.jpg');background-size:cover;background-position:center;border:1px solid rgba(123,47,255,0.3);">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,22,0.15) 0%,rgba(13,13,22,0.55) 55%,rgba(13,13,22,0.98) 100%);"></div>
+        <div style="position:absolute;top:16px;left:16px;width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:16px;color:#fff;z-index:2;box-shadow:0 4px 12px rgba(123,47,255,0.5);">IA</div>
+        <div style="position:absolute;left:0;right:0;bottom:0;padding:22px 24px;z-index:2;">
+          <h4 style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:900;color:#fff;line-height:1.2;letter-spacing:-0.01em;text-shadow:0 2px 8px rgba(0,0,0,0.6);">IA de Marca Personal</h4>
+        </div>
+      </div>
+
+      <!-- Bono 2: IA Experto en Ventas -->
+      <div class="pillar-card" style="position:relative;height:240px;border-radius:18px;overflow:hidden;cursor:pointer;background-image:url('bono-ventas.jpg');background-size:cover;background-position:center;border:1px solid rgba(123,47,255,0.3);">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,22,0.15) 0%,rgba(13,13,22,0.55) 55%,rgba(13,13,22,0.98) 100%);"></div>
+        <div style="position:absolute;top:16px;left:16px;width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:16px;color:#fff;z-index:2;box-shadow:0 4px 12px rgba(123,47,255,0.5);">$$</div>
+        <div style="position:absolute;left:0;right:0;bottom:0;padding:22px 24px;z-index:2;">
+          <h4 style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:900;color:#fff;line-height:1.2;letter-spacing:-0.01em;text-shadow:0 2px 8px rgba(0,0,0,0.6);">IA Experto en Ventas</h4>
+        </div>
+      </div>
+
+      <!-- Bono 3: IA Mentor de Aliados -->
+      <div class="pillar-card" style="position:relative;height:240px;border-radius:18px;overflow:hidden;cursor:pointer;background-image:url('bono-mentor-aliados.jpg');background-size:cover;background-position:center;border:1px solid rgba(123,47,255,0.3);">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,22,0.15) 0%,rgba(13,13,22,0.55) 55%,rgba(13,13,22,0.98) 100%);"></div>
+        <div style="position:absolute;top:16px;left:16px;width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:16px;color:#fff;z-index:2;box-shadow:0 4px 12px rgba(123,47,255,0.5);">AL</div>
+        <div style="position:absolute;left:0;right:0;bottom:0;padding:22px 24px;z-index:2;">
+          <h4 style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:900;color:#fff;line-height:1.2;letter-spacing:-0.01em;text-shadow:0 2px 8px rgba(0,0,0,0.6);">IA Mentor de Aliados</h4>
+        </div>
+      </div>
+
+      <!-- Bono 4: Programa VIP Sprint -->
+      <div class="pillar-card" style="position:relative;height:240px;border-radius:18px;overflow:hidden;cursor:pointer;background-image:url('bono-vip-sprint.jpg');background-size:cover;background-position:center;border:1px solid rgba(123,47,255,0.3);">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,22,0.15) 0%,rgba(13,13,22,0.55) 55%,rgba(13,13,22,0.98) 100%);"></div>
+        <div style="position:absolute;top:16px;left:16px;width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:14px;color:#fff;z-index:2;box-shadow:0 4px 12px rgba(123,47,255,0.5);">VIP</div>
+        <div style="position:absolute;left:0;right:0;bottom:0;padding:22px 24px;z-index:2;">
+          <h4 style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:900;color:#fff;line-height:1.2;letter-spacing:-0.01em;text-shadow:0 2px 8px rgba(0,0,0,0.6);">Programa VIP Sprint</h4>
+        </div>
+      </div>
+
+      <!-- Bono 5: Acceso VIP Evento Anual -->
+      <div class="pillar-card" style="position:relative;height:240px;border-radius:18px;overflow:hidden;cursor:pointer;background-image:url('bono-evento-anual.jpg');background-size:cover;background-position:center;border:1px solid rgba(123,47,255,0.3);">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,22,0.15) 0%,rgba(13,13,22,0.55) 55%,rgba(13,13,22,0.98) 100%);"></div>
+        <div style="position:absolute;top:16px;left:16px;width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:22px;color:#fff;z-index:2;box-shadow:0 4px 12px rgba(123,47,255,0.5);">★</div>
+        <div style="position:absolute;left:0;right:0;bottom:0;padding:22px 24px;z-index:2;">
+          <h4 style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:900;color:#fff;line-height:1.2;letter-spacing:-0.01em;text-shadow:0 2px 8px rgba(0,0,0,0.6);">Acceso VIP Evento Anual</h4>
+        </div>
+      </div>
+
+      <!-- Bono 6: 12 Meses de Acceso Total -->
+      <div class="pillar-card" style="position:relative;height:240px;border-radius:18px;overflow:hidden;cursor:pointer;background-image:url('bono-12-meses.jpg');background-size:cover;background-position:center;border:1px solid rgba(123,47,255,0.3);">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,22,0.15) 0%,rgba(13,13,22,0.55) 55%,rgba(13,13,22,0.98) 100%);"></div>
+        <div style="position:absolute;top:16px;left:16px;width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:15px;color:#fff;z-index:2;box-shadow:0 4px 12px rgba(123,47,255,0.5);">12M</div>
+        <div style="position:absolute;left:0;right:0;bottom:0;padding:22px 24px;z-index:2;">
+          <h4 style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:900;color:#fff;line-height:1.2;letter-spacing:-0.01em;text-shadow:0 2px 8px rgba(0,0,0,0.6);">12 Meses de Acceso Total</h4>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Slide: Special Pricing (gold version, after bonos) -->
   <div class="slide" data-title="Inversi&oacute;n especial" style="padding:30px 40px;justify-content:center;align-items:center;">
     <div class="orb orb-violet" style="width:500px;height:500px;top:-150px;left:50%;transform:translateX(-50%);"></div>
     <div class="orb orb-blue" style="width:300px;height:300px;bottom:-60px;right:-40px;"></div>
@@ -2166,80 +2236,6 @@ p, li { font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.7; color: var(--g
         <!-- CTA Button (GOLD) -->
         <a href="https://wa.me/TUNUMERO" target="_blank" style="display:block;width:100%;padding:18px 0;border-radius:14px;background:linear-gradient(135deg,#E5B524 0%,#FFE066 25%,#FFD700 50%,#FFF1A8 70%,#E5B524 100%);background-size:200% 200%;animation:goldShimmer 3s ease-in-out infinite;font-family:'Manrope',sans-serif;font-weight:900;font-size:20px;color:#3D2700;text-decoration:none;text-align:center;letter-spacing:0.02em;text-shadow:0 1px 0 rgba(255,255,255,0.4);box-shadow:0 0 30px rgba(255,215,0,0.5),inset 0 1px 0 rgba(255,255,255,0.4);border:1px solid rgba(255,234,128,0.7);transition:transform .2s,box-shadow .2s;">&#11088; Valor especial dentro de la llamada</a>
       </div>
-    </div>
-  </div>
-
-  <!-- Slide: Bonuses (moved after pricing) -->
-  <div class="slide" data-title="Bonos incluidos" style="padding:20px 40px;justify-content:center;align-items:center;overflow-y:auto;">
-    <div class="orb orb-blue" style="width:350px;height:350px;bottom:-80px;right:-50px;"></div>
-    <div class="orb orb-violet" style="width:300px;height:300px;top:-60px;left:-60px;"></div>
-
-    <!-- Header -->
-    <div style="text-align:center;margin-bottom:24px;position:relative;z-index:2;">
-      <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;letter-spacing:.08em;padding:8px 20px;border-radius:100px;text-transform:uppercase;background:rgba(123,47,255,0.12);border:1px solid rgba(123,47,255,0.35);color:#C39FFF;margin-bottom:14px;">
-        <span style="width:8px;height:8px;border-radius:50%;background:#7B2FFF;"></span> Bonos exclusivos
-      </div>
-      <h2 class="fade-in" style="font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.1;">Adem&aacute;s, recibes <span class="gradient-text">6 bonos</span> que aceleran tus resultados.</h2>
-    </div>
-
-    <!-- 3x2 Image card grid -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;width:100%;max-width:1180px;margin:0 auto;position:relative;z-index:2;">
-
-      <!-- Bono 1: IA Marca Personal -->
-      <div class="pillar-card" style="position:relative;height:240px;border-radius:18px;overflow:hidden;cursor:pointer;background-image:url('speaker.jpg');background-size:cover;background-position:center;border:1px solid rgba(123,47,255,0.3);">
-        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,22,0.15) 0%,rgba(13,13,22,0.55) 55%,rgba(13,13,22,0.98) 100%);"></div>
-        <div style="position:absolute;top:16px;left:16px;width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:16px;color:#fff;z-index:2;box-shadow:0 4px 12px rgba(123,47,255,0.5);">IA</div>
-        <div style="position:absolute;left:0;right:0;bottom:0;padding:22px 24px;z-index:2;">
-          <h4 style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:900;color:#fff;line-height:1.2;letter-spacing:-0.01em;text-shadow:0 2px 8px rgba(0,0,0,0.6);">IA de Marca Personal</h4>
-        </div>
-      </div>
-
-      <!-- Bono 2: IA Experto en Ventas -->
-      <div class="pillar-card" style="position:relative;height:240px;border-radius:18px;overflow:hidden;cursor:pointer;background-image:url('evento-ia2.png');background-size:cover;background-position:center;border:1px solid rgba(123,47,255,0.3);">
-        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,22,0.15) 0%,rgba(13,13,22,0.55) 55%,rgba(13,13,22,0.98) 100%);"></div>
-        <div style="position:absolute;top:16px;left:16px;width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:16px;color:#fff;z-index:2;box-shadow:0 4px 12px rgba(123,47,255,0.5);">$$</div>
-        <div style="position:absolute;left:0;right:0;bottom:0;padding:22px 24px;z-index:2;">
-          <h4 style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:900;color:#fff;line-height:1.2;letter-spacing:-0.01em;text-shadow:0 2px 8px rgba(0,0,0,0.6);">IA Experto en Ventas</h4>
-        </div>
-      </div>
-
-      <!-- Bono 3: IA Mentor de Aliados -->
-      <div class="pillar-card" style="position:relative;height:240px;border-radius:18px;overflow:hidden;cursor:pointer;background-image:url('evento-ia1.png');background-size:cover;background-position:center;border:1px solid rgba(123,47,255,0.3);">
-        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,22,0.15) 0%,rgba(13,13,22,0.55) 55%,rgba(13,13,22,0.98) 100%);"></div>
-        <div style="position:absolute;top:16px;left:16px;width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:16px;color:#fff;z-index:2;box-shadow:0 4px 12px rgba(123,47,255,0.5);">AL</div>
-        <div style="position:absolute;left:0;right:0;bottom:0;padding:22px 24px;z-index:2;">
-          <h4 style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:900;color:#fff;line-height:1.2;letter-spacing:-0.01em;text-shadow:0 2px 8px rgba(0,0,0,0.6);">IA Mentor de Aliados</h4>
-        </div>
-      </div>
-
-      <!-- Bono 4: Programa VIP Sprint -->
-      <div class="pillar-card" style="position:relative;height:240px;border-radius:18px;overflow:hidden;cursor:pointer;background-image:url('evento-principal.jpg');background-size:cover;background-position:center;border:1px solid rgba(123,47,255,0.3);">
-        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,22,0.15) 0%,rgba(13,13,22,0.55) 55%,rgba(13,13,22,0.98) 100%);"></div>
-        <div style="position:absolute;top:16px;left:16px;width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:14px;color:#fff;z-index:2;box-shadow:0 4px 12px rgba(123,47,255,0.5);">VIP</div>
-        <div style="position:absolute;left:0;right:0;bottom:0;padding:22px 24px;z-index:2;">
-          <h4 style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:900;color:#fff;line-height:1.2;letter-spacing:-0.01em;text-shadow:0 2px 8px rgba(0,0,0,0.6);">Programa VIP Sprint</h4>
-        </div>
-      </div>
-
-      <!-- Bono 5: Acceso VIP Evento Anual -->
-      <div class="pillar-card" style="position:relative;height:240px;border-radius:18px;overflow:hidden;cursor:pointer;background-image:url('evento-crowd.jpg');background-size:cover;background-position:center;border:1px solid rgba(123,47,255,0.3);">
-        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,22,0.15) 0%,rgba(13,13,22,0.55) 55%,rgba(13,13,22,0.98) 100%);"></div>
-        <div style="position:absolute;top:16px;left:16px;width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#2233FF,#7B2FFF);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:22px;color:#fff;z-index:2;box-shadow:0 4px 12px rgba(123,47,255,0.5);">★</div>
-        <div style="position:absolute;left:0;right:0;bottom:0;padding:22px 24px;z-index:2;">
-          <h4 style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:900;color:#fff;line-height:1.2;letter-spacing:-0.01em;text-shadow:0 2px 8px rgba(0,0,0,0.6);">Acceso VIP Evento Anual</h4>
-        </div>
-      </div>
-
-      <!-- Bono 6: 12 Meses de Acceso Total -->
-      <div class="pillar-card" style="position:relative;height:240px;border-radius:18px;overflow:hidden;cursor:pointer;background:linear-gradient(135deg,#2233FF 0%,#7B2FFF 50%,#3A1C88 100%);border:1px solid rgba(123,47,255,0.5);">
-        <div style="position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,0.18) 0%,transparent 50%),radial-gradient(circle at 80% 80%,rgba(0,0,0,0.35) 0%,transparent 60%);"></div>
-        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);font-size:96px;opacity:0.18;z-index:1;">&#8987;</div>
-        <div style="position:absolute;top:16px;left:16px;width:52px;height:52px;border-radius:12px;background:rgba(255,255,255,0.18);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:900;font-size:15px;color:#fff;z-index:2;border:1px solid rgba(255,255,255,0.3);">12M</div>
-        <div style="position:absolute;left:0;right:0;bottom:0;padding:22px 24px;z-index:2;">
-          <h4 style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:900;color:#fff;line-height:1.2;letter-spacing:-0.01em;text-shadow:0 2px 8px rgba(0,0,0,0.6);">12 Meses de Acceso Total</h4>
-        </div>
-      </div>
-
     </div>
   </div>
 
