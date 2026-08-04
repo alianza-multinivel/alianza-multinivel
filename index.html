@@ -280,7 +280,12 @@ h1 .big{
 .mod-h .tt span{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim-2)}
 .mod-h .chev{
   flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
-  border:1px solid var(--hair-2);transition:transform .45s,border-color .35s,background .35s;
+  border:1px solid rgba(255,106,61,.5);transition:transform .45s,border-color .35s,background .35s;
+  animation:chevGlow 1.9s ease-in-out infinite;
+}
+@keyframes chevGlow{
+  0%,100%{box-shadow:0 0 12px -3px rgba(255,106,61,.65);background:rgba(255,106,61,.06)}
+  50%{box-shadow:0 0 26px -2px rgba(255,106,61,1);background:rgba(255,106,61,.18)}
 }
 .mod-h .chev svg{width:14px;height:14px;color:var(--fire-2)}
 .mod[data-open="true"] .chev{transform:rotate(180deg);border-color:rgba(255,46,46,.5);background:rgba(255,46,46,.08)}
@@ -296,7 +301,7 @@ h1 .big{
 }
 .mod-b li svg{flex:none;width:13px;height:13px;margin-top:4px;color:var(--fire-2)}
 
-/* ============ PARTE 5 · 30 DÍAS ============ */
+/* ============ PARTE 5 · 45 DÍAS ============ */
 .d30{
   margin-top:clamp(40px,4.6vw,58px);border-radius:26px;position:relative;overflow:hidden;
   border:1px solid rgba(255,46,46,.35);
@@ -324,26 +329,77 @@ h1 .big{
   border:1px solid var(--hair);border-radius:100px;padding:8px 14px;background:rgba(255,46,46,.05);
 }
 
-/* ============ PARTE 6 · COMPARATIVA ============ */
-.vs{margin-top:clamp(44px,5vw,66px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,1.8vw,22px)}
-.vcol{border-radius:24px;padding:clamp(24px,2.8vw,38px);border:1px solid var(--hair-2);background:linear-gradient(180deg,rgba(251,240,232,.03),rgba(251,240,232,.006))}
-.vcol.hi{
-  background:
-    radial-gradient(420px 220px at 80% 0%, rgba(255,46,46,.16), transparent 70%),
-    linear-gradient(180deg,rgba(255,46,46,.06),rgba(162,75,255,.03));
-  animation:neonR 4s ease-in-out infinite;
-  border:1px solid rgba(255,46,46,.4);
+/* ============ PARTE 2 · cierre del problema ============ */
+.prob-close{
+  margin:clamp(18px,2.2vw,26px) 0 0;padding-left:18px;border-left:2px solid var(--fire);
+  font-size:clamp(.96rem,1.2vw,1.06rem);color:var(--cream);font-weight:400;font-style:italic;
 }
-.vcol h3{margin:0 0 3px;font-family:var(--disp);font-size:clamp(1.05rem,1.5vw,1.26rem);font-weight:700;letter-spacing:.02em}
-.vcol .sub{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim-2);margin:0 0 20px}
-.vcol.hi .sub{color:var(--fire-2)}
-.vcol ul{margin:0;padding:0;list-style:none}
-.vcol li{padding:12px 0;border-top:1px solid var(--hair-2);font-size:.9rem;line-height:1.5;color:var(--dim);display:flex;gap:12px;align-items:flex-start}
-.vcol li i{flex:none;width:19px;height:19px;border-radius:50%;display:grid;place-items:center;margin-top:2px;font-style:normal;font-size:10px}
-.vcol li i.no{background:rgba(251,240,232,.06);color:var(--dim-2)}
-.vcol.hi li{color:rgba(251,240,232,.88)}
-.vcol.hi li i{background:rgba(255,46,46,.14);border:1px solid rgba(255,46,46,.45)}
-.vcol.hi li i svg{width:9px;height:9px;color:var(--fire-2)}
+
+/* ============ PARTE 3 · bloque competir ============ */
+.compete{
+  margin-top:clamp(40px,4.8vw,66px);border-radius:26px;position:relative;overflow:hidden;
+  padding:clamp(30px,3.8vw,54px) clamp(24px,3.4vw,52px);
+  border:1px solid rgba(255,106,61,.4);
+  background:
+    radial-gradient(620px 300px at 50% -14%, rgba(255,106,61,.2), transparent 68%),
+    radial-gradient(420px 260px at 12% 112%, rgba(162,75,255,.14), transparent 62%),
+    linear-gradient(180deg,#1B0B08,#0E0605);
+  animation:neonO 4.2s ease-in-out infinite;
+}
+.ct-eb{
+  margin:0 0 14px;font-family:var(--disp);font-weight:600;font-size:.68rem;
+  letter-spacing:.42em;text-transform:uppercase;color:var(--fire-2);
+}
+.ct-h{
+  margin:0 auto 16px;font-weight:700;letter-spacing:-.028em;line-height:1.12;
+  font-size:clamp(1.5rem,3.1vw,2.5rem);max-width:22ch;
+}
+.ct-p{margin:0 auto;color:var(--dim);font-size:clamp(.96rem,1.2vw,1.08rem);line-height:1.68;max-width:62ch}
+
+/* ============ PARTE 4 · pista del acordeón ============ */
+.acc-cue{
+  position:relative;display:inline-block;margin:clamp(20px,2.4vw,28px) auto 0;
+  font-family:var(--mono);font-size:clamp(10px,1.05vw,11.5px);letter-spacing:.16em;text-transform:uppercase;
+  color:#FFB08A;padding:12px 22px;border-radius:100px;
+  border:1px solid rgba(255,106,61,.45);background:rgba(255,106,61,.07);
+  animation:cueGlow 2.2s ease-in-out infinite;
+}
+@keyframes cueGlow{
+  0%,100%{box-shadow:0 0 14px -4px rgba(255,106,61,.6);border-color:rgba(255,106,61,.4);color:#FFB08A}
+  50%{box-shadow:0 0 34px -2px rgba(255,106,61,.95);border-color:rgba(255,158,110,.95);color:#FFD9C4}
+}
+.cue-arrow{
+  position:absolute;left:calc(100% - 6px);top:78%;width:clamp(62px,7vw,92px);height:auto;
+  color:var(--fire-2);opacity:.9;
+  animation:cueMove 2.2s ease-in-out infinite;
+  filter:drop-shadow(0 0 10px rgba(255,106,61,.75));
+}
+@keyframes cueMove{0%,100%{transform:translateY(0)}50%{transform:translateY(9px)}}
+.cond{font-style:normal;color:var(--dim-2);font-size:.86em}
+.bono{
+  display:inline-block;font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:#0E0605;background:linear-gradient(90deg,#FFD08A,#FF9E5C);
+  border-radius:100px;padding:3px 9px;margin-right:8px;font-weight:600;vertical-align:1.5px;
+  box-shadow:0 0 14px -3px rgba(255,158,92,.9);
+}
+
+/* ============ PARTE 6 · BONOS ============ */
+.bonos{margin-top:clamp(44px,5vw,66px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,22px)}
+.bono-card{
+  position:relative;border-radius:22px;overflow:hidden;padding:clamp(24px,2.8vw,34px);
+  border:1px solid rgba(255,158,92,.3);
+  background:
+    radial-gradient(320px 180px at 50% -10%, rgba(255,158,92,.16), transparent 70%),
+    linear-gradient(180deg,rgba(251,240,232,.035),rgba(251,240,232,.008));
+  transition:transform .45s cubic-bezier(.2,.7,.3,1),border-color .45s,box-shadow .45s;
+}
+.bono-card:hover{transform:translateY(-6px);border-color:rgba(255,158,92,.75);box-shadow:0 28px 70px -22px rgba(255,122,61,.55)}
+.bono-card .bn{
+  display:inline-block;margin-bottom:14px;font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+  color:#0E0605;background:linear-gradient(90deg,#FFD08A,#FF9E5C);border-radius:100px;padding:5px 12px;font-weight:600;
+}
+.bono-card h3{margin:0 0 10px;font-size:clamp(1.02rem,1.4vw,1.2rem);font-weight:700;letter-spacing:-.02em;line-height:1.25}
+.bono-card p{margin:0;font-size:.9rem;color:var(--dim);line-height:1.6}
 
 /* ============ TICKET ============ */
 .tk-zone{margin-top:clamp(52px,6vw,84px);display:flex;justify-content:center}
@@ -399,6 +455,12 @@ h1 .big{
 .tk-div i{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(232,107,255,.55));display:block}
 .tk-div i:last-child{background:linear-gradient(270deg,transparent,rgba(255,122,61,.55))}
 .tk-div svg{flex:none;width:11px;height:11px;transform:rotate(45deg);color:#FF9ED9;filter:drop-shadow(0 0 8px rgba(255,107,196,.8))}
+.tk-free{
+  margin:clamp(18px,2.2vw,26px) auto 0;max-width:56ch;
+  font-size:clamp(.92rem,1.12vw,1rem);line-height:1.62;font-weight:500;
+  background:linear-gradient(95deg,#C79BFF 0%,#FF9ED9 50%,#FFB08A 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
 .tk-price{display:flex;align-items:baseline;justify-content:center;gap:14px;margin:0}
 .tk-price sup{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:rgba(215,180,255,.65)}
 .tk-price b{
@@ -463,12 +525,35 @@ h1 .big{
 .close .stamp::before,.close .stamp::after{content:"";width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--fire))}
 .close .stamp::after{background:linear-gradient(270deg,transparent,var(--fire))}
 footer{
-  padding:24px var(--pad);border-top:1px solid var(--hair-2);position:relative;z-index:2;
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center;
-  font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(251,240,232,.26);
+  padding:clamp(30px,3.4vw,46px) var(--pad) clamp(24px,2.6vw,34px);
+  border-top:1px solid var(--hair-2);position:relative;z-index:2;background:#080404;
 }
-footer .fb{display:flex;align-items:center;gap:10px}
-footer .fb img{width:26px;height:26px;object-fit:contain;opacity:.85}
+footer .f-top{
+  max-width:1180px;margin:0 auto;width:100%;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center;
+  padding-bottom:clamp(20px,2.4vw,28px);border-bottom:1px solid var(--hair-2);
+}
+footer .fb{display:flex;align-items:center;gap:11px}
+footer .fb img{width:30px;height:30px;object-fit:contain;opacity:.9}
+footer .fb span{
+  font-family:var(--disp);font-weight:700;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;
+  color:rgba(255,140,100,.85);
+}
+footer .f-tag{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(251,240,232,.3)}
+footer .f-legal{
+  max-width:1180px;margin:clamp(20px,2.4vw,28px) auto 0;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,30px);
+}
+footer .f-legal p{
+  margin:0;font-size:11.5px;line-height:1.62;color:rgba(251,240,232,.36);font-weight:300;
+}
+footer .f-legal strong{color:rgba(251,240,232,.62);font-weight:500}
+footer .f-bottom{
+  max-width:1180px;margin:clamp(22px,2.6vw,32px) auto 0;width:100%;
+  padding-top:clamp(16px,2vw,22px);border-top:1px solid var(--hair-2);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(251,240,232,.24);
+}
 
 .ghost{
   position:absolute;left:0;right:0;overflow:clip;pointer-events:none;z-index:0;
@@ -480,15 +565,22 @@ footer .fb img{width:26px;height:26px;object-fit:contain;opacity:.85}
 .rv{opacity:0;transform:translateY(24px);transition:opacity .85s cubic-bezier(.2,.7,.3,1),transform .85s cubic-bezier(.2,.7,.3,1)}
 .rv.in{opacity:1;transform:none}
 
+@media(max-width:1100px){
+  .bonos{grid-template-columns:1fr 1fr}
+}
 @media(max-width:1000px){
   .prob-grid{grid-template-columns:1fr}
   .prob-fig{max-width:420px;margin:0 auto}
   .cycle{grid-template-columns:1fr}
-  .vs{grid-template-columns:1fr}
+  .bonos{grid-template-columns:1fr}
   .d30{grid-template-columns:1fr;text-align:center}
   .d30 .tx p{margin:0 auto}
   .d30 .chips{justify-content:center}
   .mod-b ul{grid-template-columns:1fr}
+}
+@media(max-width:900px){
+  footer .f-legal{grid-template-columns:1fr}
+  .cue-arrow{display:none}
 }
 @media(max-width:640px){
   h1 .big{font-size:clamp(1.8rem,7.8vw,2.4rem)}
@@ -540,22 +632,25 @@ footer .fb img{width:26px;height:26px;object-fit:contain;opacity:.85}
 
 <!-- ================= PARTE 2 · PROBLEMA ================= -->
 <section class="sec">
-  <div class="ghost" style="top:6px">Invisible</div>
+  <div class="ghost" style="top:6px">Estancado</div>
   <div class="glow g-ember" style="width:560px;height:440px;right:-180px;top:14%"></div>
   <div class="glow g-violet" style="width:420px;height:380px;left:-140px;bottom:8%"></div>
   <div class="wrap">
     <div class="prob-grid">
       <div>
         <p class="eb rv">El problema real</p>
-        <h2 class="rv">Haces todo lo que te dijeron.<br><span class="lt">Y sigues siendo invisible.</span></h2>
-        <p class="lead rv">Publicar no es el problema. El problema es que nadie te enseñó qué va después de publicar — y en ese vacío es donde muere la mayoría.</p>
+        <h2 class="rv">Haces todo lo que el multinivel dice que hay que hacer.<br><span class="lt">Y aun así los resultados no llegan.</span></h2>
+        <p class="lead rv">No es falta de esfuerzo ni de compromiso: es que el método tradicional te deja solo, sin sistema y sin nada que duplicarle a tu equipo. Estos son los muros con los que chocas todos los meses.</p>
 
         <ul class="plist">
-          <li class="rv"><b>I</b><div><h3>Sigues consejos sueltos de diez gurús distintos</h3><p>Un tip de aquí, un hack de allá. Sin estructura, cada consejo nuevo contradice al anterior — y tú pagas el costo en meses perdidos.</p></div></li>
-          <li class="rv"><b>II</b><div><h3>Tu contenido no tiene a dónde llevar a nadie</h3><p>La gente ve, guarda, sigue... y ahí termina todo, porque no existe un siguiente paso diseñado. La atención se evapora el mismo día.</p></div></li>
-          <li class="rv"><b>III</b><div><h3>Cada conversación arranca de cero, desde tu teléfono</h3><p>Explicas lo mismo por décima vez, la mitad se enfría en el chat, y tu agenda depende de tu insistencia — no de un proceso.</p></div></li>
-          <li class="rv"><b>IV</b><div><h3>No sabes qué funcionó ni cómo repetirlo</h3><p>Un video explota, otro muere, y no hay datos que expliquen por qué. Sin medición por etapa, todo se decide por intuición.</p></div></li>
+          <li class="rv"><b>I</b><div><h3>La lista se te acabó — y con ella, tu red</h3><p>Familia, amigos, conocidos. Cuando el último nombre se tacha, el negocio se detiene. Nadie te enseñó a generar prospectos nuevos todos los días sin depender de a quién conoces.</p></div></li>
+          <li class="rv"><b>II</b><div><h3>Invitas, confirmas, insistes... y no llega nadie</h3><p>El desgaste de perseguir a cada prospecto para que asista a una presentación que la mitad cancela. Tu energía se va en convencer, no en construir.</p></div></li>
+          <li class="rv"><b>III</b><div><h3>Sigues consejos sueltos de diez gurús distintos</h3><p>Un tip de aquí, un hack de allá. Sin estructura, cada consejo nuevo contradice al anterior — y tú pagas el costo en meses perdidos.</p></div></li>
+          <li class="rv"><b>IV</b><div><h3>Hablas de resultados, pero no sabes qué duplicar</h3><p>Tu equipo te pregunta cómo lo hiciste y no tienes un proceso que entregarles. Sin algo replicable, cada persona empieza de cero y la organización nunca despega.</p></div></li>
+          <li class="rv"><b>V</b><div><h3>Lo digital te suena a otro idioma</h3><p>Publicas cuando te acuerdas, o directamente no publicas. Ves a otros crecer en redes y no sabes por dónde empezar — mucho menos cómo convertir eso en socios nuevos.</p></div></li>
+          <li class="rv"><b>VI</b><div><h3>Tu negocio depende de que tú estés al 100%</h3><p>Si paras una semana, todo se frena. No existe nada trabajando por ti mientras duermes: ni un filtro, ni una automatización, ni un solo proceso que corra solo.</p></div></li>
         </ul>
+        <p class="prob-close rv">Y sabemos que podrías sumar varios retos más a esta lista.</p>
       </div>
 
       <div class="prob-fig rv">
@@ -573,14 +668,14 @@ footer .fb img{width:26px;height:26px;object-fit:contain;opacity:.85}
   <div class="wrap center">
     <p class="eb rv">El ciclo del fénix</p>
     <h2 class="rv">Todo networker vive este ciclo.<br><span class="lt">Casi nadie sabe</span> <span class="fireg">dirigirlo.</span></h2>
-    <p class="lead rv">Morir, arder y renacer no es poesía: es exactamente lo que pasa con tu marca en redes. La diferencia está en atravesar cada etapa con un sistema — no con fuerza de voluntad.</p>
+    <p class="lead rv">Morir, arder y renacer no es poesía: es exactamente lo que pasa con tu negocio de redes de mercadeo. La diferencia está en atravesar cada etapa con un sistema — no con fuerza de voluntad.</p>
 
     <div class="cycle">
       <article class="stage s1 rv">
         <div class="art"><img src="assets/etapa-muere.jpg" alt="Etapa I — Muere"></div>
         <span class="ph">Etapa I</span>
         <h3>Muere</h3>
-        <p class="quote">Muere en la desinformación: diez voces, cero dirección. Publica, insiste, se agota — y el mercado ni se entera de que existe.</p>
+        <p class="quote">Mueres en la desinformación: diez voces, cero dirección. Publicas, insistes, te agotas — y el mercado ni se entera de que existes.</p>
         <p class="us"><b>Aquí entramos</b>Cortamos el ruido. Un solo diagnóstico, una sola estrategia: tu voz, tu avatar de audiencia y tu historia definidos con precisión quirúrgica.</p>
       </article>
 
@@ -588,17 +683,23 @@ footer .fb img{width:26px;height:26px;object-fit:contain;opacity:.85}
         <div class="art"><img src="assets/etapa-cenizas.jpg" alt="Etapa II — Cenizas"></div>
         <span class="ph">Etapa II</span>
         <h3>Cenizas</h3>
-        <p class="quote">"Hice todo bien y no funciona." Las cenizas no son fracaso: son materia prima. Pero solo, nadie distingue qué se quema y qué se rescata.</p>
-        <p class="us"><b>Aquí entramos</b>Convertimos las cenizas en cimientos: auditamos lo que hiciste, rescatamos lo que sirve y construimos la infraestructura que nunca tuviste — filtro, automatización y datos.</p>
+        <p class="quote">"Hice de todo y mi negocio se estanca." Sentirse en cenizas no es estar derrotado: es justo el punto donde la vida pone a cualquier persona para reconstruir mejor, con más fuerza y más solidez.</p>
+        <p class="us"><b>Aquí entramos</b>Filtros, automatizaciones, datos y estrategias personalizadas. Acá empieza el fénix a renacer de las cenizas, y tu negocio vivirá una transformación.</p>
       </article>
 
       <article class="stage s3 rv">
         <div class="art"><img src="assets/etapa-renace.jpg" alt="Etapa III — Renace"></div>
         <span class="ph">Etapa III</span>
         <h3>Renace</h3>
-        <p class="quote">No vuelves a intentar lo mismo. Resurges distinto: con marca, con proceso y con una agenda que se llena sin perseguir a nadie.</p>
-        <p class="us"><b>Aquí entramos</b>Operamos el vuelo: contenido diario con intención, prospectos precalificados llegando a tu cita, y datos cada 15 días para escalar lo que funciona.</p>
+        <p class="quote">Aquí se acaba la improvisación y el fénix se levanta con fuerza. Con la fuerza de llevarte a ti y a tu equipo a resultados, con procesos y con una agenda que se llena sin perseguir a nadie.</p>
+        <p class="us"><b>Aquí entramos</b>Acompañamos el vuelo del fénix: contenido creado con intención, prospectos calificados llegando a tu agenda y a la de tu equipo, acompañamiento de nuestros expertos en todo tu proceso, y un sistema duplicable para el equipo que ya tienes y para los nuevos que llegan.</p>
       </article>
+    </div>
+
+    <div class="compete rv">
+      <p class="ct-eb">Lo que cambia para siempre</p>
+      <h3 class="ct-h">Prepárate para dejar de competir <span class="fireg">solo con el mejor producto</span> o con el mejor plan.</h3>
+      <p class="ct-p">Ahora vas a competir en serio: con un sistema que podrás ofrecer a cualquier persona que quiera formar parte de tu organización. Tendrás algo que otros networkers no pueden ofrecer, ni en tu empresa ni en ninguna otra. Te convertirás en un líder magnético.</p>
     </div>
   </div>
 </section>
@@ -615,7 +716,13 @@ footer .fb img{width:26px;height:26px;object-fit:contain;opacity:.85}
     <div class="center">
       <p class="eb rv">Qué incluye</p>
       <h2 class="rv">Todo lo que entra en <span class="fireg">tu renacimiento.</span></h2>
-      <p class="lead rv">Sin "y mucho más". Cinco módulos, pieza por pieza. Toca cada uno para ver exactamente qué se construye y se opera contigo.</p>
+      <p class="lead rv">Cinco pilares de trabajo detallado y personalizado para ti y para tu negocio.</p>
+      <p class="acc-cue rv">Da clic en cada pestaña para desplegar el detalle de cada pilar
+        <svg class="cue-arrow" viewBox="0 0 120 90" fill="none" aria-hidden="true">
+          <path d="M8 6 C 62 6, 104 26, 100 66" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-dasharray="7 9"/>
+          <path d="M88 52 L101 70 L112 50" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </p>
     </div>
 
     <div class="acc" id="acc">
@@ -644,7 +751,7 @@ footer .fb img{width:26px;height:26px;object-fit:contain;opacity:.85}
           <span class="chev"><svg><use href="#chev"/></svg></span>
         </button>
         <div class="mod-b"><ul>
-          <li><svg><use href="#ck"/></svg>Parrilla de contenido de 30 días</li>
+          <li><svg><use href="#ck"/></svg>Parrilla de contenido de 45 días</li>
           <li><svg><use href="#ck"/></svg>Sesión creativa contigo</li>
           <li><svg><use href="#ck"/></svg>Estrategia de historias diarias</li>
           <li><svg><use href="#ck"/></svg>Calendario de publicaciones</li>
@@ -652,7 +759,7 @@ footer .fb img{width:26px;height:26px;object-fit:contain;opacity:.85}
           <li><svg><use href="#ck"/></svg>Copys de todas las publicaciones</li>
           <li><svg><use href="#ck"/></svg>Edición de reels, carruseles e historias</li>
           <li><svg><use href="#ck"/></svg>Administración y publicación diaria</li>
-          <li><svg><use href="#ck"/></svg>Planificación de contenido para YouTube</li>
+          <li><svg><use href="#ck"/></svg>Planificación de contenido para YouTube <em class="cond">(si estás en la etapa correcta)</em></li>
         </ul></div>
       </div>
 
@@ -663,13 +770,13 @@ footer .fb img{width:26px;height:26px;object-fit:contain;opacity:.85}
           <span class="chev"><svg><use href="#chev"/></svg></span>
         </button>
         <div class="mod-b"><ul>
-          <li><svg><use href="#ck"/></svg>Recursos gratuitos de atracción</li>
+          <li><svg><use href="#ck"/></svg>Estrategia de lead magnet para captación</li>
           <li><svg><use href="#ck"/></svg>Landing de filtro con copy y diseño propio</li>
-          <li><svg><use href="#ck"/></svg>Dominio del primer año incluido</li>
+          <li><svg><use href="#ck"/></svg><span class="bono">Bono</span> Dominio del primer año incluido</li>
           <li><svg><use href="#ck"/></svg>Preguntas de calificación de prospectos</li>
           <li><svg><use href="#ck"/></svg>Automatizaciones en Instagram y Facebook</li>
           <li><svg><use href="#ck"/></svg>Automatizaciones en WhatsApp</li>
-          <li><svg><use href="#ck"/></svg>Copys de conversación con intención</li>
+          <li><svg><use href="#ck"/></svg>Estrategia de mensajes que realmente se transforman en ventas</li>
           <li><svg><use href="#ck"/></svg>Agenda conectada al embudo</li>
           <li><svg><use href="#ck"/></svg>Configuración de CRM, según evaluación</li>
         </ul></div>
@@ -682,14 +789,15 @@ footer .fb img{width:26px;height:26px;object-fit:contain;opacity:.85}
           <span class="chev"><svg><use href="#chev"/></svg></span>
         </button>
         <div class="mod-b"><ul>
+          <li><svg><use href="#ck"/></svg>Auditoría de presentación de negocio y flujo de prospección</li>
           <li><svg><use href="#ck"/></svg>Método de presentación del proyecto</li>
           <li><svg><use href="#ck"/></svg>Seguimiento estructurado del prospecto</li>
           <li><svg><use href="#ck"/></svg>Estrategias de cierre y negociación</li>
           <li><svg><use href="#ck"/></svg>Manejo de objeciones</li>
-          <li><svg><use href="#ck"/></svg>Cinco programas de Alianza Multinivel</li>
-          <li><svg><use href="#ck"/></svg>Capacitación para tu equipo</li>
-          <li><svg><use href="#ck"/></svg>Reparto de leads entre tus líderes</li>
-          <li><svg><use href="#ck"/></svg>Repique de contenido con tu organización</li>
+          <li><svg><use href="#ck"/></svg><span class="bono">Bono</span> Cinco programas de Alianza Multinivel</li>
+          <li><svg><use href="#ck"/></svg><span class="bono">Bono</span> Mentorías con diferentes expertos para todo tu equipo</li>
+          <li><svg><use href="#ck"/></svg>Estrategia para que tu equipo tenga leads en automático</li>
+          <li><svg><use href="#ck"/></svg>Estrategia de clonación de contenido para que tu equipo despegue</li>
         </ul></div>
       </div>
 
@@ -714,19 +822,21 @@ footer .fb img{width:26px;height:26px;object-fit:contain;opacity:.85}
   </div>
 </section>
 
-<!-- ================= PARTE 5 · 30 DÍAS ================= -->
+<!-- ================= PARTE 5 · 45 DÍAS ================= -->
 <section class="sec" style="padding-top:0">
   <div class="glow g-fire" style="width:540px;height:420px;left:-180px;top:30%"></div>
   <div class="wrap">
     <p class="eb rv">Implementación</p>
-    <h2 class="rv"><span class="fireg">30 días</span> para tener un sistema<br><span class="lt">profesional funcionando.</span></h2>
+    <h2 class="rv"><span class="fireg">45 días</span> para tener un sistema<br><span class="lt">profesional funcionando.</span></h2>
 
     <div class="d30 rv">
-      <div class="big">30<small>Días</small></div>
+      <div class="big">45<small>Días</small></div>
       <div class="tx">
-        <h3>No es un plan a largo plazo antes de ver movimiento.</h3>
-        <p>En un solo mes el sistema queda construido, montado y publicando: tu marca definida, tu contenido en el aire, tu filtro capturando prospectos y tu método de venta afilado. Después, deja de construirse — y empieza a operarse, optimizarse y escalar con datos reales.</p>
+        <h3>Todo un equipo de más de 8 personas trabajando con un solo fin: <span class="fireg">convertir tu negocio en un fénix que impone, atrae y genera resultados.</span></h3>
+        <p>En mes y medio el sistema queda construido, montado y publicando: tu marca definida, tu contenido perfectamente estructurado, tus estrategias capturando prospectos y tu método de venta afilado para que no se te escape nadie de hacer negocio contigo.</p>
+        <p style="margin-top:14px">Después empieza a operarse, optimizarse y escalar con datos reales, para que veas tus resultados crecer.</p>
         <div class="chips">
+          <span>+8 expertos</span>
           <span>Construcción completa</span>
           <span>Nada genérico</span>
           <span>Listo para operar</span>
@@ -741,37 +851,41 @@ footer .fb img{width:26px;height:26px;object-fit:contain;opacity:.85}
   <div class="ghost" style="top:-8px">Renace</div>
   <div class="glow g-violet" style="width:460px;height:420px;right:-150px;top:36%"></div>
   <div class="wrap">
-    <p class="eb rv">La diferencia real</p>
-    <h2 class="rv">Mismo esfuerzo. <span class="fireg">Resultado distinto.</span></h2>
-    <p class="lead rv">La comparación no es entre publicar y no publicar. Es entre repetir el ciclo a ciegas — o atravesarlo con un sistema que convierte.</p>
+    <p class="eb rv">Bonos de la semana</p>
+    <h2 class="rv">Lo que sumamos <span class="fireg">sin costo adicional.</span></h2>
+    <p class="lead rv">Extras que no forman parte del servicio base y que se activan si tomas tu decisión esta semana. Están pensados para acelerar tu arranque y el de tu organización.</p>
 
-    <div class="vs">
-      <div class="vcol rv">
-        <h3>El ciclo a ciegas</h3>
-        <p class="sub">Sin sistema</p>
-        <ul>
-          <li><i class="no">—</i>Publicas y esperas a ver qué pasa</li>
-          <li><i class="no">—</i>Cada conversación empieza desde cero</li>
-          <li><i class="no">—</i>Mides likes, vistas y guardados</li>
-          <li><i class="no">—</i>Tu agenda depende de tu insistencia</li>
-          <li><i class="no">—</i>Todo el contenido depende de tu tiempo en cámara</li>
-          <li><i class="no">—</i>Los interesados se enfrían en el chat</li>
-          <li><i class="no">—</i>Lo que funcionó no se puede repetir</li>
-        </ul>
-      </div>
-      <div class="vcol hi rv">
-        <h3>El ciclo dirigido</h3>
-        <p class="sub">Con Fénix Mentorship</p>
-        <ul>
-          <li><i><svg><use href="#ck"/></svg></i>Cada pieza publica con una intención asignada</li>
-          <li><i><svg><use href="#ck"/></svg></i>La conversación llega precalificada</li>
-          <li><i><svg><use href="#ck"/></svg></i>Mides conversaciones, citas y cierres</li>
-          <li><i><svg><use href="#ck"/></svg></i>La agenda se llena por el filtro, no por insistir</li>
-          <li><i><svg><use href="#ck"/></svg></i>La IA multiplica volumen sin más grabación</li>
-          <li><i><svg><use href="#ck"/></svg></i>La automatización responde y ordena al momento</li>
-          <li><i><svg><use href="#ck"/></svg></i>Lo que funciona se documenta y se escala con pauta</li>
-        </ul>
-      </div>
+    <div class="bonos">
+      <article class="bono-card rv">
+        <span class="bn">Bono 01</span>
+        <h3>Cinco programas de Alianza Multinivel</h3>
+        <p>Formaciones completas listas para entregar a tu equipo y para cerrar nuevos socios con contenido de valor, no solo con una invitación.</p>
+      </article>
+      <article class="bono-card rv">
+        <span class="bn">Bono 02</span>
+        <h3>Mentorías con expertos para todo tu equipo</h3>
+        <p>Sesiones con distintos especialistas para que la formación no dependa solo de ti y tu organización crezca con criterio propio.</p>
+      </article>
+      <article class="bono-card rv">
+        <span class="bn">Bono 03</span>
+        <h3>Dominio del primer año incluido</h3>
+        <p>Tu landing con dominio propio, registrado a tu nombre, sin que pagues nada extra durante el primer año.</p>
+      </article>
+      <article class="bono-card rv">
+        <span class="bn">Bono 04</span>
+        <h3>Biblioteca de prompts de IA entrenados</h3>
+        <p>Instrucciones ya probadas para que generes contenido, respuestas y seguimientos con inteligencia artificial en minutos, no en horas.</p>
+      </article>
+      <article class="bono-card rv">
+        <span class="bn">Bono 05</span>
+        <h3>Banco de objeciones y respuestas</h3>
+        <p>Las objeciones reales del multinivel con la respuesta exacta para cada una, lista para que tú y tu equipo la usen desde el primer día.</p>
+      </article>
+      <article class="bono-card rv">
+        <span class="bn">Bono 06</span>
+        <h3>Sesión de estrategia con tus líderes principales</h3>
+        <p>Una sesión dedicada a alinear a tu núcleo duro con el sistema, para que la duplicación arranque desde arriba.</p>
+      </article>
     </div>
 
     <!-- TICKET -->
@@ -782,7 +896,8 @@ footer .fb img{width:26px;height:26px;object-fit:contain;opacity:.85}
             <p class="lbl">Tu renacimiento</p>
           </div>
           <h3 class="tk-head">Una decisión. Un sistema. <span class="fireg">Todo construido para ti.</span></h3>
-          <p class="tk-sub">No compras contenido, ni una asesoría, ni una plantilla. Compras la infraestructura completa que convierte tu presencia en citas — diseñada, montada y operando en tu cuenta, con tu historia dentro.</p>
+          <p class="tk-sub">No inviertes en solo contenido, ni en una asesoría, ni en plantillas. Tu inversión construye la infraestructura completa que convierte tu presencia, tu marca y tu autoridad en prospectos ilimitados para ti y para tu equipo. Diseñada, personalizada y operando para expandirte sin límites ni fronteras.</p>
+          <p class="tk-free">Lo mejor: al final eres totalmente independiente para operar tu sistema, o para seguir trabajando juntos. Tu decisión, sin presiones.</p>
 
           <div class="tk-div" aria-hidden="true">
             <i></i>
@@ -791,7 +906,7 @@ footer .fb img{width:26px;height:26px;object-fit:contain;opacity:.85}
           </div>
 
           <p class="tk-price"><sup>USD</sup><b>3.500</b></p>
-          <span class="tk-per"><b></b>Pago único · Implementación 30 días</span>
+          <span class="tk-per"><b></b>Pago único · Implementación 45 días</span>
         </div>
       </div>
     </div>
@@ -819,21 +934,35 @@ footer .fb img{width:26px;height:26px;object-fit:contain;opacity:.85}
           <circle cx="10" cy="100" r="2.6"/><circle cx="190" cy="100" r="2.6"/>
         </g>
         <text font-family="Cinzel,serif" font-size="11.5" font-weight="700" letter-spacing="4.6" fill="url(#fireg2)">
-          <textPath href="#circT" startOffset="0">IMPLEMENTACIÓN · 30 DÍAS · SISTEMA COMPLETO · FÉNIX ·</textPath>
+          <textPath href="#circT" startOffset="0">SOLO 45 DÍAS PARA TRANSFORMAR TU NEGOCIO ·</textPath>
         </text>
       </svg>
-      <span class="core"><span class="n">30</span><span class="l">Días</span></span>
+      <span class="core"><span class="n">45</span><span class="l">Días</span></span>
     </div>
 
-    <h2 class="rv">El sistema ya está diseñado.<br><span class="lt">Lo que falta es</span> <span class="fireg">tu historia dentro.</span></h2>
+    <h2 class="rv">El camino al éxito ya lo conocemos.<br><span class="lt">Solo faltas tú para construir juntos</span> <span class="fireg">una historia de resultados.</span></h2>
     <p class="lead rv">Todo lo que leíste está listo para empezar a construirse. El día 1 de tu transformación arranca hoy. <strong>¿Estás list@?</strong></p>
     <span class="stamp rv">Fénix Mentorship</span>
   </div>
 </section>
 
 <footer>
-  <div class="fb"><img src="assets/logo-fenix.jpg" alt=""><span>Fénix Mentorship</span></div>
-  <span>Marca personal · Prospección · Venta</span>
+  <div class="f-top">
+    <div class="fb"><img src="assets/logo-fenix.jpg" alt=""><span>Fénix Mentorship</span></div>
+    <span class="f-tag">Marca personal · Prospección · Venta</span>
+  </div>
+
+  <div class="f-legal">
+    <p><strong>Aviso de resultados.</strong> Fénix Mentorship diseña, construye y opera sistemas de marca personal y prospección digital. No garantizamos ingresos, rangos, volúmenes de venta ni resultados económicos específicos. Los resultados dependen de factores que no controlamos: tu constancia, tu ejecución, tu mercado, tu compañía y tu equipo. Cualquier ejemplo mencionado es ilustrativo y no constituye una promesa de rendimiento.</p>
+    <p><strong>Independencia.</strong> Fénix Mentorship es un proveedor de servicios independiente. No estamos afiliados, asociados ni respaldados por ninguna compañía de mercadeo en red, ni por Meta Platforms, Instagram, WhatsApp, Google o YouTube. Cada marca mencionada pertenece a sus respectivos titulares.</p>
+    <p><strong>Alcance del servicio.</strong> La inversión indicada corresponde a la construcción del sistema. No incluye presupuesto publicitario ni licencias de plataformas de terceros, que se contratan a nombre del cliente y bajo su control. Todas las cuentas, datos y accesos generados durante el proyecto son propiedad del cliente.</p>
+    <p><strong>Confidencialidad.</strong> Este documento es una propuesta comercial de carácter confidencial, dirigida exclusivamente a su destinatario. Su contenido, estructura y metodología son propiedad intelectual de Fénix Mentorship y no pueden reproducirse ni distribuirse sin autorización escrita.</p>
+  </div>
+
+  <div class="f-bottom">
+    <span>© <span id="yr">2026</span> Fénix Mentorship. Todos los derechos reservados.</span>
+    <span>Propuesta confidencial</span>
+  </div>
 </footer>
 
 <script>
@@ -904,6 +1033,7 @@ footer .fb img{width:26px;height:26px;object-fit:contain;opacity:.85}
   sweep();
   setTimeout(showAll, 12000);
 })();
+document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
